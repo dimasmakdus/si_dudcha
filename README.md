@@ -24,4 +24,4 @@ Password : password
 ### Screenshots :
 
 1. Login
-   ![Screenshot](screenshot.png)
+   ![Screenshot](Screenshot.png)
