@@ -71,15 +71,6 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="form-group row">
-                                <label for="upload-foto" class="col-sm-2 col-form-label">Foto Profile</label>
-                                <div class="col-sm-10">
-                                    <div class="custom-file">
-                                        <input type="file" class="custom-file-input" id="upload-foto" name="upload-foto">
-                                        <label class="custom-file-label" for="upload-foto">Pilih file</label>
-                                    </div>
-                                </div>
-                            </div>
                     </div>
                     <div class="card-footer justify-content-between">
                         <button type="submit" class="btn bg-olive"><i class="fas fa-save"></i> Tambah Data</button>

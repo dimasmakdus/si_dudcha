@@ -36,25 +36,32 @@
                             <div class="form-group row">
                                 <label for="kode-supplier" class="col-sm-2 col-form-label">Kode Supplier</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="kode-supplier" id="kode-supplier" value="<?= $getSupplier['kode_supplier'] ?>" placeholder="Nama Lengkap">
+                                    <input type="text" class="form-control" id="kode-supplier" value="<?= $getSupplier['kode_supplier'] ?>" required disabled>
+                                    <input type="hidden" name="kode_supplier" value="<?= $getSupplier['kode_supplier'] ?>">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="nama-supplier" class="col-sm-2 col-form-label">Nama Supplier</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="nama-supplier" id="nama-supplier" value="<?= $getSupplier['nama_supplier'] ?>" placeholder="Nama Supplier">
+                                    <input type="text" class="form-control" name="nama_supplier" id="nama-supplier" value="<?= $getSupplier['nama_supplier'] ?>" placeholder="Nama Supplier" required>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="email-supplier" class="col-sm-2 col-form-label">Email</label>
+                                <div class="col-sm-10">
+                                    <input type="email" class="form-control" name="email" id="email-supplier" value="<?= $getSupplier['email'] ?>" placeholder="Email" required>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="alamat" class="col-sm-2 col-form-label">Alamat</label>
                                 <div class="col-sm-10">
-                                    <textarea class="form-control" row="3" name="alamat" id="alamat" placeholder="Alamat"><?= $getSupplier['alamat'] ?></textarea>
+                                    <textarea class="form-control" row="3" name="alamat" id="alamat" placeholder="Alamat" required><?= $getSupplier['alamat'] ?></textarea>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="no-telepon" class="col-sm-2 col-form-label">No Telepon</label>
                                 <div class="col-sm-10">
-                                    <input type="number" class="form-control" name="no-telepon" id="no-telepon" value="<?= $getSupplier['no_telpon'] ?>" placeholder="No Telepon">
+                                    <input type="number" class="form-control" name="no_telpon" id="no-telepon" value="<?= $getSupplier['no_telpon'] ?>" placeholder="No Telepon" required>
                                 </div>
                             </div>
 

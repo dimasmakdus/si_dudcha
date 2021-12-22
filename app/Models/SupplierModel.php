@@ -13,9 +13,11 @@ class SupplierModel extends Model
     protected $returnType     = 'array';
 
     protected $allowedFields = [
+        'kode_supplier',
         'nama_supplier',
         'alamat',
         'no_telpon',
+        'email',
         'created_at',
         'updated_at'
     ];

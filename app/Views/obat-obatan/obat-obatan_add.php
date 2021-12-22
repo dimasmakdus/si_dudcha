@@ -34,33 +34,33 @@
                         <form class="form-horizontal" action="<?= base_url('obat-obatan/create'); ?>" method="POST">
                             <?= csrf_field(); ?>
                             <div class="form-group row">
-                                <label for="kode-obat" class="col-sm-2 col-form-label">Kode Obat</label>
+                                <label for="kode-obat" class="col-sm-2 col-form-label">Kode Obat *</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="kode-obat" id="kode-obat" placeholder="Kode Obat">
+                                    <input type="text" class="form-control" name="kode_obat" id="kode-obat" placeholder="Kode Obat" required>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="nama-obat" class="col-sm-2 col-form-label">Nama Obat</label>
+                                <label for="nama-obat" class="col-sm-2 col-form-label">Nama Obat *</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="nama-obat" id="nama-obat" placeholder="Nama Obat">
+                                    <input type="text" class="form-control" name="nama_obat" id="nama-obat" placeholder="Nama Obat" required>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="jenis-obat" class="col-sm-2 col-form-label">Jenis Obat</label>
+                                <label for="jenis-obat" class="col-sm-2 col-form-label">Jenis Obat *</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="jenis-obat" id="jenis-obat" placeholder="Jenis Obat">
+                                    <input type="text" class="form-control" name="jenis_obat" id="jenis-obat" placeholder="Jenis Obat" required>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="dosis-aturan-obat" class="col-sm-2 col-form-label">Dosis Aturan Obat</label>
+                                <label for="dosis-aturan-obat" class="col-sm-2 col-form-label">Dosis Aturan Obat *</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="dosis-aturan-obat" id="dosis-aturan-obat" placeholder="Dosis Aturan Obat">
+                                    <input type="text" class="form-control" name="dosis_aturan_obat" id="dosis-aturan-obat" placeholder="Dosis Aturan Obat" required>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="jenis-satuan" class="col-sm-2 col-form-label">Jenis Satuan</label>
+                                <label for="satuan" class="col-sm-2 col-form-label">Satuan *</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="jenis-satuan" id="jenis-satuan" placeholder="Jenis Satuan">
+                                    <input type="text" class="form-control" name="satuan" id="satuan" placeholder="Satuan" required>
                                 </div>
                             </div>
 

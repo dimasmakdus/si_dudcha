@@ -14,8 +14,13 @@
 ### Authentifikasi
 
 Untuk melakukan proses login silahkan gunakan akun default berikut :<br>
+<b>Login sebagai Admin<b><br>
 Email : admin@pusmaung.com<br>
-Password : password
+Password : password<br>
+<br>
+<b>Login sebagai Kepala Puskesmas<b><br>
+Email : kepala@pusmaung.com<br>
+Password : password<br>
 
 ### Credit To :
 
@@ -25,3 +30,6 @@ Password : password
 
 1. Login
    ![Screenshot](Screenshot.png)
+
+1. Dashboard
+   ![Screenshot](Screenshot2.png)

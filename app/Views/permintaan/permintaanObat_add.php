@@ -31,68 +31,100 @@
                     <!-- /.card-header -->
                     <div class="card-body">
                         <!-- form start -->
-                        <form class="form-horizontal" action="<?= base_url('permintaan-obat/create'); ?>" method="POST">
+                        <form class="form-horizontal" action="<?= base_url('lplpo/create'); ?>" method="POST">
                             <?= csrf_field(); ?>
                             <div class="form-group row">
-                                <label for="no-transaksi" class="col-sm-2 col-form-label">No Transaksi</label>
+                                <label for="kode-obat" class="col-sm-2 col-form-label">Kode Obat *</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="no-transaksi" id="no-transaksi" placeholder="No Transaksi" disabled>
+                                    <select class="form-control select2" name="kode-stok-obat" id="kode-stok-obat" style="width: 100%;">
+                                        <option value="" selected="selected">-- Cari Kode Obat --</option>
+                                        <?php foreach ($kodeObat as $kode) : ?>
+                                            <option value="<?= $kode['kode_obat'] ?>"><?= $kode['kode_obat'] ?> - <?= $kode['nama_obat'] ?></option>
+                                        <?php endforeach ?>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="show-obat">
+                                <div class="callout callout-info">
+                                    <h5 class="mb-3">Detail Obat-Obatan :</h5>
+
+                                    <div class="form-group row">
+                                        <label for="nama-obat" class="col-sm-2 col-form-label">Kode Obat</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" id="db-kode-obat" placeholder="Kode Obat" disabled>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="nama-obat" class="col-sm-2 col-form-label">Nama Obat</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" id="nama-obat" placeholder="Nama Obat" disabled>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="jenis-obat" class="col-sm-2 col-form-label">Jenis Obat</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" id="jenis-obat" placeholder="Jenis Obat" disabled>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="stok-awal" class="col-sm-2 col-form-label">Stok Awal</label>
+                                <div class="col-sm-10">
+                                    <input type="number" class="form-control" name="stok_awal" id="stok-awal" placeholder="Stok Awal">
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="supplier" class="col-sm-2 col-form-label">Supplier</label>
+                                <label for="penerimaan" class="col-sm-2 col-form-label">Penerimaan</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="supplier" id="supplier" placeholder="Supplier">
+                                    <input type="number" class="form-control" name="penerimaan" id="penerimaan" placeholder="Penerimaan">
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="nama-obat" class="col-sm-2 col-form-label">Nama Obat</label>
+                                <label for="persediaan" class="col-sm-2 col-form-label">Persediaan</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="nama-obat" id="nama-obat" placeholder="Nama Obat">
+                                    <input type="number" class="form-control" name="persediaan" id="persediaan" placeholder="Persediaan">
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="kode-obat" class="col-sm-2 col-form-label">Kode Obat</label>
+                                <label for="pemakaian" class="col-sm-2 col-form-label">Pemakaian</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="kode-obat" id="kode-obat" placeholder="Kode Obat" disabled>
+                                    <input type="number" class="form-control" name="pemakaian" id="pemakaian" placeholder="Pemakaian">
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="jenis-obat" class="col-sm-2 col-form-label">Jenis Obat</label>
+                                <label for="sisa_akhir" class="col-sm-2 col-form-label">Sisa Akhir</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="jenis-obat" id="jenis-obat" placeholder="Jenis Obat" disabled>
+                                    <input type="number" class="form-control" name="sisa_akhir" id="sisa_akhir" placeholder="Sisa Akhir">
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="harga-beli" class="col-sm-2 col-form-label">Harga Beli</label>
+                                <label for="stok_optimum" class="col-sm-2 col-form-label">Stok Optimum</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="harga-beli" id="harga-beli" placeholder="Harga Beli">
+                                    <input type="number" class="form-control" name="stok_optimum" id="stok_optimum" placeholder="Stok Optimum">
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="jumlah" class="col-sm-2 col-form-label">Jumlah</label>
+                                <label for="permintaan" class="col-sm-2 col-form-label">Permintaan</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="jumlah" id="jumlah" placeholder="Jumlah">
+                                    <input type="number" class="form-control" name="permintaan" id="permintaan" placeholder="Permintaan">
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="satuan" class="col-sm-2 col-form-label">Satuan</label>
+                                <label for="pemberian" class="col-sm-2 col-form-label">Pemberian</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="satuan" id="satuan" placeholder="Satuan">
+                                    <input type="number" class="form-control" name="pemberian" id="pemberian" placeholder="Pemberian">
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="keterangan" class="col-sm-2 col-form-label">Keterangan</label>
+                                <label for="keterangan" class="col-sm-2 col-form-label">Keterangan *</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="keterangan" id="keterangan" placeholder="Keterangan">
+                                    <input type="text" class="form-control" name="keterangan" id="keterangan" placeholder="APBD/Lainnya" required>
                                 </div>
                             </div>
-                            <div class="form-group row">
-                                <label for="total" class="col-sm-2 col-form-label">Total</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="total" id="total" placeholder="Total" disabled>
-                                </div>
-                            </div>
+
                     </div>
                     <div class="card-footer justify-content-between">
                         <button type="submit" class="btn bg-olive"><i class="fas fa-save"></i> Tambah Data</button>

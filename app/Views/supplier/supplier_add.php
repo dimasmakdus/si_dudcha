@@ -34,34 +34,40 @@
                         <form class="form-horizontal" action="<?= base_url('supplier/create'); ?>" method="POST">
                             <?= csrf_field(); ?>
                             <div class="form-group row">
-                                <label for="kode-supplier" class="col-sm-2 col-form-label">Kode Supplier</label>
+                                <label for="kode-supplier" class="col-sm-2 col-form-label">Kode Supplier *</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="kode-supplier" id="kode-supplier" placeholder="Nama Lengkap">
+                                    <input type="text" class="form-control" name="kode_supplier" id="kode-supplier" placeholder="Kode Supplier" required>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="nama-supplier" class="col-sm-2 col-form-label">Nama Supplier</label>
+                                <label for="nama-supplier" class="col-sm-2 col-form-label">Nama Supplier *</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="nama-supplier" id="nama-supplier" placeholder="Nama Supplier">
+                                    <input type="text" class="form-control" name="nama_supplier" id="nama-supplier" placeholder="Nama Supplier" required>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="alamat" class="col-sm-2 col-form-label">Alamat</label>
+                                <label for="email-supplier" class="col-sm-2 col-form-label">Email *</label>
                                 <div class="col-sm-10">
-                                    <textarea class="form-control" row="3" name="alamat" id="alamat" placeholder="Alamat"></textarea>
+                                    <input type="email" class="form-control" name="email" id="email-supplier" placeholder="Email" required>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="no-telepon" class="col-sm-2 col-form-label">No Telepon</label>
+                                <label for="alamat" class="col-sm-2 col-form-label">Alamat *</label>
                                 <div class="col-sm-10">
-                                    <input type="number" class="form-control" name="no-telepon" id="no-telepon" placeholder="No Telepon">
+                                    <textarea class="form-control" row="3" name="alamat" id="alamat" placeholder="Alamat" required></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="no-telepon" class="col-sm-2 col-form-label">No Telepon *</label>
+                                <div class="col-sm-10">
+                                    <input type="number" class="form-control" name="no_telpon" id="no-telepon" placeholder="No Telepon" required>
                                 </div>
                             </div>
 
                     </div>
                     <div class="card-footer justify-content-between">
                         <button type="submit" class="btn bg-olive"><i class="fas fa-save"></i> Tambah Data</button>
-                        <a href="<?= base_url('pengguna') ?>" class="btn btn-danger"><i class="fas fa-sign-out-alt"></i> Kembali</a>
+                        <a href="<?= base_url('supplier') ?>" class="btn btn-danger"><i class="fas fa-sign-out-alt"></i> Kembali</a>
                     </div>
                     </form>
 

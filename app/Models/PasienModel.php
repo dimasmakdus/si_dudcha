@@ -13,6 +13,7 @@ class PasienModel extends Model
     protected $returnType     = 'array';
 
     protected $allowedFields = [
+        'no_rekamedis',
         'no_ktp',
         'no_bpjs',
         'nama_pasien',

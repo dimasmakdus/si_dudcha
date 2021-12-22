@@ -9,8 +9,9 @@ class Users extends BaseController
         $roles = $this->roleModel->findAll();
         return view('user/user_form', [
             'title' => 'Form Tambah Data Pengguna',
-            'navLink' => 'kelola_pengguna',
-            'roles' => $roles
+            'navLink' => 'pengguna',
+            'roles' => $roles,
+            'accessRight' => $this->accessRights
         ]);
     }
     public function userEdit($id)
@@ -24,10 +25,11 @@ class Users extends BaseController
 
         return view('user/user_edit', [
             'title' => 'Form Ubah Data Pengguna',
-            'navLink' => 'kelola_pengguna',
+            'navLink' => 'pengguna',
             'roles' => $roles,
             'is_active' => $is_active,
-            'getUser' => $getUserById
+            'getUser' => $getUserById,
+            'accessRight' => $this->accessRights
         ]);
     }
 

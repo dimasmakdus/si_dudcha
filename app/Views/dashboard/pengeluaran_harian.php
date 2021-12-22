@@ -34,15 +34,15 @@
             if (session()->getFlashData('success')) {
             ?>
               <div class="alert alert-primary alert-dismissible fade show" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <i class="icon fas fa-check"></i>
                 <?= session()->getFlashData('success') ?>
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
               </div>
             <?php
             }
             ?>
             <a href="<?= base_url('pengeluaran-harian-add') ?>" class="btn bg-olive mb-3"><i class="fas fa-plus"></i> Tambah Data</a>
+            <a target="_blank" href="<?= base_url('cetak-lpho') ?>" class="btn bg-primary mb-3"><i class="fas fa-print"></i> Cetak Laporan</a>
             <table id="example2" class="table table-bordered table-hover">
               <thead>
                 <tr>
@@ -74,13 +74,11 @@
                     <td><?= $pemakaian['keterangan'] ?></td>
                     <td><?= $pemakaian['tgl_serah_obat'] ?></td>
                     <td>
-                      <a href="" class="btn btn-sm btn-info btn-edit-pemakaian"><i class="fas fa-print"></i> Cetak</a>
-
-                      <a class="btn btn-sm btn-danger btn-delete-pemakaian" data-toggle="modal" data-target="#hapus-pemakaian-<?= $pemakaian['id_pengeluaran'] ?>"><i class="fas fa-trash-alt"></i> Hapus</a>
+                      <a class="btn btn-sm btn-danger btn-delete-harian" data-toggle="modal" data-target="#hapus-harian-<?= $pemakaian['no_terima_obat'] ?>"><i class="fas fa-trash-alt"></i> Hapus</a>
                     </td>
                   </tr>
                   <!-- Modal Hapus  -->
-                  <div class="modal fade" id="hapus-pemakaian-<?= $pemakaian['id_pengeluaran'] ?>">
+                  <div class="modal fade" id="hapus-harian-<?= $pemakaian['no_terima_obat'] ?>">
                     <div class="modal-dialog">
                       <div class="modal-content">
                         <div class="modal-header">
@@ -94,7 +92,7 @@
                         </div>
                         <div class="modal-footer justify-content-between">
                           <a class="btn btn-default" data-dismiss="modal">Tidak</a>
-                          <a href="<?= base_url('') ?>/<?= $pemakaian['id_pengeluaran'] ?>" class="btn btn-danger">Hapus</a>
+                          <a href="<?= base_url('pengeluaran-harian/delete') ?>/<?= $pemakaian['no_terima_obat'] ?>" class="btn btn-danger">Hapus</a>
                         </div>
                       </div>
                       <!-- /.modal-content -->

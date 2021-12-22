@@ -34,9 +34,9 @@
                         if (session()->getFlashData('success')) {
                         ?>
                             <div class="alert alert-primary alert-dismissible fade show" role="alert">
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                <i class="icon fas fa-check"></i>
                                 <?= session()->getFlashData('success') ?>
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
                         <?php
@@ -51,6 +51,7 @@
                                     <th>Nama Supplier</th>
                                     <th>Alamat</th>
                                     <th>No Telpon</th>
+                                    <th>Email</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -63,6 +64,7 @@
                                         <td><?= $supplier['nama_supplier'] ?></td>
                                         <td><?= $supplier['alamat'] ?></td>
                                         <td><?= $supplier['no_telpon'] ?></td>
+                                        <td><?= $supplier['email'] ?></td>
                                         <td>
                                             <a href="<?= base_url('supplier') ?>/<?= $supplier['kode_supplier'] ?>" class="btn btn-sm bg-olive btn-edit-supplier"><i class="fas fa-edit"></i> Ubah</a>
 
@@ -84,7 +86,7 @@
                                                 </div>
                                                 <div class="modal-footer justify-content-between">
                                                     <a class="btn btn-default" data-dismiss="modal">Tidak</a>
-                                                    <a href="<?= base_url('supplier/delete') ?>/<?= $supplier['kode_supplier'] ?>" class="btn btn-danger">Hapus</a>
+                                                    <a href="<?= base_url('supplier/remove') ?>/<?= $supplier['kode_supplier'] ?>" class="btn btn-danger">Hapus</a>
                                                 </div>
                                             </div>
                                             <!-- /.modal-content -->

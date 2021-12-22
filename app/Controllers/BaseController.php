@@ -18,6 +18,10 @@ use App\Models\PermintaanModel;
 use App\Models\PengeluaranModel;
 use App\Models\SupplierModel;
 use App\Models\BarangKeluarModel;
+use App\Models\AksesModel;
+use App\Models\HakAksesModel;
+use App\Models\LPLPOModel;
+use App\Models\PesananModel;
 
 /**
  * Class BaseController
@@ -68,5 +72,45 @@ class BaseController extends Controller
         $this->pengeluaranModel = new PengeluaranModel();
         $this->supplierModel = new SupplierModel();
         $this->barangKeluarModel = new BarangKeluarModel();
+        $this->lplpoModel = new LPLPOModel();
+        $this->pesananModel = new PesananModel();
+
+        // Access Rights
+        $this->aksesModel = new AksesModel();
+        $this->hakAksesModel = new HakAksesModel();
+        $hakAkses = $this->hakAksesModel->findAll();
+        $loginId = session()->get('roles');
+        if (isset($loginId)) {
+            foreach ($hakAkses as $akses) {
+                if ($akses['id_role'] == $loginId['id_role']) {
+                    $this->accessRights[] = $this->aksesModel->find($akses['id_menu']);
+                }
+            }
+        }
+    }
+
+    public function tgl_indo($tanggal)
+    {
+        $bulan = array(
+            1 =>   'Januari',
+            'Februari',
+            'Maret',
+            'April',
+            'Mei',
+            'Juni',
+            'Juli',
+            'Agustus',
+            'September',
+            'Oktober',
+            'November',
+            'Desember'
+        );
+        $pecahkan = explode('-', $tanggal);
+
+        // variabel pecahkan 0 = tahun
+        // variabel pecahkan 1 = bulan
+        // variabel pecahkan 2 = tanggal
+
+        return $bulan[(int)$pecahkan[1]] . ' ' . $pecahkan[0];
     }
 }

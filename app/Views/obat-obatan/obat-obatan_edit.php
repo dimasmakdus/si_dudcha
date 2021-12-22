@@ -31,36 +31,37 @@
                     <!-- /.card-header -->
                     <div class="card-body">
                         <!-- form start -->
-                        <form class="form-horizontal" action="<?= base_url('obat-obatan/edit'); ?>" method="POST">
+                        <form class="form-horizontal" action="<?= base_url('obat-obatan/update'); ?>" method="POST">
                             <?= csrf_field(); ?>
                             <div class="form-group row">
                                 <label for="kode-obat" class="col-sm-2 col-form-label">Kode Obat</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="kode-obat" id="kode-obat" value="<?= $getObat['kode_obat'] ?>" placeholder="Kode Obat">
+                                    <input type="text" class="form-control" id="kode-obat" value="<?= $getObat['kode_obat'] ?>" placeholder="Kode Obat" required disabled>
+                                    <input type="hidden" name="kode_obat" value="<?= $getObat['kode_obat'] ?>">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="nama-obat" class="col-sm-2 col-form-label">Nama Obat</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="nama-obat" id="nama-obat" value="<?= $getObat['nama_obat'] ?>" placeholder="Nama Obat">
+                                    <input type="text" class="form-control" name="nama_obat" id="nama-obat" value="<?= $getObat['nama_obat'] ?>" placeholder="Nama Obat" required>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="jenis-obat" class="col-sm-2 col-form-label">Jenis Obat</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="jenis-obat" id="jenis-obat" value="<?= $getObat['jenis_obat'] ?>" placeholder="Jenis Obat">
+                                    <input type="text" class="form-control" name="jenis_obat" id="jenis-obat" value="<?= $getObat['jenis_obat'] ?>" placeholder="Jenis Obat" required>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="dosis-aturan-obat" class="col-sm-2 col-form-label">Dosis Aturan Obat</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="dosis-aturan-obat" id="dosis-aturan-obat" value="<?= $getObat['dosis_aturan_obat'] ?>" placeholder="Dosis Aturan Obat">
+                                    <input type="text" class="form-control" name="dosis_aturan_obat" id="dosis-aturan-obat" value="<?= $getObat['dosis_aturan_obat'] ?>" placeholder="Dosis Aturan Obat" required>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="jenis-satuan" class="col-sm-2 col-form-label">Jenis Satuan</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="jenis-satuan" id="jenis-satuan" value="<?= $getObat['satuan'] ?>" placeholder="Jenis Satuan">
+                                    <input type="text" class="form-control" name="satuan" id="jenis-satuan" value="<?= $getObat['satuan'] ?>" placeholder="Jenis Satuan" required>
                                 </div>
                             </div>
 

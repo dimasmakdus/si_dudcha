@@ -110,68 +110,15 @@
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-            <li class="nav-item">
-              <a href="<?= base_url('dashboard') ?>" class="nav-link <?= $navLink == 'dashboard' ? 'bg-orange active' : '' ?>">
-                <i class="nav-icon fas fa-database" style="color:white"></i>
-                <p style="color:white">Dashboard</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="<?= base_url('pasien') ?>" class="nav-link <?= $navLink == 'pasien' ? 'bg-orange active' : '' ?>">
-                <i class="nav-icon fas fa-user-nurse" style="color:white"></i>
-                <p style="color:white">Data Pasien</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="<?= base_url('supplier') ?>" class="nav-link <?= $navLink == 'supplier' ? 'bg-orange active' : '' ?>">
-                <i class="nav-icon fas fa-box-open" style="color:white"></i>
-                <p style="color:white">Data Supplier</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="<?= base_url('obat-obatan') ?>" class="nav-link <?= $navLink == 'obat_obatan' ? 'bg-orange active' : '' ?>">
-                <i class="fas fa-capsules nav-icon" style="color:white"></i>
-                <p style="color:white">Obat-Obatan</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="<?= base_url('stok-obat') ?>" class="nav-link <?= $navLink == 'stok_obat' ? 'bg-orange active' : '' ?>">
-                <i class="fas fa-capsules nav-icon" style="color:white"></i>
-                <p style="color:white">Stok Obat</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="<?= base_url('resep-obat') ?>" class="nav-link <?= $navLink == 'resep_obat' ? 'bg-orange active' : '' ?>">
-                <i class="fas fa-pills nav-icon" style="color:white"></i>
-                <p style="color:white">Resep Obat</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="<?= base_url('permintaan-obat') ?>" class="nav-link <?= $navLink == 'permintaan_obat' ? 'bg-orange active' : '' ?>">
-                <i class="fas fa-notes-medical nav-icon" style="color:white"></i>
-                <p style="color:white">Data Permintaan Obat</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="<?= base_url('pengeluaran-harian') ?>" class="nav-link <?= $navLink == 'pengeluaran_harian' ? 'bg-orange active' : '' ?>">
-                <i class="fas fa-chart-area nav-icon" style="color:white"></i>
-                <p style="color:white">Data Pengeluaran Harian</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="<?= base_url('laporan-barang-keluar') ?>" class="nav-link <?= $navLink == 'laporan_keluar' ? 'bg-orange active' : '' ?>">
-                <i class="fas fa-print nav-icon" style="color:white"></i>
-                <p style="color:white">Laporan Barang Keluar</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="<?= base_url('pengguna') ?>" class="nav-link <?= $navLink == 'kelola_pengguna' ? 'bg-orange active' : '' ?>">
-                <i class="nav-icon fas fa-users" style="color:white"></i>
-                <p style="color:white">
-                  Kelola Pengguna
-                </p>
-              </a>
-            </li>
+            <?php foreach ($accessRight as $access) : ?>
+              <li class="nav-item">
+                <a href="<?= base_url() ?>/<?= $access['path'] ?>" class="nav-link <?= $navLink == $access['path'] ? 'bg-orange active' : '' ?>">
+                  <i class="nav-icon fas <?= $access['icon'] ?>" style="color:white"></i>
+                  <p style="color:white"><?= $access['nama_akses'] ?></p>
+                </a>
+              </li>
+            <?php endforeach ?>
+
 
             </li>
           </ul>
@@ -249,6 +196,114 @@
   <script src="<?= base_url(); ?>/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
 
   <script>
+    $('.show-obat').hide();
+
+    $('#kode-stok-obat').change(function() {
+      <?php if (isset($kodeObat)) : ?>
+        var select_kode = $('select[name=kode-stok-obat] option').filter(':selected').val();
+        $('.show-obat').show();
+
+        <?php
+        $stok_push = [];
+        foreach ($kodeObat as $kode) {
+          array_push($stok_push, $kode);
+        }
+        $js_stok_obat = json_encode($stok_push);
+        ?>
+
+        let stok_obat = <?= $js_stok_obat ?>;
+        stok_obat.forEach(function(row) {
+          if (select_kode == row.kode_obat) {
+            $('#db-kode-obat').val(row.kode_obat);
+            $('#nama-obat').val(row.nama_obat);
+            $('#jenis-obat').val(row.jenis_obat);
+            $('#dosis-obat').val(row.dosis_aturan_obat);
+            $('#satuan').val(row.satuan);
+            $('#tgl-kadaluarsa').val(row.tgl_kadaluarsa);
+          }
+          if (select_kode == '') {
+            $('.show-obat').hide();
+          }
+        });
+
+      <?php endif ?>
+    });
+  </script>
+
+  <script>
+    $('.show-pasien').hide();
+    $('#no-rekamedis').change(function() {
+      <?php if (isset($getPasien)) : ?>
+        var select_kode = $('select[name=no_rekamedis] option').filter(':selected').val();
+        $('.show-pasien').show();
+
+        <?php
+        $result = [];
+        foreach ($getPasien as $pasien) {
+          array_push($result, $pasien);
+        }
+        $js_rekamedis = json_encode($result);
+        ?>
+
+        let rekamedis = <?= $js_rekamedis ?>;
+        rekamedis.forEach(function(row) {
+          if (select_kode == row.no_rekamedis) {
+            $('#no-rekamedis-db').val(row.no_rekamedis);
+            $('#no-ktp').val(row.no_ktp);
+            $('#no-bpjs').val(row.no_bpjs);
+            $('#nama-pasien').val(row.nama_pasien);
+            $('#status-pasien').val(row.status_pasien);
+            $('#jenis-kelamin').val(row.jenis_kelamin);
+            $('#tempat-lahir').val(row.tempat_lahir);
+            $('#tgl-lahir').val(row.tanggal_lahir);
+            $('#alamat').val(row.alamat);
+
+          }
+          if (select_kode == '') {
+            $('.show-pasien').hide();
+          }
+        });
+
+      <?php endif ?>
+    });
+  </script>
+
+  <script>
+    $('.show-supplier').hide();
+    $('#kode-supplier').change(function() {
+      <?php if (isset($data_supplier)) : ?>
+        var select_kode = $('select[name=kode-supplier] option').filter(':selected').val();
+        $('.show-supplier').show();
+
+        <?php
+        $result = [];
+        foreach ($data_supplier as $supplier) {
+          array_push($result, $supplier);
+        }
+        $js_supplier = json_encode($result);
+        ?>
+
+        let supplier = <?= $js_supplier ?>;
+        console.log(supplier);
+        supplier.forEach(function(row) {
+          if (select_kode == row.kode_supplier) {
+            $('#kode-supplier-db').val(row.kode_supplier);
+            $('#nama-supplier').val(row.nama_supplier);
+            $('#no-telepon').val(row.no_telpon);
+            $('#email-supplier').val(row.email);
+            $('#alamat-supplier').val(row.alamat);
+
+          }
+          if (select_kode == '') {
+            $('.show-supplier').hide();
+          }
+        });
+
+      <?php endif ?>
+    });
+  </script>
+
+  <script>
     $(function() {
       bsCustomFileInput.init();
     });
@@ -267,7 +322,7 @@
         "searching": true,
         "ordering": false,
         "info": true,
-        "autoWidth": true,
+        "autoWidth": false,
         "responsive": true,
       });
     });

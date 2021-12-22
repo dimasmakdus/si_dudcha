@@ -13,6 +13,7 @@ class ObatModel extends Model
     protected $returnType     = 'array';
 
     protected $allowedFields = [
+        'kode_obat',
         'nama_obat',
         'jenis_obat',
         'dosis_aturan_obat',

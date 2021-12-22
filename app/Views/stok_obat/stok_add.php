@@ -36,24 +36,59 @@
                             <div class="form-group row">
                                 <label for="kode-obat" class="col-sm-2 col-form-label">Kode Obat</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="kode-obat" id="kode-obat" placeholder="Kode Obat">
+                                    <select class="form-control select2" name="kode-stok-obat" id="kode-stok-obat" style="width: 100%;">
+                                        <option value="" selected="selected">-- Cari Kode Obat --</option>
+                                        <?php foreach ($kodeObat as $kode) : ?>
+                                            <option value="<?= $kode['kode_obat'] ?>"><?= $kode['kode_obat'] ?> - <?= $kode['nama_obat'] ?></option>
+                                        <?php endforeach ?>
+                                    </select>
                                 </div>
                             </div>
-                            <div class=" form-group row">
-                                <label for="jumlah" class="col-sm-2 col-form-label">Jumlah</label>
-                                <div class="col-sm-10">
-                                    <input type="number" class="form-control" name="jumlah" id="jumlah" placeholder="Jumlah">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="satuan" class="col-sm-2 col-form-label">Satuan</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="satuan" id="satuan" placeholder="Satuan">
+                            <div class="show-obat">
+                                <div class="callout callout-info">
+                                    <h5 class="mb-3">Detail Obat-Obatan :</h5>
+
+                                    <div class="form-group row">
+                                        <label for="nama-obat" class="col-sm-2 col-form-label">Kode Obat</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" id="db-kode-obat" placeholder="Kode Obat" disabled>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="nama-obat" class="col-sm-2 col-form-label">Nama Obat</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" id="nama-obat" placeholder="Nama Obat" disabled>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="jenis-obat" class="col-sm-2 col-form-label">Jenis Obat</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" id="jenis-obat" placeholder="Jenis Obat" disabled>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="dosis-obat" class="col-sm-2 col-form-label">Dosis Aturan Obat</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" id="dosis-obat" placeholder="Dosis Aturan Obat" disabled>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="satuan" class="col-sm-2 col-form-label">Satuan</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" id="satuan" placeholder="Satuan" disabled>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="tgl-kadaluarsa" class="col-sm-2 col-form-label">Tanggal Kadaluarsa Obat</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" id="tgl-kadaluarsa" placeholder="Tanggal Kadaluarsa Obat" disabled>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                     </div>
                     <div class="card-footer justify-content-between">
-                        <button type="submit" class="btn bg-olive"><i class="fas fa-save"></i> Tambah Data</button>
+                        <button type="submit" class="btn bg-olive"><i class="fas fa-save"></i> Tambah Stok</button>
                         <a href="<?= base_url('stok-obat') ?>" class="btn btn-danger"><i class="fas fa-sign-out-alt"></i> Kembali</a>
                     </div>
                     </form>
@@ -65,5 +100,6 @@
         </div>
         <!-- /.container-fluid -->
 </section>
+
 <!-- /.content -->
 <?= $this->endSection('content') ?>

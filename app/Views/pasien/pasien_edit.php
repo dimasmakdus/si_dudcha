@@ -37,10 +37,11 @@
                                 <label for="no-rekamedis" class="col-sm-2 col-form-label">No Rekamedis</label>
                                 <div class="col-sm-10">
                                     <input type="number" class="form-control" value="<?= $getPasien['no_rekamedis'] ?>" placeholder=" No Rekamedis" disabled>
+                                    <input type="hidden" name="no-rekamedis" value="<?= $getPasien['no_rekamedis'] ?>">
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="no-ktp" class="col-sm-2 col-form-label">No KTP</label>
+                                <label for="no-ktp" class="col-sm-2 col-form-label">No KTP *</label>
                                 <div class="col-sm-10">
                                     <input type="nummber" class="form-control" name="no-ktp" id="no-ktp" value="<?= $getPasien['no_ktp'] ?>" placeholder="No KTP">
                                 </div>
@@ -52,13 +53,13 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="nama-pasien" class="col-sm-2 col-form-label">Nama Pasien</label>
+                                <label for="nama-pasien" class="col-sm-2 col-form-label">Nama Pasien *</label>
                                 <div class="col-sm-10">
                                     <input type="text" class="form-control" name="nama-pasien" id="nama-pasien" value="<?= $getPasien['nama_pasien'] ?>" placeholder="Nama Pasien">
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="status-pasien" class="col-sm-2 col-form-label">Status Pasien</label>
+                                <label for="status-pasien" class="col-sm-2 col-form-label">Status Pasien *</label>
                                 <div class="col-sm-10">
                                     <select class="form-control select2" style="width: 100%;" name="status-pasien" id="status-pasien">
                                         <?php foreach ($statusPasien as $status) : ?>
@@ -68,7 +69,7 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="jenis-kelamin" class="col-sm-2 col-form-label">Jenis Kelamin</label>
+                                <label for="jenis-kelamin" class="col-sm-2 col-form-label">Jenis Kelamin *</label>
                                 <div class="col-sm-10">
                                     <select class="form-control select2" style="width: 100%;" name="jenis-kelamin" id="jenis-kelamin">
                                         <?php foreach ($jenisKelamin as $key => $value) : ?>
@@ -78,19 +79,19 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="tempat-lahir" class="col-sm-2 col-form-label">Tempat Lahir</label>
+                                <label for="tempat-lahir" class="col-sm-2 col-form-label">Tempat Lahir *</label>
                                 <div class="col-sm-10">
                                     <input type="text" class="form-control" name="tempat-lahir" id="tempat-lahir" value="<?= $getPasien['tempat_lahir'] ?>" placeholder="Tempat Lahir">
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="tgl-lahir" class="col-sm-2 col-form-label">Tanggal Lahir</label>
+                                <label for="tgl-lahir" class="col-sm-2 col-form-label">Tanggal Lahir *</label>
                                 <div class="col-sm-10">
                                     <input type="date" class="form-control" name="tgl-lahir" id="tgl-lahir" value="<?= date("Y-m-d", strtotime($getPasien['tanggal_lahir'])); ?>" placeholder="Tanggal Lahir">
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="alamat" class="col-sm-2 col-form-label">Alamat</label>
+                                <label for="alamat" class="col-sm-2 col-form-label">Alamat *</label>
                                 <div class="col-sm-10">
                                     <textarea class="form-control" row="3" name="alamat" id="alamat" placeholder="Alamat"><?= $getPasien['alamat'] ?></textarea>
                                 </div>

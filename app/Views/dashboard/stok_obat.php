@@ -34,23 +34,23 @@
             if (session()->getFlashData('success')) {
             ?>
               <div class="alert alert-primary alert-dismissible fade show" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <i class="icon fas fa-check"></i>
                 <?= session()->getFlashData('success') ?>
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
                 </button>
               </div>
             <?php
             }
             ?>
-            <a href="<?= base_url('stok-obat-add') ?>" class="btn bg-olive mb-3"><i class="fas fa-plus"></i> Tambah Data</a>
+            <a href="<?= base_url('stok-obat-add') ?>" class="btn bg-olive mb-3"><i class="fas fa-plus"></i> Tambah Stok</a>
             <table id="example2" class="table table-bordered table-hover">
               <thead>
                 <tr>
                   <th>No</th>
                   <th>Kode Obat</th>
+                  <th>Nama Obat</th>
                   <th>Jumlah</th>
                   <th>Satuan</th>
-                  <th>Action</th>
                 </tr>
               </thead>
               <tbody>
@@ -59,13 +59,9 @@
                   <tr>
                     <td><?= $i++ ?></td>
                     <td><?= $stok['kode_obat'] ?></td>
+                    <td><?= $stok['nama_obat'] ?></td>
                     <td><?= $stok['jumlah'] ?></td>
                     <td><?= $stok['satuan'] ?></td>
-                    <td>
-                      <a href="<?= base_url('stok-obat') ?>/<?= $stok['kode_obat'] ?>" class="btn btn-sm bg-olive btn-edit-stok"><i class="fas fa-edit"></i> Ubah</a>
-
-                      <a class="btn btn-sm btn-danger btn-delete-stok" data-toggle="modal" data-target="#hapus-stok-<?= $stok['kode_obat'] ?>"><i class="fas fa-trash-alt"></i> Hapus</a>
-                    </td>
                   </tr>
                   <!-- Modal Hapus  -->
                   <div class="modal fade" id="hapus-stok-<?= $stok['kode_obat'] ?>">

@@ -13,6 +13,8 @@ class StokObatModel extends Model
     protected $returnType     = 'array';
 
     protected $allowedFields = [
+        'kode_obat',
+        'nama_obat',
         'jumlah',
         'satuan',
         'created_at',

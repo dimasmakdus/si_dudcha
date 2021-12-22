@@ -14,6 +14,7 @@ class PengeluaranModel extends Model
 
     protected $allowedFields = [
         'id_pengeluaran',
+        'no_terima_obat',
         'nama_pasien',
         'kode_obat',
         'nama_obat',
