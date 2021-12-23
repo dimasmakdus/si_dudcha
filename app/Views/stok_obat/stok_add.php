@@ -34,6 +34,12 @@
                         <form class="form-horizontal" action="<?= base_url("stok-obat/create"); ?>" method="POST">
                             <?= csrf_field(); ?>
                             <div class="form-group row">
+                                <label for="jumlah-obat" class="col-sm-2 col-form-label">Jumlah</label>
+                                <div class="col-sm-2">
+                                    <input type="number" class="form-control" name="jumlah" id="jumlah-obat" placeholder="0" required>
+                                </div>
+                            </div>
+                            <div class="form-group row">
                                 <label for="kode-obat" class="col-sm-2 col-form-label">Kode Obat</label>
                                 <div class="col-sm-10">
                                     <select class="form-control select2" name="kode-stok-obat" id="kode-stok-obat" style="width: 100%;">

@@ -16,7 +16,9 @@ class StokObat extends BaseController
 
     public function create()
     {
-        $kode_obat = $this->request->getVar('kode-stok-obat');
+        $post = $this->request->getVar();
+        $kode_obat = $post['kode-stok-obat'];
+        $jumlah = $post['jumlah'];
         $stok_obat = $this->stokObatModel->find($kode_obat);
         $data_obat = $this->obatModel->find($kode_obat);
 
@@ -24,13 +26,13 @@ class StokObat extends BaseController
             $this->stokObatModel->insert([
                 'kode_obat' => $data_obat['kode_obat'],
                 'nama_obat' => $data_obat['nama_obat'],
-                'jumlah' => 1,
+                'jumlah' => $jumlah,
                 'satuan' => $data_obat['satuan']
             ]);
         } else {
             $this->stokObatModel->update($stok_obat['kode_obat'], [
                 'nama_obat' => $stok_obat['nama_obat'],
-                'jumlah' => $stok_obat['jumlah'] + 1,
+                'jumlah' => $stok_obat['jumlah'] + $jumlah,
                 'satuan' => $stok_obat['satuan']
             ]);
         }
