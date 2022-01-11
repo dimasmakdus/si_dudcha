@@ -22,6 +22,8 @@ use App\Models\AksesModel;
 use App\Models\HakAksesModel;
 use App\Models\LPLPOModel;
 use App\Models\PesananModel;
+use App\Models\DokterModel;
+use App\Models\AturanObatModel;
 
 /**
  * Class BaseController
@@ -74,6 +76,8 @@ class BaseController extends Controller
         $this->barangKeluarModel = new BarangKeluarModel();
         $this->lplpoModel = new LPLPOModel();
         $this->pesananModel = new PesananModel();
+        $this->dokterModel = new DokterModel();
+        $this->aturanModel = new AturanObatModel();
 
         // Access Rights
         $this->aksesModel = new AksesModel();

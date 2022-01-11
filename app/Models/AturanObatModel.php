@@ -4,20 +4,16 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class ObatModel extends Model
+class AturanObatModel extends Model
 {
-    protected $table      = 'tbl_obat';
+    protected $table      = 'tbl_aturan_obat';
+    protected $primaryKey = 'id';
     protected $useTimestamps = true;
-    protected $primaryKey = 'kode_obat';
-
     protected $returnType     = 'array';
 
     protected $allowedFields = [
-        'kode_obat',
-        'nama_obat',
-        'stok',
-        'satuan',
-        'tgl_kadaluarsa',
+        'dosis_aturan_obat',
+        'khusus',
         'created_at',
         'updated_at'
     ];

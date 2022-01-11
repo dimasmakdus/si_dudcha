@@ -39,15 +39,18 @@ $routes->get('/logout', 'Login::logout');
 $routes->get('/', 'Dashboard::index');
 $routes->get('/pengguna', 'Dashboard::kelola_user');
 $routes->get('/role-pengguna', 'Dashboard::roleUser');
-$routes->get('/pasien', 'Dashboard::pasien');
+$routes->get('/resep-pasien', 'Dashboard::resep_pasien');
+$routes->get('/aturan-obat', 'Dashboard::aturan_obat');
 $routes->get('/supplier', 'Dashboard::supplier');
 $routes->get('/obat-obatan', 'Dashboard::obat_obatan');
+$routes->get('/data-dokter', 'Dashboard::data_dokter');
 $routes->get('/stok-obat', 'Dashboard::stok_obat');
 $routes->get('/resep-obat', 'Dashboard::resep_obat');
 $routes->get('/permintaan-obat', 'Dashboard::permintaan_obat');
 $routes->get('/pengeluaran-harian', 'Dashboard::pengeluaran_harian');
 $routes->get('/laporan-barang-keluar', 'Dashboard::laporan_barang_keluar');
 $routes->get('/pesanan-obat', 'Dashboard::pesanan_obat');
+$routes->get('/data-dokter', 'Dashboard::data_dokter');
 
 // Pengguna
 $routes->get('/user-form', 'Users::userForm');
@@ -56,6 +59,16 @@ $routes->post('/pengguna/create', 'Users::create');
 $routes->post('/pengguna/update', 'Users::update');
 $routes->get('/pengguna/delete/(:segment)', 'Users::remove/$1');
 
+// Pemakaian Obat (Aturan Obat)
+$routes->post('/aturan-obat/create', 'AturanObat::create');
+$routes->post('/aturan-obat/update', 'AturanObat::update');
+$routes->get('/aturan-obat/remove/(:segment)', 'AturanObat::remove/$1');
+
+// Dokter
+$routes->post('/data-dokter/create', 'Dokter::create');
+$routes->post('/data-dokter/update', 'Dokter::update');
+$routes->get('/data-dokter/remove/(:segment)', 'Dokter::remove/$1');
+
 // Role
 $routes->get('/role-form', 'Dashboard::roleForm');
 $routes->get('/role-pengguna/akses/(:segment)', 'Dashboard::viewAkses/$1');
@@ -63,8 +76,8 @@ $routes->post('/role/create', 'HakAkses::create');
 $routes->get('/role-pengguna/delete/(:segment)', 'HakAkses::remove/$1');
 
 // Pasien
-$routes->get('/pasien-add', 'Pasien::pasienAdd');
-$routes->get('/pasien/(:segment)', 'Pasien::pasienEdit/$1');
+$routes->post('/pasien/create', 'Pasien::create');
+$routes->post('/pasien/update', 'Pasien::update');
 $routes->get('/pasien/delete/(:segment)', 'Pasien::remove/$1');
 
 // Supplier

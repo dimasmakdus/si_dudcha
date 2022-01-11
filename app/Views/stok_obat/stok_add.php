@@ -108,4 +108,5 @@
 </section>
 
 <!-- /.content -->
+<?= $this->include('templates/script') ?>
 <?= $this->endSection('content') ?>

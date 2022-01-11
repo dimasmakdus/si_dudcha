@@ -4,11 +4,16 @@ namespace App\Controllers;
 
 class Dashboard extends BaseController
 {
+    private $jenis_kelamin = [
+        "0" => "Laki-Laki",
+        "1" => "Perempuan"
+    ];
+
     public function index()
     {
         $obatobatan = [
             'count' => $this->obatModel->countAll(),
-            'title' => 'Obat - Obatan'
+            'title' => 'Data Obat'
         ];
         $pasien = [
             'count' => $this->pasienModel->countAll(),
@@ -110,16 +115,33 @@ class Dashboard extends BaseController
         ]);
     }
 
-    public function pasien()
+    public function resep_pasien()
     {
-        $data_pasien = $this->pasienModel->orderBy('no_rekamedis', 'DESC')->findAll();
+        $data_dokter = $this->dokterModel->orderBy('nama_dokter', 'ASC')->findAll();
+        $data_pasien = $this->pasienModel->orderBy('no_resep', 'ASC')->findAll();
+
+        foreach ($data_pasien as $pasien) {
+            $no_resep = $pasien['no_resep'];
+        }
+        $noUrut = (int) substr($no_resep, 0, 6);
+        $noUrut++;
+        $kodeBaru = sprintf("%06s", $noUrut);
+
+        $status = [
+            "0" => "BPJS",
+            "1" => "UMUM"
+        ];
 
         return view('dashboard/pasien', [
-            'title' => 'Data Pasien',
-            'card_title' => 'Kelola Data Pasien',
-            'navLink' => 'pasien',
+            'title' => 'Data Resep Pasien',
+            'card_title' => 'Data Resep Pasien',
+            'navLink' => 'resep-pasien',
             'accessRight' => $this->accessRights,
-            'data_pasien' => $data_pasien
+            'jenis_kelamin' => $this->jenis_kelamin,
+            'status_pasien' => $status,
+            'db_dokter' => $data_dokter,
+            'data_pasien' => $data_pasien,
+            'kode_baru' => $kodeBaru
         ]);
     }
 
@@ -151,14 +173,72 @@ class Dashboard extends BaseController
 
     public function obat_obatan()
     {
-        $obat_obatan = $this->obatModel->orderBy('updated_at', 'DESC')->findAll();
+        $no_obat_akhir = $this->obatModel->orderBy('kode_obat', 'ASC')->findAll();
+        foreach ($no_obat_akhir as $obat) {
+            $kode_obat = $obat['kode_obat'];
+        }
+
+        $noUrut = (int) substr($kode_obat, 0, 6);
+        $noUrut++;
+        $kodeBaru = sprintf("%04s", $noUrut);
+
+        $satuan_obat = [
+            '0' => 'Tablet',
+            '1' => 'Botol',
+            '2' => 'Ampul',
+            '3' => 'Strip',
+            '4' => 'Sachet',
+            '5' => 'Kapsul'
+        ];
 
         return view('dashboard/obat_obatan', [
-            'title' => 'Obat-Obatan',
+            'title' => 'Data Obat',
             'card_title' => 'Kelola Data Obat-Obatan',
             'navLink' => 'obat-obatan',
             'accessRight' => $this->accessRights,
-            'obat_obatan' => $obat_obatan
+            'obat_obatan' => $this->obatModel->orderBy('updated_at', 'DESC')->findAll(),
+            'satuan' => $satuan_obat,
+            'kode_obat_baru' => $kodeBaru
+        ]);
+    }
+
+    public function data_dokter()
+    {
+        $data_dokter = $this->dokterModel->orderBy('updated_at', 'DESC')->findAll();
+
+        $poli = [
+            "1" => "POLI GIGI",
+            "2" => "POLI UMUM",
+            "3" => "POLI KIA"
+        ];
+
+        return view('dashboard/dokter', [
+            'title' => 'Data Dokter',
+            'card_title' => 'Data Dokter',
+            'navLink' => 'data-dokter',
+            'accessRight' => $this->accessRights,
+            'data_dokter' => $data_dokter,
+            'jenis_kelamin' => $this->jenis_kelamin,
+            'poli' => $poli
+        ]);
+    }
+
+    public function aturan_obat()
+    {
+        $aturan_obat = $this->aturanModel->orderBy('updated_at', 'DESC')->findAll();
+        $aturan_usia = [
+            '0' => 'Bayi',
+            '1' => 'Anak-Anak',
+            '2' => 'Dewasa',
+        ];
+
+        return view('dashboard/aturan_obat', [
+            'title' => 'Data Pemakaian Obat',
+            'card_title' => 'Data Pemakaian',
+            'navLink' => 'aturan-obat',
+            'accessRight' => $this->accessRights,
+            'aturan_usia' => $aturan_usia,
+            'aturan_obat' => $aturan_obat
         ]);
     }
 

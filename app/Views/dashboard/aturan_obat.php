@@ -42,35 +42,31 @@
                         <?php
                         }
                         ?>
-                        <a class="btn bg-olive mb-3" data-toggle="modal" data-target="#modal-tambah"><i class="fas fa-plus"></i> Tambah Obat</a>
+                        <a class="btn bg-olive mb-3" data-toggle="modal" data-target="#modal-tambah"><i class="fas fa-plus"></i> Tambah Data</a>
                         <table id="example2" class="table table-bordered table-hover">
                             <thead>
                                 <tr>
                                     <th>No</th>
-                                    <th>Kode Obat</th>
-                                    <th>Nama Obat</th>
-                                    <th>Stok</th>
-                                    <th>Satuan</th>
+                                    <th>Dosis Pemakaian Obat</th>
+                                    <th>Khusus</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php $i = 1 ?>
-                                <?php foreach ($obat_obatan as $obat) : ?>
+                                <?php foreach ($aturan_obat as $aturan) : ?>
                                     <tr>
                                         <td><?= $i++ ?></td>
-                                        <td><?= "GFK" . $obat['kode_obat'] ?></td>
-                                        <td><?= $obat['nama_obat'] ?></td>
-                                        <td><?= $obat['stok'] ?></td>
-                                        <td><?= $obat['satuan'] ?></td>
+                                        <td><?= $aturan['dosis_aturan_obat'] ?></td>
+                                        <td><?= $aturan['khusus'] ?></td>
                                         <td>
-                                            <a class="btn btn-sm bg-olive btn-edit-obat" data-toggle="modal" data-target="#edit-<?= $obat['kode_obat'] ?>"><i class="fas fa-edit"></i> Ubah</a>
-                                            <a class="btn btn-sm btn-danger btn-delete-obat" data-toggle="modal" data-target="#hapus-<?= $obat['kode_obat'] ?>"><i class="fas fa-trash-alt"></i> Hapus</a>
+                                            <a class="btn btn-sm bg-olive btn-edit-aturan" data-toggle="modal" data-target="#edit-<?= $aturan['id'] ?>"><i class="fas fa-edit"></i> Ubah</a>
+                                            <a class="btn btn-sm btn-danger btn-edit-aturan" data-toggle="modal" data-target="#hapus-<?= $aturan['id'] ?>"><i class="fas fa-trash-alt"></i> Hapus</a>
                                         </td>
                                     </tr>
 
                                     <!-- Modal Hapus  -->
-                                    <div class="modal fade" id="hapus-<?= $obat['kode_obat'] ?>">
+                                    <div class="modal fade" id="hapus-<?= $aturan['id'] ?>">
                                         <div class="modal-dialog">
                                             <div class="modal-content">
                                                 <div class="modal-header">
@@ -83,7 +79,7 @@
                                                     <p>Apakah anda yakin ingin manghapus data ini?</p>
                                                 </div>
                                                 <div class="modal-footer">
-                                                    <a href="<?= base_url('obat-obatan/delete') ?>/<?= $obat['kode_obat'] ?>" class="btn btn-danger">Hapus</a>
+                                                    <a href="<?= base_url('aturan-obat/remove') ?>/<?= $aturan['id'] ?>" class="btn btn-danger">Hapus</a>
                                                     <a class="btn btn-default" data-dismiss="modal">Tidak</a>
                                                 </div>
                                             </div>
@@ -94,46 +90,34 @@
                                     <!-- /.modal -->
 
                                     <!-- Modal Edit -->
-                                    <div class="modal fade" id="edit-<?= $obat['kode_obat'] ?>">
+                                    <div class="modal fade" id="edit-<?= $aturan['id'] ?>">
                                         <div class="modal-dialog modal-lg">
                                             <div class="modal-content">
-                                                <form class="form-horizontal" action="<?= base_url('obat-obatan/update'); ?>" method="POST">
+                                                <form class="form-horizontal" action="<?= base_url('aturan-obat/update'); ?>" method="POST">
                                                     <div class="modal-header">
-                                                        <h4 class="modal-title">Ubah Data Obat-Obatan</h4>
+                                                        <h4 class="modal-title">Ubah Data Aturan Obat</h4>
                                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                             <span aria-hidden="true">&times;</span>
                                                         </button>
                                                     </div>
                                                     <div class="modal-body">
                                                         <?= csrf_field(); ?>
+                                                        <input type="hidden" name="id" value="<?= $aturan['id'] ?>">
                                                         <div class="form-group row">
-                                                            <label for="kode-obat" class="col-sm-2 col-form-label">Kode Obat</label>
-                                                            <div class="col-sm-10">
-                                                                <input type="text" class="form-control" value="<?= "GFK" . $obat['kode_obat'] ?>" required disabled>
-                                                                <input type="hidden" name="kode_obat" value="<?= $obat['kode_obat'] ?>">
+                                                            <label for="dosis_aturan_obat" class="col-sm-3 col-form-label">Dosis Aturan Obat</label>
+                                                            <div class="col-sm-9">
+                                                                <input type="text" class="form-control" name="dosis_aturan_obat" value="<?= $aturan['dosis_aturan_obat'] ?>" placeholder="Dosis Aturan Obat" required>
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
-                                                            <label for="nama-obat" class="col-sm-2 col-form-label">Nama Obat</label>
-                                                            <div class="col-sm-10">
-                                                                <input type="text" class="form-control" name="nama_obat" value="<?= $obat['nama_obat'] ?>" placeholder="Nama Obat" required>
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group row">
-                                                            <label for="jenis-satuan" class="col-sm-2 col-form-label">Satuan</label>
-                                                            <div class="col-sm-10">
-                                                                <select class="form-control select2" name="satuan" style="width: 100%;" required>
-                                                                    <option value="" disabled>-- Pilih Satuan --</option>
-                                                                    <?php foreach ($satuan as $value) : ?>
-                                                                        <option value="<?= $value ?>" <?= $value == $obat['satuan'] ? 'selected' : '' ?>><?= $value ?></option>
+                                                            <label for="khusus" class="col-sm-3 col-form-label">Khusus</label>
+                                                            <div class="col-sm-9">
+                                                                <select class="form-control select2" name="khusus" style="width: 100%;" required>
+                                                                    <option value="" disabled>-- Bayi/Anak/Dewasa --</option>
+                                                                    <?php foreach ($aturan_usia as $usia) : ?>
+                                                                        <option value="<?= $usia ?>" <?= $aturan['khusus'] == $usia ? 'selected' : '' ?>><?= $usia ?></option>
                                                                     <?php endforeach ?>
                                                                 </select>
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group row">
-                                                            <label for="stok" class="col-sm-2 col-form-label">Stok</label>
-                                                            <div class="col-sm-2">
-                                                                <input type="number" class="form-control" name="stok" id="stok" value="<?= $obat['stok'] ?>" placeholder="Jenis Obat" required>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -147,6 +131,7 @@
                                         </div>
                                         <!-- /.modal-dialog -->
 
+
                                     <?php endforeach ?>
                             </tbody>
                         </table>
@@ -159,9 +144,9 @@
                 <div class="modal fade" id="modal-tambah">
                     <div class="modal-dialog modal-lg">
                         <div class="modal-content">
-                            <form class="form-horizontal" action="<?= base_url('obat-obatan/create'); ?>" method="POST">
+                            <form class="form-horizontal" action="<?= base_url('aturan-obat/create'); ?>" method="POST">
                                 <div class="modal-header">
-                                    <h4 class="modal-title">Tambah Data Obat-Obatan</h4>
+                                    <h4 class="modal-title">Tambah Data Aturan Obat</h4>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
@@ -169,33 +154,20 @@
                                 <div class="modal-body">
                                     <?= csrf_field(); ?>
                                     <div class="form-group row">
-                                        <label for="kode-obat" class="col-sm-2 col-form-label">Kode Obat</label>
-                                        <div class="col-sm-10">
-                                            <input type="text" class="form-control" value="<?= "GFK" . $kode_obat_baru ?>" required disabled>
-                                            <input type="hidden" class="form-control" name="kode_obat" value="<?= $kode_obat_baru ?>">
+                                        <label for="dosis_aturan_obat" class="col-sm-3 col-form-label">Dosis Aturan Obat</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" name="dosis_aturan_obat" placeholder="Dosis Aturan Obat" required>
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="nama-obat" class="col-sm-2 col-form-label">Nama Obat</label>
-                                        <div class="col-sm-10">
-                                            <input type="text" class="form-control" name="nama_obat" placeholder="Nama Obat" required>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="satuan" class="col-sm-2 col-form-label">Satuan</label>
-                                        <div class="col-sm-10">
-                                            <select class="form-control select2" name="satuan" style="width: 100%;" required>
-                                                <option value="" selected disabled>-- Pilih Satuan --</option>
-                                                <?php foreach ($satuan as $value) : ?>
-                                                    <option value="<?= $value ?>"><?= $value ?></option>
+                                        <label for="khusus" class="col-sm-3 col-form-label">Khusus</label>
+                                        <div class="col-sm-9">
+                                            <select class="form-control select2" name="khusus" style="width: 100%;" required>
+                                                <option value="" selected disabled>-- Bayi/Anak/Dewasa --</option>
+                                                <?php foreach ($aturan_usia as $usia) : ?>
+                                                    <option value="<?= $usia ?>"><?= $usia ?></option>
                                                 <?php endforeach ?>
                                             </select>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="stok" class="col-sm-2 col-form-label">Jumlah Stok</label>
-                                        <div class="col-sm-2">
-                                            <input type="number" class="form-control" name="stok" id="stok" placeholder="0" required>
                                         </div>
                                     </div>
                                 </div>
@@ -210,13 +182,13 @@
                     <!-- /.modal-dialog -->
 
                 </div>
-                <!-- /.col -->
             </div>
-            <!-- /.row -->
+            <!-- /.col -->
         </div>
-        <!-- /.container-fluid -->
+        <!-- /.row -->
+    </div>
+    <!-- /.container-fluid -->
 </section>
 <!-- /.content -->
-
 <?= $this->include('templates/script') ?>
 <?= $this->endSection('content') ?>

@@ -4,23 +4,21 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class PasienModel extends Model
+class DokterModel extends Model
 {
-    protected $table      = 'tbl_resep_pasien';
+    protected $table      = 'tbl_dokter';
+    protected $primaryKey = 'kode_dokter';
     protected $useTimestamps = true;
-    protected $primaryKey = 'no_resep';
-
     protected $returnType     = 'array';
 
     protected $allowedFields = [
-        'no_resep',
-        'status_pasien',
-        'no_bpjs',
-        'nama_pasien',
-        'jenis_kelamin',
-        'umur',
-        'alamat',
+        'kode_dokter',
         'nama_dokter',
+        'jenis_kelamin',
+        'nid',
+        'tgl_lahir',
+        'alamat',
+        'poli',
         'created_at',
         'updated_at'
     ];

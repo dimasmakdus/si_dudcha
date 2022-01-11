@@ -100,9 +100,9 @@
                                                 <div class="modal-body">
                                                     <p>Apakah anda yakin ingin manghapus data ini?</p>
                                                 </div>
-                                                <div class="modal-footer justify-content-between">
-                                                    <a class="btn btn-default" data-dismiss="modal">Tidak</a>
+                                                <div class="modal-footer">
                                                     <a href="<?= base_url('pesanan-obat/delete') ?>/<?= $pesanan['id_pesanan'] ?>" class="btn btn-danger">Hapus</a>
+                                                    <a class="btn btn-default" data-dismiss="modal">Tidak</a>
                                                 </div>
                                             </div>
                                             <!-- /.modal-content -->
@@ -126,4 +126,6 @@
     <!-- /.container-fluid -->
 </section>
 <!-- /.content -->
+
+<?= $this->include('templates/script') ?>
 <?= $this->endSection('content') ?>

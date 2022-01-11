@@ -4,15 +4,6 @@ namespace App\Controllers;
 
 class Supplier extends BaseController
 {
-    public function supplierAdd()
-    {
-        return view('supplier/supplier_add', [
-            'title' => 'Form Tambah Data Supplier',
-            'navLink' => 'supplier',
-            'accessRight' => $this->accessRights
-        ]);
-    }
-
     public function supplierEdit($id)
     {
         $getSupplierById = $this->supplierModel->find($id);

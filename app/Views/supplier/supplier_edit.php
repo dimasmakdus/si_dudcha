@@ -36,8 +36,8 @@
                             <div class="form-group row">
                                 <label for="kode-supplier" class="col-sm-2 col-form-label">Kode Supplier</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="kode-supplier" value="<?= $getSupplier['kode_supplier'] ?>" required disabled>
-                                    <input type="hidden" name="kode_supplier" value="<?= $getSupplier['kode_supplier'] ?>">
+                                    <input type="text" class="form-control" name="kode_supplier" id="kode-supplier" value="<?= $getSupplier['kode_supplier'] ?>" required disabled>
+                                    <input type="hidden" value="<?= $getSupplier['kode_supplier'] ?>">
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -80,4 +80,5 @@
         <!-- /.container-fluid -->
 </section>
 <!-- /.content -->
+<?= $this->include('templates/script') ?>
 <?= $this->endSection('content') ?>

@@ -101,4 +101,6 @@
     <!-- /.container-fluid -->
 </section>
 <!-- /.content -->
+
+<?= $this->include('templates/script') ?>
 <?= $this->endSection('content') ?>

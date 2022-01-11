@@ -35,7 +35,7 @@
           <div class="icon">
             <i class="fas fa-capsules"></i>
           </div>
-          <a href="<?= base_url('obat-obatan') ?>" class="small-box-footer">Info lebih lanjut <i class="fas fa-arrow-circle-right"></i></a>
+          <a href="<?= base_url('obat-obatan') ?>" class="small-box-footer">Buka <i class="fas fa-arrow-circle-right"></i></a>
         </div>
       </div>
       <!-- ./col -->
@@ -50,7 +50,7 @@
           <div class="icon">
             <i class="fas fa-user-nurse"></i>
           </div>
-          <a href="<?= base_url('pasien') ?>" class="small-box-footer">Info lebih lanjut <i class="fas fa-arrow-circle-right"></i></a>
+          <a href="<?= base_url('pasien') ?>" class="small-box-footer">Buka <i class="fas fa-arrow-circle-right"></i></a>
         </div>
       </div>
       <!-- ./col -->
@@ -65,7 +65,7 @@
           <div class="icon">
             <i class="fas fa-box-open"></i>
           </div>
-          <a href="<?= base_url('supplier') ?>" class="small-box-footer">Info lebih lanjut <i class="fas fa-arrow-circle-right"></i></a>
+          <a href="<?= base_url('supplier') ?>" class="small-box-footer">Buka <i class="fas fa-arrow-circle-right"></i></a>
         </div>
       </div>
       <!-- ./col -->
@@ -80,7 +80,7 @@
           <div class="icon">
             <i class="fas fa-users"></i>
           </div>
-          <a href="<?= base_url('pengguna') ?>" class="small-box-footer">Info lebih lanjut <i class="fas fa-arrow-circle-right"></i></a>
+          <a href="<?= base_url('pengguna') ?>" class="small-box-footer">Buka <i class="fas fa-arrow-circle-right"></i></a>
         </div>
       </div>
       <!-- ./col -->
@@ -90,4 +90,6 @@
   </div><!-- /.container-fluid -->
 </section>
 <!-- /.content -->
+
+<?= $this->include('templates/script') ?>
 <?= $this->endSection('content') ?>
