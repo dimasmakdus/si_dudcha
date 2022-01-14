@@ -6,7 +6,7 @@ use CodeIgniter\Model;
 
 class PasienModel extends Model
 {
-    protected $table      = 'tbl_resep_pasien';
+    protected $table      = 'tbl_pasien';
     protected $useTimestamps = true;
     protected $primaryKey = 'no_resep';
 

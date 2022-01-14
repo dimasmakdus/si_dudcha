@@ -107,9 +107,11 @@
             <li class="nav-item">
               <a href="<?= base_url('aturan-obat') ?>" class="nav-link <?= $navLink == 'aturan-obat' ? 'bg-orange active' : '' ?>">
                 <i class="fas fa-pills nav-icon" style="color:white"></i>
-                <p style="color:white">Data Pemakaian Obat</p>
+                <p style="color:white">Data Aturan Obat</p>
               </a>
             </li>
+
+            <li class="nav-header">PASIEN</li>
             <li class="nav-item">
               <a href="<?= base_url('resep-pasien') ?>" class="nav-link <?= $navLink == 'resep-pasien' ? 'bg-orange active' : '' ?>">
                 <i class="fas fa-pills nav-icon" style="color:white"></i>
@@ -119,21 +121,23 @@
 
             <li class="nav-header">TRANSAKSI</li>
             <li class="nav-item">
-              <a href="<?= base_url('permintaan-obat') ?>" class="nav-link <?= $navLink == 'permintaan-obat' ? 'bg-orange active' : '' ?>">
-                <i class="fas fa-dolly-flatbed nav-icon" style="color:white"></i>
-                <p style="color:white">Permintaan Obat</p>
-              </a>
-            </li>
-            <li class="nav-item">
               <a href="<?= base_url('pengambilan-obat') ?>" class="nav-link <?= $navLink == 'pengambilan-obat' ? 'bg-orange active' : '' ?>">
                 <i class="fas fa-dolly-flatbed nav-icon" style="color:white"></i>
                 <p style="color:white">Pengambilan Obat</p>
               </a>
             </li>
             <li class="nav-item">
-              <a href="<?= base_url('salinan-resep') ?>" class="nav-link <?= $navLink == 'salinan-resep' ? 'bg-orange active' : '' ?>">
+              <a href="<?= base_url('resep-obat') ?>" class="nav-link <?= $navLink == 'resep-obat' ? 'bg-orange active' : '' ?>">
                 <i class="fas fa-paste nav-icon" style="color:white"></i>
                 <p style="color:white">Salinan Resep</p>
+              </a>
+            </li>
+
+            <li class="nav-header">PENGAJUAN</li>
+            <li class="nav-item">
+              <a href="<?= base_url('pengajuan-obat') ?>" class="nav-link <?= $navLink == 'pengajuan-obat' ? 'bg-orange active' : '' ?>">
+                <i class="fas fa-clipboard-list nav-icon" style="color:white"></i>
+                <p style="color:white">Pengajuan Obat</p>
               </a>
             </li>
 

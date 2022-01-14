@@ -78,7 +78,7 @@
             <p><?= $pengguna['title'] ?></p>
           </div>
           <div class="icon">
-            <i class="fas fa-users"></i>
+            <i class="fas fa-exclamation-triangle"></i>
           </div>
           <a href="<?= base_url('pengguna') ?>" class="small-box-footer">Buka <i class="fas fa-arrow-circle-right"></i></a>
         </div>

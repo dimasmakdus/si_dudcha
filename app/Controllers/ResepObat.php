@@ -18,33 +18,70 @@ class ResepObat extends BaseController
 
     public function cetakResep($id)
     {
-        $getResepId = $this->resepModel->find($id);
-        $getPasien = $this->pasienModel->findAll();
+        $resepPasien = $this->resepModel->find($id);
+        $detailResep = $this->resepDetailModel->findAll();
 
-        foreach ($getPasien as $pasien) {
-            if ($getResepId['no_rekamedis'] == $pasien['no_rekamedis']) {
-                $dataPasien[] = $pasien;
+        foreach ($detailResep as $detail) {
+            if ($resepPasien['id_transaksi'] == $detail['id_transaksi']) {
+                $detailObat[] = $detail;
             }
         }
 
-        // Umur
-        $tgl_lahir = new DateTime($dataPasien[0]['tanggal_lahir']);
         $today = new DateTime('today');
-        $year = $today->diff($tgl_lahir)->y;
 
         return view('resep/resep_cetak', [
             'title' => 'Cetak Salinan Resep',
             'navLink' => 'resep-obat',
-            'getResep' => $getResepId,
-            'byPasien' => $dataPasien[0],
-            'year' => $year
+            'resepPasien' => $resepPasien,
+            'detailObat' => $detailObat
         ]);
     }
 
     public function create()
     {
-        $this->resepModel->insert($this->request->getVar());
-        return redirect()->to('resep-obat')->with('success', 'Data Resep Berhasil Ditambahkan');
+        $no_resep = $this->request->getVar('no_resep');
+        $kode_obat = $this->request->getVar('kode_obat');
+        $nama_obat = $this->request->getVar('nama_obat');
+        $satuan = $this->request->getVar('satuan');
+        $jumlah = $this->request->getVar('jumlah');
+        $tgl = date("Y-m-d H:i:s");
+
+        $tmb_trans = $this->resepModel->orderBy('id_transaksi', 'ASC')->findAll();
+        if ($tmb_trans != array()) {
+            foreach ($tmb_trans as $trans) {
+                $nomor_db = $trans['id_transaksi'] + 1;
+            }
+        } else {
+            $nomor_db = 1;
+        }
+
+        $resep_pasien = $this->pasienModel->find($no_resep);
+        $this->resepModel->insert([
+            'id_transaksi' => $nomor_db,
+            'kode_resep' => $resep_pasien['no_resep'],
+            'status_pasien' => $resep_pasien['status_pasien'],
+            'nama_pasien' => $resep_pasien['nama_pasien'],
+            'umur' => $resep_pasien['umur'],
+            'alamat' => $resep_pasien['alamat'],
+            'tanggal' => $tgl
+        ]);
+
+        for ($i = 0; $i < count($kode_obat); $i++) {
+            $this->resepDetailModel->insert([
+                'id_transaksi' => $nomor_db,
+                'kode_obat' => $kode_obat[$i],
+                'nama_obat' => $nama_obat[$i],
+                'jumlah' => $jumlah[$i],
+                'satuan' => $satuan[$i]
+            ]);
+
+            $obat = $this->obatModel->find($kode_obat[$i]);
+            $this->obatModel->update($kode_obat[$i], [
+                'nama_obat' => $nama_obat[$i],
+                'stok' => $obat['stok'] - $jumlah[$i],
+                'satuan' => $satuan[$i]
+            ]);
+        }
     }
 
     public function remove($id)

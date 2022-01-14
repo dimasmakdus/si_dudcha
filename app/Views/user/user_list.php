@@ -42,7 +42,7 @@
             <?php
             }
             ?>
-            <a href="<?= base_url('user-form') ?>" class="btn bg-olive mb-3"><i class="fas fa-plus"></i> Tambah Data</a>
+            <a class="btn bg-olive mb-3" data-toggle="modal" data-target="#modal-tambah"><i class="fas fa-plus"></i> Tambah Pengguna</a>
             <table id="example2" class="table table-bordered table-hover">
               <thead>
                 <tr>
@@ -64,13 +64,14 @@
                     <td><?= $user['id_user_role'] ?></td>
                     <td><?= $user['is_active'] ?></td>
                     <td>
-                      <a href="<?= base_url('pengguna') ?>/<?= $user['id_user'] ?>" class="btn btn-sm bg-olive btn-edit-user"><i class="fas fa-edit"></i> Ubah</a>
+                      <a class="btn btn-sm bg-olive btn-edit-user" data-toggle="modal" data-target="#edit-<?= $user['id_user'] ?>"><i class="fas fa-edit"></i> Ubah</a>
 
-                      <a class="btn btn-sm btn-danger btn-delete-user" data-toggle="modal" data-target="#hapus-user-<?= $user['id_user'] ?>"><i class="fas fa-trash-alt"></i> Hapus</a>
+                      <a class="btn btn-sm btn-danger btn-delete-user" data-toggle="modal" data-target="#hapus-<?= $user['id_user'] ?>"><i class="fas fa-trash-alt"></i> Hapus</a>
                     </td>
                   </tr>
+
                   <!-- Modal Hapus  -->
-                  <div class="modal fade" id="hapus-user-<?= $user['id_user'] ?>">
+                  <div class="modal fade" id="hapus-<?= $user['id_user'] ?>">
                     <div class="modal-dialog">
                       <div class="modal-content">
                         <div class="modal-header">
@@ -92,7 +93,72 @@
                     <!-- /.modal-dialog -->
                   </div>
                   <!-- /.modal -->
-                <?php endforeach ?>
+
+                  <!-- Modal Edit -->
+                  <div class="modal fade" id="edit-<?= $user['id_user'] ?>">
+                    <div class="modal-dialog modal-lg">
+                      <div class="modal-content">
+                        <form class="form-horizontal" action="<?= base_url('pengguna/update'); ?>" method="POST">
+                          <div class="modal-header">
+                            <h4 class="modal-title">Tambah Data Pengguna</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                            <?= csrf_field(); ?>
+                            <input type="hidden" name="id_user" value="<?= $user['id_user'] ?>">
+                            <div class="form-group row">
+                              <label for="nama-lengkap" class="col-sm-2 col-form-label">Nama Lengkap</label>
+                              <div class="col-sm-10">
+                                <input type="text" class="form-control" name="nama-lengkap" value="<?= $user['full_name'] ?>" placeholder="Nama Lengkap" required>
+                              </div>
+                            </div>
+                            <div class="form-group row">
+                              <label for="email" class="col-sm-2 col-form-label">Email</label>
+                              <div class="col-sm-10">
+                                <input type="email" class="form-control" name="email" value="<?= $user['email'] ?>" placeholder="Email" required>
+                              </div>
+                            </div>
+                            <div class="form-group row">
+                              <label for="inputPassword3" class="col-sm-2 col-form-label">Password Baru</label>
+                              <div class="col-sm-10">
+                                <input type="password" class="form-control" name="password" placeholder="Password Baru" required>
+                              </div>
+                            </div>
+                            <div class="form-group row">
+                              <label for="role" class="col-sm-2 col-form-label">Role Pengguna</label>
+                              <div class="col-sm-10">
+                                <select class="form-control select2" style="width: 100%;" name="role" required>
+                                  <option value="" disabled>-- Pilih --</option>
+                                  <?php foreach ($roles as $role) : ?>
+                                    <option value="<?= $role['id_role'] ?>" <?= $user['id_user_role'] == $role['nama_role'] ? 'selected' : '' ?>><?= $role['nama_role'] ?></option>
+                                  <?php endforeach ?>
+                                </select>
+                              </div>
+                            </div>
+                            <div class="form-group row">
+                              <label for="role" class="col-sm-2 col-form-label">Status Aktif</label>
+                              <div class="col-sm-10">
+                                <select class="form-control select2" style="width: 100%;" name="status" required>
+                                  <?php foreach ($is_active as $key => $value) : ?>
+                                    <option value="<?= $key ?>" <?= $user['is_active'] == $value ? "selected" : "" ?>><?= $value ?></option>
+                                  <?php endforeach ?>
+                                </select>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="submit" class="btn bg-olive"><i class="fas fa-save"></i> Simpan</button>
+                            <button class="btn btn-danger" data-dismiss="modal"><i class="fas fa-sign-out-alt"></i> Kembali</a>
+                          </div>
+                        </form>
+                      </div>
+                      <!-- /.modal-content -->
+                    </div>
+                    <!-- /.modal-dialog -->
+
+                  <?php endforeach ?>
               </tbody>
             </table>
           </div>
@@ -100,12 +166,74 @@
         </div>
         <!-- /.card -->
 
+        <!-- Modal Tambah -->
+        <div class="modal fade" id="modal-tambah">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <form class="form-horizontal" action="<?= base_url('pengguna/create'); ?>" method="POST">
+                <div class="modal-header">
+                  <h4 class="modal-title">Tambah Data Pengguna</h4>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <?= csrf_field(); ?>
+                  <div class="form-group row">
+                    <label for="nama-lengkap" class="col-sm-2 col-form-label">Nama Lengkap</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" name="nama-lengkap" placeholder="Nama Lengkap" required>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="email" class="col-sm-2 col-form-label">Email</label>
+                    <div class="col-sm-10">
+                      <input type="email" class="form-control" name="email" placeholder="Email" required>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
+                    <div class="col-sm-10">
+                      <input type="password" class="form-control" name="password" placeholder="Password" required>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="role" class="col-sm-2 col-form-label">Role Pengguna</label>
+                    <div class="col-sm-10">
+                      <select class="form-control select2" style="width: 100%;" name="role" required>
+                        <option value="" selected disabled>-- Pilih --</option>
+                        <?php foreach ($roles as $role) : ?>
+                          <option value="<?= $role['id_role'] ?>"><?= $role['nama_role'] ?></option>
+                        <?php endforeach ?>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="role" class="col-sm-2 col-form-label">Status Aktif</label>
+                    <div class="col-sm-10">
+                      <select class="form-control select2" style="width: 100%;" name="status" required>
+                        <option value="y" selected>Aktif</option>
+                        <option value="n">Tidak Aktif</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="submit" class="btn bg-olive"><i class="fas fa-save"></i> Tambah</button>
+                  <button class="btn btn-danger" data-dismiss="modal"><i class="fas fa-sign-out-alt"></i> Kembali</a>
+                </div>
+              </form>
+            </div>
+            <!-- /.modal-content -->
+          </div>
+          <!-- /.modal-dialog -->
+
+        </div>
+        <!-- /.col -->
       </div>
-      <!-- /.col -->
+      <!-- /.row -->
     </div>
-    <!-- /.row -->
-  </div>
-  <!-- /.container-fluid -->
+    <!-- /.container-fluid -->
 </section>
 <!-- /.content -->
 <?= $this->include('templates/script') ?>

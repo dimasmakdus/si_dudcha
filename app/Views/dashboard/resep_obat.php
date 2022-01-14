@@ -30,28 +30,16 @@
           </div>
           <!-- /.card-header -->
           <div class="card-body">
-            <?php
-            if (session()->getFlashData('success')) {
-            ?>
-              <div class="alert alert-primary alert-dismissible fade show" role="alert">
-                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                <i class="icon fas fa-check"></i>
-                <?= session()->getFlashData('success') ?>
-              </div>
-            <?php
-            }
-            ?>
-            <a href="<?= base_url('resep-add') ?>" class="btn bg-olive mb-3"><i class="fas fa-plus"></i> Tambah Data</a>
             <table id="example2" class="table table-bordered table-hover">
               <thead>
                 <tr>
-                  <th>Kode Resep</th>
-                  <th>Nama Obat</th>
-                  <th>Jenis Obat</th>
-                  <th>Dosis Aturan Obat</th>
-                  <th>Jumlah Obat</th>
-                  <th>No Rekamedis</th>
+                  <th>No</th>
                   <th>Tanggal</th>
+                  <th>Kode Resep</th>
+                  <th>Status Pasien</th>
+                  <th>Nama Pasien</th>
+                  <th>Umur</th>
+                  <th>Alamat</th>
                   <th>Action</th>
                 </tr>
               </thead>
@@ -59,34 +47,51 @@
                 <?php $i = 1 ?>
                 <?php foreach ($resep_obat as $resep) : ?>
                   <tr>
-                    <td><?= $resep['kode_resep'] ?></td>
-                    <td><?= $resep['nama_obat'] ?></td>
-                    <td><?= $resep['jenis_obat'] ?></td>
-                    <td><?= $resep['dosis_aturan_obat'] ?></td>
-                    <td><?= $resep['jumlah_obat'] ?></td>
-                    <td><?= $resep['no_rekamedis'] ?></td>
+                    <td><?= $i++ ?></td>
                     <td><?= $resep['tanggal'] ?></td>
+                    <td><?= $resep['kode_resep'] ?></td>
+                    <td><?= $resep['status_pasien'] ?></td>
+                    <td><?= $resep['nama_pasien'] ?></td>
+                    <td><?= $resep['umur'] ?></td>
+                    <td><?= $resep['alamat'] ?></td>
                     <td>
-                      <a target="_blank" href="<?= base_url('cetak-resep') ?>/<?= $resep['kode_resep'] ?>" class="btn btn-sm bg-info btn-print-resep"><i class="fas fa-print"></i> Cetak</a>
-                      <a class="btn btn-sm btn-danger btn-delete-resep" data-toggle="modal" data-target="#hapus-resep-<?= $resep['kode_resep'] ?>"><i class="fas fa-trash-alt"></i> Hapus</a>
+                      <a class="btn btn-sm btn-warning btn-view-resep" data-toggle="modal" data-target="#detail-<?= $resep['id_transaksi'] ?>"><i class="fas fa-eye"></i> Detail</a>
+                      <a target="_blank" href="<?= base_url('cetak-resep') ?>/<?= $resep['id_transaksi'] ?>" class="btn btn-sm bg-info btn-print-resep"><i class="fas fa-print"></i> Cetak</a>
                     </td>
                   </tr>
-                  <!-- Modal Hapus  -->
-                  <div class="modal fade" id="hapus-resep-<?= $resep['kode_resep'] ?>">
+
+                  <!-- Modal View  -->
+                  <div class="modal fade" id="detail-<?= $resep['id_transaksi'] ?>">
                     <div class="modal-dialog">
                       <div class="modal-content">
                         <div class="modal-header">
-                          <h4 class="modal-title">Konfirmasi Hapus</h4>
+                          <h4 class="modal-title">Detail Obat</h4>
                           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                           </button>
                         </div>
                         <div class="modal-body">
-                          <p>Apakah anda yakin ingin manghapus data ini?</p>
-                        </div>
-                        <div class="modal-footer">
-                          <a href="<?= base_url('resep-obat/delete') ?>/<?= $resep['kode_resep'] ?>" class="btn btn-danger">Hapus</a>
-                          <a class="btn btn-default" data-dismiss="modal">Tidak</a>
+                          <div class="container">
+                            <div class="row">
+                              <div class="col-sm-1" style="display:table-cell;border:1px solid #CCC;">No</div>
+                              <div class="col-sm-2" style="display:table-cell;border:1px solid #CCC;">Kode Obat</div>
+                              <div class="col-sm-5" style="display:table-cell;border:1px solid #CCC;">Nama Obat</div>
+                              <div class="col-sm-2" style="display:table-cell;border:1px solid #CCC;">Satuan</div>
+                              <div class="col-sm-2" style="display:table-cell;border:1px solid #CCC;">jumlah</div>
+                            </div>
+                            <?php $j = 1; ?>
+                            <?php foreach ($detailObat as $detail) : ?>
+                              <?php if ($detail['id_transaksi'] == $resep['id_transaksi']) : ?>
+                                <div class="row">
+                                  <div class="col-sm-1" style="display:table-cell;border:1px solid #CCC;"><?= $j++ ?></div>
+                                  <div class="col-sm-2" style="display:table-cell;border:1px solid #CCC;"><?= $detail['kode_obat'] ?></div>
+                                  <div class="col-sm-5" style="display:table-cell;border:1px solid #CCC;"><?= $detail['nama_obat'] ?></div>
+                                  <div class="col-sm-2" style="display:table-cell;border:1px solid #CCC;"><?= $detail['satuan'] ?></div>
+                                  <div class="col-sm-2" style="display:table-cell;border:1px solid #CCC;"><?= $detail['jumlah'] ?></div>
+                                </div>
+                              <?php endif ?>
+                            <?php endforeach ?>
+                          </div>
                         </div>
                       </div>
                       <!-- /.modal-content -->

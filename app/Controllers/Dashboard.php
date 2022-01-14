@@ -25,7 +25,7 @@ class Dashboard extends BaseController
         ];
         $pengguna = [
             'count' => $this->userModel->countAll(),
-            'title' => 'Data Pengguna'
+            'title' => 'Stok Obat Telah Habis !'
         ];
 
         return view('dashboard/index', [
@@ -63,12 +63,19 @@ class Dashboard extends BaseController
             array_push($dataUser, $data);
         }
 
+        $is_active = [
+            'y' => 'Aktif',
+            'n' => 'Tidak Aktif'
+        ];
+
         return view('user/user_list', [
             'title' => 'Kelola Pengguna',
             'card_title' => 'Kelola Data Pengguna',
             'navLink' => 'pengguna',
             'accessRight' => $this->accessRights,
-            'dataUser' => $dataUser
+            'roles' => $this->roleModel->findAll(),
+            'dataUser' => $dataUser,
+            'is_active' => $is_active,
         ]);
     }
 
@@ -233,8 +240,8 @@ class Dashboard extends BaseController
         ];
 
         return view('dashboard/aturan_obat', [
-            'title' => 'Data Pemakaian Obat',
-            'card_title' => 'Data Pemakaian',
+            'title' => 'Data Aturan Obat',
+            'card_title' => 'Data Aturan Pemakaian Obat',
             'navLink' => 'aturan-obat',
             'accessRight' => $this->accessRights,
             'aturan_usia' => $aturan_usia,
@@ -242,16 +249,27 @@ class Dashboard extends BaseController
         ]);
     }
 
+    public function pengambilan_obat()
+    {
+        return view('dashboard/pengambilan_obat', [
+            'title' => 'Pengambilan Obat',
+            'card_title' => 'Pengambilan Obat',
+            'navLink' => 'pengambilan-obat',
+            'accessRight' => $this->accessRights,
+            'resep_pasien' => $this->pasienModel->orderBy('no_resep', 'ASC')->findAll(),
+            'obat_obatan' => $this->obatModel->orderBy('kode_obat', 'ASC')->findAll()
+        ]);
+    }
+
     public function resep_obat()
     {
-        $resep_obat = $this->resepModel->orderBy('updated_at', 'DESC')->findAll();
-
         return view('dashboard/resep_obat', [
-            'title' => 'Resep Obat',
-            'card_title' => 'Kelola Data Resep Obat',
+            'title' => 'Salinan Resep',
+            'card_title' => 'Salinan Resep',
             'navLink' => 'resep-obat',
             'accessRight' => $this->accessRights,
-            'resep_obat' => $resep_obat
+            'resep_obat' => $this->resepModel->orderBy('tanggal', 'ASC')->findAll(),
+            'detailObat' => $this->resepDetailModel->orderBy('id_transaksi', 'ASC')->findAll()
         ]);
     }
 

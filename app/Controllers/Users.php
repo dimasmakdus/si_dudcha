@@ -4,35 +4,6 @@ namespace App\Controllers;
 
 class Users extends BaseController
 {
-    public function userForm()
-    {
-        $roles = $this->roleModel->findAll();
-        return view('user/user_form', [
-            'title' => 'Form Tambah Data Pengguna',
-            'navLink' => 'pengguna',
-            'roles' => $roles,
-            'accessRight' => $this->accessRights
-        ]);
-    }
-    public function userEdit($id)
-    {
-        $roles = $this->roleModel->findAll();
-        $getUserById = $this->userModel->find($id);
-        $is_active = [
-            'y' => 'Aktif',
-            'n' => 'Tidak Aktif'
-        ];
-
-        return view('user/user_edit', [
-            'title' => 'Form Ubah Data Pengguna',
-            'navLink' => 'pengguna',
-            'roles' => $roles,
-            'is_active' => $is_active,
-            'getUser' => $getUserById,
-            'accessRight' => $this->accessRights
-        ]);
-    }
-
     public function create()
     {
         $this->userModel->insert([

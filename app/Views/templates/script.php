@@ -49,6 +49,9 @@
 <script src="<?= base_url(); ?>/plugins/datatables-buttons/js/buttons.print.min.js"></script>
 <script src="<?= base_url(); ?>/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
 
+<!-- SweetAlert -->
+<script src="<?= base_url(); ?>/dist/js/sweetalert2.min.js"></script>
+
 <script>
     $('.show-obat').hide();
 
@@ -77,44 +80,6 @@
                 }
                 if (select_kode == '') {
                     $('.show-obat').hide();
-                }
-            });
-
-        <?php endif ?>
-    });
-</script>
-
-<script>
-    $('.show-pasien').hide();
-    $('#no-rekamedis').change(function() {
-        <?php if (isset($getPasien)) : ?>
-            var select_kode = $('select[name=no_rekamedis] option').filter(':selected').val();
-            $('.show-pasien').show();
-
-            <?php
-            $result = [];
-            foreach ($getPasien as $pasien) {
-                array_push($result, $pasien);
-            }
-            $js_rekamedis = json_encode($result);
-            ?>
-
-            let rekamedis = <?= $js_rekamedis ?>;
-            rekamedis.forEach(function(row) {
-                if (select_kode == row.no_rekamedis) {
-                    $('#no-rekamedis-db').val(row.no_rekamedis);
-                    $('#no-ktp').val(row.no_ktp);
-                    $('#no-bpjs').val(row.no_bpjs);
-                    $('#nama-pasien').val(row.nama_pasien);
-                    $('#status-pasien').val(row.status_pasien);
-                    $('#jenis-kelamin').val(row.jenis_kelamin);
-                    $('#tempat-lahir').val(row.tempat_lahir);
-                    $('#tgl-lahir').val(row.tanggal_lahir);
-                    $('#alamat').val(row.alamat);
-
-                }
-                if (select_kode == '') {
-                    $('.show-pasien').hide();
                 }
             });
 
@@ -176,6 +141,24 @@
             "searching": true,
             "ordering": false,
             "info": true,
+            "autoWidth": false,
+            "responsive": true,
+        });
+        $('#tbl_detail').DataTable({
+            "paging": true,
+            "lengthChange": true,
+            "searching": true,
+            "ordering": false,
+            "info": true,
+            "autoWidth": false,
+            "responsive": true,
+        });
+        $('#tambah-obat').DataTable({
+            "paging": false,
+            "lengthChange": true,
+            "searching": false,
+            "ordering": false,
+            "info": false,
             "autoWidth": false,
             "responsive": true,
         });

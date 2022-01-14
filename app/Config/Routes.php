@@ -51,6 +51,7 @@ $routes->get('/pengeluaran-harian', 'Dashboard::pengeluaran_harian');
 $routes->get('/laporan-barang-keluar', 'Dashboard::laporan_barang_keluar');
 $routes->get('/pesanan-obat', 'Dashboard::pesanan_obat');
 $routes->get('/data-dokter', 'Dashboard::data_dokter');
+$routes->get('/pengambilan-obat', 'Dashboard::pengambilan_obat');
 
 // Pengguna
 $routes->get('/user-form', 'Users::userForm');
