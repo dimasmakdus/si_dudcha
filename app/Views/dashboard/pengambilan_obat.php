@@ -110,7 +110,7 @@
     <section class="content">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-6">
+                <div class="col-sm-12">
                     <div class="card">
                         <!-- /.card-header -->
                         <div class="card-body">
@@ -127,7 +127,7 @@
                                 <tbody>
                                     <?php foreach ($obat_obatan as $obat) : ?>
                                         <tr class="obat-item">
-                                            <td class="obat-kode"><?= "GFK" . $obat['kode_obat'] ?></td>
+                                            <td class="obat-kode"><?= $obat['kode_obat'] ?></td>
                                             <td class="obat-nama"><?= $obat['nama_obat'] ?></td>
                                             <td class="obat-satuan"><?= $obat['satuan'] ?></td>
                                             <td class="obat-stok"><?= $obat['stok'] ?></td>
@@ -145,7 +145,17 @@
                     <!-- /.card -->
                 </div>
                 <!-- /.col -->
-                <div class="col-6">
+
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container-fluid -->
+    </section>
+
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-12">
                     <div class="card">
                         <div class="card-header">
                             <h3 class="card-title">Obat</h3>
@@ -158,6 +168,7 @@
                                         <th>Nama Obat</th>
                                         <th>Satuan</th>
                                         <th>Qty</th>
+                                        <th>Dosis Aturan</th>
                                         <th>#</th>
                                     </tr>
                                 </thead>
@@ -179,9 +190,7 @@
                 </div>
                 <!-- /.col -->
             </div>
-            <!-- /.row -->
         </div>
-        <!-- /.container-fluid -->
     </section>
 </form>
 <!-- /.content -->
@@ -277,9 +286,16 @@
                 data: form,
                 success: function(result) {
                     Swal.fire(
-                        'Berhail!',
+                        'Berhasil!',
                         'Data berhasil di simpan!',
                         'success'
+                    )
+                },
+                error: function(error) {
+                    Swal.fire(
+                        'Gagal!',
+                        'Coba beberapa saat lagi!',
+                        'error'
                     )
                 }
             });
@@ -359,13 +375,21 @@
             }
         }
         var cartRowContents =
-            `<input type="hidden" name="kode_obat[]" class="kode_obat" value="${kode.replace(/\D/g,'')}">
+            `<input type="hidden" name="kode_obat[]" class="kode_obat" value="${kode}">
             <input type="hidden" name="nama_obat[]" class="nama_obat" value="${obat}">
             <input type="hidden" name="satuan[]" class="satuan" value="${satuan}">
             <td class="cart-nama-obat">${obat}</td>
                 <td>${satuan}</td>
                 <td>
                     <input type="number" name="jumlah[]" class="form-control cart-qty-input" style="width:80px" value="1">
+                </td>
+                <td>
+                    <select class="form-control dosisObat" name="dosis_aturan[]" style="width: 100%;" required>
+                        <option value="" selected="selected">-- Pilih Dosis --</option>
+                        <?php foreach ($aturan_obat as $aturan) : ?>
+                            <option value="<?= $aturan['dosis_aturan_obat'] ?>"><?= $aturan['dosis_aturan_obat'] ?> - <?= $aturan['khusus'] ?></option>
+                        <?php endforeach ?>
+                    </select>
                 </td>
                 <td class="text-center">
                     <button type="button" class="btn btn-sm btn-danger remove-cart">&#x1D5EB;</button>

@@ -54,62 +54,38 @@
                         <?php
                         }
                         ?>
-                        <a href="<?= base_url('pesanan-obat-add') ?>" class="btn bg-olive mb-3"><i class="fas fa-plus"></i> Tambah Data</a>
-                        <a target="_blank" href="<?= base_url('cetak-lpo') ?>" class="btn bg-primary mb-3"><i class="fas fa-print"></i> Cetak Laporan</a>
+                        <a href="<?= base_url('pesanan-obat-add') ?>" class="btn bg-olive mb-3"><i class="fas fa-plus"></i> Tambah</a>
                         <table id="example2" class="table table-bordered table-hover">
                             <thead>
                                 <tr>
                                     <th>No</th>
-                                    <th>Kode Obat</th>
-                                    <th>Nama Obat</th>
-                                    <th>Jenis Obat</th>
-                                    <th>Jumlah</th>
-                                    <th>Nama Supplier</th>
-                                    <th>Email Supplier</th>
-                                    <th>Status</th>
+                                    <th>Nomor Pemesanan</th>
+                                    <th>Tanggal</th>
+                                    <th>Supplier Dituju</th>
+                                    <th>Status Pemesanan</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php $i = 1 ?>
-                                <?php foreach ($pesanan_obat as $pesanan) : ?>
+                                <?php foreach ($permintaan_obat as $permintaan) : ?>
                                     <tr>
                                         <td><?= $i++ ?></td>
-                                        <td><?= $pesanan['kode_obat'] ?></td>
-                                        <td><?= $pesanan['nama_obat'] ?></td>
-                                        <td><?= $pesanan['jenis_obat'] ?></td>
-                                        <td><?= $pesanan['jumlah'] ?></td>
-                                        <td><?= $pesanan['nama_supplier'] ?></td>
-                                        <td><?= $pesanan['email_supplier'] ?></td>
-                                        <td><span class="badge <?= $pesanan['status'] == 'Terkirim' ? 'bg-primary' : 'bg-danger' ?>"><?= $pesanan['status'] ?></span></td>
+                                        <td><?= $permintaan['kode_pesanan'] ?></td>
+                                        <td><?= $permintaan['tanggal'] ?></td>
                                         <td>
-                                            <a href="<?= base_url('kirim-ulang') ?>/<?= $pesanan['id_pesanan'] ?>" class="btn btn-sm bg-info"><i class="fas fa-envelope"></i> Kirim</a>
-                                            <a class="btn btn-sm btn-danger btn-delete-pesanan" data-toggle="modal" data-target="#hapus-pesanan-<?= $pesanan['id_pesanan'] ?>"><i class="fas fa-trash-alt"></i> Hapus</a>
+                                            <?php foreach ($supplier as $supp) {
+                                                if ($supp['kode_supplier'] == $permintaan['kode_supplier']) {
+                                                    echo $supp['nama_supplier'];
+                                                }
+                                            }
+                                            ?>
+                                        </td>
+                                        <td><?= $permintaan['status'] ?></td>
+                                        <td>
+                                            <a class="btn btn-sm btn-danger btn-delete-permintaan" data-toggle="modal" data-target="#hapus-<?= $permintaan['id'] ?>"><i class="fas fa-trash-alt"></i> Hapus</a>
                                         </td>
                                     </tr>
-                                    <!-- Modal Hapus  -->
-                                    <div class="modal fade" id="hapus-pesanan-<?= $pesanan['id_pesanan'] ?>">
-                                        <div class="modal-dialog">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h4 class="modal-title">Konfirmasi Hapus</h4>
-                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                        <span aria-hidden="true">&times;</span>
-                                                    </button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <p>Apakah anda yakin ingin manghapus data ini?</p>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <a href="<?= base_url('pesanan-obat/delete') ?>/<?= $pesanan['id_pesanan'] ?>" class="btn btn-danger">Hapus</a>
-                                                    <a class="btn btn-default" data-dismiss="modal">Tidak</a>
-                                                </div>
-                                            </div>
-                                            <!-- /.modal-content -->
-                                        </div>
-                                        <!-- /.modal-dialog -->
-                                    </div>
-                                    <!-- /.modal -->
                                 <?php endforeach ?>
                             </tbody>
                         </table>

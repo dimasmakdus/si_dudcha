@@ -59,7 +59,7 @@
                                 <?php foreach ($obat_obatan as $obat) : ?>
                                     <tr>
                                         <td><?= $i++ ?></td>
-                                        <td><?= "GFK" . $obat['kode_obat'] ?></td>
+                                        <td><?= $obat['kode_obat'] ?></td>
                                         <td><?= $obat['nama_obat'] ?></td>
                                         <td><?= $obat['stok'] ?></td>
                                         <td><?= $obat['satuan'] ?></td>
@@ -110,7 +110,7 @@
                                                             <label for="kode-obat" class="col-sm-2 col-form-label">Kode Obat</label>
                                                             <div class="col-sm-10">
                                                                 <input type="text" class="form-control" value="<?= "GFK" . $obat['kode_obat'] ?>" required disabled>
-                                                                <input type="hidden" name="kode_obat" value="<?= $obat['kode_obat'] ?>">
+                                                                <input type="hidden" name="kode_obat" value="<?= "GFK" . $obat['kode_obat'] ?>">
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
@@ -128,12 +128,6 @@
                                                                         <option value="<?= $value ?>" <?= $value == $obat['satuan'] ? 'selected' : '' ?>><?= $value ?></option>
                                                                     <?php endforeach ?>
                                                                 </select>
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group row">
-                                                            <label for="stok" class="col-sm-2 col-form-label">Stok</label>
-                                                            <div class="col-sm-2">
-                                                                <input type="number" class="form-control" name="stok" id="stok" value="<?= $obat['stok'] ?>" placeholder="Jenis Obat" required>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -172,7 +166,7 @@
                                         <label for="kode-obat" class="col-sm-2 col-form-label">Kode Obat</label>
                                         <div class="col-sm-10">
                                             <input type="text" class="form-control" value="<?= "GFK" . $kode_obat_baru ?>" required disabled>
-                                            <input type="hidden" class="form-control" name="kode_obat" value="<?= $kode_obat_baru ?>">
+                                            <input type="hidden" class="form-control" name="kode_obat" value="<?= "GFK" . $kode_obat_baru ?>">
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -190,12 +184,6 @@
                                                     <option value="<?= $value ?>"><?= $value ?></option>
                                                 <?php endforeach ?>
                                             </select>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="stok" class="col-sm-2 col-form-label">Jumlah Stok</label>
-                                        <div class="col-sm-2">
-                                            <input type="number" class="form-control" name="stok" id="stok" placeholder="0" required>
                                         </div>
                                     </div>
                                 </div>

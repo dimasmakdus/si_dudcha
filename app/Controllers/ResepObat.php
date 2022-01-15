@@ -44,6 +44,7 @@ class ResepObat extends BaseController
         $nama_obat = $this->request->getVar('nama_obat');
         $satuan = $this->request->getVar('satuan');
         $jumlah = $this->request->getVar('jumlah');
+        $dosis_aturan_obat = $this->request->getVar('dosis_aturan');
         $tgl = date("Y-m-d H:i:s");
 
         $tmb_trans = $this->resepModel->orderBy('id_transaksi', 'ASC')->findAll();
@@ -63,7 +64,8 @@ class ResepObat extends BaseController
             'nama_pasien' => $resep_pasien['nama_pasien'],
             'umur' => $resep_pasien['umur'],
             'alamat' => $resep_pasien['alamat'],
-            'tanggal' => $tgl
+            'tanggal' => $tgl,
+            'nama_dokter' => $resep_pasien['nama_dokter']
         ]);
 
         for ($i = 0; $i < count($kode_obat); $i++) {
@@ -72,7 +74,8 @@ class ResepObat extends BaseController
                 'kode_obat' => $kode_obat[$i],
                 'nama_obat' => $nama_obat[$i],
                 'jumlah' => $jumlah[$i],
-                'satuan' => $satuan[$i]
+                'satuan' => $satuan[$i],
+                'dosis_aturan_obat' => $dosis_aturan_obat[$i]
             ]);
 
             $obat = $this->obatModel->find($kode_obat[$i]);

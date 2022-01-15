@@ -6,26 +6,20 @@ use CodeIgniter\Model;
 
 class PermintaanModel extends Model
 {
-    protected $table      = 'tbl_permintaan_obat';
-    protected $useTimestamps = true;
-    protected $primaryKey = 'no_trans';
+    protected $table      = 'tbl_permintaan';
+    // protected $useTimestamps = true;
+    protected $primaryKey = 'id';
 
     protected $returnType     = 'array';
 
     protected $allowedFields = [
-        'id_permintaan',
-        'no_trans',
-        'supplier',
-        'kode_obat',
-        'nama_obat',
-        'jenis_obat',
-        'harga_beli',
-        'jumlah',
-        'satuan',
+        'id',
+        'kode_pesanan',
+        'tanggal',
+        'kode_supplier',
+        'status',
+        'proses',
         'keterangan',
-        'total',
-        'tgl_transaksi',
-        'created_at',
-        'updated_at'
+        'total'
     ];
 }

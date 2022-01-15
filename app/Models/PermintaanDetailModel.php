@@ -4,19 +4,16 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class ResepDetailModel extends Model
+class PermintaanDetailModel extends Model
 {
-    protected $table      = 'tbl_resep_detail';
+    protected $table      = 'tbl_permintaan_detail';
     protected $primaryKey = 'id';
 
     protected $returnType     = 'array';
 
     protected $allowedFields = [
-        'id_transaksi',
+        'id_permintaan',
         'kode_obat',
-        'nama_obat',
-        'jumlah',
-        'satuan',
-        'dosis_aturan_obat'
+        'stok'
     ];
 }

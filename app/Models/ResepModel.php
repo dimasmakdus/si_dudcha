@@ -18,6 +18,7 @@ class ResepModel extends Model
         'nama_pasien',
         'umur',
         'alamat',
-        'tanggal'
+        'tanggal',
+        'nama_dokter'
     ];
 }

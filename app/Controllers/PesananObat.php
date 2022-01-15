@@ -10,11 +10,29 @@ class PesananObat extends BaseController
 {
     public function pesananAdd()
     {
+        $permintaan_obat = $this->permintaanModel->orderBy('kode_pesanan', 'ASC')->findAll();
+        if ($permintaan_obat != []) {
+            foreach ($permintaan_obat as $pesanan) {
+                $lastId = $pesanan['id'];
+            }
+            $no_pemesanan = "P" . date("Y") . date("m") . sprintf("%05d", $lastId + 1);
+        } else {
+            $no_pemesanan = "P" . date("Y") . date("m") . sprintf("%05d", 1);
+        }
+
+        foreach ($this->obatModel->orderBy('stok', 'ASC')->findAll() as $obat) {
+            if ($obat['stok'] <= 0) {
+                $obat_kosong[] = $obat;
+            }
+        }
+
         return view('pesanan/pesanan_add', [
-            'title' => 'Form Tambah Pesanan Obat',
-            'navLink' => 'pesanan-obat',
+            'title' => 'Tambah Pengajuan Obat',
+            'navLink' => 'pengajuan-obat',
             'accessRight' => $this->accessRights,
-            'data_supplier' => $this->supplierModel->orderBy('updated_at', 'ASC')->findAll()
+            'data_supplier' => $this->supplierModel->orderBy('updated_at', 'ASC')->findAll(),
+            'no_pemesanan' => $no_pemesanan,
+            'obat_kosong' => $obat_kosong
         ]);
     }
 
@@ -33,7 +51,7 @@ class PesananObat extends BaseController
         ]);
     }
 
-    public function create()
+    public function email()
     {
         $post = $this->request->getVar();
         $getSupplier = $this->supplierModel->find($post['kode-supplier']);
@@ -73,6 +91,41 @@ class PesananObat extends BaseController
             'status' => $msg
         ]);
         return redirect()->to('pesanan-obat')->with($status, 'Pesanan Obat ' . $msg . ' ke ' . $getSupplier['email']);
+    }
+
+    public function create()
+    {
+        $no_pesanan = $this->request->getVar('no_pesanan');
+        $kode_supplier = $this->request->getVar('kode-supplier');
+        $kode_obat = $this->request->getVar('kode_obat');
+        $today = date("Y-m-d H:i:s");
+
+        $permintaan = $this->permintaanModel->findAll();
+        if ($permintaan != []) {
+            foreach ($permintaan as $row) {
+                if ($row['kode_pesanan'] == $no_pesanan) {
+                    $id_permintaan = $row['id'] + 1;
+                }
+            }
+        } else {
+            $id_permintaan = 1;
+        }
+
+        $this->permintaanModel->insert([
+            'id' => $id_permintaan,
+            'kode_pesanan' => $no_pesanan,
+            'tanggal' => $today,
+            'kode_supplier' => $kode_supplier,
+            'status' => 'waiting',
+            'proses' => 0,
+        ]);
+
+        for ($i = 0; $i < count($kode_obat); $i++) {
+            $this->resepDetailModel->insert([
+                'id_permintaan' => $id_permintaan,
+                'kode_obat' => $kode_obat[$i]
+            ]);
+        }
     }
 
     public function remove($id)

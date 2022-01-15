@@ -46,10 +46,9 @@ $routes->get('/obat-obatan', 'Dashboard::obat_obatan');
 $routes->get('/data-dokter', 'Dashboard::data_dokter');
 $routes->get('/stok-obat', 'Dashboard::stok_obat');
 $routes->get('/resep-obat', 'Dashboard::resep_obat');
-$routes->get('/permintaan-obat', 'Dashboard::permintaan_obat');
 $routes->get('/pengeluaran-harian', 'Dashboard::pengeluaran_harian');
 $routes->get('/laporan-barang-keluar', 'Dashboard::laporan_barang_keluar');
-$routes->get('/pesanan-obat', 'Dashboard::pesanan_obat');
+$routes->get('/pengajuan-obat', 'Dashboard::pesanan_obat');
 $routes->get('/data-dokter', 'Dashboard::data_dokter');
 $routes->get('/pengambilan-obat', 'Dashboard::pengambilan_obat');
 

@@ -40,6 +40,7 @@
                   <th>Nama Pasien</th>
                   <th>Umur</th>
                   <th>Alamat</th>
+                  <th>Dokter</th>
                   <th>Action</th>
                 </tr>
               </thead>
@@ -54,6 +55,7 @@
                     <td><?= $resep['nama_pasien'] ?></td>
                     <td><?= $resep['umur'] ?></td>
                     <td><?= $resep['alamat'] ?></td>
+                    <td><?= $resep['nama_dokter'] ?></td>
                     <td>
                       <a class="btn btn-sm btn-warning btn-view-resep" data-toggle="modal" data-target="#detail-<?= $resep['id_transaksi'] ?>"><i class="fas fa-eye"></i> Detail</a>
                       <a target="_blank" href="<?= base_url('cetak-resep') ?>/<?= $resep['id_transaksi'] ?>" class="btn btn-sm bg-info btn-print-resep"><i class="fas fa-print"></i> Cetak</a>

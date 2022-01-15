@@ -185,7 +185,7 @@ class Dashboard extends BaseController
             $kode_obat = $obat['kode_obat'];
         }
 
-        $noUrut = (int) substr($kode_obat, 0, 6);
+        $noUrut = (int) substr(preg_replace("/[^0-9]/", "", $kode_obat), 0, 6);
         $noUrut++;
         $kodeBaru = sprintf("%04s", $noUrut);
 
@@ -203,7 +203,7 @@ class Dashboard extends BaseController
             'card_title' => 'Kelola Data Obat-Obatan',
             'navLink' => 'obat-obatan',
             'accessRight' => $this->accessRights,
-            'obat_obatan' => $this->obatModel->orderBy('updated_at', 'DESC')->findAll(),
+            'obat_obatan' => $this->obatModel->orderBy('kode_obat', 'ASC')->findAll(),
             'satuan' => $satuan_obat,
             'kode_obat_baru' => $kodeBaru
         ]);
@@ -257,7 +257,8 @@ class Dashboard extends BaseController
             'navLink' => 'pengambilan-obat',
             'accessRight' => $this->accessRights,
             'resep_pasien' => $this->pasienModel->orderBy('no_resep', 'ASC')->findAll(),
-            'obat_obatan' => $this->obatModel->orderBy('kode_obat', 'ASC')->findAll()
+            'obat_obatan' => $this->obatModel->orderBy('kode_obat', 'ASC')->findAll(),
+            'aturan_obat' => $this->aturanModel->orderBy('dosis_aturan_obat', 'DESC')->findAll()
         ]);
     }
 
@@ -270,19 +271,6 @@ class Dashboard extends BaseController
             'accessRight' => $this->accessRights,
             'resep_obat' => $this->resepModel->orderBy('tanggal', 'ASC')->findAll(),
             'detailObat' => $this->resepDetailModel->orderBy('id_transaksi', 'ASC')->findAll()
-        ]);
-    }
-
-    public function permintaan_obat()
-    {
-        $lplpo = $this->lplpoModel->orderBy('updated_at', 'DESC')->findAll();
-
-        return view('dashboard/permintaan_obat', [
-            'title' => 'Laporan Pemakaian & Lembar Permintaan Obat',
-            'card_title' => 'Laporan Pemakaian & Lembar Permintaan Obat',
-            'navLink' => 'permintaan-obat',
-            'accessRight' => $this->accessRights,
-            'permintaan_obat' => $lplpo
         ]);
     }
 
@@ -314,14 +302,13 @@ class Dashboard extends BaseController
 
     public function pesanan_obat()
     {
-        $pesanan_obat = $this->pesananModel->orderBy('updated_at', 'DESC')->findAll();
-
         return view('dashboard/pesanan_obat', [
-            'title' => 'Data Pesanan Obat',
-            'card_title' => 'Kelola Pesanan Obat',
-            'navLink' => 'pesanan-obat',
+            'title' => 'Pengajuan Obat',
+            'card_title' => 'Pengajuan Obat',
+            'navLink' => 'pengajuan-obat',
             'accessRight' => $this->accessRights,
-            'pesanan_obat' => $pesanan_obat
+            'permintaan_obat' => $this->permintaanModel->orderBy('tanggal', 'DESC')->findAll(),
+            'supplier' => $this->supplierModel->orderBy('nama_supplier', 'ASC')->findAll()
         ]);
     }
 }
