@@ -166,13 +166,13 @@
 
               <li class="nav-header">RIWAYAT</li>
               <li class="nav-item">
-                <a href="<?= base_url('riwayat-masuk') ?>" class="nav-link <?= $navLink == 'riwayat-masuk' ? 'bg-orange active' : '' ?>">
+                <a href="<?= base_url('barang-masuk') ?>" class="nav-link <?= $navLink == 'barang-masuk' ? 'bg-orange active' : '' ?>">
                   <i class="fas fa-clipboard-list nav-icon" style="color:white"></i>
                   <p style="color:white">Riwayat Barang Masuk</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?= base_url('riwayat-keluar') ?>" class="nav-link <?= $navLink == 'riwayat-kelar' ? 'bg-orange active' : '' ?>">
+                <a href="<?= base_url('resep-obat') ?>" class="nav-link <?= $navLink == 'resep-obat' ? 'bg-orange active' : '' ?>">
                   <i class="fas fa-clipboard-list nav-icon" style="color:white"></i>
                   <p style="color:white">Riwayat Barang Keluar</p>
                 </a>

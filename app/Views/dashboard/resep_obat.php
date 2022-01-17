@@ -1,17 +1,24 @@
 <?= $this->extend('templates/adminlte_template') ?>
 
 <?= $this->section('content') ?>
+<?php
+if (session()->get('name') == "Administrator") {
+  $judul = $title;
+} else {
+  $judul = "Riwayat Barang Keluar";
+}
+?>
 <!-- Content Header (Page header) -->
 <div class="content-header">
   <div class="container-fluid">
     <div class="row mb-2">
       <div class="col-sm-6">
-        <h1 class="m-0"><?= $title ?></h1>
+        <h1 class="m-0"><?= $judul ?></h1>
       </div><!-- /.col -->
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
           <li class="breadcrumb-item"><a href="#">Beranda</a></li>
-          <li class="breadcrumb-item active"><?= $title ?></li>
+          <li class="breadcrumb-item active"><?= $judul ?></li>
         </ol>
       </div><!-- /.col -->
     </div><!-- /.row -->
@@ -26,7 +33,7 @@
       <div class="col-12">
         <div class="card">
           <div class="card-header">
-            <h3 class="card-title"><?= $card_title ?></h3>
+            <h3 class="card-title"><?= $judul ?></h3>
           </div>
           <!-- /.card-header -->
           <div class="card-body">
