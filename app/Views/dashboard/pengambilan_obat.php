@@ -36,7 +36,7 @@
                                 <label for="no-resep" class="col-sm-2 col-form-label">Data Resep Pasien</label>
                                 <div class="col-sm-10">
                                     <select class="form-control select2" name="no_resep" id="no-resep" style="width: 100%;">
-                                        <option value="" selected="selected">-- Pilih --</option>
+                                        <option value="" selected disabled>-- Pilih --</option>
                                         <?php foreach ($resep_pasien as $pasien) : ?>
                                             <option value="<?= $pasien['no_resep'] ?>"><?= "RP" . $pasien['no_resep'] ?> - <?= $pasien['nama_pasien'] ?></option>
                                         <?php endforeach ?>
@@ -276,7 +276,7 @@
         var kode_pasien = $('select[name=no_resep] option').filter(':selected').val();
         var qtyTotal = document.getElementsByClassName('cart-total-qty ')[0].innerText;
 
-        if (qtyTotal > 0 && kode_pasien != '') {
+        if (kode_pasien != '') {
             var url = "<?= site_url('resep-obat/create'); ?>";
             var form = $('#formResep').serialize();
             console.log(form);
@@ -284,29 +284,40 @@
                 type: "POST",
                 url: url,
                 data: form,
-                success: function(result) {
-                    Swal.fire(
-                        'Berhasil!',
-                        'Data berhasil di simpan!',
-                        'success'
-                    )
+                success: function(res) {
+                    switch (res) {
+                        case 'success':
+                            Swal.fire(
+                                'Berhasil!',
+                                'Data berhasil di simpan!',
+                                'success'
+                            )
+                            break;
+                        case 'error':
+                            Swal.fire(
+                                'Tidak Bisa!',
+                                'Pilih obat terlebih dahulu!',
+                                'error'
+                            )
+                            break;
+                        case 'empty_dosis':
+                            Swal.fire(
+                                'Tidak Bisa!',
+                                'Pilih dosis terlebih dahulu!',
+                                'error'
+                            )
+                            break;
+                    }
                 },
                 error: function(error) {
                     Swal.fire(
                         'Gagal!',
-                        'Coba beberapa saat lagi!',
+                        'Data gagal di simpan!',
                         'error'
                     )
                 }
             });
         } else {
-            if (qtyTotal <= 0) {
-                Swal.fire(
-                    'Tidak Bisa!',
-                    'Pilih obat terlebih dahulu!',
-                    'error'
-                )
-            }
             if (kode_pasien == '') {
                 Swal.fire(
                     'Tidak Bisa!',
@@ -385,7 +396,7 @@
                 </td>
                 <td>
                     <select class="form-control dosisObat" name="dosis_aturan[]" style="width: 100%;" required>
-                        <option value="" selected="selected">-- Pilih Dosis --</option>
+                        <option value="" selected="selected" disabled>-- Pilih Dosis --</option>
                         <?php foreach ($aturan_obat as $aturan) : ?>
                             <option value="<?= $aturan['dosis_aturan_obat'] ?>"><?= $aturan['dosis_aturan_obat'] ?> - <?= $aturan['khusus'] ?></option>
                         <?php endforeach ?>

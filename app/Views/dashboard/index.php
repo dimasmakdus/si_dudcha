@@ -23,49 +23,27 @@
 <section class="content">
   <div class="container-fluid">
     <!-- Small boxes (Stat box) -->
+    <?php if (session()->getFlashData('success')) : ?>
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <i class="icon fas fa-door-open"></i>
+        <?= session()->getFlashData('success') ?>
+        </button>
+      </div>
+    <?php endif ?>
     <div class="row">
       <div class="col-lg-3 col-6">
         <!-- small box -->
         <div class="small-box bg-info">
           <div class="inner">
-            <h3><?= $obat['count'] ?></h3>
+            <h3><?= $resepToday['count'] ?></h3>
 
-            <p><?= $obat['title'] ?></p>
+            <p><?= $resepToday['title'] ?></p>
           </div>
           <div class="icon">
-            <i class="fas fa-capsules"></i>
+            <i class="fas fa-dolly-flatbed"></i>
           </div>
-          <a href="<?= base_url('obat-obatan') ?>" class="small-box-footer">Buka <i class="fas fa-arrow-circle-right"></i></a>
-        </div>
-      </div>
-      <!-- ./col -->
-      <div class="col-lg-3 col-6">
-        <!-- small box -->
-        <div class="small-box bg-success">
-          <div class="inner">
-            <h3><?= $pasien['count'] ?></h3>
-
-            <p><?= $pasien['title'] ?></p>
-          </div>
-          <div class="icon">
-            <i class="fas fa-user-nurse"></i>
-          </div>
-          <a href="<?= base_url('pasien') ?>" class="small-box-footer">Buka <i class="fas fa-arrow-circle-right"></i></a>
-        </div>
-      </div>
-      <!-- ./col -->
-      <div class="col-lg-3 col-6">
-        <!-- small box -->
-        <div class="small-box bg-warning">
-          <div class="inner">
-            <h3><?= $supplier['count'] ?></h3>
-
-            <p><?= $supplier['title'] ?></p>
-          </div>
-          <div class="icon">
-            <i class="fas fa-box-open"></i>
-          </div>
-          <a href="<?= base_url('supplier') ?>" class="small-box-footer">Buka <i class="fas fa-arrow-circle-right"></i></a>
+          <a href="<?= base_url('resep-obat') ?>" class="small-box-footer">Buka <i class="fas fa-arrow-circle-right"></i></a>
         </div>
       </div>
       <!-- ./col -->
@@ -73,14 +51,14 @@
         <!-- small box -->
         <div class="small-box bg-danger">
           <div class="inner">
-            <h3><?= $pengguna['count'] ?></h3>
+            <h3><?= $obatHabis['count'] ?></h3>
 
-            <p><?= $pengguna['title'] ?></p>
+            <p><?= $obatHabis['title'] ?></p>
           </div>
           <div class="icon">
             <i class="fas fa-exclamation-triangle"></i>
           </div>
-          <a href="<?= base_url('pengguna') ?>" class="small-box-footer">Buka <i class="fas fa-arrow-circle-right"></i></a>
+          <a href="<?= base_url('obat-obatan') ?>" class="small-box-footer">Buka <i class="fas fa-arrow-circle-right"></i></a>
         </div>
       </div>
       <!-- ./col -->

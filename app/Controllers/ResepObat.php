@@ -56,34 +56,54 @@ class ResepObat extends BaseController
             $nomor_db = 1;
         }
 
-        $resep_pasien = $this->pasienModel->find($no_resep);
-        $this->resepModel->insert([
-            'id_transaksi' => $nomor_db,
-            'kode_resep' => $resep_pasien['no_resep'],
-            'status_pasien' => $resep_pasien['status_pasien'],
-            'nama_pasien' => $resep_pasien['nama_pasien'],
-            'umur' => $resep_pasien['umur'],
-            'alamat' => $resep_pasien['alamat'],
-            'tanggal' => $tgl,
-            'nama_dokter' => $resep_pasien['nama_dokter']
-        ]);
+        if (isset($dosis_aturan_obat)) {
+            foreach ($dosis_aturan_obat as $key => $value) {
+                $cek = $key;
+            }
+        } else {
+            $cek = [];
+        }
+        $cekDosis = (int)$cek + 1;
 
-        for ($i = 0; $i < count($kode_obat); $i++) {
-            $this->resepDetailModel->insert([
-                'id_transaksi' => $nomor_db,
-                'kode_obat' => $kode_obat[$i],
-                'nama_obat' => $nama_obat[$i],
-                'jumlah' => $jumlah[$i],
-                'satuan' => $satuan[$i],
-                'dosis_aturan_obat' => $dosis_aturan_obat[$i]
-            ]);
+        if ($kode_obat != null) {
+            if ($cekDosis > 1 & $dosis_aturan_obat != null) {
+                $resep_pasien = $this->pasienModel->find($no_resep);
+                $this->resepModel->insert([
+                    'id_transaksi' => $nomor_db,
+                    'kode_resep' => $resep_pasien['no_resep'],
+                    'status_pasien' => $resep_pasien['status_pasien'],
+                    'nama_pasien' => $resep_pasien['nama_pasien'],
+                    'umur' => $resep_pasien['umur'],
+                    'alamat' => $resep_pasien['alamat'],
+                    'tanggal' => $tgl,
+                    'nama_dokter' => $resep_pasien['nama_dokter']
+                ]);
 
-            $obat = $this->obatModel->find($kode_obat[$i]);
-            $this->obatModel->update($kode_obat[$i], [
-                'nama_obat' => $nama_obat[$i],
-                'stok' => $obat['stok'] - $jumlah[$i],
-                'satuan' => $satuan[$i]
-            ]);
+                for ($i = 0; $i < count($kode_obat); $i++) {
+                    $this->resepDetailModel->insert([
+                        'id_transaksi' => $nomor_db,
+                        'kode_obat' => $kode_obat[$i],
+                        'nama_obat' => $nama_obat[$i],
+                        'jumlah' => $jumlah[$i],
+                        'satuan' => $satuan[$i],
+                        'dosis_aturan_obat' => $dosis_aturan_obat[$i]
+                    ]);
+
+                    $obat = $this->obatModel->find($kode_obat[$i]);
+                    $this->obatModel->update($kode_obat[$i], [
+                        'nama_obat' => $nama_obat[$i],
+                        'stok' => $obat['stok'] - $jumlah[$i],
+                        'satuan' => $satuan[$i]
+                    ]);
+                }
+                echo "success";
+            } else {
+                echo "empty_dosis";
+                die;
+            }
+        } else {
+            echo "error";
+            die;
         }
     }
 

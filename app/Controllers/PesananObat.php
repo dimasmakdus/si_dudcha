@@ -8,6 +8,31 @@ use PHPMailer\PHPMailer\Exception;
 
 class PesananObat extends BaseController
 {
+    private $status = [
+        'waiting' => 'Menunggu Persetujuan',
+        'approved' => 'Disetujui',
+        'cancel' => 'Ditolak'
+    ];
+
+    function kirimPesanan()
+    {
+        return view('dashboard/kirim_pesanan', [
+            'title' => 'Kirim Email',
+            'navLink' => 'kirim-pesanan',
+            'data_supplier' => $this->supplierModel->orderBy('email', 'ASC')->findAll(),
+        ]);
+    }
+    function cekPesanan()
+    {
+        return view('dashboard/cek_pesanan', [
+            'title' => 'Cek Pengajuan Pemesanan',
+            'card_title' => 'Cek Pengajuan Pemesanan',
+            'navLink' => 'cek-pesanan',
+            'permintaan_obat' => $this->permintaanModel->orderBy('tanggal', 'DESC')->findAll(),
+            'data_supplier' => $this->supplierModel->orderBy('nama_supplier', 'ASC')->findAll()
+        ]);
+    }
+
     public function pesananAdd()
     {
         $permintaan_obat = $this->permintaanModel->orderBy('kode_pesanan', 'ASC')->findAll();
@@ -21,7 +46,7 @@ class PesananObat extends BaseController
         }
 
         foreach ($this->obatModel->orderBy('stok', 'ASC')->findAll() as $obat) {
-            if ($obat['stok'] <= 0) {
+            if ($obat['stok'] < 50) {
                 $obat_kosong[] = $obat;
             }
         }
@@ -29,68 +54,48 @@ class PesananObat extends BaseController
         return view('pesanan/pesanan_add', [
             'title' => 'Tambah Pengajuan Obat',
             'navLink' => 'pengajuan-obat',
-            'accessRight' => $this->accessRights,
             'data_supplier' => $this->supplierModel->orderBy('updated_at', 'ASC')->findAll(),
             'no_pemesanan' => $no_pemesanan,
             'obat_kosong' => $obat_kosong
         ]);
     }
 
-    public function cetakLPO()
+    function pesananEdit($id)
     {
-        $getPesanan = $this->pesananModel->orderBy('updated_at', 'DESC')->findAll();
+        $proses = $this->permintaanModel->find($id);
+        $detail_pesanan = $this->permintaanDetailModel->findAll();
+        foreach ($detail_pesanan as $detail) {
+            if ($detail['id_permintaan'] == $proses['id']) {
+                $obat = $this->obatModel->find($detail['kode_obat']);
+                $detail_obat[] = [
+                    'id' => $detail['id'],
+                    'kode_obat' => $obat['kode_obat'],
+                    'nama_obat' => $obat['nama_obat'],
+                    'satuan' => $obat['satuan'],
+                    'stok' => $detail['stok']
+                ];
+            }
+        }
 
-        $bulanIni =  $this->tgl_indo(date('Y-m'));
-        $bulanDepan =  $this->tgl_indo(date('Y-m', strtotime(date('Y-m') . " +1 month")));
-
-        return view('pesanan/cetak-lpo', [
-            'title' => 'Cetak Laporan Pesanan Obat',
-            'getPesanan' => $getPesanan,
-            'bulanIni' => $bulanIni,
-            'bulanDepan' => $bulanDepan
+        return view('pesanan/cek_pesanan_edit', [
+            'title' => 'Proses Pengajuan Pemesanan',
+            'card_title' => 'Proses Pengajuan Pemesanan',
+            'navLink' => 'cek-pesanan',
+            'status' => $this->status,
+            'proses' => $proses,
+            'data_obat' => $detail_obat,
+            'data_supplier' => $this->supplierModel->orderBy('nama_supplier', 'ASC')->findAll()
         ]);
     }
 
-    public function email()
+    public function kirim_email()
     {
         $post = $this->request->getVar();
-        $getSupplier = $this->supplierModel->find($post['kode-supplier']);
+        print_r($post);
+        die;
+        // $getSupplier = $this->supplierModel->find($post['kode-supplier']);
 
-        $subject = "PESANAN OBAT PUSKESMAS CIMAUNG";
-        $pesan = "<p>
-        Kepada Yth: <br>
-        " . $getSupplier['nama_supplier'] . " <br>
-        di <br>
-        Tempat <br><br>
-        <p>Berikut lampiran daftar obat yang di pesan:</p>
-        Kode Obat : " . $post['kode_obat'] . " <br>
-        Nama Obat : " . $post['nama_obat'] . " <br>
-        Jenis Obat : " . $post['jenis_obat'] . " <br>
-        Satuan : " . $post['satuan'] . " <br>
-        Jumlah : " . $post['jumlah'] . " Buah <br>
-        </p>
-        <p>Hormat Kami</p>
-        <p>(Apoteker)</p>";
-        $sendMail = $this->sendEmail($getSupplier['email'], $getSupplier['nama_supplier'], $subject, $pesan);
-
-        if ($sendMail) {
-            $msg = 'Terkirim';
-            $status = 'success';
-        } else {
-            $msg = 'Tidak Terkirim';
-            $status = 'error';
-        }
-        $this->pesananModel->insert([
-            'kode_obat' => $post['kode_obat'],
-            'nama_obat' => $post['nama_obat'],
-            'jenis_obat' => $post['jenis_obat'],
-            'satuan' => $post['satuan'],
-            'jumlah' => $post['jumlah'],
-            'nama_supplier' => $getSupplier['nama_supplier'],
-            'email_supplier' => $getSupplier['email'],
-            'status' => $msg
-        ]);
-        return redirect()->to('pesanan-obat')->with($status, 'Pesanan Obat ' . $msg . ' ke ' . $getSupplier['email']);
+        // return redirect()->to('pesanan-obat')->with($status, 'Pesanan Obat ' . $msg . ' ke ' . $getSupplier['email']);
     }
 
     public function create()
@@ -103,7 +108,7 @@ class PesananObat extends BaseController
         $permintaan = $this->permintaanModel->findAll();
         if ($permintaan != []) {
             foreach ($permintaan as $row) {
-                if ($row['kode_pesanan'] == $no_pesanan) {
+                if ($row['kode_pesanan'] != $no_pesanan) {
                     $id_permintaan = $row['id'] + 1;
                 }
             }
@@ -111,20 +116,63 @@ class PesananObat extends BaseController
             $id_permintaan = 1;
         }
 
-        $this->permintaanModel->insert([
-            'id' => $id_permintaan,
-            'kode_pesanan' => $no_pesanan,
-            'tanggal' => $today,
-            'kode_supplier' => $kode_supplier,
-            'status' => 'waiting',
-            'proses' => 0,
-        ]);
-
-        for ($i = 0; $i < count($kode_obat); $i++) {
-            $this->resepDetailModel->insert([
-                'id_permintaan' => $id_permintaan,
-                'kode_obat' => $kode_obat[$i]
+        if ($kode_obat != null) {
+            $this->permintaanModel->insert([
+                'id' => $id_permintaan,
+                'kode_pesanan' => $no_pesanan,
+                'tanggal' => $today,
+                'kode_supplier' => $kode_supplier,
+                'status' => 'waiting',
+                'proses' => 0,
             ]);
+
+            for ($i = 0; $i < count($kode_obat); $i++) {
+                $this->permintaanDetailModel->insert([
+                    'id_permintaan' => $id_permintaan,
+                    'kode_obat' => $kode_obat[$i]
+                ]);
+            }
+            echo "success";
+            redirect()->with('success', 'Data Pesanan Obat Berhasil Terkirim');
+        } else {
+            echo "error";
+            die;
+        }
+    }
+
+    public function update()
+    {
+        $id_pesanan = $this->request->getVar('id_pesanan');
+        $id_detail = $this->request->getVar('id_detail');
+        $kode_supplier = $this->request->getVar('kode_supplier');
+        $status = $this->request->getVar('status');
+        $qty = $this->request->getVar('qty');
+
+        $checked = false;
+        foreach ($qty as $value) {
+            if ($value == "" || $value <= 0) {
+                $checked = true;
+                echo "empty_qty";
+                die;
+            }
+        }
+
+        if (!$checked) {
+            $this->permintaanModel->update($id_pesanan, [
+                'kode_supplier' => $kode_supplier,
+                'status' => $status
+            ]);
+
+            for ($i = 0; $i < count($qty); $i++) {
+                $this->permintaanDetailModel->update($id_detail[$i], [
+                    'stok' => $qty[$i],
+                ]);
+            }
+            echo "success";
+            redirect()->with('success', 'Proses Pengajuan Pemesanan Berhasil Di Perbaharui');
+        } else {
+            echo "error";
+            die;
         }
     }
 
@@ -134,44 +182,10 @@ class PesananObat extends BaseController
         return redirect()->to('pesanan-obat')->with('success', 'Data Pesanan Obat Berhasil Dihapus');
     }
 
-    public function kirimUlang($id)
-    {
-        $db = $this->pesananModel->find($id);
-        $subject = "PESANAN OBAT PUSKESMAS CIMAUNG";
-        $pesan = "<p>
-        Kepada Yth: <br>
-        " . $db['nama_supplier'] . " <br>
-        di <br>
-        Tempat <br><br>
-        <p>Berikut lampiran daftar obat yang di pesan:</p>
-        Kode Obat : " . $db['kode_obat'] . " <br>
-        Nama Obat : " . $db['nama_obat'] . " <br>
-        Jenis Obat : " . $db['jenis_obat'] . " <br>
-        Satuan : " . $db['satuan'] . " <br>
-        Jumlah : " . $db['jumlah'] . " Buah <br>
-        </p>
-        <p>Hormat Kami</p>
-        <p>(Apoteker)</p>";
-        $sendMail = $this->sendEmail($db['email_supplier'], $db['nama_supplier'], $subject, $pesan);
-        if ($sendMail) {
-            $msg = 'Terkirim';
-            $status = 'success';
-        } else {
-            $msg = 'Tidak Terkirim';
-            $status = 'error';
-        }
-        $this->pesananModel->update($id, [
-            'status' => $msg
-        ]);
-        return redirect()->to('pesanan-obat')->with($status, 'Pesanan Obat ' . $msg . ' ke ' . $db['email_supplier']);
-    }
-
-    private function sendEmail($email, $nama_pengirim, $subject_msg, $body_msg)
+    private function sendEmail($email_pengirim, $pass_pengirim, $email, $nama, $pengirim, $subject_msg, $body_msg, $file_tmp, $file_name)
     {
         $mail = new PHPMailer(true);
-        $mail_host          = 'smtp.outlook.com';
-        $mail_username      = 'dimasmohamadmakdus@hotmail.com';
-        $mail_pass          = '@man123';
+        $mail_host          = 'smtp.gmail.com';
 
         try {
             //Server settings
@@ -179,15 +193,16 @@ class PesananObat extends BaseController
             $mail->isSMTP();                                            //Send using SMTP
             $mail->Host       = $mail_host;                             //Set the SMTP server to send through
             $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-            $mail->Username   = $mail_username;                         //SMTP username
-            $mail->Password   = $mail_pass;                             //SMTP password
+            $mail->Username   = $email_pengirim;                         //SMTP username
+            $mail->Password   = $pass_pengirim;                             //SMTP password
             // $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;         //Enable implicit TLS encryption
-            $mail->Port       = 587;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+            $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+            $mail->SMTPSecure = "ssl";
 
             //Recipients
-            $mail->setFrom($mail_username, 'PUSKESMAS CIMAUNG');
-            $mail->addAddress($email, $nama_pengirim);     //Add a recipient
-            $mail->addReplyTo($mail_username, 'PUSKESMAS CIMAUNG');
+            $mail->setFrom($email_pengirim, $pengirim);
+            $mail->addAddress($email, $nama);     //Add a recipient
+            $mail->addReplyTo($email_pengirim, $pengirim);
             // $mail->addCC('cc@example.com');
             // $mail->addBCC('bcc@example.com');
 
@@ -198,6 +213,7 @@ class PesananObat extends BaseController
             $mail->isHTML(true);                                  //Set email format to HTML
             $mail->Subject = $subject_msg;
             $mail->Body    = $body_msg;
+            $mail->AddAttachment($file_tmp, $file_name);
 
             $mail->send();
             return true;

@@ -41,7 +41,7 @@
 
             <!-- Menu Footer-->
             <li class="user-footer">
-              <a href="<?= site_url('logout') ?>" class="btn btn-default btn-flat float-right"><i class="fas fa-sign-out-alt"></i> Keluar</a>
+              <a href="<?= site_url('logout') ?>" class="btn btn-danger btn-flat float-right"><i class="fas fa-sign-out-alt"></i> Keluar</a>
             </li>
           </ul>
         </li>
@@ -80,7 +80,7 @@
                with font-awesome or any other icon font library -->
             <li class="nav-item">
               <a href="<?= base_url('dashboard') ?>" class="nav-link <?= $navLink == 'dashboard' ? 'bg-orange active' : '' ?>">
-                <i class="nav-icon fas fa-tachometer-alt" style="color:white"></i>
+                <i class="nav-icon fas fa-chart-bar" style="color:white"></i>
                 <p style="color:white">Dashboard</p>
               </a>
             </li>
@@ -98,54 +98,92 @@
                 <p style="color:white">Data Obat</p>
               </a>
             </li>
-            <li class="nav-item">
-              <a href="<?= base_url('data-dokter') ?>" class="nav-link <?= $navLink == 'data-dokter' ? 'bg-orange active' : '' ?>">
-                <i class="fas fa-users nav-icon" style="color:white"></i>
-                <p style="color:white">Data Dokter</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="<?= base_url('aturan-obat') ?>" class="nav-link <?= $navLink == 'aturan-obat' ? 'bg-orange active' : '' ?>">
-                <i class="fas fa-pills nav-icon" style="color:white"></i>
-                <p style="color:white">Data Aturan Obat</p>
-              </a>
-            </li>
+            <?php if (session()->get('name') == "Administrator") { ?>
+              <li class="nav-item">
+                <a href="<?= base_url('data-dokter') ?>" class="nav-link <?= $navLink == 'data-dokter' ? 'bg-orange active' : '' ?>">
+                  <i class="fas fa-users nav-icon" style="color:white"></i>
+                  <p style="color:white">Data Dokter</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?= base_url('aturan-obat') ?>" class="nav-link <?= $navLink == 'aturan-obat' ? 'bg-orange active' : '' ?>">
+                  <i class="fas fa-pills nav-icon" style="color:white"></i>
+                  <p style="color:white">Data Aturan Obat</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?= base_url('barang-masuk') ?>" class="nav-link <?= $navLink == 'barang-masuk' ? 'bg-orange active' : '' ?>">
+                  <i class="fas fa-truck-loading nav-icon" style="color:white"></i>
+                  <p style="color:white">Barang Masuk</p>
+                </a>
+              </li>
+            <?php } ?>
 
-            <li class="nav-header">PASIEN</li>
-            <li class="nav-item">
-              <a href="<?= base_url('resep-pasien') ?>" class="nav-link <?= $navLink == 'resep-pasien' ? 'bg-orange active' : '' ?>">
-                <i class="fas fa-pills nav-icon" style="color:white"></i>
-                <p style="color:white">Resep Pasien</p>
-              </a>
-            </li>
+            <?php if (session()->get('name') == "Administrator") { ?>
+              <li class="nav-header">PASIEN</li>
+              <li class="nav-item">
+                <a href="<?= base_url('resep-pasien') ?>" class="nav-link <?= $navLink == 'resep-pasien' ? 'bg-orange active' : '' ?>">
+                  <i class="fas fa-pills nav-icon" style="color:white"></i>
+                  <p style="color:white">Resep Pasien</p>
+                </a>
+              </li>
 
-            <li class="nav-header">TRANSAKSI</li>
-            <li class="nav-item">
-              <a href="<?= base_url('pengambilan-obat') ?>" class="nav-link <?= $navLink == 'pengambilan-obat' ? 'bg-orange active' : '' ?>">
-                <i class="fas fa-dolly-flatbed nav-icon" style="color:white"></i>
-                <p style="color:white">Pengambilan Obat</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="<?= base_url('resep-obat') ?>" class="nav-link <?= $navLink == 'resep-obat' ? 'bg-orange active' : '' ?>">
-                <i class="fas fa-paste nav-icon" style="color:white"></i>
-                <p style="color:white">Salinan Resep</p>
-              </a>
-            </li>
+              <li class="nav-header">TRANSAKSI</li>
+              <li class="nav-item">
+                <a href="<?= base_url('pengambilan-obat') ?>" class="nav-link <?= $navLink == 'pengambilan-obat' ? 'bg-orange active' : '' ?>">
+                  <i class="fas fa-dolly-flatbed nav-icon" style="color:white"></i>
+                  <p style="color:white">Pengambilan Obat</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?= base_url('resep-obat') ?>" class="nav-link <?= $navLink == 'resep-obat' ? 'bg-orange active' : '' ?>">
+                  <i class="fas fa-paste nav-icon" style="color:white"></i>
+                  <p style="color:white">Salinan Resep</p>
+                </a>
+              </li>
 
-            <li class="nav-header">PENGAJUAN</li>
-            <li class="nav-item">
-              <a href="<?= base_url('pengajuan-obat') ?>" class="nav-link <?= $navLink == 'pengajuan-obat' ? 'bg-orange active' : '' ?>">
-                <i class="fas fa-clipboard-list nav-icon" style="color:white"></i>
-                <p style="color:white">Pengajuan Obat</p>
-              </a>
-            </li>
+              <li class="nav-header">PENGAJUAN</li>
+              <li class="nav-item">
+                <a href="<?= base_url('pengajuan-obat') ?>" class="nav-link <?= $navLink == 'pengajuan-obat' ? 'bg-orange active' : '' ?>">
+                  <i class="fas fa-clipboard-list nav-icon" style="color:white"></i>
+                  <p style="color:white">Pengajuan Obat</p>
+                </a>
+              </li>
+            <?php } else { ?>
+              <li class="nav-header">PEMESANAN</li>
+              <li class="nav-item">
+                <a href="<?= base_url('cek-pesanan') ?>" class="nav-link <?= $navLink == 'cek-pesanan' ? 'bg-orange active' : '' ?>">
+                  <i class="fas fa-dolly-flatbed nav-icon" style="color:white"></i>
+                  <p style="color:white">Cek Pemesanan</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?= base_url('kirim-pesanan') ?>" class="nav-link <?= $navLink == 'kirim-pesanan' ? 'bg-orange active' : '' ?>">
+                  <i class="fas fa-envelope nav-icon" style="color:white"></i>
+                  <p style="color:white">Kirim Pesanan</p>
+                </a>
+              </li>
+
+              <li class="nav-header">RIWAYAT</li>
+              <li class="nav-item">
+                <a href="<?= base_url('riwayat-masuk') ?>" class="nav-link <?= $navLink == 'riwayat-masuk' ? 'bg-orange active' : '' ?>">
+                  <i class="fas fa-clipboard-list nav-icon" style="color:white"></i>
+                  <p style="color:white">Riwayat Barang Masuk</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?= base_url('riwayat-keluar') ?>" class="nav-link <?= $navLink == 'riwayat-kelar' ? 'bg-orange active' : '' ?>">
+                  <i class="fas fa-clipboard-list nav-icon" style="color:white"></i>
+                  <p style="color:white">Riwayat Barang Keluar</p>
+                </a>
+              </li>
+            <?php } ?>
 
             <li class="nav-header">LAPORAN</li>
             <li class="nav-item">
               <a href="<?= base_url('laporan-stok-obat') ?>" class="nav-link <?= $navLink == 'laporan-stok-obat' ? 'bg-orange active' : '' ?>">
                 <i class="fas fa-print nav-icon" style="color:white"></i>
-                <p style="color:white">Laporan Stok Obat</p>
+                <p style="color:white">Laporan Persediaan Obat</p>
               </a>
             </li>
             <li class="nav-item">

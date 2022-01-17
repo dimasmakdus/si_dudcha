@@ -11,31 +11,43 @@ class Dashboard extends BaseController
 
     public function index()
     {
-        $obatobatan = [
-            'count' => $this->obatModel->countAll(),
-            'title' => 'Data Obat'
-        ];
-        $pasien = [
-            'count' => $this->pasienModel->countAll(),
-            'title' => 'Data Pasian'
-        ];
-        $supplier = [
-            'count' => $this->supplierModel->countAll(),
-            'title' => 'Data Supplier'
-        ];
-        $pengguna = [
-            'count' => $this->userModel->countAll(),
-            'title' => 'Stok Obat Telah Habis !'
+        $db_obat = $this->obatModel->findAll();
+        if ($db_obat != []) {
+            $data = true;
+            foreach ($db_obat as $obat) {
+                if ($obat['stok'] < 50) {
+                    $stokObat[] = $obat;
+                }
+            }
+        }
+        $obatHabis = [
+            'count' => (isset($stokObat)) ? count($stokObat) : 0,
+            'title' => 'Stok Obat Hampir Habis'
         ];
 
+        $tgl_resep = $this->resepModel->findAll();
+        foreach ($tgl_resep as $tgl) {
+            $tanggal = date("Y-m-d", strtotime($tgl['tanggal']));
+            if ($tanggal == date('Y-m-d')) {
+                $today[] = $tgl;
+                $detail_resep = $this->resepDetailModel->findAll();
+                foreach ($detail_resep as $detail) {
+                    if ($detail['id_transaksi'] == $tgl['id_transaksi']) {
+                        $resepToday[] = $detail;
+                    }
+                }
+            }
+        }
+
+        $obatTerpakai = [
+            'count' => (isset($today)) ? count($resepToday) : 0,
+            'title' => 'Obat Terpakai Hari Ini'
+        ];
         return view('dashboard/index', [
             'title' => 'Dashboard',
             'navLink' => 'dashboard',
-            'obat' => $obatobatan,
-            'pasien' => $pasien,
-            'supplier' => $supplier,
-            'pengguna' => $pengguna,
-            'accessRight' => $this->accessRights
+            'obatHabis' => $obatHabis,
+            'resepToday' => $obatTerpakai
         ]);
     }
 
@@ -72,7 +84,6 @@ class Dashboard extends BaseController
             'title' => 'Kelola Pengguna',
             'card_title' => 'Kelola Data Pengguna',
             'navLink' => 'pengguna',
-            'accessRight' => $this->accessRights,
             'roles' => $this->roleModel->findAll(),
             'dataUser' => $dataUser,
             'is_active' => $is_active,
@@ -87,7 +98,6 @@ class Dashboard extends BaseController
             'title' => 'Role Pengguna',
             'card_title' => 'Kelola Role Pengguna',
             'navLink' => 'role-pengguna',
-            'accessRight' => $this->accessRights,
             'roles' => $roles
         ]);
     }
@@ -106,7 +116,6 @@ class Dashboard extends BaseController
             'title' => 'Daftar Hak Akses',
             'card_title' => 'Kelola Role Pengguna',
             'navLink' => 'role-pengguna',
-            'accessRight' => $this->accessRights,
             'menu_akses' => $menu_akses,
             'currentAkses' => isset($currentAkses) ? $currentAkses : ''
         ]);
@@ -118,7 +127,6 @@ class Dashboard extends BaseController
             'title' => 'Tambah Hak Akses',
             'card_title' => 'Tambah Hak Akses',
             'navLink' => 'role-pengguna',
-            'accessRight' => $this->accessRights,
         ]);
     }
 
@@ -143,7 +151,6 @@ class Dashboard extends BaseController
             'title' => 'Data Resep Pasien',
             'card_title' => 'Data Resep Pasien',
             'navLink' => 'resep-pasien',
-            'accessRight' => $this->accessRights,
             'jenis_kelamin' => $this->jenis_kelamin,
             'status_pasien' => $status,
             'db_dokter' => $data_dokter,
@@ -160,7 +167,6 @@ class Dashboard extends BaseController
             'title' => 'Data Supplier',
             'card_title' => 'Kelola Data Supplier',
             'navLink' => 'supplier',
-            'accessRight' => $this->accessRights,
             'data_supplier' => $supplier
         ]);
     }
@@ -173,7 +179,6 @@ class Dashboard extends BaseController
             'title' => 'Stok Obat',
             'card_title' => 'Kelola Data Stok Obat',
             'navLink' => 'stok-obat',
-            'accessRight' => $this->accessRights,
             'stok_obat' => $stok_obat
         ]);
     }
@@ -202,7 +207,6 @@ class Dashboard extends BaseController
             'title' => 'Data Obat',
             'card_title' => 'Kelola Data Obat-Obatan',
             'navLink' => 'obat-obatan',
-            'accessRight' => $this->accessRights,
             'obat_obatan' => $this->obatModel->orderBy('kode_obat', 'ASC')->findAll(),
             'satuan' => $satuan_obat,
             'kode_obat_baru' => $kodeBaru
@@ -223,7 +227,6 @@ class Dashboard extends BaseController
             'title' => 'Data Dokter',
             'card_title' => 'Data Dokter',
             'navLink' => 'data-dokter',
-            'accessRight' => $this->accessRights,
             'data_dokter' => $data_dokter,
             'jenis_kelamin' => $this->jenis_kelamin,
             'poli' => $poli
@@ -243,7 +246,6 @@ class Dashboard extends BaseController
             'title' => 'Data Aturan Obat',
             'card_title' => 'Data Aturan Pemakaian Obat',
             'navLink' => 'aturan-obat',
-            'accessRight' => $this->accessRights,
             'aturan_usia' => $aturan_usia,
             'aturan_obat' => $aturan_obat
         ]);
@@ -255,7 +257,6 @@ class Dashboard extends BaseController
             'title' => 'Pengambilan Obat',
             'card_title' => 'Pengambilan Obat',
             'navLink' => 'pengambilan-obat',
-            'accessRight' => $this->accessRights,
             'resep_pasien' => $this->pasienModel->orderBy('no_resep', 'ASC')->findAll(),
             'obat_obatan' => $this->obatModel->orderBy('kode_obat', 'ASC')->findAll(),
             'aturan_obat' => $this->aturanModel->orderBy('dosis_aturan_obat', 'DESC')->findAll()
@@ -268,35 +269,8 @@ class Dashboard extends BaseController
             'title' => 'Salinan Resep',
             'card_title' => 'Salinan Resep',
             'navLink' => 'resep-obat',
-            'accessRight' => $this->accessRights,
             'resep_obat' => $this->resepModel->orderBy('tanggal', 'ASC')->findAll(),
             'detailObat' => $this->resepDetailModel->orderBy('id_transaksi', 'ASC')->findAll()
-        ]);
-    }
-
-    public function pengeluaran_harian()
-    {
-        $pemakaian_obat = $this->pengeluaranModel->orderBy('updated_at', 'DESC')->findAll();
-
-        return view('dashboard/pengeluaran_harian', [
-            'title' => 'Data Pengeluaran Harian',
-            'card_title' => 'Kelola Data Pengeluaran Harian',
-            'navLink' => 'pengeluaran-harian',
-            'accessRight' => $this->accessRights,
-            'pemakaian_obat' => $pemakaian_obat
-        ]);
-    }
-
-    public function laporan_barang_keluar()
-    {
-        $pemakaian_obat = $this->pengeluaranModel->orderBy('updated_at', 'DESC')->findAll();
-
-        return view('dashboard/laporan_barang_keluar', [
-            'title' => 'Surat Bukti Barang Keluar',
-            'card_title' => 'Laporan Data Barang Keluar',
-            'navLink' => 'laporan-barang-keluar',
-            'accessRight' => $this->accessRights,
-            'laporan_barang_keluar' => $pemakaian_obat
         ]);
     }
 
@@ -306,9 +280,19 @@ class Dashboard extends BaseController
             'title' => 'Pengajuan Obat',
             'card_title' => 'Pengajuan Obat',
             'navLink' => 'pengajuan-obat',
-            'accessRight' => $this->accessRights,
             'permintaan_obat' => $this->permintaanModel->orderBy('tanggal', 'DESC')->findAll(),
             'supplier' => $this->supplierModel->orderBy('nama_supplier', 'ASC')->findAll()
+        ]);
+    }
+
+    public function barang_masuk()
+    {
+        return view('dashboard/barang_masuk', [
+            'title' => 'Pengajuan Obat',
+            'card_title' => 'Pengajuan Obat',
+            'navLink' => 'barang-masuk',
+            'pembelian' => $this->pembelianModel->orderBy('tanggal', 'DESC')->findAll(),
+            'supplier' => $this->supplierModel
         ]);
     }
 }

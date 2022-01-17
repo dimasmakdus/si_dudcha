@@ -25,7 +25,7 @@ class Login extends BaseController
                     'roles' => $roleById,
                     'logged_in' => TRUE
                 ]);
-                return redirect()->to(base_url('dashboard'));
+                return redirect()->to(base_url('dashboard'))->with('success', "Selamat datang <b>" . $dataUser['full_name'] . "</b>, di Aplikasi Sistem Informasi Pengelolaan Obat Puskesmas");
             } else {
                 session()->setFlashdata('error', 'Password yang di input salah');
                 return redirect()->back();

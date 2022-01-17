@@ -158,26 +158,48 @@
 
         var url = "<?= base_url('pesanan-obat/create'); ?>";
         var form = $('#form-pengajuan').serialize()
-        console.log(form);
-        $.ajax({
-            type: "POST",
-            url: url,
-            data: form,
-            success: function(result) {
-                Swal.fire(
-                    'Berhasil!',
-                    'Data berhasil di simpan!',
-                    'success'
-                )
-            },
-            error: function(error) {
-                Swal.fire(
-                    'Gagal!',
-                    'Coba beberapa saat lagi!',
-                    'error'
-                )
-            }
-        });
+
+        if (kode_supplier != '') {
+            $.ajax({
+                type: "POST",
+                url: url,
+                data: form,
+                success: function(res) {
+                    if (res == "success") {
+                        Swal.fire({
+                            title: 'Berhasil!',
+                            text: 'Pengajuan obat berhasil terkirim!',
+                            icon: 'success',
+                            confirmButtonColor: '#3085d6',
+                            cancelButtonColor: '#d33',
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                window.location = "<?= base_url('pengajuan-obat') ?>";
+                            }
+                        })
+                    } else {
+                        Swal.fire(
+                            'Gagal!',
+                            'Data gagal di simpan!',
+                            'error'
+                        )
+                    }
+                },
+                error: function(error) {
+                    Swal.fire(
+                        'Gagal!',
+                        'Data gagal di simpan!',
+                        'error'
+                    )
+                }
+            });
+        } else {
+            Swal.fire(
+                'Tidak Bisa!',
+                'Pilih supplier terlebih dahulu!',
+                'error'
+            )
+        }
 
     }
 

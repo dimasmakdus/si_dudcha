@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Waktu pembuatan: 22 Des 2021 pada 13.55
+-- Waktu pembuatan: 17 Jan 2022 pada 18.52
 -- Versi server: 10.4.20-MariaDB
 -- Versi PHP: 7.4.22
 
@@ -32,7 +32,7 @@ CREATE TABLE `tbl_akses` (
   `nama_akses` varchar(25) NOT NULL,
   `icon` varchar(25) NOT NULL,
   `path` varchar(25) NOT NULL,
-  `no_order` int(11) NOT NULL
+  `no_order` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -40,41 +40,78 @@ CREATE TABLE `tbl_akses` (
 --
 
 INSERT INTO `tbl_akses` (`id`, `nama_akses`, `icon`, `path`, `no_order`) VALUES
-(1, 'Dashboard', 'fa-database', 'dashboard', 1),
-(2, 'Data Pasien', 'fa-user-nurse', 'pasien', 2),
-(3, 'Data Supplier', 'fa-capsules', 'supplier', 3),
-(4, 'Obat-Obatan', 'fa-capsules', 'obat-obatan', 4),
-(5, 'Stok Obat', 'fa-capsules', 'stok-obat', 5),
-(6, 'Resep Obat', 'fa-pills ', 'resep-obat', 6),
-(7, 'LPLPO', 'fa-notes-medical', 'permintaan-obat', 7),
-(8, 'Data Pengeluaran Harian', 'fa-chart-area', 'pengeluaran-harian', 8),
-(9, 'Laporan Barang Keluar', 'fa-print', 'laporan-barang-keluar', 9),
-(10, 'Pemesanan Obat', 'fa-file-import', 'pesanan-obat', 10),
-(11, 'Kelola Pengguna', 'fa-users', 'pengguna', 11),
-(12, 'Role Pengguna', 'fa-user', 'role-pengguna', 12);
+(1, 'Dashboard', 'fa-database', 'dashboard', 'Beranda'),
+(2, 'Data Pasien', 'fa-user-nurse', 'pasien', 'Data'),
+(3, 'Data Supplier', 'fa-capsules', 'supplier', 'Data'),
+(4, 'Data Obat', 'fa-capsules', 'obat-obatan', 'Data'),
+(5, 'Stok Obat', 'fa-capsules', 'stok-obat', 'Transaksi'),
+(6, 'Resep Obat', 'fa-pills ', 'resep-obat', 'Data'),
+(7, 'LPLPO', 'fa-notes-medical', 'permintaan-obat', '7'),
+(8, 'Data Pengeluaran Harian', 'fa-chart-area', 'pengeluaran-harian', '8'),
+(9, 'Laporan Barang Keluar', 'fa-print', 'laporan-barang-keluar', '9'),
+(10, 'Pemesanan Obat', 'fa-file-import', 'pesanan-obat', '10'),
+(11, 'Kelola Pengguna', 'fa-users', 'pengguna', '11'),
+(12, 'Role Pengguna', 'fa-user', 'role-pengguna', '12'),
+(22, 'Data Pemakaian Obat', 'fa-capsules', 'pemakaian-obat', 'Data');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_bukti_barang_keluar`
+-- Struktur dari tabel `tbl_aturan_obat`
 --
 
-CREATE TABLE `tbl_bukti_barang_keluar` (
+CREATE TABLE `tbl_aturan_obat` (
   `id` int(11) NOT NULL,
-  `penerima` varchar(20) NOT NULL,
-  `kecamatan` varchar(50) NOT NULL,
-  `laporan_bulan` varchar(10) NOT NULL,
-  `permintaan_bulan` varchar(10) NOT NULL,
-  `nama_barang` varchar(15) NOT NULL,
-  `expire` varchar(15) NOT NULL,
-  `anggaran` varchar(20) NOT NULL,
-  `pemberian` varchar(15) NOT NULL,
-  `satuan` int(11) NOT NULL,
-  `harga` varchar(15) NOT NULL,
-  `jumlah` int(11) NOT NULL,
-  `created_at` datetime DEFAULT NULL,
-  `updated_at` datetime DEFAULT NULL
+  `dosis_aturan_obat` varchar(50) NOT NULL,
+  `khusus` varchar(50) NOT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `tbl_aturan_obat`
+--
+
+INSERT INTO `tbl_aturan_obat` (`id`, `dosis_aturan_obat`, `khusus`, `created_at`, `updated_at`) VALUES
+(1, '1X SEHARI 0.5 TABLET (MALAM)', 'Anak-Anak', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2, '1X SEHARI 0.5 TABLET, SEBELUM MAKAN (MALAM)', 'Anak-Anak', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(3, '5X SEHARI 2 KAPSUL', 'Dewasa', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(4, 'BILA SAKIT KEPALA', 'Dewasa', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(5, '1X SEHARI 1 SEMPROT HIDUNG', 'Dewasa', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(6, '1X SEHARI 3 TETES PADA MATA KANAN', 'Dewasa', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(7, '1X SEHARI 4 ML', 'Dewasa', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(8, '1X SEHARI 3 SEMPROT HIDUNG', 'Dewasa', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(9, '1X SEHARI 5 INHALASI', 'Dewasa', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(10, '1X SEHARI 6 ML', 'Dewasa', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `tbl_dokter`
+--
+
+CREATE TABLE `tbl_dokter` (
+  `kode_dokter` int(11) NOT NULL,
+  `nama_dokter` varchar(30) NOT NULL,
+  `jenis_kelamin` varchar(15) NOT NULL,
+  `nid` varchar(20) NOT NULL,
+  `tgl_lahir` varchar(10) NOT NULL,
+  `alamat` varchar(50) NOT NULL,
+  `poli` varchar(50) NOT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `tbl_dokter`
+--
+
+INSERT INTO `tbl_dokter` (`kode_dokter`, `nama_dokter`, `jenis_kelamin`, `nid`, `tgl_lahir`, `alamat`, `poli`, `created_at`, `updated_at`) VALUES
+(2, 'Fitri', 'Perempuan', '4929029033291', '1995-08-26', 'Kalimalang', 'POLI KIA', '0000-00-00 00:00:00', '2022-01-11 09:21:41'),
+(3, 'Sunarya', 'Laki-Laki', '71816828738790', '1977-07-12', 'Sukaluyu', 'POLI UMUM', '0000-00-00 00:00:00', '2022-01-11 09:22:37'),
+(4, 'Karsa', 'Laki-Laki', '71816838738718', '1982-06-15', 'Adiarsa', 'POLI GIGI', '0000-00-00 00:00:00', '2022-01-11 09:23:20'),
+(5, 'Samsul', 'Laki-Laki', '48916838738757', '1993-11-26', 'Ciraos', 'POLI GIGI', '0000-00-00 00:00:00', '2022-01-11 09:23:56'),
+(6, 'Maryudi', 'Laki-Laki', '71816838888718', '1993-08-21', 'Santiong', 'POLI UMUM', '2022-01-11 09:18:25', '2022-01-11 09:24:42');
 
 -- --------------------------------------------------------
 
@@ -105,12 +142,6 @@ INSERT INTO `tbl_hak_akses` (`id`, `id_role`, `id_menu`) VALUES
 (10, 1, 10),
 (11, 1, 11),
 (12, 1, 12),
-(13, 2, 1),
-(14, 2, 3),
-(15, 2, 4),
-(16, 2, 5),
-(17, 2, 6),
-(18, 2, 10),
 (19, 3, 2),
 (20, 3, 4),
 (21, 3, 5),
@@ -127,51 +158,13 @@ INSERT INTO `tbl_hak_akses` (`id`, `id_role`, `id_menu`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_lplpo`
---
-
-CREATE TABLE `tbl_lplpo` (
-  `kode_obat` varchar(20) NOT NULL,
-  `nama_obat` varchar(50) NOT NULL,
-  `jenis_obat` varchar(30) NOT NULL,
-  `stok_awal` int(11) NOT NULL,
-  `penerimaan` int(11) NOT NULL,
-  `persediaan` int(11) NOT NULL,
-  `pemakaian` int(11) NOT NULL,
-  `sisa_akhir` int(11) NOT NULL,
-  `stok_optimum` int(11) NOT NULL,
-  `permintaan` int(11) NOT NULL,
-  `pemberian` int(11) NOT NULL,
-  `keterangan` varchar(30) NOT NULL,
-  `created_at` datetime NOT NULL,
-  `updated_at` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data untuk tabel `tbl_lplpo`
---
-
-INSERT INTO `tbl_lplpo` (`kode_obat`, `nama_obat`, `jenis_obat`, `stok_awal`, `penerimaan`, `persediaan`, `pemakaian`, `sisa_akhir`, `stok_optimum`, `permintaan`, `pemberian`, `keterangan`, `created_at`, `updated_at`) VALUES
-('A-282', 'Anexsamol', 'Kapsul', 2, 0, 2400, 0, 2400, 3840, 0, 0, 'APBD', '2021-12-17 11:19:08', '2021-12-17 11:19:08'),
-('A-989', 'Salicyl', 'Bedak', 1200, 0, 1200, 0, 1200, 1920, 0, 0, 'APBD', '2021-12-17 11:19:08', '2021-12-17 11:19:08'),
-('D-118', 'Dextrane', 'Tablet', 230, 0, 240, 0, 240, 384, 0, 0, 'APBD', '2021-12-17 11:22:33', '2021-12-17 11:22:33'),
-('MP-29', 'Sun', 'Makanan PG', 340, 0, 340, 0, 340, 560, 0, 0, 'APBD', '2021-12-17 11:22:33', '2021-12-17 11:22:33'),
-('P-332', 'PoliSaxechona', 'Cairan Alkohol', 2400, 0, 2400, 0, 2400, 3689, 0, 0, 'APBD', '2021-12-21 23:45:56', '2021-12-21 23:45:56'),
-('PG-58', 'Pil Vitamin A', 'Suplemen', 3000, 0, 3000, 0, 3000, 6590, 0, 0, 'APBD', '2021-12-17 11:26:21', '2021-12-17 11:26:21'),
-('SD-65', 'Polivanol', 'Obat Tetes Luka', 900, 0, 900, 0, 900, 2400, 0, 0, 'APBD', '2021-12-17 11:26:21', '2021-12-17 11:26:21'),
-('SN-11', 'Alpara', 'Kapsul', 540, 0, 540, 0, 540, 2800, 0, 0, 'APBD', '2021-12-17 11:26:21', '2021-12-17 11:26:21');
-
--- --------------------------------------------------------
-
---
 -- Struktur dari tabel `tbl_obat`
 --
 
 CREATE TABLE `tbl_obat` (
-  `kode_obat` varchar(5) NOT NULL,
+  `kode_obat` varchar(20) NOT NULL,
   `nama_obat` varchar(50) NOT NULL,
-  `jenis_obat` varchar(50) NOT NULL,
-  `dosis_aturan_obat` varchar(40) NOT NULL,
+  `stok` int(11) NOT NULL,
   `satuan` varchar(15) NOT NULL,
   `tgl_kadaluarsa` varchar(25) NOT NULL,
   `created_at` datetime DEFAULT NULL,
@@ -182,15 +175,15 @@ CREATE TABLE `tbl_obat` (
 -- Dumping data untuk tabel `tbl_obat`
 --
 
-INSERT INTO `tbl_obat` (`kode_obat`, `nama_obat`, `jenis_obat`, `dosis_aturan_obat`, `satuan`, `tgl_kadaluarsa`, `created_at`, `updated_at`) VALUES
-('A-282', 'Anexsamol', 'Kapsul', '2x1 Sehari', 'Strip', '06-03-2024', NULL, NULL),
-('A-989', 'Salicyl', 'Bedak', '3 x 1 sehari', 'Buah', '13-04-2024', NULL, NULL),
-('D-118', 'Dextrane', 'Tablet', '3x1 Sehari', 'Strip', '09-02-2024', NULL, NULL),
-('MP-29', 'Sun', 'Makanan PG', '-', 'Buah', '11-03-2024', NULL, NULL),
-('P-332', 'PoliSaxechona', 'Cairan Alkohol', 'Setiap pakai 10 ml', 'Botol', '28-05-2024', NULL, NULL),
-('PG-58', 'Pil Vitamin A', 'Suplemen', '3 x 1 Sehari', 'Strip', '16-12-2024', NULL, NULL),
-('SD-65', 'Polivanol', 'Obat Tetes Luka', 'Setiap pakai 50 ml', 'Botol ', '26-05-2024', NULL, NULL),
-('SN-11', 'Alpara', 'Kapsul', '3x1 Sehari', 'Strip', '17-08-2024', NULL, NULL);
+INSERT INTO `tbl_obat` (`kode_obat`, `nama_obat`, `stok`, `satuan`, `tgl_kadaluarsa`, `created_at`, `updated_at`) VALUES
+('GFK0001', 'Amlodipine Tablet 10 mg', 2397, 'Tablet', '', '2022-01-11 05:15:35', '2022-01-15 22:36:14'),
+('GFK0002', 'Amoxicilin Sirup Kering 250 mg/5 ml', 380, 'Botol', '', '2022-01-11 05:15:35', '2022-01-14 04:46:32'),
+('GFK0003', 'Antasida DOEN Tablet', 6192, 'Tablet', '', '2022-01-11 05:18:44', '2022-01-15 22:55:59'),
+('GFK0004', 'Asam Askorbat (Vit. C) Tablet 50 mg', 2195, 'Tablet', '', '2022-01-11 05:18:44', '2022-01-16 00:35:17'),
+('GFK0005', 'Bedak Salisil 2% - 50 gram', 38, 'Sachet', '', '2022-01-11 05:20:30', '2022-01-15 22:55:59'),
+('GFK0006', 'Multivitamin Tablet', 3262, 'Tablet', '', '2022-01-11 05:20:30', '2022-01-16 00:35:17'),
+('GFK0007', 'Acetylcystein Tablet 200 mg', 0, 'Tablet', '', '2022-01-13 01:00:52', '2022-01-13 01:00:52'),
+('GFK0008', 'askdjalksjdlasd', 0, 'Ampul', '', '2022-01-15 03:38:44', '2022-01-15 03:38:44');
 
 -- --------------------------------------------------------
 
@@ -199,32 +192,83 @@ INSERT INTO `tbl_obat` (`kode_obat`, `nama_obat`, `jenis_obat`, `dosis_aturan_ob
 --
 
 CREATE TABLE `tbl_pasien` (
-  `no_rekamedis` char(6) NOT NULL,
-  `no_ktp` varchar(16) NOT NULL,
-  `no_bpjs` varchar(20) NOT NULL,
-  `nama_pasien` varchar(30) NOT NULL,
-  `jenis_kelamin` enum('L','P') NOT NULL,
-  `tempat_lahir` varchar(30) NOT NULL,
-  `tanggal_lahir` varchar(10) NOT NULL,
+  `no_resep` varchar(100) NOT NULL,
+  `status_pasien` varchar(100) NOT NULL,
+  `no_bpjs` varchar(100) NOT NULL,
+  `nama_pasien` varchar(100) NOT NULL,
+  `jenis_kelamin` varchar(100) NOT NULL,
+  `umur` int(11) NOT NULL,
   `alamat` text NOT NULL,
-  `status_pasien` varchar(10) NOT NULL,
-  `created_at` datetime DEFAULT NULL,
-  `updated_at` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `nama_dokter` varchar(100) NOT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `tbl_pasien`
 --
 
-INSERT INTO `tbl_pasien` (`no_rekamedis`, `no_ktp`, `no_bpjs`, `nama_pasien`, `jenis_kelamin`, `tempat_lahir`, `tanggal_lahir`, `alamat`, `status_pasien`, `created_at`, `updated_at`) VALUES
-('000001', '3215021831771822', '28287188196112', 'Niko Rahmad', 'L', 'Bandung', '29-03-1992', 'Serang', 'BPJS', NULL, NULL),
-('000002', '3215021621771800', '28287188196128', 'Oman', 'L', 'Cirebon', '19-07-1989', 'OK', 'BPJS', NULL, NULL),
-('000003', '3335021831771822', '28287188196156', 'Muhammad Yogi', 'L', 'Surabaya', '09-02-1993', 'okkk', 'BPJS', NULL, NULL),
-('000004', '3215089831777722', '28287188196139', 'Yulia', 'P', 'Cicaheum', '06-07-1994', 'Serdang', 'BPJS', NULL, NULL),
-('000005', '3015021831271822', '28287188196145', 'Diana', 'P', 'See Do Are Jo', '09-07-1995', 'CKM', 'BPJS', NULL, NULL),
-('000006', '3015021899271822', '28287134996145', 'Maulida Fitria', 'P', 'Karawang', '26-12-1984', 'Jatirasa', 'BPJS', NULL, NULL),
-('000007', '3218291973381903', '28287188096166', 'Rian', 'L', 'Kuningan', '18-07-1978', 'Kosambi', 'BPJS', NULL, NULL),
-('000008', '3349021991771822', '', 'Maulana', 'L', 'Lamongan', '19-03-1999', 'Pamelang', 'Umum', NULL, '2021-12-20 22:50:38');
+INSERT INTO `tbl_pasien` (`no_resep`, `status_pasien`, `no_bpjs`, `nama_pasien`, `jenis_kelamin`, `umur`, `alamat`, `nama_dokter`, `created_at`, `updated_at`) VALUES
+('000001', 'BPJS', '28287188196112', 'Niko Rahmad', 'Laki-Laki', 25, 'Serang', 'Fitri', '2022-01-11 06:02:44', '2022-01-11 06:02:44'),
+('000002', 'BPJS', '28287188196156', 'Muhammad Yogi', 'Laki-Laki', 40, 'Surabaya', 'Sunarya', '2022-01-11 06:02:44', '2022-01-11 06:02:44'),
+('000003', 'BPJS', '28287134996145', 'Maulida Fitria', 'Perempuan', 30, 'Karawang', 'Maryudi', '2022-01-11 06:07:17', '2022-01-11 06:07:17'),
+('000004', 'UMUM', '', 'Maulana', 'Laki-Laki', 25, 'Pamulang', 'Karsa', '2022-01-11 06:07:17', '2022-01-11 06:07:17');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `tbl_pembelian`
+--
+
+CREATE TABLE `tbl_pembelian` (
+  `id` int(11) NOT NULL,
+  `faktur` varchar(255) NOT NULL,
+  `kode_pemesanan` varchar(255) DEFAULT NULL,
+  `tanggal` datetime DEFAULT NULL,
+  `total` bigint(60) DEFAULT NULL,
+  `kode_supplier` int(11) DEFAULT NULL,
+  `status_pembayaran` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `tbl_pembelian`
+--
+
+INSERT INTO `tbl_pembelian` (`id`, `faktur`, `kode_pemesanan`, `tanggal`, `total`, `kode_supplier`, `status_pembayaran`) VALUES
+(1, '000.14.1234567', 'P20210700001', '2021-07-17 20:22:58', 20500, 1, 'true'),
+(2, '1030985734956', 'P20210700001', '2021-07-20 01:28:47', 290000, 1, 'true'),
+(3, 'Contoh', 'P20210700002', '2021-07-25 21:58:04', 275000, 1, 'false'),
+(4, '1234575765786578645675', 'P20210700006', '2021-09-05 00:21:09', 350000, 1, 'false'),
+(5, 'aasdasd123123', 'P20220100010', '2022-01-15 11:48:21', 20000, 1, 'false'),
+(6, '123123hkjhkjh', 'P20210900009', '2022-01-15 11:49:22', 700000, 2, 'false');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `tbl_pembelian_detail`
+--
+
+CREATE TABLE `tbl_pembelian_detail` (
+  `id` int(11) NOT NULL,
+  `id_pembelian` int(11) NOT NULL,
+  `kode_obat` varchar(255) DEFAULT NULL,
+  `harga_beli` bigint(60) DEFAULT NULL,
+  `stok_masuk` bigint(60) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `tbl_pembelian_detail`
+--
+
+INSERT INTO `tbl_pembelian_detail` (`id`, `id_pembelian`, `kode_obat`, `harga_beli`, `stok_masuk`) VALUES
+(1, 1, 'GFK0003', 8500, 1),
+(2, 1, 'GFK0002', 12000, 1),
+(3, 2, 'GFK0003', 8500, 20),
+(4, 2, 'GFK0002', 12000, 10),
+(5, 3, 'GFK0001', 5500, 50),
+(6, 4, 'GFK0003', 70000, 5),
+(7, 5, 'GFK0001', 2000, 10),
+(8, 6, 'GFK0004', 10000, 70);
 
 -- --------------------------------------------------------
 
@@ -279,51 +323,51 @@ DELIMITER ;
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_permintaan_obat`
+-- Struktur dari tabel `tbl_permintaan`
 --
 
-CREATE TABLE `tbl_permintaan_obat` (
-  `id_permintaan` varchar(6) NOT NULL,
-  `no_trans` varchar(15) NOT NULL,
-  `supplier` varchar(50) NOT NULL,
-  `kode_obat` varchar(5) NOT NULL,
-  `nama_obat` varchar(50) NOT NULL,
-  `jenis_obat` varchar(50) NOT NULL,
-  `harga_beli` int(11) NOT NULL,
-  `jumlah` int(4) NOT NULL,
-  `satuan` varchar(15) NOT NULL,
-  `keterangan` varchar(50) NOT NULL,
-  `total` int(11) NOT NULL,
-  `tgl_transaksi` varchar(10) NOT NULL,
-  `created_at` datetime DEFAULT NULL,
-  `updated_at` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+CREATE TABLE `tbl_permintaan` (
+  `id` int(11) NOT NULL,
+  `kode_pesanan` varchar(255) NOT NULL,
+  `tanggal` datetime DEFAULT NULL,
+  `kode_supplier` int(11) DEFAULT NULL,
+  `status` varchar(255) DEFAULT NULL,
+  `proses` int(1) DEFAULT NULL,
+  `keterangan` text DEFAULT NULL,
+  `total` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `tbl_permintaan_obat`
+-- Dumping data untuk tabel `tbl_permintaan`
 --
 
-INSERT INTO `tbl_permintaan_obat` (`id_permintaan`, `no_trans`, `supplier`, `kode_obat`, `nama_obat`, `jenis_obat`, `harga_beli`, `jumlah`, `satuan`, `keterangan`, `total`, `tgl_transaksi`, `created_at`, `updated_at`) VALUES
-('0002', 'B-180621-0002', 'Bentoman', 'A-989', 'Salicyl', 'Bedak', 320000, 3, 'Buah', 'ok', 960000, '21-06-2018', NULL, NULL),
-('0001', 'B-180623-0001', 'Novita', 'SD-65', 'Polivanol', 'Obat Tetes Luka', 679000, 5, 'Botol', 'ok', 3395000, '23-06-2018', NULL, NULL),
-('0001', 'B-180624-0001', 'Novita', 'SN-11', 'Alpara', 'Tablet', 565000, 20, 'Strip', 'ok', 11300000, '24-06-2018', NULL, NULL),
-('0004', 'B-180624-0004', 'Novita', 'SD-65', 'Polivanol', 'Obat Tetes Luka', 1230000, 25, 'Botol', 'ok', 30750000, '24-06-2018', NULL, NULL),
-('0001', 'B-180706-0001', 'Novita', 'SD-65', 'Polivanol', 'Obat Tetes Luka', 479000, 3, 'Botol', 'ok', 1437000, '06-07-2018', NULL, NULL),
-('0001', 'B-180710-0001', 'Saomanz', 'SN-11', 'Alpara', 'Tablet', 190000, 190, 'Botol', 'ok', 36100000, '10-07-2018', NULL, NULL),
-('0001', 'B-180717-0001', 'Novita', 'D-118', 'Dextrane', 'Tablet', 3450, 2000, 'Strip', 'Ok', 6900000, '17-07-2018', NULL, NULL),
-('0001', 'B-180726-0001', 'Bentoman', 'P-332', 'PoliSaxechon', 'Cairan Alkohol', 50000, 4, 'Botol', 'ok', 200000, '26-07-2018', NULL, NULL);
+INSERT INTO `tbl_permintaan` (`id`, `kode_pesanan`, `tanggal`, `kode_supplier`, `status`, `proses`, `keterangan`, `total`) VALUES
+(1, 'P20220100001', '2022-01-16 10:54:54', 3, 'approved', 0, NULL, NULL),
+(2, 'P20220100002', '2022-01-17 16:20:25', 1, 'approved', 0, NULL, NULL);
+
+-- --------------------------------------------------------
 
 --
--- Trigger `tbl_permintaan_obat`
+-- Struktur dari tabel `tbl_permintaan_detail`
 --
-DELIMITER $$
-CREATE TRIGGER `pengadaan_obat` AFTER INSERT ON `tbl_permintaan_obat` FOR EACH ROW BEGIN
-INSERT into tbl_stok_obat SET
-kode_obat = NEW.kode_obat, jumlah = New.jumlah
-ON DUPLICATE KEY UPDATE jumlah=jumlah+New.jumlah;
-END
-$$
-DELIMITER ;
+
+CREATE TABLE `tbl_permintaan_detail` (
+  `id` int(11) NOT NULL,
+  `id_permintaan` int(11) DEFAULT NULL,
+  `kode_obat` varchar(255) DEFAULT NULL,
+  `stok` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `tbl_permintaan_detail`
+--
+
+INSERT INTO `tbl_permintaan_detail` (`id`, `id_permintaan`, `kode_obat`, `stok`) VALUES
+(1, 1, 'GFK0007', 3000),
+(2, 1, 'GFK0008', 2500),
+(3, 1, 'GFK0005', 1400),
+(4, 1, 'GFK0006', NULL),
+(5, 2, 'GFK0005', 100);
 
 -- --------------------------------------------------------
 
@@ -357,36 +401,50 @@ INSERT INTO `tbl_pesanan` (`id_pesanan`, `kode_obat`, `nama_obat`, `jenis_obat`,
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_resep_obat`
+-- Struktur dari tabel `tbl_resep`
 --
 
-CREATE TABLE `tbl_resep_obat` (
-  `kode_resep` int(4) NOT NULL,
+CREATE TABLE `tbl_resep` (
+  `id_transaksi` int(11) NOT NULL,
+  `kode_resep` varchar(50) NOT NULL,
+  `status_pasien` varchar(50) NOT NULL,
+  `nama_pasien` varchar(50) NOT NULL,
+  `umur` int(11) NOT NULL,
+  `alamat` text NOT NULL,
+  `tanggal` datetime NOT NULL,
+  `nama_dokter` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `tbl_resep`
+--
+
+INSERT INTO `tbl_resep` (`id_transaksi`, `kode_resep`, `status_pasien`, `nama_pasien`, `umur`, `alamat`, `tanggal`, `nama_dokter`) VALUES
+(1, '000002', 'BPJS', 'Muhammad Yogi', 40, 'Surabaya', '2022-01-16 00:35:17', 'Sunarya');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `tbl_resep_detail`
+--
+
+CREATE TABLE `tbl_resep_detail` (
+  `id` int(11) NOT NULL,
+  `id_transaksi` int(11) NOT NULL,
+  `kode_obat` varchar(50) NOT NULL,
   `nama_obat` varchar(50) NOT NULL,
-  `jenis_obat` varchar(50) NOT NULL,
-  `dosis_aturan_obat` varchar(40) NOT NULL,
-  `jumlah_obat` int(2) NOT NULL,
-  `no_rekamedis` varchar(6) NOT NULL,
-  `tanggal` date NOT NULL,
-  `created_at` datetime DEFAULT NULL,
-  `updated_at` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `jumlah` int(11) NOT NULL,
+  `satuan` varchar(50) NOT NULL,
+  `dosis_aturan_obat` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `tbl_resep_obat`
+-- Dumping data untuk tabel `tbl_resep_detail`
 --
 
-INSERT INTO `tbl_resep_obat` (`kode_resep`, `nama_obat`, `jenis_obat`, `dosis_aturan_obat`, `jumlah_obat`, `no_rekamedis`, `tanggal`, `created_at`, `updated_at`) VALUES
-(1, 'Salicyl', 'Bedak', '3 x 1 sehari', 2, '000002', '2018-06-24', NULL, NULL),
-(2, 'Salicyl', 'Bedak', '3 x 1 sehari', 4, '000002', '2018-06-24', NULL, NULL),
-(3, 'Polivanol', 'Obat Tetes Luka', 'Setiap pakai 50 ml', 1, '000002', '2018-06-25', NULL, NULL),
-(4, 'Alpara', 'Tablet', '3x1 Sehari', 1, '000002', '2018-06-30', NULL, NULL),
-(5, 'Polivanol', 'Obat Tetes Luka', 'Setiap pakai 50 ml', 2, '000003', '2018-07-03', NULL, NULL),
-(6, 'Polivanol', 'Obat Tetes Luka', 'Setiap pakai 50 ml', 1, '000003', '2018-07-04', NULL, NULL),
-(7, 'Alpara', 'Tablet', '3x1 Sehari', 1, '000003', '2018-07-06', NULL, NULL),
-(8, 'Polivanol', 'Obat Tetes Luka', 'Setiap pakai 50 ml', 1, '000001', '2018-07-14', NULL, NULL),
-(9, 'Anexsamol', 'Kapsul', '2x1 Sehari', 1, '000003', '2018-07-17', NULL, NULL),
-(11, 'Acetylcystein Tablet 200 mg', 'Tablet', '-', 20, '000004', '2021-12-21', '2021-12-21 00:18:14', '2021-12-21 00:18:14');
+INSERT INTO `tbl_resep_detail` (`id`, `id_transaksi`, `kode_obat`, `nama_obat`, `jumlah`, `satuan`, `dosis_aturan_obat`) VALUES
+(1, 1, 'GFK0004', 'Asam Askorbat (Vit. C) Tablet 50 mg', 1, 'Tablet', 'BILA SAKIT KEPALA'),
+(2, 1, 'GFK0006', 'Multivitamin Tablet', 1, 'Tablet', '1X SEHARI 5 INHALASI');
 
 -- --------------------------------------------------------
 
@@ -407,9 +465,7 @@ CREATE TABLE `tbl_role` (
 
 INSERT INTO `tbl_role` (`id_role`, `nama_role`, `created_at`, `updated_at`) VALUES
 (1, 'Admin', NULL, NULL),
-(2, 'Apoteker', NULL, NULL),
 (3, 'Dokter', NULL, NULL),
-(4, 'Pendaftar', NULL, NULL),
 (5, 'Kepala Puskesmas', '2021-12-18 07:42:38', '2021-12-18 07:42:38');
 
 -- --------------------------------------------------------
@@ -419,24 +475,36 @@ INSERT INTO `tbl_role` (`id_role`, `nama_role`, `created_at`, `updated_at`) VALU
 --
 
 CREATE TABLE `tbl_stok_obat` (
-  `kode_obat` varchar(5) NOT NULL,
-  `nama_obat` varchar(15) NOT NULL,
-  `jumlah` int(11) NOT NULL,
-  `satuan` varchar(15) NOT NULL,
-  `created_at` datetime DEFAULT NULL,
-  `updated_at` datetime DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  `id` int(11) NOT NULL,
+  `kode_obat` varchar(255) DEFAULT NULL,
+  `tanggal` datetime DEFAULT NULL,
+  `stok_awal` bigint(60) DEFAULT NULL,
+  `stok_masuk` bigint(60) DEFAULT NULL,
+  `stok_keluar` bigint(60) DEFAULT NULL,
+  `stok_akhir` bigint(60) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `tbl_stok_obat`
 --
 
-INSERT INTO `tbl_stok_obat` (`kode_obat`, `nama_obat`, `jumlah`, `satuan`, `created_at`, `updated_at`) VALUES
-('A-989', 'Salicyl', 20, 'Buah', NULL, '2021-12-20 23:52:36'),
-('D-118', 'Dextrane', 20, 'Strip', NULL, NULL),
-('SD-65', 'Polivanol', 24, 'Botol', NULL, NULL),
-('SN-11', 'Alpara', 214, 'Strip', NULL, '2021-12-20 23:55:21'),
-('P-332', 'PoliSaxechon', -4, 'Botol', NULL, NULL);
+INSERT INTO `tbl_stok_obat` (`id`, `kode_obat`, `tanggal`, `stok_awal`, `stok_masuk`, `stok_keluar`, `stok_akhir`) VALUES
+(1, 'GFK0002', '2021-07-20 01:27:58', 21, NULL, 1, 20),
+(2, 'GFK0003', '2021-07-20 01:28:47', 15, 20, NULL, 25),
+(3, 'GFK0002', '2021-07-20 01:28:47', 20, 10, NULL, 30),
+(4, 'GFK0001', '2021-07-25 21:58:04', 0, 50, NULL, 50),
+(5, 'GFK0001', '2021-08-09 20:41:27', 50, NULL, 11, 39),
+(6, 'GFK0002', '2021-08-09 20:41:27', 30, NULL, 1, 29),
+(7, 'GFK0003', '2021-08-09 20:41:27', 25, NULL, 1, 24),
+(8, 'GFK0003', '2021-09-05 00:21:09', 24, 5, NULL, 29),
+(9, 'GFK0001', '2022-01-12 01:54:55', 39, NULL, 1, 38),
+(10, 'GFK0002', '2022-01-12 01:54:55', 29, NULL, 1, 28),
+(11, 'GFK0003', '2022-01-12 01:54:55', 29, NULL, 1, 28),
+(12, 'GFK0003', '2022-01-12 10:52:02', 28, NULL, 1, 27),
+(13, 'GFK0001', '2022-01-15 11:48:21', 38, 10, NULL, 48),
+(14, 'GFK0004', '2022-01-15 11:49:22', 0, 70, NULL, 70),
+(15, 'GFK0003', '2022-01-16 10:50:47', 27, NULL, 10, 17),
+(16, 'GFK0003', '2022-01-16 10:51:17', 17, NULL, 8, 9);
 
 -- --------------------------------------------------------
 
@@ -445,7 +513,7 @@ INSERT INTO `tbl_stok_obat` (`kode_obat`, `nama_obat`, `jumlah`, `satuan`, `crea
 --
 
 CREATE TABLE `tbl_supplier` (
-  `kode_supplier` varchar(6) NOT NULL,
+  `kode_supplier` int(11) NOT NULL,
   `nama_supplier` varchar(60) NOT NULL,
   `alamat` text NOT NULL,
   `no_telpon` varchar(13) NOT NULL,
@@ -459,9 +527,9 @@ CREATE TABLE `tbl_supplier` (
 --
 
 INSERT INTO `tbl_supplier` (`kode_supplier`, `nama_supplier`, `alamat`, `no_telpon`, `email`, `created_at`, `updated_at`) VALUES
-('AW-189', 'Novita', 'Perum Pemda', '082872878219', 'novita@gmail.com', NULL, NULL),
-('B-2827', 'Bentoman', 'Johar', '0828728726', 'bentoman@gmail.com', NULL, NULL),
-('DM-293', 'Dimas Makdus', 'Jl. Tubagus Ismail Dalam', '085723520217', 'dimasmakdus@gmail.com', '2021-12-20 23:10:02', '2021-12-22 06:54:55');
+(1, 'Novita', 'Perum Pemda', '082872878219', 'novita@gmail.com', '2021-12-20 23:10:02', '2022-01-10 23:33:24'),
+(2, 'Bentoman', 'Johar', '0828728726', 'johar@gmail.com', NULL, '2022-01-10 23:33:24'),
+(3, 'Dimas Mohammad', 'Bandung', '085723520217', 'dimas@gmail.com', NULL, '2022-01-10 23:33:24');
 
 -- --------------------------------------------------------
 
@@ -485,10 +553,8 @@ CREATE TABLE `tbl_user` (
 --
 
 INSERT INTO `tbl_user` (`id_user`, `full_name`, `email`, `password`, `id_user_role`, `is_active`, `created_at`, `updated_at`) VALUES
-(1, 'Administrator', 'admin@pusmaung.com', '$2y$04$IhTaAEVp51NVhMPeAiOeZOrT.6ViccXtycqDBY1sGb3hUBYG7itsS', 1, 'y', '2021-11-12 11:57:30', '2021-11-12 22:38:39'),
-(2, 'Pak Camat', 'camat@123.com', '$2y$10$RP5t/NkpIb.6WUL2UCkCc.N1acLt9dLLUWA6ZS5JBHmOV.dXmTyOS', 4, 'y', '2021-11-14 02:51:27', '2021-11-14 02:51:27'),
-(3, 'Babang', 'bababababang@gmail.com', '$2y$10$plvVM7tkfySMHOOqx2dpOeqSCW5M4x2D.G5tP5AKtB4/a0hYcSR8K', 3, 'n', '2021-11-14 03:00:11', '2021-11-14 03:00:28'),
-(4, 'Kepala Puskesmas', 'kepala@pusmaung.com', '$2y$10$FnFO9x.YehEXhyx/BfY/t.DZZandCD6qZZEVlV0HD7RMP52t.1D3C', 5, 'y', '2021-12-16 10:58:13', '2021-12-18 04:12:44');
+(1, 'Kepala Puskesmas', 'kepala@pusmaung.com', '$2y$10$Q0rG00LgNyaEtqwnNF4MOuExTwKWVm5yDnb5QN1Lq6wDR3zZLxF4a', 5, 'y', '2022-01-11 12:47:30', '2022-01-11 12:47:30'),
+(2, 'Administrator', 'admin@pusmaung.com', '$2y$10$zLYQ46r.GOCv6WihCkxqwOmhywTTKJoHFN8DpXTjFgnroAkWJmlmm', 1, 'y', '2022-01-11 12:47:57', '2022-01-11 12:47:57');
 
 --
 -- Indexes for dumped tables
@@ -501,22 +567,22 @@ ALTER TABLE `tbl_akses`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `tbl_bukti_barang_keluar`
+-- Indeks untuk tabel `tbl_aturan_obat`
 --
-ALTER TABLE `tbl_bukti_barang_keluar`
+ALTER TABLE `tbl_aturan_obat`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indeks untuk tabel `tbl_dokter`
+--
+ALTER TABLE `tbl_dokter`
+  ADD PRIMARY KEY (`kode_dokter`);
 
 --
 -- Indeks untuk tabel `tbl_hak_akses`
 --
 ALTER TABLE `tbl_hak_akses`
   ADD PRIMARY KEY (`id`);
-
---
--- Indeks untuk tabel `tbl_lplpo`
---
-ALTER TABLE `tbl_lplpo`
-  ADD PRIMARY KEY (`kode_obat`);
 
 --
 -- Indeks untuk tabel `tbl_obat`
@@ -528,7 +594,19 @@ ALTER TABLE `tbl_obat`
 -- Indeks untuk tabel `tbl_pasien`
 --
 ALTER TABLE `tbl_pasien`
-  ADD PRIMARY KEY (`no_rekamedis`);
+  ADD PRIMARY KEY (`no_resep`);
+
+--
+-- Indeks untuk tabel `tbl_pembelian`
+--
+ALTER TABLE `tbl_pembelian`
+  ADD PRIMARY KEY (`id`,`faktur`) USING BTREE;
+
+--
+-- Indeks untuk tabel `tbl_pembelian_detail`
+--
+ALTER TABLE `tbl_pembelian_detail`
+  ADD PRIMARY KEY (`id`) USING BTREE;
 
 --
 -- Indeks untuk tabel `tbl_pengeluaran_obat`
@@ -540,10 +618,16 @@ ALTER TABLE `tbl_pengeluaran_obat`
   ADD KEY `no_terima_obat_3` (`no_terima_obat`);
 
 --
--- Indeks untuk tabel `tbl_permintaan_obat`
+-- Indeks untuk tabel `tbl_permintaan`
 --
-ALTER TABLE `tbl_permintaan_obat`
-  ADD PRIMARY KEY (`no_trans`);
+ALTER TABLE `tbl_permintaan`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indeks untuk tabel `tbl_permintaan_detail`
+--
+ALTER TABLE `tbl_permintaan_detail`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indeks untuk tabel `tbl_pesanan`
@@ -552,10 +636,16 @@ ALTER TABLE `tbl_pesanan`
   ADD PRIMARY KEY (`id_pesanan`);
 
 --
--- Indeks untuk tabel `tbl_resep_obat`
+-- Indeks untuk tabel `tbl_resep`
 --
-ALTER TABLE `tbl_resep_obat`
-  ADD PRIMARY KEY (`kode_resep`);
+ALTER TABLE `tbl_resep`
+  ADD PRIMARY KEY (`id_transaksi`);
+
+--
+-- Indeks untuk tabel `tbl_resep_detail`
+--
+ALTER TABLE `tbl_resep_detail`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indeks untuk tabel `tbl_role`
@@ -567,7 +657,7 @@ ALTER TABLE `tbl_role`
 -- Indeks untuk tabel `tbl_stok_obat`
 --
 ALTER TABLE `tbl_stok_obat`
-  ADD PRIMARY KEY (`kode_obat`);
+  ADD PRIMARY KEY (`id`) USING BTREE;
 
 --
 -- Indeks untuk tabel `tbl_supplier`
@@ -589,13 +679,19 @@ ALTER TABLE `tbl_user`
 -- AUTO_INCREMENT untuk tabel `tbl_akses`
 --
 ALTER TABLE `tbl_akses`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
--- AUTO_INCREMENT untuk tabel `tbl_bukti_barang_keluar`
+-- AUTO_INCREMENT untuk tabel `tbl_aturan_obat`
 --
-ALTER TABLE `tbl_bukti_barang_keluar`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `tbl_aturan_obat`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT untuk tabel `tbl_dokter`
+--
+ALTER TABLE `tbl_dokter`
+  MODIFY `kode_dokter` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT untuk tabel `tbl_hak_akses`
@@ -604,16 +700,34 @@ ALTER TABLE `tbl_hak_akses`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
+-- AUTO_INCREMENT untuk tabel `tbl_pembelian`
+--
+ALTER TABLE `tbl_pembelian`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT untuk tabel `tbl_pembelian_detail`
+--
+ALTER TABLE `tbl_pembelian_detail`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT untuk tabel `tbl_permintaan_detail`
+--
+ALTER TABLE `tbl_permintaan_detail`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
 -- AUTO_INCREMENT untuk tabel `tbl_pesanan`
 --
 ALTER TABLE `tbl_pesanan`
   MODIFY `id_pesanan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- AUTO_INCREMENT untuk tabel `tbl_resep_obat`
+-- AUTO_INCREMENT untuk tabel `tbl_resep_detail`
 --
-ALTER TABLE `tbl_resep_obat`
-  MODIFY `kode_resep` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+ALTER TABLE `tbl_resep_detail`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT untuk tabel `tbl_role`
@@ -622,10 +736,22 @@ ALTER TABLE `tbl_role`
   MODIFY `id_role` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
+-- AUTO_INCREMENT untuk tabel `tbl_stok_obat`
+--
+ALTER TABLE `tbl_stok_obat`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
+--
+-- AUTO_INCREMENT untuk tabel `tbl_supplier`
+--
+ALTER TABLE `tbl_supplier`
+  MODIFY `kode_supplier` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT untuk tabel `tbl_user`
 --
 ALTER TABLE `tbl_user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -34,6 +34,10 @@
 <script src="<?= base_url(); ?>/plugins/select2/js/select2.full.min.js"></script>
 <!-- bs-custom-file-input -->
 <script src="<?= base_url(); ?>/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+<!-- Summernote -->
+<script src="<?= base_url(); ?>/plugins/summernote/summernote-bs4.min.js"></script>
+<!-- bs-custom-file-input -->
+<script src="<?= base_url(); ?>/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
 
 <!-- DataTables  & Plugins -->
 <script src="<?= base_url(); ?>/plugins/datatables/jquery.dataTables.min.js"></script>

@@ -4,19 +4,18 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class StokObatModel extends Model
+class PembelianDetailModel extends Model
 {
-    protected $table      = 'tbl_stok_obat';
+    protected $table      = 'tbl_pembelian_detail';
     protected $primaryKey = 'id';
 
     protected $returnType     = 'array';
 
     protected $allowedFields = [
+        'id_pembelian',
+        'kode_pemesanan',
         'kode_obat',
-        'tanggal',
-        'stok_awal',
-        'stok_masuk',
-        'stok_keluar',
-        'stok_akhir'
+        'harga_beli',
+        'stok_masuk'
     ];
 }

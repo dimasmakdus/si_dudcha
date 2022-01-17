@@ -109,8 +109,8 @@
                                                         <div class="form-group row">
                                                             <label for="kode-obat" class="col-sm-2 col-form-label">Kode Obat</label>
                                                             <div class="col-sm-10">
-                                                                <input type="text" class="form-control" value="<?= "GFK" . $obat['kode_obat'] ?>" required disabled>
-                                                                <input type="hidden" name="kode_obat" value="<?= "GFK" . $obat['kode_obat'] ?>">
+                                                                <input type="text" class="form-control" value="<?= $obat['kode_obat'] ?>" required disabled>
+                                                                <input type="hidden" name="kode_obat" value="<?= $obat['kode_obat'] ?>">
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">

@@ -54,50 +54,34 @@
                         <?php
                         }
                         ?>
-                        <a href="<?= base_url('pesanan-obat-add') ?>" class="btn bg-olive mb-3"><i class="fas fa-plus"></i> Tambah</a>
+                        <a href="<?= base_url('barang-masuk-add') ?>" class="btn bg-olive mb-3"><i class="fas fa-plus"></i> Tambah</a>
                         <table id="example2" class="table table-bordered table-hover">
                             <thead>
                                 <tr>
                                     <th>No</th>
-                                    <th>Nomor Pemesanan</th>
-                                    <th>Tanggal Pemesanan</th>
-                                    <th>Supplier Dituju</th>
-                                    <th>Status Pemesanan</th>
+                                    <th>Nomor Faktur</th>
+                                    <th>Tanggal</th>
+                                    <th>Supplier</th>
+                                    <th>Total Obat</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php $i = 1 ?>
-                                <?php foreach ($permintaan_obat as $permintaan) : ?>
+                                <?php foreach ($pembelian as $beli) : ?>
                                     <tr>
                                         <td><?= $i++ ?></td>
-                                        <td><?= $permintaan['kode_pesanan'] ?></td>
-                                        <td><?= $permintaan['tanggal'] ?></td>
+                                        <td><?= $beli['faktur'] ?></td>
+                                        <td><?= $beli['tanggal'] ?></td>
                                         <td>
-                                            <?php foreach ($supplier as $supp) {
-                                                if ($supp['kode_supplier'] == $permintaan['kode_supplier']) {
-                                                    echo $supp['nama_supplier'];
-                                                }
-                                            }
+                                            <?php
+                                            $data = $supplier->find($beli['kode_supplier']);
+                                            echo $data['nama_supplier']
                                             ?>
                                         </td>
-                                        <td>
-                                            <?php switch ($permintaan['status']) {
-                                                case 'waiting': ?>
-                                                    <small class="badge badge-warning"><i class="far fa-clock"></i> Menunggu Persetujuan</small>
-                                                    <?php break; ?>
-                                                <?php
-                                                case 'approved': ?>
-                                                    <small class="badge badge-success"><i class="fas fa-check"></i> Disetujui</small>
-                                                    <?php break; ?>
-                                                <?php
-                                                case 'cancel': ?>
-                                                    <small class="badge badge-danger"><i class="fas fa-times"></i> Ditolak</small>
-                                                    <?php break; ?>
-                                            <?php } ?>
-                                        </td>
-                                        <td>
-                                            <a class="btn btn-sm btn-danger btn-delete-permintaan" data-toggle="modal" data-target="#hapus-<?= $permintaan['id'] ?>"><i class="fas fa-trash-alt"></i> Hapus</a>
+                                        <td><?= $beli['total'] ?></td>
+                                        <td class="text-center">
+                                            <a class="btn btn-sm btn-warning" data-toggle="modal" data-target="#hapus-"><i class="fas fa-eye"></i> Lihat</a>
                                         </td>
                                     </tr>
                                 <?php endforeach ?>

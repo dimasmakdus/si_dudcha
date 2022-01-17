@@ -46,11 +46,23 @@ $routes->get('/obat-obatan', 'Dashboard::obat_obatan');
 $routes->get('/data-dokter', 'Dashboard::data_dokter');
 $routes->get('/stok-obat', 'Dashboard::stok_obat');
 $routes->get('/resep-obat', 'Dashboard::resep_obat');
-$routes->get('/pengeluaran-harian', 'Dashboard::pengeluaran_harian');
-$routes->get('/laporan-barang-keluar', 'Dashboard::laporan_barang_keluar');
 $routes->get('/pengajuan-obat', 'Dashboard::pesanan_obat');
 $routes->get('/data-dokter', 'Dashboard::data_dokter');
 $routes->get('/pengambilan-obat', 'Dashboard::pengambilan_obat');
+$routes->get('/laporan-stok-obat', 'Laporan::laporan_stok_obat');
+$routes->get('/laporan-masuk', 'Laporan::laporan_masuk');
+$routes->get('/laporan-keluar', 'Laporan::laporan_keluar');
+$routes->get('/laporan-permintaan', 'Laporan::laporan_permintaan');
+$routes->get('/kirim-pesanan', 'PesananObat::kirimPesanan');
+$routes->get('/cek-pesanan', 'PesananObat::cekPesanan');
+$routes->get('/barang-masuk', 'Dashboard::barang_masuk');
+
+// Laporan
+$routes->get('/cetak-lpo', 'Laporan::cetak_lpo');
+$routes->get('/cetak-lbm', 'Laporan::cetak_lbm');
+$routes->get('/cetak-lbk', 'Laporan::cetak_lbk');
+$routes->get('/cetak-pesanan/(:segment)', 'Laporan::cetakPesanan/$1');
+$routes->get('/cetak-permintaan', 'Laporan::cetak_permintaan');
 
 // Pengguna
 $routes->get('/user-form', 'Users::userForm');
@@ -109,13 +121,14 @@ $routes->get('/lplpo/delete/(:segment)', 'PermintaanObat::remove/$1');
 
 // Pesanan Obat
 $routes->get('/pesanan-obat-add', 'PesananObat::pesananAdd');
-$routes->get('/cetak-lpo', 'PesananObat::cetakLPO');
+$routes->get('/cek-pesanan-edit/(:segment)', 'PesananObat::pesananEdit/$1');
 $routes->post('/pesanan-obat/create', 'PesananObat::create');
+$routes->post('/pesanan-obat/update', 'PesananObat::update');
 $routes->get('/pesanan-obat/delete/(:segment)', 'PesananObat::remove/$1');
-$routes->get('/kirim-ulang/(:segment)', 'PesananObat::kirimUlang/$1');
+$routes->post('/kirim-email', 'PesananObat::kirim_email');
 
 // Bukti Barang Keluar
-$routes->get('/cetak-lbbk', 'BuktiKeluar::cetakLBBK');
+$routes->get('/barang-masuk-add', 'BarangMasuk::barang_masuk_add');
 
 // Pengeluaran Obat
 $routes->get('/pengeluaran-harian-add', 'pengeluaranHarian::pengeluaranAdd');

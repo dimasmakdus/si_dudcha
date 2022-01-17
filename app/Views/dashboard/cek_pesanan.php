@@ -54,7 +54,6 @@
                         <?php
                         }
                         ?>
-                        <a href="<?= base_url('pesanan-obat-add') ?>" class="btn bg-olive mb-3"><i class="fas fa-plus"></i> Tambah</a>
                         <table id="example2" class="table table-bordered table-hover">
                             <thead>
                                 <tr>
@@ -74,7 +73,7 @@
                                         <td><?= $permintaan['kode_pesanan'] ?></td>
                                         <td><?= $permintaan['tanggal'] ?></td>
                                         <td>
-                                            <?php foreach ($supplier as $supp) {
+                                            <?php foreach ($data_supplier as $supp) {
                                                 if ($supp['kode_supplier'] == $permintaan['kode_supplier']) {
                                                     echo $supp['nama_supplier'];
                                                 }
@@ -97,7 +96,10 @@
                                             <?php } ?>
                                         </td>
                                         <td>
-                                            <a class="btn btn-sm btn-danger btn-delete-permintaan" data-toggle="modal" data-target="#hapus-<?= $permintaan['id'] ?>"><i class="fas fa-trash-alt"></i> Hapus</a>
+                                            <a href="<?= base_url('cek-pesanan-edit') . "/" . $permintaan['id'] ?>" class="btn btn-sm btn-info"><i class="fas fa-edit"></i> Ubah</a>
+                                            <?php if ($permintaan['status'] == 'approved') { ?>
+                                                <a href="<?= base_url('cetak-pesanan') . "/" . $permintaan['id'] ?>" target="_blank" class="btn btn-sm btn-success"><i class="fas fa-print"></i> Cetak</a>
+                                            <?php } ?>
                                         </td>
                                     </tr>
                                 <?php endforeach ?>

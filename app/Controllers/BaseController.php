@@ -15,6 +15,7 @@ use App\Models\ObatModel;
 use App\Models\ResepModel;
 use App\Models\PasienModel;
 use App\Models\PermintaanModel;
+use App\Models\PermintaanDetailModel;
 use App\Models\PengeluaranModel;
 use App\Models\SupplierModel;
 use App\Models\BarangKeluarModel;
@@ -25,6 +26,8 @@ use App\Models\PesananModel;
 use App\Models\DokterModel;
 use App\Models\AturanObatModel;
 use App\Models\ResepDetailModel;
+use App\Models\PembelianModel;
+use App\Models\PembelianDetailModel;
 
 /**
  * Class BaseController
@@ -63,6 +66,7 @@ class BaseController extends Controller
         parent::initController($request, $response, $logger);
 
         // Preload any models, libraries, etc, here.
+        $this->db = \Config\Database::connect();
 
         $this->session = \Config\Services::session();
         $this->userModel = new UserModel();
@@ -72,6 +76,7 @@ class BaseController extends Controller
         $this->resepModel = new ResepModel();
         $this->pasienModel = new PasienModel();
         $this->permintaanModel = new PermintaanModel();
+        $this->permintaanDetailModel = new PermintaanDetailModel();
         $this->pengeluaranModel = new PengeluaranModel();
         $this->supplierModel = new SupplierModel();
         $this->barangKeluarModel = new BarangKeluarModel();
@@ -80,6 +85,8 @@ class BaseController extends Controller
         $this->dokterModel = new DokterModel();
         $this->aturanModel = new AturanObatModel();
         $this->resepDetailModel = new ResepDetailModel();
+        $this->pembelianModel = new PembelianModel();
+        $this->pembelianDetailModel = new PembelianDetailModel();
 
         // Access Rights
         $this->aksesModel = new AksesModel();
