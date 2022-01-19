@@ -12,7 +12,7 @@ class BarangMasuk extends BaseController
                 $supplier = $this->supplierModel->find($data['kode_supplier']);
                 $permintaan[] = [
                     'no_pesanan' => $data['kode_pesanan'],
-                    'supplier' => $supplier['nama_supplier']
+                    'supplier' => $supplier['kode_supplier']
                 ];
 
                 foreach ($this->permintaanDetailModel->findAll() as $detail) {
@@ -37,9 +37,98 @@ class BarangMasuk extends BaseController
             'navLink' => 'barang-masuk',
             'pesanan' => $pesanan,
             'supplier' => $this->supplierModel,
-            'permintaan' => $permintaan,
-            'detail_obat' => $detail_obat,
+            'permintaan' => isset($permintaan) ? $permintaan : [],
+            'detail_obat' => isset($detail_obat) ? $detail_obat : [],
             'reqGet' => $this->request->getGet()
         ]);
+    }
+
+    function create()
+    {
+        $no_faktur = $this->request->getVar('no_faktur');
+        $data_pesanan = $this->request->getVar('data_pesanan');
+        $kode_supplier = $this->request->getVar('kode_supplier');
+        $kode_obat = $this->request->getVar('kode_obat');
+        $stok = $this->request->getVar('stok');
+        $stok_masuk = $this->request->getVar('stokMasuk');
+        $tanggal = date("Y-m-d H:i:s");
+
+        // cek stok < stok_masuk
+        $cekStok = false;
+        for ($i = 0; $i < count($kode_obat); $i++) {
+            if ($stok[$i] < $stok_masuk[$i]) {
+                $cekStok = true;
+                echo "over_stok";
+                die;
+            }
+        }
+
+        // cek input qty != kosong
+        $checked = false;
+        foreach ($stok_masuk as $value) {
+            if ($value == "" || $value <= 0) {
+                $checked = true;
+                echo "empty_qty";
+                die;
+            }
+        }
+
+        // total obat
+        $totalObat = 0;
+        foreach ($stok_masuk as $stok) {
+            $totalObat = $totalObat + $stok;
+        }
+
+        if (!$checked && !$cekStok) {
+            $this->pembelianModel->insert([
+                'faktur' => $no_faktur,
+                'kode_pemesanan' => $data_pesanan,
+                'tanggal' => $tanggal,
+                'total' => $totalObat,
+                'kode_supplier' => $kode_supplier
+            ]);
+
+            foreach ($this->permintaanModel->findAll() as $pesanan) {
+                if ($pesanan['kode_pesanan'] == $data_pesanan) {
+                    $this->permintaanModel->update($pesanan['id'], [
+                        'proses' => 1
+                    ]);
+                }
+            }
+
+            foreach ($this->pembelianModel->orderBy('id', 'ASC')->findAll() as $row) {
+            }
+
+            for ($i = 0; $i < count($kode_obat); $i++) {
+                $this->pembelianDetailModel->insert([
+                    'id_pembelian' => $row['id'],
+                    'kode_obat' => $kode_obat[$i],
+                    'stok_masuk' => $stok_masuk[$i]
+                ]);
+
+                $obat = $this->obatModel->find($kode_obat[$i]);
+                $stok_akhir = $obat['stok'] + $stok_masuk[$i];
+
+                // barang masuk
+                $this->stokObatModel->insert([
+                    'kode_obat' => $kode_obat[$i],
+                    'tanggal' => $tanggal,
+                    'stok_awal' => $obat['stok'],
+                    'stok_masuk' => $stok_masuk[$i],
+                    'stok_akhir' => $stok_akhir
+                ]);
+
+                // penambahan sisa stok
+                $this->obatModel->update($kode_obat[$i], [
+                    'nama_obat' => $obat['nama_obat'],
+                    'stok' => $stok_akhir,
+                    'satuan' => $obat['satuan']
+                ]);
+            }
+            echo "success";
+        } else {
+            echo "empty_qty";
+            die;
+        }
     }
 }

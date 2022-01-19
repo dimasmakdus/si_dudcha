@@ -47,7 +47,7 @@
               <thead>
                 <tr>
                   <th>No</th>
-                  <th>No Resep</th>
+                  <th>Kode Pasien</th>
                   <th>Status Pasien</th>
                   <th>No BPJS</th>
                   <th>Nama pasien</th>
@@ -71,7 +71,7 @@
                     <td><?= $pasien['umur'] ?></td>
                     <td><?= $pasien['alamat'] ?></td>
                     <td><?= $pasien['nama_dokter'] ?></td>
-                    <td>
+                    <td class="text-center">
                       <a class="btn btn-sm bg-olive btn-edit-pasien" data-toggle="modal" data-target="#edit-<?= $pasien['no_resep'] ?>"><i class="fas fa-edit"></i> Ubah</a>
                       <a class="btn btn-sm btn-danger btn-delete-pasien" data-toggle="modal" data-target="#hapus-<?= $pasien['no_resep'] ?>"><i class="fas fa-trash-alt"></i> Hapus</a>
                     </td>

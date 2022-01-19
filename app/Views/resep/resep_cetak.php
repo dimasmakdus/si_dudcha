@@ -73,25 +73,21 @@ border-top:none;padding:0cm 5.4pt 0cm 5.4pt'>
                     <p class=MsoNormal><b>*<?= $resepPasien['status_pasien'] ?></b></p>
                     <p class=MsoNormal><b>&nbsp;</b></p>
                     <p class=MsoNormal style='margin-left:72.45pt;text-indent:-72.45pt'>No : <?= $resepPasien['id_transaksi'] ?></p>
-                    <p class=MsoNormal>Tanggal : <?= $resepPasien['tanggal'] ?></p>
-                    <p class=MsoNormal>&nbsp;</p>
-                    <p class=MsoNormal>&nbsp;</p>
-                    <p class=MsoNormal><b><i><span style='font-family:"Times New Roman",serif'>R/</span></i></b></p>
-                    <p class=MsoNormal><b><i><span style='font-family:"Times New Roman",serif'>&nbsp;</span></i></b></p>
+                    <p class=MsoNormal>Tanggal : <?= $tgl_resep ?></p>
+                    <p class=MsoNormal>Dari Dokter : <?= $resepPasien['nama_dokter'] ?></p>
                     <?php foreach ($detailObat as $detail) : ?>
-                        <p class=MsoNormal>&nbsp;<?= $detail['nama_obat'] ?></p>
-                        <p class=MsoNormal>&nbsp;<?= $detail['jumlah'] ?> <?= $detail['satuan'] ?></p>
+                        <p class=MsoNormal><b><i><span style='font-family:"Times New Roman",serif'>&nbsp;</span></i></b></p>
+                        <p class=MsoNormal><b><i><span style='font-family:"Times New Roman",serif'>R/</span></i></b></p>
+                        <p class=MsoNormal>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?= $detail['nama_obat'] ?> </p>
+                        <p class=MsoNormal>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?= $detail['jumlah'] ?> <?= $detail['satuan'] ?></p>
+                        <p class=MsoNormal>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?= $detail['dosis_aturan_obat'] ?></p>
+                        <p class=MsoNormal>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;----------------------------------paraf</p>
                     <?php endforeach ?>
                     <p class=MsoNormal><b><i><span style='font-family:"Times New Roman",serif'>&nbsp;</span></i></b></p>
                     <p class=MsoNormal><b><i><span style='font-family:"Times New Roman",serif'>&nbsp;</span></i></b></p>
-                    <p class=MsoNormal><b><i><span style='font-family:"Times New Roman",serif'>&nbsp;</span></i></b></p>
-                    <p class=MsoNormal><span style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
-                    <p class=MsoNormal><b><i><span style='font-family:"Times New Roman",serif'>&nbsp;</span></i></b></p>
-                    <p class=MsoNormal><b><i><span style='font-family:"Times New Roman",serif'>&nbsp;</span></i></b></p>
-                    <p class=MsoNormal><b><i><span style='font-family:"Times New Roman",serif'>&nbsp;</span></i></b></p>
-                    <p class=MsoNormal>Nama Pasien   : <?= $resepPasien['nama_pasien'] ?></p>
-                    <p class=MsoNormal>Umur                : <?= $resepPasien['umur'] ?></p>
-                    <p class=MsoNormal>Alamat             : <?= $resepPasien['alamat'] ?></p>
+                    <p class=MsoNormal>Pro : <?= $resepPasien['nama_pasien'] ?></p>
+                    <p class=MsoNormal>Umur : <?= $resepPasien['umur'] ?></p>
+                    <p class=MsoNormal>Alamat : <?= $resepPasien['alamat'] ?></p>
                     <p class=MsoNormal><b><span style='font-family:"Times New Roman",serif'>&nbsp;</span></b></p>
                     <p class=MsoNormal><b><span style='font-family:"Times New Roman",serif'>&nbsp;</span></b></p>
                 </td>

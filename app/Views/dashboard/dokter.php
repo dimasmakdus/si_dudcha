@@ -67,7 +67,7 @@
                                         <td><?= $dokter['jenis_kelamin'] ?></td>
                                         <td><?= date("d-m-Y", strtotime($dokter['tgl_lahir'])); ?></td>
                                         <td><?= $dokter['alamat'] ?></td>
-                                        <td>
+                                        <td class="text-center">
                                             <a class="btn btn-sm bg-olive btn-edit-dokter" data-toggle="modal" data-target="#edit-<?= $dokter['kode_dokter'] ?>"><i class="fas fa-edit"></i> Ubah</a>
                                             <a class="btn btn-sm btn-danger btn-delete-dokter" data-toggle="modal" data-target="#hapus-<?= $dokter['kode_dokter'] ?>"><i class="fas fa-trash-alt"></i> Hapus</a>
                                         </td>

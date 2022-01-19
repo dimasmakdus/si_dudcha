@@ -63,7 +63,7 @@
                                         <td><?= $obat['nama_obat'] ?></td>
                                         <td><?= $obat['stok'] ?></td>
                                         <td><?= $obat['satuan'] ?></td>
-                                        <td>
+                                        <td class="text-center">
                                             <a class="btn btn-sm bg-olive btn-edit-obat" data-toggle="modal" data-target="#edit-<?= $obat['kode_obat'] ?>"><i class="fas fa-edit"></i> Ubah</a>
                                             <a class="btn btn-sm btn-danger btn-delete-obat" data-toggle="modal" data-target="#hapus-<?= $obat['kode_obat'] ?>"><i class="fas fa-trash-alt"></i> Hapus</a>
                                         </td>

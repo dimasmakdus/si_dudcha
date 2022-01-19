@@ -4,35 +4,10 @@ namespace App\Controllers;
 
 class Laporan extends BaseController
 {
-    function tanggal($tanggal)
-    {
-        $bulan = array(
-            1 =>   'Januari',
-            'Februari',
-            'Maret',
-            'April',
-            'Mei',
-            'Juni',
-            'Juli',
-            'Agustus',
-            'September',
-            'Oktober',
-            'November',
-            'Desember'
-        );
-        $pecahkan = explode('-', $tanggal);
-
-        // variabel pecahkan 0 = tanggal
-        // variabel pecahkan 1 = bulan
-        // variabel pecahkan 2 = tahun
-
-        return $pecahkan[2] . ' ' . $bulan[(int)$pecahkan[1]] . ' ' . $pecahkan[0];
-    }
-
     function laporan_stok_obat()
     {
         $reqGet = $this->request->getGet();
-        if (isset($reqGet['periode'])) {
+        if (isset($reqGet['periode']) && $this->stokObatModel->findAll() != []) {
             foreach ($this->stokObatModel->findAll() as $stok) {
                 $to_obat = $this->obatModel->find($stok['kode_obat']);
                 $date = date("Y-m-d", strtotime($stok['tanggal']));
@@ -50,7 +25,7 @@ class Laporan extends BaseController
                     $getPeriode = [];
                 }
             }
-        } else if (isset($reqGet['day'])) {
+        } else if (isset($reqGet['day']) && $this->stokObatModel->findAll() != []) {
             foreach ($this->stokObatModel->findAll() as $stok) {
                 $to_obat = $this->obatModel->find($stok['kode_obat']);
                 $date = date("Y-m-d", strtotime($stok['tanggal']));
@@ -106,7 +81,7 @@ class Laporan extends BaseController
     function cetak_lpo()
     {
         $reqGet = $this->request->getGet();
-        if (isset($reqGet['periode'])) {
+        if (isset($reqGet['periode']) && $this->stokObatModel->findAll() != []) {
             foreach ($this->stokObatModel->findAll() as $stok) {
                 $to_obat = $this->obatModel->find($stok['kode_obat']);
                 $date = date("Y-m-d", strtotime($stok['tanggal']));
@@ -124,7 +99,7 @@ class Laporan extends BaseController
                     $getPeriode = [];
                 }
             }
-        } else if (isset($reqGet['day'])) {
+        } else if (isset($reqGet['day']) && $this->stokObatModel->findAll() != []) {
             foreach ($this->stokObatModel->findAll() as $stok) {
                 $to_obat = $this->obatModel->find($stok['kode_obat']);
                 $date = date("Y-m-d", strtotime($stok['tanggal']));
@@ -256,21 +231,22 @@ class Laporan extends BaseController
 
     function laporan_permintaan()
     {
-        $req = $this->reqPermintaan($this->request->getGet());
-        $active = $req['active'];
-        $data_pesanan = $req['data_pesanan'];
-        $kode_doc = $req['kode_doc'];
-        $subTotal = $req['subTotal'];
-
         return view('laporan/laporan_permintaan', [
             'title' => 'Laporan Permintaan',
             'card_title' => 'Laporan Permintaan',
             'navLink' => 'laporan-permintaan',
             'reqGet' => $this->request->getGet(),
             'today' => $this->tanggal(date('Y-m-d')),
-            'subTotal' => $active ? $subTotal : [],
-            'pesanan' => $active ? $data_pesanan : [],
-            'doc' => $active ? $kode_doc : []
+            'db' => $this->db
+        ]);
+    }
+
+    function cetak_lpb()
+    {
+        return view('laporan/cetak-lpb', [
+            'db' => $this->db,
+            'reqGet' => $this->request->getGet(),
+            'today' => $this->tanggal(date('Y-m-d'))
         ]);
     }
     function cetak_permintaan()

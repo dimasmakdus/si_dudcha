@@ -84,27 +84,33 @@
                             </div>
 
                             <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">Obat</label>
+                                <label class="col-sm-2 col-form-label">Ajukan Obat</label>
                                 <div class="col-sm-10">
                                     <table class="table table-bordered">
                                         <thead>
                                             <tr>
                                                 <th>Nama Obat</th>
+                                                <th>Jumlah Yang Diajukan</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody class="tbl-obat">
-                                            <tr class="tr-row">
-                                                <td>
-                                                    <select class="form-control select-obat" name="kode_obat[]" style="width: 100%;" required>
-                                                        <option value="" selected="selected" disabled>-- Pilih Obat --</option>
-                                                        <?php foreach ($obat_kosong as $kosong) : ?>
-                                                            <option value="<?= $kosong['kode_obat'] ?>"><?= $kosong['kode_obat'] ?> - <?= $kosong['nama_obat'] ?> (<?= $kosong['satuan'] ?>) - Stok: <?= $kosong['stok'] ?></option>
-                                                        <?php endforeach ?>
-                                                    </select>
-                                                </td>
-                                                <td class="text-center"><button type="button" class="btn btn-sm btn-danger remove-obat">&#x1D5EB;</button></td>
-                                            </tr>
+                                            <?php foreach ($obat_kosong as $kosong) : ?>
+                                                <tr class="tr-row">
+                                                    <td>
+                                                        <select class="form-control select-obat" name="kode_obat[]" style="width: 100%;" required>
+                                                            <option value="" selected="selected" disabled>-- Pilih Obat --</option>
+                                                            <?php foreach ($data_obat as $obat) : ?>
+                                                                <option value="<?= $obat['kode_obat'] ?>" <?= $obat['kode_obat'] == $kosong['kode_obat'] ? 'selected' : '' ?>><?= $obat['kode_obat'] ?> - <?= $obat['nama_obat'] ?> (<?= $obat['satuan'] ?>) - Stok: <?= $obat['stok'] ?></option>
+                                                            <?php endforeach ?>
+                                                        </select>
+                                                    </td>
+                                                    <td>
+                                                        <input type="number" class="form-control" name="stok[]">
+                                                    </td>
+                                                    <td class="text-center"><button type="button" class="btn btn-sm btn-danger remove-obat">&#x1D5EB;</button></td>
+                                                </tr>
+                                            <?php endforeach ?>
                                         </tbody>
                                     </table>
                                     <button class="btn btn-success mb-2 btn-add-obat">&#65291; Tambah</button>
@@ -177,10 +183,16 @@
                                 window.location = "<?= base_url('pengajuan-obat') ?>";
                             }
                         })
-                    } else {
+                    } else if (res == 'empty_stok') {
+                        Swal.fire(
+                            'Tidak bisa!',
+                            'Jumlah yang diajukan tidak boleh kosong!',
+                            'error'
+                        )
+                    } else if (res = 'error') {
                         Swal.fire(
                             'Gagal!',
-                            'Data gagal di simpan!',
+                            'Data gagal di kirim!',
                             'error'
                         )
                     }
@@ -188,7 +200,7 @@
                 error: function(error) {
                     Swal.fire(
                         'Gagal!',
-                        'Data gagal di simpan!',
+                        'Data gagal di kirim!',
                         'error'
                     )
                 }
@@ -217,10 +229,13 @@
                 <td>
                     <select class="form-control select-obat" name="kode_obat[]" style="width: 100%;" required>
                         <option value="" selected="selected" disabled>-- Pilih Obat --</option>
-                            <?php foreach ($obat_kosong as $kosong) : ?>
-                                <option value="<?= $kosong['kode_obat'] ?>"><?= $kosong['kode_obat'] ?> - <?= $kosong['nama_obat'] ?> (<?= $kosong['satuan'] ?>) - Stok: <?= $kosong['stok'] ?></option>
-                            <?php endforeach ?>
+                        <?php foreach ($data_obat as $obat) : ?>
+                                <option value="<?= $obat['kode_obat'] ?>"><?= $obat['kode_obat'] ?> - <?= $obat['nama_obat'] ?> (<?= $obat['satuan'] ?>) - Stok: <?= $obat['stok'] ?></option>
+                        <?php endforeach ?>
                     </select>
+                </td>
+                <td>
+                    <input type="number" class="form-control" name="stok[]">
                 </td>
                 <td class="text-center"><button type="button" class="btn btn-sm btn-danger remove-obat">&#x1D5EB;</button></td>
             </tr>`

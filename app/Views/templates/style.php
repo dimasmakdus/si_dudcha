@@ -34,5 +34,5 @@
     <link rel="stylesheet" href="<?= base_url(); ?>/plugins/summernote/summernote-bs4.min.css">
 
     <!-- SweetAlert -->
-    <link rel="stylesheet" href="<?= base_url(); ?>/dist/css/sweetalert2.min.css">
+    <link rel="stylesheet" href="<?= base_url(); ?>/dist/sweetalert2/sweetalert2.min.css">
 </head>

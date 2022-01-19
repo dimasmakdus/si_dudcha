@@ -1,6 +1,24 @@
 <?= $this->extend('templates/adminlte_template') ?>
 
 <?= $this->section('content') ?>
+<style>
+    .detail-cell {
+        font-family: "Source Sans Pro", "Segoe UI", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        display: table-cell;
+        border: 1px solid #dee2e6;
+        padding: 0.75rem;
+        vertical-align: top;
+    }
+
+    .detail-th {
+        font-family: "Source Sans Pro", "Segoe UI", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        display: table-cell;
+        font-weight: bold;
+        border: 1px solid #dee2e6;
+        padding: 0.75rem;
+        vertical-align: top;
+    }
+</style>
 <!-- Content Header (Page header) -->
 <div class="content-header">
     <div class="container-fluid">
@@ -96,10 +114,106 @@
                                                     <?php break; ?>
                                             <?php } ?>
                                         </td>
-                                        <td>
-                                            <a class="btn btn-sm btn-danger btn-delete-permintaan" data-toggle="modal" data-target="#hapus-<?= $permintaan['id'] ?>"><i class="fas fa-trash-alt"></i> Hapus</a>
+                                        <td class="text-center">
+                                            <button class="btn btn-sm btn-warning" data-toggle="modal" data-target="#detail-<?= $permintaan['id'] ?>"><i class="fas fa-eye"></i> Detail</button>
                                         </td>
                                     </tr>
+
+                                    <!-- Modal View  -->
+                                    <div class="modal fade" id="detail-<?= $permintaan['id'] ?>">
+                                        <div class="modal-dialog modal-lg">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h4 class="modal-title">Detail Pengajuan</h4>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div class="row">
+                                                        <label class="col-sm-3 col-form-label">Nomor Pemesanan</label>
+                                                        <div class="col-xs-1 mt-1">:</div>
+                                                        <div class="col-sm-8">
+                                                            <h6 class="mt-2"><?= $permintaan['kode_pesanan'] ?></h6>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <label class="col-sm-3 col-form-label">Tanggal</label>
+                                                        <div class="col-xs-1 mt-1">:</div>
+                                                        <div class="col-sm-8">
+                                                            <h6 class="mt-2"><?= $permintaan['tanggal'] ?></h6>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <label class="col-sm-3 col-form-label">Supplier Dituju</label>
+                                                        <div class="col-xs-1 mt-1">:</div>
+                                                        <div class="col-sm-8">
+                                                            <h6 class="mt-2">
+                                                                <?php foreach ($supplier as $supp) {
+                                                                    if ($supp['kode_supplier'] == $permintaan['kode_supplier']) {
+                                                                        echo $supp['nama_supplier'];
+                                                                    }
+                                                                }
+                                                                ?></h6>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row mb-3">
+                                                        <label class="col-sm-3 col-form-label">Status</label>
+                                                        <div class="col-xs-1">:</div>
+                                                        <div class="col-sm-8">
+                                                            <?php switch ($permintaan['status']) {
+                                                                case 'waiting': ?>
+                                                                    <small class="badge badge-warning"><i class="far fa-clock"></i> Menunggu Persetujuan</small>
+                                                                    <?php break; ?>
+                                                                <?php
+                                                                case 'approved': ?>
+                                                                    <small class="badge badge-success"><i class="fas fa-check"></i> Disetujui</small>
+                                                                    <?php break; ?>
+                                                                <?php
+                                                                case 'cancel': ?>
+                                                                    <small class="badge badge-danger"><i class="fas fa-times"></i> Ditolak</small>
+                                                                    <?php break; ?>
+                                                            <?php } ?>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="container">
+                                                        <div class="row">
+                                                            <div class="col-sm-1 detail-th">No</div>
+                                                            <div class="col-sm-2 detail-th">Kode Obat</div>
+                                                            <div class="col-sm-4 detail-th">Nama Obat</div>
+                                                            <div class="col-sm-2 detail-th">Satuan</div>
+                                                            <div class="col-sm-3 detail-th">Jumlah Yang Diajukan</div>
+                                                        </div>
+                                                        <?php
+                                                        $j = 1;
+                                                        $total = 0;
+                                                        ?>
+                                                        <?php foreach ($detailObat as $detail) : ?>
+                                                            <?php if ($detail['id_permintaan'] == $permintaan['id']) : ?>
+                                                                <?php $obat = $obatModel->find($detail['kode_obat']); ?>
+                                                                <div class="row">
+                                                                    <div class="col-sm-1 detail-cell"><?= $j++ ?></div>
+                                                                    <div class="col-sm-2 detail-cell"><?= $detail['kode_obat'] ?></div>
+                                                                    <div class="col-sm-4 detail-cell"><?= $obat['nama_obat'] ?></div>
+                                                                    <div class="col-sm-2 detail-cell"><?= $obat['satuan'] ?></div>
+                                                                    <div class="col-sm-3 detail-cell"><?= $detail['stok'] ?></div>
+                                                                </div>
+                                                                <?php $total = $total + $detail['stok'] ?>
+                                                            <?php endif ?>
+                                                        <?php endforeach ?>
+                                                        <div class="row">
+                                                            <div class="col-sm-9 detail-cell">Total</div>
+                                                            <div class="col-sm-3 detail-cell"><?= $total ?></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- /.modal-content -->
+                                        </div>
+                                        <!-- /.modal-dialog -->
+                                    </div>
+                                    <!-- /.modal -->
                                 <?php endforeach ?>
                             </tbody>
                         </table>

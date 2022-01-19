@@ -73,16 +73,16 @@
                             <div class="form-group row">
                                 <label for="msg" class="col-sm-2 col-form-label">Message</label>
                                 <div class="col-sm-10">
-                                    <textarea id="summernote"></textarea>
+                                    <textarea name="body" id="summernote"></textarea>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="exampleInputFile" class="col-sm-2 col-form-label">Upload File</label>
+                                <label for="fileupload" class="col-sm-2 col-form-label">Upload File</label>
                                 <div class="col-sm-10">
                                     <div class="input-group">
                                         <div class="custom-file">
-                                            <input type="file" class="custom-file-input" name="uploadFile" id="exampleInputFile">
-                                            <label class="custom-file-label" for="exampleInputFile">Pilih file....</label>
+                                            <input type="file" class="custom-file-input" name="fileupload" id="fileupload" accept="image/png,image/jpeg,.pdf">
+                                            <label class="custom-file-label" for="fileupload">Pilih file....</label>
                                         </div>
                                     </div>
                                     <small>Tipe file hanya <i>JPG/JPEG/PNG</i> dan <i>PDF</i>. Maksimal file 512kb</small>
@@ -91,7 +91,7 @@
 
                         </div>
                         <div class="card-footer justify-content-between">
-                            <button type="button" class="btn bg-olive btn-submit"><i class="fas fa-paper-plane"></i> Submit</button>
+                            <button type="button" class="btn bg-olive" id="btn-submit"><i class="fas fa-paper-plane"></i> Submit</button>
                             <button type="button" class="btn btn-secondary"><i class="fas fa-redo-alt"></i> Reset</a>
                         </div>
 
@@ -107,72 +107,90 @@
 
 <?= $this->include('templates/script') ?>
 <script>
-    if (document.readyState == 'loading') {
-        document.addEventListener('DOMContentLoaded', ready);
-    } else {
-        ready();
-    }
-
-    function ready() {
-        document.getElementsByClassName('btn-submit')[0].addEventListener('click', submitClick);
-    }
-
-    function submitClick(e) {
-        e.preventDefault();
+    $("#btn-submit").click(function() {
         var supplier = $('select[name=email_supplier] option').filter(':selected').val();
 
-        console.log(supplier);
-        if (supplier != '') {
+        if ($("#email").val() == "") {
+            Swal.fire("Perhatian !", "Email tujuan tidak boleh kosong", "warning");
+        } else if ($("#password").val() == "") {
+            Swal.fire("Perhatian !", "Password tidak boleh kosong", "warning");
+        } else if ($("#pengirim").val() == "") {
+            Swal.fire("Perhatian !", "Nama Pengirim tidak boleh kosong", "warning");
+        } else if (supplier == "") {
+            Swal.fire("Perhatian !", "Harap pilih email supplier", "warning");
+        } else if ($("#subject").val() == "") {
+            Swal.fire("Perhatian !", "Subjek/ judul tidak boleh kosong", "warning");
+        } else if ($("#summernote").val() == "") {
+            Swal.fire("Perhatian !", "Isi pesan tidak boleh kosong", "warning");
+        } else if ($("#fileupload").val() == "") {
+            Swal.fire("Perhatian !", "Harap upload dokumen yg di butuhkan", "warning");
+        } else {
             var url = "<?= base_url('kirim-email'); ?>";
             var form = $('#sendEmail').serialize();
-            console.log(form);
-            $.ajax({
-                type: "POST",
-                url: url,
-                data: form,
-                success: function(res) {
-                    switch (res) {
-                        case 'success':
+            var formData = new FormData($('#sendEmail')[0]);
+            formData.append('fileupload', fileupload);
+            console.log(formData);
+
+            Swal.fire({
+                title: 'Apakah sudah benar?',
+                text: "Pastikan semua data yang di isi telah sesuai!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Iya, Kirim!',
+                cancelButtonText: 'Batal'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        type: "POST",
+                        url: url,
+                        data: formData,
+                        async: false,
+                        cache: false,
+                        contentType: false,
+                        processData: false,
+                        success: function(res) {
+                            switch (res) {
+                                case 'success':
+                                    Swal.fire({
+                                        title: 'Berhasil',
+                                        text: "Email berhasil terkirim ke supplier!",
+                                        icon: 'success',
+                                    }).then((res) => {
+                                        if (res.isConfirmed) {
+                                            window.location = "<?= base_url('kirim-pesanan') ?>";
+                                        }
+                                    });
+                                    break;
+                                case 'error_file':
+                                    Swal.fire(
+                                        'Perhatian !',
+                                        'Size file tidak boleh lebih dari 512kb!',
+                                        'warning'
+                                    )
+                                    break;
+                                case 'error':
+                                    Swal.fire(
+                                        'Email gagal terkirim!',
+                                        'Pastikan SMTP email dan password pada akun gmail kamu sudah benar!',
+                                        'error'
+                                    )
+                                    break;
+                            }
+                        },
+                        error: function(error) {
                             Swal.fire(
-                                'Berhasil!',
-                                'Data berhasil di simpan!',
-                                'success'
-                            )
-                            break;
-                        case 'error':
-                            Swal.fire(
-                                'Tidak Bisa!',
-                                'Pilih obat terlebih dahulu!',
+                                'Email gagal terkirim!',
+                                'Pastikan SMTP email dan password pada akun gmail kamu sudah benar!',
                                 'error'
                             )
-                            break;
-                        case 'empty_dosis':
-                            Swal.fire(
-                                'Tidak Bisa!',
-                                'Pilih dosis terlebih dahulu!',
-                                'error'
-                            )
-                            break;
-                    }
-                },
-                error: function(error) {
-                    Swal.fire(
-                        'Gagal!',
-                        'Data gagal di simpan!',
-                        'error'
-                    )
+                        }
+                    });
                 }
             });
-        } else {
-            // if (supplier == '') {
-            //     Swal.fire(
-            //         'Tidak Bisa!',
-            //         'Pilih data pasien terlebih dahulu!',
-            //         'error'
-            //     )
-            // }
         }
-    }
+    });
 </script>
 
 <script>

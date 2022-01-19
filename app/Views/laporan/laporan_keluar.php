@@ -92,7 +92,7 @@
                                         <th>Tanggal</th>
                                         <th>Nama Obat</th>
                                         <th>Satuan</th>
-                                        <th>Jumlah</th>
+                                        <th>Jumlah Pengeluaran</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -106,10 +106,10 @@
                                     <?php foreach ($barang->getResult('array') as $data) : ?>
                                         <tr>
                                             <td align="center"><?= $i++ ?></td>
-                                            <td align="center"><?= $data["kode_resep"] ?></td>
+                                            <td align="center"><?= "RP" . $data["kode_resep"] ?></td>
                                             <td align="center"><?= date("d-m-Y", strtotime($data["tanggal"])) ?></td>
                                             <td><?= $data["nama_obat"] ?></td>
-                                            <td align="right"><?= $data["satuan"] ?></td>
+                                            <td align="center"><?= $data["satuan"] ?></td>
                                             <td align="right"><?= $data["jumlah"] ?></td>
                                         </tr>
                                     <?php endforeach ?>
@@ -123,7 +123,7 @@
                                         <?php
                                         $hitung = $db->query("SELECT SUM(tbl_resep_detail.jumlah) jumlah, tbl_resep.tanggal FROM tbl_resep_detail
                                                                 LEFT JOIN tbl_resep ON tbl_resep_detail.id_transaksi = tbl_resep.id_transaksi
-                                                                WHERE tanggal BETWEEN '2022-01-01' AND '2022-01-17'");
+                                                                WHERE tanggal BETWEEN '$start_date' AND '$end_date' ");
                                         ?>
                                         <?php foreach ($hitung->getResult('array') as $total) : ?>
                                             <tr>

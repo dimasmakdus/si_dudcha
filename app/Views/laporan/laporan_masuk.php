@@ -92,9 +92,7 @@
                                         <th>Tanggal</th>
                                         <th>Supplier</th>
                                         <th>Nama Obat</th>
-                                        <th>Jumlah Pembelian</th>
-                                        <th>Harga</th>
-                                        <th>Sub Total</th>
+                                        <th>Jumlah Yang Masuk</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -117,8 +115,6 @@
                                             <td><?= $row['nama_supplier'] ?></td>
                                             <td><?= $row['nama_obat'] ?></td>
                                             <td align="right"><?= $row['stok_masuk'] ?></td>
-                                            <td align="right"><?= "RP " . $row['harga_beli'] ?></td>
-                                            <td align="right"><?= "RP " . $row['total'] ?></td>
                                         </tr>
                                     <?php endforeach ?>
                                 </tbody>
@@ -128,7 +124,7 @@
                                             <td valign="top" colspan="8" class="text-center">No data available in table</td>
                                         </tr>
                                     <?php } else { ?>
-                                        <?php $hitung = $db->query("SELECT SUM(tbl_pembelian_detail.stok_masuk) qty, SUM(tbl_pembelian_detail.harga_beli) subtotal,SUM(tbl_pembelian_detail.harga_beli*tbl_pembelian_detail.stok_masuk) total, tbl_pembelian.tanggal
+                                        <?php $hitung = $db->query("SELECT SUM(tbl_pembelian_detail.stok_masuk) qty, total, tbl_pembelian.tanggal
                                                 FROM tbl_pembelian_detail
                                                 LEFT JOIN tbl_pembelian ON tbl_pembelian_detail.id_pembelian = tbl_pembelian.id
                                                 WHERE tanggal BETWEEN '$start_date' AND '$end_date'"); ?>
@@ -136,8 +132,6 @@
                                             <tr>
                                                 <td colspan="5" align="center"><strong>Total</strong></td>
                                                 <td align="right"><strong><?= $row['qty'] ?></strong></td>
-                                                <td align="right"><strong><?= $row['subtotal'] ?></strong></td>
-                                                <td align="right"><strong><?= $row['total'] ?></strong></td>
                                             </tr>
                                         <?php endforeach ?>
                                     <?php } ?>
@@ -149,7 +143,7 @@
                                     <thead>
                                         <tr align="center">
                                             <th>Nama Obat</th>
-                                            <th>Jumlah Pembelian</th>
+                                            <th>Jumlah Yang Masuk</th>
                                             <th>Satuan</th>
                                         </tr>
                                     </thead>

@@ -22,6 +22,7 @@
 <!-- Main content -->
 <form id="formResep">
     <?= csrf_field(); ?>
+    <input type="hidden" id="maxId" value="<?= $maxId ?>">
     <section class="content">
         <div class="container-fluid">
             <div class="row">
@@ -287,13 +288,27 @@
                 success: function(res) {
                     switch (res) {
                         case 'success':
-                            Swal.fire(
-                                'Berhasil!',
-                                'Data berhasil di simpan!',
-                                'success'
-                            )
+                            Swal.fire({
+                                title: 'Transaksi berhasil',
+                                text: "Apakah kamu ingin mencetak salinan resep ?",
+                                icon: 'success',
+                                showCancelButton: true,
+                                confirmButtonColor: '#3085d6',
+                                cancelButtonColor: '#d33',
+                                confirmButtonText: 'Cetak',
+                                cancelButtonText: 'Tidak',
+                            }).then((result) => {
+                                if (result.isConfirmed) {
+                                    var maxid = $("#maxId").val();
+                                    var newid = Number(maxid) + 1;
+                                    var link = "<?= base_url('cetak-resep') ?>/" + newid;
+                                    location.href = link;
+                                } else {
+                                    location.href = "<?= base_url('resep-obat') ?>"
+                                }
+                            })
                             break;
-                        case 'error':
+                        case 'empty_obat':
                             Swal.fire(
                                 'Tidak Bisa!',
                                 'Pilih obat terlebih dahulu!',
@@ -395,8 +410,8 @@
                     <input type="number" name="jumlah[]" class="form-control cart-qty-input" style="width:80px" value="1">
                 </td>
                 <td>
-                    <select class="form-control dosisObat" name="dosis_aturan[]" style="width: 100%;" required>
-                        <option value="" selected="selected" disabled>-- Pilih Dosis --</option>
+                    <select class="form-control dosisObat" name="dosis_aturan[]" style="width: 100%;">
+                        <option value="" selected="selected">-- Pilih Dosis --</option>
                         <?php foreach ($aturan_obat as $aturan) : ?>
                             <option value="<?= $aturan['dosis_aturan_obat'] ?>"><?= $aturan['dosis_aturan_obat'] ?> - <?= $aturan['khusus'] ?></option>
                         <?php endforeach ?>

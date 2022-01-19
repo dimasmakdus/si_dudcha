@@ -54,7 +54,7 @@
 <script src="<?= base_url(); ?>/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
 
 <!-- SweetAlert -->
-<script src="<?= base_url(); ?>/dist/js/sweetalert2.min.js"></script>
+<script src="<?= base_url(); ?>/dist/sweetalert2/sweetalert2.min.js"></script>
 
 <script>
     $('.show-obat').hide();

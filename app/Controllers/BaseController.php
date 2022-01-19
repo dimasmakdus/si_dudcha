@@ -102,7 +102,7 @@ class BaseController extends Controller
         }
     }
 
-    public function tgl_indo($tanggal)
+    function tanggal($tanggal)
     {
         $bulan = array(
             1 =>   'Januari',
@@ -120,10 +120,10 @@ class BaseController extends Controller
         );
         $pecahkan = explode('-', $tanggal);
 
-        // variabel pecahkan 0 = tahun
+        // variabel pecahkan 0 = tanggal
         // variabel pecahkan 1 = bulan
-        // variabel pecahkan 2 = tanggal
+        // variabel pecahkan 2 = tahun
 
-        return $bulan[(int)$pecahkan[1]] . ' ' . $pecahkan[0];
+        return $pecahkan[2] . ' ' . $bulan[(int)$pecahkan[1]] . ' ' . $pecahkan[0];
     }
 }

@@ -32,7 +32,7 @@
                     <!-- /.card-header -->
                     <div class="card-body">
                         <!-- form start -->
-                        <form class="form-horizontal" id="form-barang-masuk">
+                        <form id="form-barang-masuk">
                             <?= csrf_field(); ?>
                             <?php if (isset($reqGet['no_faktur'])) {
                                 $faktur = $reqGet['no_faktur'];
@@ -43,7 +43,7 @@
                             <div class="form-group row">
                                 <label for="no_faktur" class="col-sm-2 col-form-label">Nomor Faktur</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="no_faktur" id="no-faktur" value="<?= $faktur ?>" placeholder="Masukkan nomor faktur" required>
+                                    <input type="text" class="form-control" name="no_faktur" id="no_faktur" value="<?= $faktur ?>" placeholder="Masukkan nomor faktur" required>
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -71,13 +71,17 @@
                                             <div class="form-group row">
                                                 <label class="col-sm-2 col-form-label">Nomor Pemesanan</label>
                                                 <div class="col-sm-10">
-                                                    <h5 class="mt-1" id="no-faktur"><?= $data['no_pesanan'] ?></h5>
+                                                    <h6 class="mt-2" id="no-faktur"><?= $data['no_pesanan'] ?></h6>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label for="nama_supplier" class="col-sm-2 col-form-label">Supplier</label>
                                                 <div class="col-sm-10">
-                                                    <input type="text" class="form-control" id="nama_supplier" value="<?= $data['supplier'] ?>" disabled>
+                                                    <?php
+                                                    $supp = $supplier->find($data['supplier'])
+                                                    ?>
+                                                    <input type="text" class="form-control" value="<?= $supp['nama_supplier'] ?>" disabled>
+                                                    <input type="hidden" name="kode_supplier" value="<?= $supp['kode_supplier'] ?>">
                                                 </div>
                                             </div>
                                             <div class="form-group row">
@@ -89,7 +93,7 @@
                                                                 <th>No</th>
                                                                 <th>Nama Obat</th>
                                                                 <th>Satuan</th>
-                                                                <th>Stok Pemesanan</th>
+                                                                <th>Stok Yang Diajukan</th>
                                                                 <th>Stok Masuk</th>
                                                             </tr>
                                                         </thead>
@@ -97,13 +101,15 @@
                                                             <?php $i = 1 ?>
                                                             <?php foreach ($detail_obat as $obat) : ?>
                                                                 <?php if ($obat['no_pesanan'] == $reqGet['no_pesanan']) : ?>
+                                                                    <input type="hidden" name="kode_obat[]" value="<?= $obat['kode_obat'] ?>">
+                                                                    <input type="hidden" name="stok[]" value="<?= $obat['stok'] ?>">
                                                                     <tr>
                                                                         <td><?= $i++ ?></td>
                                                                         <td><?= $obat['nama_obat'] ?></td>
                                                                         <td><?= $obat['satuan'] ?></td>
                                                                         <td><?= $obat['stok'] ?></td>
                                                                         <td>
-                                                                            <input type="number" class="form-control" nama="stok_masuk[]">
+                                                                            <input type="number" name="stokMasuk[]" class="form-control">
                                                                         </td>
                                                                     </tr>
                                                                 <?php endif ?>
@@ -116,12 +122,12 @@
                                     <?php } ?>
                                 <?php endforeach ?>
                             <?php endif ?>
+                        </form>
                     </div>
                     <div class="card-footer justify-content-between">
-                        <button type="button" class="btn bg-olive"><i class="fas fa-save"></i> Simpan</button>
+                        <button type="button" onclick="simpanStok()" class="btn bg-olive"><i class="fas fa-save"></i> Simpan</button>
                         <a href="<?= base_url('barang-masuk') ?>" class="btn btn-danger"><i class="fas fa-sign-out-alt"></i> Kembali</a>
                     </div>
-                    </form>
 
                 </div>
                 <!-- /.col -->
@@ -135,13 +141,77 @@
 <?= $this->include('templates/script') ?>
 <script>
     $('#data_pesanan').change(function() {
+        var select_kode = $('select[name=data_pesanan] option').filter(':selected').val();
+        var no_faktur = $('#no_faktur').val();
         <?php if (isset($permintaan)) : ?>
-            var select_kode = $('select[name=data_pesanan] option').filter(':selected').val();
-            var no_faktur = $('#no-faktur').val();
             window.location = "<?= base_url('barang-masuk-add') ?>?no_pesanan=" + select_kode + "&no_faktur=" + no_faktur;
 
         <?php endif ?>
     });
+
+    function simpanStok() {
+        if ($('#no_faktur').val() == '') {
+            Swal.fire(
+                'Tidak Bisa!',
+                'Input nomor faktur terlebih dahulu!',
+                'error'
+            )
+        } else if ($('select[name=data_pesanan] option').filter(':selected').val() == '') {
+            Swal.fire(
+                'Tidak Bisa!',
+                'Pilih data pemesanan terlebih dahulu!',
+                'error'
+            )
+        } else {
+            var url = "<?= site_url('barang-masuk/create'); ?>";
+            var form = $('#form-barang-masuk').serialize();
+            console.log(form);
+            $.ajax({
+                type: "POST",
+                url: url,
+                data: form,
+                success: function(res) {
+                    switch (res) {
+                        case 'success':
+                            Swal.fire({
+                                title: 'Berhasil!',
+                                text: 'Stok Obat berhasil di tambahkan!',
+                                icon: 'success',
+                                confirmButtonColor: '#3085d6',
+                                cancelButtonColor: '#d33',
+                            }).then((result) => {
+                                if (result.isConfirmed) {
+                                    window.location = "<?= base_url('barang-masuk') ?>";
+                                }
+                            })
+                            break;
+                        case 'over_stok':
+                            Swal.fire(
+                                'Tidak Bisa!',
+                                'Input stok masuk tidak boleh melebihi yang diajukan!',
+                                'error'
+                            )
+                            break;
+                        case 'empty_qty':
+                            Swal.fire(
+                                'Tidak Bisa!',
+                                'Input stok masuk terlebih dahulu!',
+                                'error'
+                            )
+                            break;
+                    }
+                },
+                error: function(error) {
+                    Swal.fire(
+                        'Gagal!',
+                        'Data gagal di simpan!',
+                        'error'
+                    )
+                }
+            });
+        }
+
+    }
 </script>
 <script>
     $('#barang-masuk').DataTable({

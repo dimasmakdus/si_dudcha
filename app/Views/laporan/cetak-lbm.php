@@ -37,9 +37,7 @@
                         <th>Tanggal</th>
                         <th>Supplier</th>
                         <th>Nama Obat</th>
-                        <th>Jumlah Pembelian</th>
-                        <th>Harga</th>
-                        <th>Sub Total</th>
+                        <th>Jumlah Yang Masuk</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -58,12 +56,10 @@
                         <tr>
                             <td align="center"><?= $i++ ?></td>
                             <td align="center"><?= $row['faktur'] ?></td>
-                            <td align="center"><?= $row['tanggal'] ?></td>
-                            <td align="center"><?= $row['nama_supplier'] ?></td>
-                            <td align="center"><?= $row['nama_obat'] ?></td>
-                            <td align="center"><?= $row['stok_masuk'] ?></td>
-                            <td align="right"><?= "RP " . $row['harga_beli'] ?></td>
-                            <td align="right"><?= "RP " . $row['total'] ?></td>
+                            <td align="center"><?= date("d-m-Y", strtotime($row['tanggal'])) ?></td>
+                            <td><?= $row['nama_supplier'] ?></td>
+                            <td><?= $row['nama_obat'] ?></td>
+                            <td align="right"><?= $row['stok_masuk'] ?></td>
                         </tr>
                     <?php endforeach ?>
                 </tbody>
@@ -73,7 +69,7 @@
                             <td valign="top" colspan="8" align="center">No data available in table</td>
                         </tr>
                     <?php } else { ?>
-                        <?php $hitung = $db->query("SELECT SUM(tbl_pembelian_detail.stok_masuk) qty, SUM(tbl_pembelian_detail.harga_beli) subtotal,SUM(tbl_pembelian_detail.harga_beli*tbl_pembelian_detail.stok_masuk) total, tbl_pembelian.tanggal
+                        <?php $hitung = $db->query("SELECT SUM(tbl_pembelian_detail.stok_masuk) qty, tbl_pembelian.tanggal
                                                 FROM tbl_pembelian_detail
                                                 LEFT JOIN tbl_pembelian ON tbl_pembelian_detail.id_pembelian = tbl_pembelian.id
                                                 WHERE tanggal BETWEEN '$start_date' AND '$end_date'"); ?>
@@ -81,8 +77,6 @@
                             <tr>
                                 <td colspan="5" align="center"><strong>Total</strong></td>
                                 <td align="center"><strong><?= $row['qty'] ?></strong></td>
-                                <td align="right"><strong><?= $row['subtotal'] ?></strong></td>
-                                <td align="right"><strong><?= $row['total'] ?></strong></td>
                             </tr>
                         <?php endforeach ?>
                     <?php } ?>

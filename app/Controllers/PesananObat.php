@@ -45,7 +45,7 @@ class PesananObat extends BaseController
             $no_pemesanan = "P" . date("Y") . date("m") . sprintf("%05d", 1);
         }
 
-        foreach ($this->obatModel->orderBy('stok', 'ASC')->findAll() as $obat) {
+        foreach ($this->obatModel->orderBy('kode_obat', 'ASC')->findAll() as $obat) {
             if ($obat['stok'] < 50) {
                 $obat_kosong[] = $obat;
             }
@@ -56,7 +56,8 @@ class PesananObat extends BaseController
             'navLink' => 'pengajuan-obat',
             'data_supplier' => $this->supplierModel->orderBy('updated_at', 'ASC')->findAll(),
             'no_pemesanan' => $no_pemesanan,
-            'obat_kosong' => $obat_kosong
+            'data_obat' => $this->obatModel->orderBy('kode_obat', 'ASC')->findAll(),
+            'obat_kosong' => isset($obat_kosong) ? $obat_kosong : []
         ]);
     }
 
@@ -88,21 +89,12 @@ class PesananObat extends BaseController
         ]);
     }
 
-    public function kirim_email()
-    {
-        $post = $this->request->getVar();
-        print_r($post);
-        die;
-        // $getSupplier = $this->supplierModel->find($post['kode-supplier']);
-
-        // return redirect()->to('pesanan-obat')->with($status, 'Pesanan Obat ' . $msg . ' ke ' . $getSupplier['email']);
-    }
-
     public function create()
     {
         $no_pesanan = $this->request->getVar('no_pesanan');
         $kode_supplier = $this->request->getVar('kode-supplier');
         $kode_obat = $this->request->getVar('kode_obat');
+        $stok = $this->request->getVar('stok');
         $today = date("Y-m-d H:i:s");
 
         $permintaan = $this->permintaanModel->findAll();
@@ -116,7 +108,23 @@ class PesananObat extends BaseController
             $id_permintaan = 1;
         }
 
-        if ($kode_obat != null) {
+        $ajukan = $stok != null ? $stok : [];
+        $checked = false;
+        if ($ajukan != []) {
+            foreach ($ajukan as $value) {
+                if ($value == "") {
+                    $checked = true;
+                    echo "empty_stok";
+                    die;
+                }
+            }
+        } else {
+            $checked = true;
+            echo "empty_stok";
+            die;
+        }
+
+        if (!$checked) {
             $this->permintaanModel->insert([
                 'id' => $id_permintaan,
                 'kode_pesanan' => $no_pesanan,
@@ -129,7 +137,8 @@ class PesananObat extends BaseController
             for ($i = 0; $i < count($kode_obat); $i++) {
                 $this->permintaanDetailModel->insert([
                     'id_permintaan' => $id_permintaan,
-                    'kode_obat' => $kode_obat[$i]
+                    'kode_obat' => $kode_obat[$i],
+                    'stok' => $stok[$i]
                 ]);
             }
             echo "success";
@@ -182,45 +191,48 @@ class PesananObat extends BaseController
         return redirect()->to('pesanan-obat')->with('success', 'Data Pesanan Obat Berhasil Dihapus');
     }
 
-    private function sendEmail($email_pengirim, $pass_pengirim, $email, $nama, $pengirim, $subject_msg, $body_msg, $file_tmp, $file_name)
+    public function kirim_email()
     {
+        $post = $this->request->getVar();
+        $file = $this->request->getFile('fileupload');
+        $fileName = $file->getName();
+        $pathName = $file->getPathName();
+
+        require '../vendor/autoload.php';
         $mail = new PHPMailer(true);
         $mail_host          = 'smtp.gmail.com';
 
-        try {
-            //Server settings
-            // $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
-            $mail->isSMTP();                                            //Send using SMTP
-            $mail->Host       = $mail_host;                             //Set the SMTP server to send through
-            $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-            $mail->Username   = $email_pengirim;                         //SMTP username
-            $mail->Password   = $pass_pengirim;                             //SMTP password
-            // $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;         //Enable implicit TLS encryption
-            $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
-            $mail->SMTPSecure = "ssl";
+        //Server settings
+        $mail->isSMTP();
+        $mail->Host       = $mail_host;
+        $mail->SMTPAuth   = true;
+        $mail->Username   = $post['email'];
+        $mail->Password   = $post['password'];
+        $mail->Port       = 465;
+        $mail->SMTPSecure = "ssl";
 
-            //Recipients
-            $mail->setFrom($email_pengirim, $pengirim);
-            $mail->addAddress($email, $nama);     //Add a recipient
-            $mail->addReplyTo($email_pengirim, $pengirim);
-            // $mail->addCC('cc@example.com');
-            // $mail->addBCC('bcc@example.com');
+        //Recipients
+        $mail->setFrom($post['email'], $post['pengirim']);
+        $mail->addAddress($post['email_supplier']);
+        $mail->addReplyTo($post['email'], $post['pengirim']);
 
-            //Attachments
-            // $mail->addAttachment('/var/tmp/file.tar.gz');         //Add attachments
-            // $mail->addAttachment('/tmp/image.jpg', 'new.jpg');    //Optional name
+        $mail->isHTML(true);
+        $mail->Subject = $post['subject'];
+        $mail->Body    = $post['body'];
+        $mail->AddAttachment($pathName, $fileName);
 
-            $mail->isHTML(true);                                  //Set email format to HTML
-            $mail->Subject = $subject_msg;
-            $mail->Body    = $body_msg;
-            $mail->AddAttachment($file_tmp, $file_name);
-
-            $mail->send();
-            return true;
-            // return 'Message has been sent';
-        } catch (Exception $e) {
-            return false;
-            // return "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+        $maxsize = 512 * 1024;
+        if ($file->getSize() > $maxsize) {
+            echo "error_file";
+            die;
+        } else if ($mail->send()) {
+            echo "success";
+        } else {
+            echo "error";
+            die;
         }
+        // $getSupplier = $this->supplierModel->find($post['kode-supplier']);
+
+        // return redirect()->to('pesanan-obat')->with($status, 'Pesanan Obat ' . $msg . ' ke ' . $getSupplier['email']);
     }
 }

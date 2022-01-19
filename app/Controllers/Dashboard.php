@@ -11,6 +11,7 @@ class Dashboard extends BaseController
 
     public function index()
     {
+        // Stok Habis
         $db_obat = $this->obatModel->findAll();
         if ($db_obat != []) {
             $data = true;
@@ -25,29 +26,54 @@ class Dashboard extends BaseController
             'title' => 'Stok Obat Hampir Habis'
         ];
 
+        // Barang Keluar
+        $totalTerpakai = 0;
         $tgl_resep = $this->resepModel->findAll();
         foreach ($tgl_resep as $tgl) {
             $tanggal = date("Y-m-d", strtotime($tgl['tanggal']));
             if ($tanggal == date('Y-m-d')) {
-                $today[] = $tgl;
                 $detail_resep = $this->resepDetailModel->findAll();
                 foreach ($detail_resep as $detail) {
                     if ($detail['id_transaksi'] == $tgl['id_transaksi']) {
                         $resepToday[] = $detail;
+                        $totalTerpakai = $totalTerpakai + $detail['jumlah'];
+                    }
+                }
+            }
+        }
+        $obatTerpakai = [
+            'count' => $totalTerpakai,
+            'title' => 'Obat Terpakai Hari Ini'
+        ];
+
+        // Barang Masuk
+        $totalMasuk = 0;
+        $tgl_masuk = $this->pembelianModel->findAll();
+        foreach ($tgl_masuk as $tgl) {
+            $tanggal = date("Y-m-d", strtotime($tgl['tanggal']));
+            if ($tanggal == date('Y-m-d')) {
+                $detail_masuk = $this->pembelianDetailModel->findAll();
+                foreach ($detail_masuk as $detail) {
+                    if ($detail['id_pembelian'] == $tgl['id']) {
+                        $resepToday[] = $detail;
+                        $totalMasuk = $totalMasuk + $detail['stok_masuk'];
                     }
                 }
             }
         }
 
-        $obatTerpakai = [
-            'count' => (isset($today)) ? count($resepToday) : 0,
-            'title' => 'Obat Terpakai Hari Ini'
+        $obatMasuk = [
+            'count' => $totalMasuk,
+            'title' => 'Obat Masuk Hari Ini'
         ];
+
         return view('dashboard/index', [
             'title' => 'Dashboard',
             'navLink' => 'dashboard',
             'obatHabis' => $obatHabis,
-            'resepToday' => $obatTerpakai
+            'resepToday' => $obatTerpakai,
+            'masukToday' => $obatMasuk,
+            'db' => $this->db
         ]);
     }
 
@@ -253,13 +279,17 @@ class Dashboard extends BaseController
 
     public function pengambilan_obat()
     {
+        $data_resep = $this->resepModel->orderBy('id_transaksi', 'ASC')->findAll();
+        foreach ($data_resep as $maxId) {
+        }
         return view('dashboard/pengambilan_obat', [
             'title' => 'Pengambilan Obat',
             'card_title' => 'Pengambilan Obat',
             'navLink' => 'pengambilan-obat',
             'resep_pasien' => $this->pasienModel->orderBy('no_resep', 'ASC')->findAll(),
             'obat_obatan' => $this->obatModel->orderBy('kode_obat', 'ASC')->findAll(),
-            'aturan_obat' => $this->aturanModel->orderBy('dosis_aturan_obat', 'DESC')->findAll()
+            'aturan_obat' => $this->aturanModel->orderBy('dosis_aturan_obat', 'DESC')->findAll(),
+            'maxId' => $data_resep != [] ? $maxId['id_transaksi'] : 0
         ]);
     }
 
@@ -269,7 +299,7 @@ class Dashboard extends BaseController
             'title' => 'Salinan Resep',
             'card_title' => 'Salinan Resep',
             'navLink' => 'resep-obat',
-            'resep_obat' => $this->resepModel->orderBy('tanggal', 'ASC')->findAll(),
+            'resep_obat' => $this->resepModel->orderBy('tanggal', 'DESC')->findAll(),
             'detailObat' => $this->resepDetailModel->orderBy('id_transaksi', 'ASC')->findAll()
         ]);
     }
@@ -281,7 +311,9 @@ class Dashboard extends BaseController
             'card_title' => 'Pengajuan Obat',
             'navLink' => 'pengajuan-obat',
             'permintaan_obat' => $this->permintaanModel->orderBy('tanggal', 'DESC')->findAll(),
-            'supplier' => $this->supplierModel->orderBy('nama_supplier', 'ASC')->findAll()
+            'supplier' => $this->supplierModel->orderBy('nama_supplier', 'ASC')->findAll(),
+            'detailObat' => $this->permintaanDetailModel->findAll(),
+            'obatModel' => $this->obatModel
         ]);
     }
 
@@ -292,7 +324,9 @@ class Dashboard extends BaseController
             'card_title' => 'Pengajuan Obat',
             'navLink' => 'barang-masuk',
             'pembelian' => $this->pembelianModel->orderBy('tanggal', 'DESC')->findAll(),
-            'supplier' => $this->supplierModel
+            'detailObat' => $this->pembelianDetailModel->findAll(),
+            'supplier' => $this->supplierModel,
+            'obatModel' => $this->obatModel
         ]);
     }
 }

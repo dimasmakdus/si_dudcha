@@ -19,6 +19,7 @@ class ResepModel extends Model
         'umur',
         'alamat',
         'tanggal',
-        'nama_dokter'
+        'nama_dokter',
+        'total'
     ];
 }

@@ -59,7 +59,7 @@
                                         <td><?= $i++ ?></td>
                                         <td><?= $aturan['dosis_aturan_obat'] ?></td>
                                         <td><?= $aturan['khusus'] ?></td>
-                                        <td>
+                                        <td class="text-center">
                                             <a class="btn btn-sm bg-olive btn-edit-aturan" data-toggle="modal" data-target="#edit-<?= $aturan['id'] ?>"><i class="fas fa-edit"></i> Ubah</a>
                                             <a class="btn btn-sm btn-danger btn-edit-aturan" data-toggle="modal" data-target="#hapus-<?= $aturan['id'] ?>"><i class="fas fa-trash-alt"></i> Hapus</a>
                                         </td>

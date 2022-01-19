@@ -15,7 +15,6 @@ class PembelianDetailModel extends Model
         'id_pembelian',
         'kode_pemesanan',
         'kode_obat',
-        'harga_beli',
         'stok_masuk'
     ];
 }

@@ -61,6 +61,7 @@ $routes->get('/barang-masuk', 'Dashboard::barang_masuk');
 $routes->get('/cetak-lpo', 'Laporan::cetak_lpo');
 $routes->get('/cetak-lbm', 'Laporan::cetak_lbm');
 $routes->get('/cetak-lbk', 'Laporan::cetak_lbk');
+$routes->get('/cetak-lpb', 'Laporan::cetak_lpb');
 $routes->get('/cetak-pesanan/(:segment)', 'Laporan::cetakPesanan/$1');
 $routes->get('/cetak-permintaan', 'Laporan::cetak_permintaan');
 
@@ -129,6 +130,7 @@ $routes->post('/kirim-email', 'PesananObat::kirim_email');
 
 // Bukti Barang Keluar
 $routes->get('/barang-masuk-add', 'BarangMasuk::barang_masuk_add');
+$routes->post('/barang-masuk/create', 'BarangMasuk::create');
 
 // Pengeluaran Obat
 $routes->get('/pengeluaran-harian-add', 'pengeluaranHarian::pengeluaranAdd');
