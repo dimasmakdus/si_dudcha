@@ -46,7 +46,7 @@ class PesananObat extends BaseController
         }
 
         foreach ($this->obatModel->orderBy('kode_obat', 'ASC')->findAll() as $obat) {
-            if ($obat['stok'] < 50) {
+            if ($obat['stok'] < 1000) {
                 $obat_kosong[] = $obat;
             }
         }
@@ -73,7 +73,8 @@ class PesananObat extends BaseController
                     'kode_obat' => $obat['kode_obat'],
                     'nama_obat' => $obat['nama_obat'],
                     'satuan' => $obat['satuan'],
-                    'stok' => $detail['stok']
+                    'stok' => $detail['stok'],
+                    'tgl_kadaluarsa' => date("Y-m-d", strtotime('+5 years', strtotime('+4 days', strtotime('+4 months'))))
                 ];
             }
         }

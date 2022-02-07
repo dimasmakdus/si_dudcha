@@ -97,8 +97,8 @@
                                 </thead>
                                 <tbody>
                                     <?php
-                                    $barang = $db->query("SELECT tbl_resep_detail.*, tbl_resep.kode_resep, tbl_resep.tanggal FROM tbl_resep_detail
-                                                                LEFT JOIN tbl_resep ON tbl_resep_detail.id_transaksi = tbl_resep.id_transaksi
+                                    $barang = $db->query("SELECT tbl_ambil_obat_detail.*, tbl_ambil_obat.kode_resep, tbl_ambil_obat.tanggal FROM tbl_ambil_obat_detail
+                                                                LEFT JOIN tbl_ambil_obat ON tbl_ambil_obat_detail.id_transaksi = tbl_ambil_obat.id_transaksi
                                                                 WHERE tanggal BETWEEN '$start_date' AND '$end_date'
                                                                 ORDER BY tanggal ASC");
                                     $i = 1;
@@ -121,8 +121,8 @@
                                         </tr>
                                     <?php } else { ?>
                                         <?php
-                                        $hitung = $db->query("SELECT SUM(tbl_resep_detail.jumlah) jumlah, tbl_resep.tanggal FROM tbl_resep_detail
-                                                                LEFT JOIN tbl_resep ON tbl_resep_detail.id_transaksi = tbl_resep.id_transaksi
+                                        $hitung = $db->query("SELECT SUM(tbl_ambil_obat_detail.jumlah) jumlah, tbl_ambil_obat.tanggal FROM tbl_ambil_obat_detail
+                                                                LEFT JOIN tbl_ambil_obat ON tbl_ambil_obat_detail.id_transaksi = tbl_ambil_obat.id_transaksi
                                                                 WHERE tanggal BETWEEN '$start_date' AND '$end_date' ");
                                         ?>
                                         <?php foreach ($hitung->getResult('array') as $total) : ?>
@@ -146,10 +146,10 @@
                                     </thead>
                                     <tbody>
                                         <?php
-                                        $brg = $db->query("SELECT tbl_resep_detail.nama_obat, SUM(tbl_resep_detail.jumlah) jumlah, tbl_resep.tanggal, tbl_resep_detail.satuan FROM tbl_resep_detail
-                                                                    LEFT JOIN tbl_resep ON tbl_resep_detail.id_transaksi = tbl_resep.id_transaksi
+                                        $brg = $db->query("SELECT tbl_ambil_obat_detail.nama_obat, SUM(tbl_ambil_obat_detail.jumlah) jumlah, tbl_ambil_obat.tanggal, tbl_ambil_obat_detail.satuan FROM tbl_ambil_obat_detail
+                                                                    LEFT JOIN tbl_ambil_obat ON tbl_ambil_obat_detail.id_transaksi = tbl_ambil_obat.id_transaksi
                                                                     WHERE tanggal BETWEEN '$start_date' AND '$end_date'
-                                                                    GROUP BY tbl_resep_detail.nama_obat");
+                                                                    GROUP BY tbl_ambil_obat_detail.nama_obat");
                                         ?>
                                         <?php if ($brg->getResult('array') == []) : ?>
                                             <tr class="odd">

@@ -78,6 +78,37 @@ class Laporan extends BaseController
         ]);
     }
 
+    function laporan_kadaluarsa()
+    {
+        foreach ($this->obatModel->findAll() as $obat) {
+            if ($obat['tgl_kadaluarsa'] < date('Y-m-d')) {
+                $obat_kd[] = $obat;
+            }
+        }
+
+        return view('laporan/laporan_kadaluarsa', [
+            'title' => 'Laporan Kadaluarsa Obat',
+            'card_title' => 'Laporan Kadaluarsa Obat',
+            'navLink' => 'laporan-kadaluarsa',
+            'kadaluarsa_obat' => isset($obat_kd) ? $obat_kd : [],
+            'today' => $this->tanggal(date('Y-m-d')),
+        ]);
+    }
+
+    function cetak_lkd()
+    {
+        foreach ($this->obatModel->findAll() as $obat) {
+            if ($obat['tgl_kadaluarsa'] < date('Y-m-d')) {
+                $obat_kd[] = $obat;
+            }
+        }
+
+        return view('laporan/cetak-lkd', [
+            'kadaluarsa_obat' => isset($obat_kd) ? $obat_kd : [],
+            'today' => $this->tanggal(date('Y-m-d')),
+        ]);
+    }
+
     function cetak_lpo()
     {
         $reqGet = $this->request->getGet();

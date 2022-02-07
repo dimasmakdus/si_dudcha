@@ -169,7 +169,8 @@
                                         <th>Nama Obat</th>
                                         <th>Satuan</th>
                                         <th>Qty</th>
-                                        <th>Dosis Aturan Obat</th>
+                                        <th>Dosis</th>
+                                        <th>Aturan Obat</th>
                                         <th>#</th>
                                     </tr>
                                 </thead>
@@ -290,13 +291,21 @@
                         case 'success':
                             Swal.fire({
                                 title: 'Transaksi berhasil',
-                                text: "Transaksi pengambilan obat berhasil!",
+                                text: "Apakah kamu ingin mencetak salinan resep ?",
                                 icon: 'success',
+                                showCancelButton: true,
                                 confirmButtonColor: '#3085d6',
-                                confirmButtonText: 'OK',
+                                cancelButtonColor: '#d33',
+                                confirmButtonText: 'Cetak',
+                                cancelButtonText: 'Tidak',
                             }).then((result) => {
                                 if (result.isConfirmed) {
-                                    location.href = "<?= base_url('riwayat-pengambilan-obat') ?>"
+                                    var maxid = $("#maxId").val();
+                                    var newid = Number(maxid) + 1;
+                                    var link = "<?= base_url('cetak-resep') ?>/" + newid;
+                                    location.href = link;
+                                } else {
+                                    location.href = "<?= base_url('resep-obat') ?>"
                                 }
                             })
                             break;
@@ -408,6 +417,9 @@
                             <option value="<?= $aturan['dosis_aturan_obat'] ?>"><?= $aturan['dosis_aturan_obat'] ?> - <?= $aturan['khusus'] ?></option>
                         <?php endforeach ?>
                     </select>
+                </td>
+                <td>
+                    <input type="text" name="aturan_obat[]" class="form-control aturanObat" value="">
                 </td>
                 <td class="text-center">
                     <button type="button" class="btn btn-sm btn-danger remove-cart">&#x1D5EB;</button>

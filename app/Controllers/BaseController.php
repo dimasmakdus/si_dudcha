@@ -28,6 +28,8 @@ use App\Models\AturanObatModel;
 use App\Models\ResepDetailModel;
 use App\Models\PembelianModel;
 use App\Models\PembelianDetailModel;
+use App\Models\AmbilObatModel;
+use App\Models\AmbilObatDetailModel;
 
 /**
  * Class BaseController
@@ -87,6 +89,8 @@ class BaseController extends Controller
         $this->resepDetailModel = new ResepDetailModel();
         $this->pembelianModel = new PembelianModel();
         $this->pembelianDetailModel = new PembelianDetailModel();
+        $this->ambilObatModel = new ambilObatModel();
+        $this->ambilObatDetailModel = new ambilObatDetailModel();
 
         // Access Rights
         $this->aksesModel = new AksesModel();

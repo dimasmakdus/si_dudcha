@@ -95,6 +95,7 @@
                                                                 <th>Satuan</th>
                                                                 <th>Stok Yang Diajukan</th>
                                                                 <th>Stok Masuk</th>
+                                                                <th>Tgl. Kadaluarsa</th>
                                                             </tr>
                                                         </thead>
                                                         <tbody class="tbl_body">
@@ -111,6 +112,7 @@
                                                                         <td>
                                                                             <input type="number" name="stokMasuk[]" class="form-control">
                                                                         </td>
+                                                                        <td><?= $obat['tgl_kadaluarsa'] ?></td>
                                                                     </tr>
                                                                 <?php endif ?>
                                                             <?php endforeach ?>

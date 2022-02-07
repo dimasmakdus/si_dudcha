@@ -136,6 +136,12 @@
                 </a>
               </li>
               <li class="nav-item">
+                <a href="<?= base_url('riwayat-pengambilan-obat') ?>" class="nav-link <?= $navLink == 'riwayat-pengambilan-obat' ? 'bg-orange active' : '' ?>">
+                  <i class="fas fa-box-open nav-icon" style="color:white"></i>
+                  <p style="color:white">Riwayat Pengambilan</p>
+                </a>
+              </li>
+              <li class="nav-item">
                 <a href="<?= base_url('resep-obat') ?>" class="nav-link <?= $navLink == 'resep-obat' ? 'bg-orange active' : '' ?>">
                   <i class="fas fa-paste nav-icon" style="color:white"></i>
                   <p style="color:white">Salinan Resep</p>
@@ -172,7 +178,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?= base_url('resep-obat') ?>" class="nav-link <?= $navLink == 'resep-obat' ? 'bg-orange active' : '' ?>">
+                <a href="<?= base_url('riwayat-pengambilan-obat') ?>" class="nav-link <?= $navLink == 'riwayat-pengambilan-obat' ? 'bg-orange active' : '' ?>">
                   <i class="fas fa-clipboard-list nav-icon" style="color:white"></i>
                   <p style="color:white">Riwayat Barang Keluar</p>
                 </a>
@@ -202,6 +208,12 @@
               <a href="<?= base_url('laporan-permintaan') ?>" class="nav-link <?= $navLink == 'laporan-permintaan' ? 'bg-orange active' : '' ?>">
                 <i class="fas fa-print nav-icon" style="color:white"></i>
                 <p style="color:white">Laporan Permintaan</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="<?= base_url('laporan-kadaluarsa') ?>" class="nav-link <?= $navLink == 'laporan-kadaluarsa' ? 'bg-orange active' : '' ?>">
+                <i class="fas fa-print nav-icon" style="color:white"></i>
+                <p style="color:white">Laporan Kadaluarsa</p>
               </a>
             </li>
 

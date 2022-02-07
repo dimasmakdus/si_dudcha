@@ -116,7 +116,7 @@ if (session()->get('name') == "Administrator") {
 
                                     <!-- Modal View  -->
                                     <div class="modal fade" id="detail-<?= $beli['id'] ?>">
-                                        <div class="modal-dialog modal-lg">
+                                        <div class="modal-dialog modal-xl">
                                             <div class="modal-content">
                                                 <div class="modal-header">
                                                     <h4 class="modal-title"><?= $modalTitle ?></h4>
@@ -156,9 +156,10 @@ if (session()->get('name') == "Administrator") {
                                                         <div class="row">
                                                             <div class="col-sm-1 detail-th">No</div>
                                                             <div class="col-sm-2 detail-th">Kode Obat</div>
-                                                            <div class="col-sm-4 detail-th">Nama Obat</div>
+                                                            <div class="col-sm-3 detail-th">Nama Obat</div>
                                                             <div class="col-sm-2 detail-th">Satuan</div>
-                                                            <div class="col-sm-3 detail-th">Stok Yang Masuk</div>
+                                                            <div class="col-sm-2 detail-th">Tgl. Kadaluarsa</div>
+                                                            <div class="col-sm-2 detail-th">Stok Yang Masuk</div>
                                                         </div>
                                                         <?php
                                                         $j = 1;
@@ -170,16 +171,17 @@ if (session()->get('name') == "Administrator") {
                                                                 <div class="row">
                                                                     <div class="col-sm-1 detail-cell"><?= $j++ ?></div>
                                                                     <div class="col-sm-2 detail-cell"><?= $detail['kode_obat'] ?></div>
-                                                                    <div class="col-sm-4 detail-cell"><?= $obat['nama_obat'] ?></div>
+                                                                    <div class="col-sm-3 detail-cell"><?= $obat['nama_obat'] ?></div>
                                                                     <div class="col-sm-2 detail-cell"><?= $obat['satuan'] ?></div>
-                                                                    <div class="col-sm-3 detail-cell"><?= $detail['stok_masuk'] ?></div>
+                                                                    <div class="col-sm-2 detail-cell"><?= $detail['tgl_kadaluarsa'] ?></div>
+                                                                    <div class="col-sm-2 detail-cell"><?= $detail['stok_masuk'] ?></div>
                                                                 </div>
                                                                 <?php $total = $total + $detail['stok_masuk'] ?>
                                                             <?php endif ?>
                                                         <?php endforeach ?>
                                                         <div class="row">
-                                                            <div class="col-sm-9 detail-cell">Total</div>
-                                                            <div class="col-sm-3 detail-cell"><?= $total ?></div>
+                                                            <div class="col-sm-10 detail-cell">Total</div>
+                                                            <div class="col-sm-2 detail-cell"><?= $total ?></div>
                                                         </div>
                                                     </div>
                                                 </div>

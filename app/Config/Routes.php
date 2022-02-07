@@ -49,10 +49,12 @@ $routes->get('/resep-obat', 'Dashboard::resep_obat');
 $routes->get('/pengajuan-obat', 'Dashboard::pesanan_obat');
 $routes->get('/data-dokter', 'Dashboard::data_dokter');
 $routes->get('/pengambilan-obat', 'Dashboard::pengambilan_obat');
+$routes->get('/riwayat-pengambilan-obat', 'Dashboard::riwayat_pengambilan_obat');
 $routes->get('/laporan-stok-obat', 'Laporan::laporan_stok_obat');
 $routes->get('/laporan-masuk', 'Laporan::laporan_masuk');
 $routes->get('/laporan-keluar', 'Laporan::laporan_keluar');
 $routes->get('/laporan-permintaan', 'Laporan::laporan_permintaan');
+$routes->get('/laporan-kadaluarsa', 'Laporan::laporan_kadaluarsa');
 $routes->get('/kirim-pesanan', 'PesananObat::kirimPesanan');
 $routes->get('/cek-pesanan', 'PesananObat::cekPesanan');
 $routes->get('/barang-masuk', 'Dashboard::barang_masuk');
@@ -62,6 +64,7 @@ $routes->get('/cetak-lpo', 'Laporan::cetak_lpo');
 $routes->get('/cetak-lbm', 'Laporan::cetak_lbm');
 $routes->get('/cetak-lbk', 'Laporan::cetak_lbk');
 $routes->get('/cetak-lpb', 'Laporan::cetak_lpb');
+$routes->get('/cetak-lkd', 'Laporan::cetak_lkd');
 $routes->get('/cetak-pesanan/(:segment)', 'Laporan::cetakPesanan/$1');
 $routes->get('/cetak-permintaan', 'Laporan::cetak_permintaan');
 
@@ -112,6 +115,7 @@ $routes->post('/stok-obat/create', 'StokObat::create');
 $routes->get('/resep-add', 'ResepObat::resepAdd');
 $routes->get('/cetak-resep/(:segment)', 'ResepObat::cetakResep/$1');
 $routes->post('/resep-obat/create', 'ResepObat::create');
+$routes->post('/salinan-resep/create', 'ResepObat::postSalinanResep');
 $routes->get('/resep-obat/delete/(:segment)', 'ResepObat::remove/$1');
 
 // Permintaan Obat / LPLPO

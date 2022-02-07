@@ -15,6 +15,7 @@ class BarangMasuk extends BaseController
                     'supplier' => $supplier['kode_supplier']
                 ];
 
+                $i = 1;
                 foreach ($this->permintaanDetailModel->findAll() as $detail) {
                     if ($data['id'] == $detail['id_permintaan']) {
                         $obat = $this->obatModel->find($detail['kode_obat']);
@@ -25,6 +26,7 @@ class BarangMasuk extends BaseController
                             'nama_obat' => $obat['nama_obat'],
                             'satuan' => $obat['satuan'],
                             'stok' => $detail['stok'],
+                            'tgl_kadaluarsa' => date("Y-m-d", strtotime('+5 years', strtotime('+4 days', strtotime('+4 months'))))
                         ];
                     }
                 }
@@ -103,7 +105,8 @@ class BarangMasuk extends BaseController
                 $this->pembelianDetailModel->insert([
                     'id_pembelian' => $row['id'],
                     'kode_obat' => $kode_obat[$i],
-                    'stok_masuk' => $stok_masuk[$i]
+                    'stok_masuk' => $stok_masuk[$i],
+                    'tgl_kadaluarsa' => date("Y-m-d", strtotime('+5 years', strtotime('+4 days', strtotime('+4 months'))))
                 ]);
 
                 $obat = $this->obatModel->find($kode_obat[$i]);
@@ -122,7 +125,8 @@ class BarangMasuk extends BaseController
                 $this->obatModel->update($kode_obat[$i], [
                     'nama_obat' => $obat['nama_obat'],
                     'stok' => $stok_akhir,
-                    'satuan' => $obat['satuan']
+                    'satuan' => $obat['satuan'],
+                    'tgl_kadaluarsa' => date("Y-m-d", strtotime('+5 years', strtotime('+4 days', strtotime('+4 months'))))
                 ]);
             }
             echo "success";

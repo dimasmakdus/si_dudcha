@@ -14,9 +14,8 @@ class Dashboard extends BaseController
         // Stok Habis
         $db_obat = $this->obatModel->findAll();
         if ($db_obat != []) {
-            $data = true;
             foreach ($db_obat as $obat) {
-                if ($obat['stok'] < 50) {
+                if ($obat['stok'] < 1000) {
                     $stokObat[] = $obat;
                 }
             }
@@ -193,7 +192,7 @@ class Dashboard extends BaseController
             'title' => 'Data Supplier',
             'card_title' => 'Kelola Data Supplier',
             'navLink' => 'supplier',
-            'data_supplier' => $supplier
+            'data_supplier' => isset($supplier) ? $supplier : []
         ]);
     }
 
@@ -205,7 +204,7 @@ class Dashboard extends BaseController
             'title' => 'Stok Obat',
             'card_title' => 'Kelola Data Stok Obat',
             'navLink' => 'stok-obat',
-            'stok_obat' => $stok_obat
+            'stok_obat' => isset($stok_obat) ? $stok_obat : []
         ]);
     }
 
@@ -233,7 +232,7 @@ class Dashboard extends BaseController
             'title' => 'Data Obat',
             'card_title' => 'Kelola Data Obat-Obatan',
             'navLink' => 'obat-obatan',
-            'obat_obatan' => $this->obatModel->orderBy('kode_obat', 'ASC')->findAll(),
+            'obat_obatan' => isset($no_obat_akhir) ? $no_obat_akhir : [],
             'satuan' => $satuan_obat,
             'kode_obat_baru' => $kodeBaru
         ]);
@@ -253,7 +252,7 @@ class Dashboard extends BaseController
             'title' => 'Data Dokter',
             'card_title' => 'Data Dokter',
             'navLink' => 'data-dokter',
-            'data_dokter' => $data_dokter,
+            'data_dokter' => isset($data_dokter) ? $data_dokter : [],
             'jenis_kelamin' => $this->jenis_kelamin,
             'poli' => $poli
         ]);
@@ -273,34 +272,52 @@ class Dashboard extends BaseController
             'card_title' => 'Data Aturan Pemakaian Obat',
             'navLink' => 'aturan-obat',
             'aturan_usia' => $aturan_usia,
-            'aturan_obat' => $aturan_obat
+            'aturan_obat' => isset($aturan_obat) ? $aturan_obat : []
         ]);
     }
 
     public function pengambilan_obat()
     {
-        $data_resep = $this->resepModel->orderBy('id_transaksi', 'ASC')->findAll();
+        $data_resep = $this->ambilObatModel->orderBy('id_transaksi', 'ASC')->findAll();
+        $resep_pasien = $this->pasienModel->orderBy('no_resep', 'ASC')->findAll();
+        $obat_obatan = $this->obatModel->orderBy('kode_obat', 'ASC')->findAll();
+        $aturan_obat = $this->aturanModel->orderBy('dosis_aturan_obat', 'DESC')->findAll();
         foreach ($data_resep as $maxId) {
         }
         return view('dashboard/pengambilan_obat', [
             'title' => 'Pengambilan Obat',
             'card_title' => 'Pengambilan Obat',
             'navLink' => 'pengambilan-obat',
-            'resep_pasien' => $this->pasienModel->orderBy('no_resep', 'ASC')->findAll(),
-            'obat_obatan' => $this->obatModel->orderBy('kode_obat', 'ASC')->findAll(),
-            'aturan_obat' => $this->aturanModel->orderBy('dosis_aturan_obat', 'DESC')->findAll(),
+            'resep_pasien' => isset($resep_pasien) ? $resep_pasien : [],
+            'obat_obatan' => isset($obat_obatan) ? $obat_obatan : [],
+            'aturan_obat' => isset($aturan_obat) ? $aturan_obat : [],
             'maxId' => $data_resep != [] ? $maxId['id_transaksi'] : 0
         ]);
     }
 
     public function resep_obat()
     {
+        $resep_obat = $this->resepModel->orderBy('tanggal', 'DESC')->findAll();
+        $detailObat = $this->resepDetailModel->orderBy('id_transaksi', 'ASC')->findAll();
         return view('dashboard/resep_obat', [
             'title' => 'Salinan Resep',
             'card_title' => 'Salinan Resep',
             'navLink' => 'resep-obat',
-            'resep_obat' => $this->resepModel->orderBy('tanggal', 'DESC')->findAll(),
-            'detailObat' => $this->resepDetailModel->orderBy('id_transaksi', 'ASC')->findAll()
+            'resep_obat' => isset($resep_obat) ? $resep_obat : [],
+            'detailObat' => isset($detailObat) ? $detailObat : []
+        ]);
+    }
+
+    public function riwayat_pengambilan_obat()
+    {
+        $resep_obat = $this->ambilObatModel->orderBy('tanggal', 'DESC')->findAll();
+        $detailObat = $this->ambilObatDetailModel->orderBy('id_transaksi', 'ASC')->findAll();
+        return view('dashboard/riwayat_ambil_obat', [
+            'title' => 'Riwayat Pengambilan Obat',
+            'card_title' => 'Riwayat Pengambilan Obat',
+            'navLink' => 'riwayat-pengambilan-obat',
+            'resep_obat' => isset($resep_obat) ? $resep_obat : [],
+            'detailObat' => isset($detailObat) ? $detailObat : []
         ]);
     }
 

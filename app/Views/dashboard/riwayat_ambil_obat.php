@@ -4,7 +4,7 @@
 <?php
 if (session()->get('name') == "Administrator") {
   $judul = $title;
-  $modalTitle = "Detail Resep";
+  $modalTitle = "Detail Pengambil Obat";
 } else {
   $judul = "Riwayat Barang Keluar";
   $modalTitle = "Detail Barang Keluar";
@@ -71,7 +71,6 @@ if (session()->get('name') == "Administrator") {
             <?php
             }
             ?>
-            <a href="<?= base_url('resep-add') ?>" class="btn bg-olive mb-3"><i class="fas fa-clipboard-list"></i> + Salinan Resep</a>
             <table id="example2" class="table table-bordered table-hover">
               <thead>
                 <tr>
@@ -98,7 +97,6 @@ if (session()->get('name') == "Administrator") {
                     <td class="text-right"><?= $resep['total'] ?></td>
                     <td class="text-center">
                       <a class="btn btn-sm btn-warning btn-view-resep" data-toggle="modal" data-target="#detail-<?= $resep['id_transaksi'] ?>"><i class="fas fa-eye"></i> Detail</a>
-                      <a target="_blank" href="<?= base_url('cetak-resep') ?>/<?= $resep['id_transaksi'] ?>" class="btn btn-sm bg-info btn-print-resep"><i class="fas fa-print"></i> Cetak</a>
                     </td>
                   </tr>
 
@@ -114,7 +112,7 @@ if (session()->get('name') == "Administrator") {
                         </div>
                         <div class="modal-body">
                           <div class="row">
-                            <label class="col-sm-3 col-form-label">Nomor Resep</label>
+                            <label class="col-sm-3 col-form-label">Nomor Obat</label>
                             <div class="col-xs-1 mt-1">:</div>
                             <div class="col-sm-8">
                               <h6 class="mt-2"><?= $resep['id_transaksi'] ?></h6>
