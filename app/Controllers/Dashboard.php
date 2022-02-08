@@ -27,11 +27,11 @@ class Dashboard extends BaseController
 
         // Barang Keluar
         $totalTerpakai = 0;
-        $tgl_resep = $this->resepModel->findAll();
+        $tgl_resep = $this->ambilObatModel->findAll();
         foreach ($tgl_resep as $tgl) {
             $tanggal = date("Y-m-d", strtotime($tgl['tanggal']));
             if ($tanggal == date('Y-m-d')) {
-                $detail_resep = $this->resepDetailModel->findAll();
+                $detail_resep = $this->ambilObatDetailModel->findAll();
                 foreach ($detail_resep as $detail) {
                     if ($detail['id_transaksi'] == $tgl['id_transaksi']) {
                         $resepToday[] = $detail;
