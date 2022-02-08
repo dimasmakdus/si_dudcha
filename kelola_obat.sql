@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Waktu pembuatan: 08 Feb 2022 pada 03.41
+-- Waktu pembuatan: 08 Feb 2022 pada 09.11
 -- Versi server: 10.4.21-MariaDB
 -- Versi PHP: 7.4.27
 
@@ -407,7 +407,7 @@ CREATE TABLE `tbl_stok_obat` (
   `stok_masuk` bigint(20) DEFAULT NULL,
   `stok_keluar` bigint(20) DEFAULT NULL,
   `stok_akhir` bigint(20) DEFAULT NULL,
-  `tgl_kadaluarsa` varchar(255) DEFAULT NULL,
+  `tgl_kadaluarsa` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------

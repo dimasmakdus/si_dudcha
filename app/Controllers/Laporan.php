@@ -101,7 +101,7 @@ class Laporan extends BaseController
             'card_title' => 'Laporan Kadaluarsa Obat',
             'navLink' => 'laporan-kadaluarsa',
             'totalObat' => isset($stokObat) ? $totalObat : 0,
-            'kadaluarsa_obat' => isset($stokObat) ? $data_kadaluarsa : [],
+            'kadaluarsa_obat' => isset($data_kadaluarsa) ? $data_kadaluarsa : [],
             'today' => $this->tanggal(date('Y-m-d')),
         ]);
     }
@@ -126,7 +126,7 @@ class Laporan extends BaseController
 
         return view('laporan/cetak-lkd', [
             'totalObat' => isset($stokObat) ? $totalObat : 0,
-            'kadaluarsa_obat' => isset($stokObat) ? $data_kadaluarsa : [],
+            'kadaluarsa_obat' => isset($data_kadaluarsa) ? $data_kadaluarsa : [],
             'today' => $this->tanggal(date('Y-m-d')),
         ]);
     }
