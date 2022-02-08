@@ -112,7 +112,9 @@
                                                                         <td>
                                                                             <input type="number" name="stokMasuk[]" class="form-control">
                                                                         </td>
-                                                                        <td><?= $obat['tgl_kadaluarsa'] ?></td>
+                                                                        <td>
+                                                                            <input type="date" class="form-control" name="tgl_kd[]">
+                                                                        </td>
                                                                     </tr>
                                                                 <?php endif ?>
                                                             <?php endforeach ?>
