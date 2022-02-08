@@ -118,7 +118,8 @@ class BarangMasuk extends BaseController
                     'tanggal' => $tanggal,
                     'stok_awal' => $obat['stok'],
                     'stok_masuk' => $stok_masuk[$i],
-                    'stok_akhir' => $stok_akhir
+                    'stok_akhir' => $stok_akhir,
+                    'tgl_kadaluarsa' => $tgl_kd[$i]
                 ]);
 
                 // penambahan sisa stok

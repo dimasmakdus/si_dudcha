@@ -17,6 +17,7 @@ class StokObatModel extends Model
         'stok_awal',
         'stok_masuk',
         'stok_keluar',
-        'stok_akhir'
+        'stok_akhir',
+        'tgl_kadaluarsa'
     ];
 }

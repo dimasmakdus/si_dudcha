@@ -81,10 +81,18 @@ class Laporan extends BaseController
     function laporan_kadaluarsa()
     {
         $totalObat = 0;
-        foreach ($this->obatModel->findAll() as $obat) {
-            if ($obat['tgl_kadaluarsa'] < date('Y-m-d')) {
-                $obat_kd[] = $obat;
-                $totalObat += (int)$obat['stok'];
+        $stokObat = $this->stokObatModel->findAll();
+        foreach ($stokObat as $kd) {
+            if ($kd['tgl_kadaluarsa'] < date('Y-m-d') && $kd['stok_keluar'] == NULL) {
+                $obat = $this->obatModel->find($kd['kode_obat']);;
+                $data_kadaluarsa[] = [
+                    'kode_obat' => $kd['kode_obat'],
+                    'nama_obat' => $obat['nama_obat'],
+                    'satuan' => $obat['satuan'],
+                    'tgl_kadaluarsa' => $kd['tgl_kadaluarsa'],
+                    'stok_masuk' => $kd['stok_masuk'],
+                ];
+                $totalObat += $kd['stok_masuk'];
             }
         }
 
@@ -92,8 +100,8 @@ class Laporan extends BaseController
             'title' => 'Laporan Kadaluarsa Obat',
             'card_title' => 'Laporan Kadaluarsa Obat',
             'navLink' => 'laporan-kadaluarsa',
-            'totalObat' => isset($obat_kd) ? $totalObat : 0,
-            'kadaluarsa_obat' => isset($obat_kd) ? $obat_kd : [],
+            'totalObat' => isset($stokObat) ? $totalObat : 0,
+            'kadaluarsa_obat' => isset($stokObat) ? $data_kadaluarsa : [],
             'today' => $this->tanggal(date('Y-m-d')),
         ]);
     }
@@ -101,18 +109,25 @@ class Laporan extends BaseController
     function cetak_lkd()
     {
         $totalObat = 0;
-        foreach ($this->obatModel->findAll() as $obat) {
-            if ($obat['tgl_kadaluarsa'] < date('Y-m-d')) {
-                $obat_kd[] = $obat;
-                $totalObat += (int)$obat['stok'];
+        $stokObat = $this->stokObatModel->findAll();
+        foreach ($stokObat as $kd) {
+            if ($kd['tgl_kadaluarsa'] < date('Y-m-d') && $kd['stok_keluar'] == NULL) {
+                $obat = $this->obatModel->find($kd['kode_obat']);;
+                $data_kadaluarsa[] = [
+                    'kode_obat' => $kd['kode_obat'],
+                    'nama_obat' => $obat['nama_obat'],
+                    'satuan' => $obat['satuan'],
+                    'tgl_kadaluarsa' => $kd['tgl_kadaluarsa'],
+                    'stok_masuk' => $kd['stok_masuk'],
+                ];
+                $totalObat += $kd['stok_masuk'];
             }
         }
 
         return view('laporan/cetak-lkd', [
-            'totalObat' => isset($obat_kd) ? $totalObat : 0,
-            'kadaluarsa_obat' => isset($obat_kd) ? $obat_kd : [],
+            'totalObat' => isset($stokObat) ? $totalObat : 0,
+            'kadaluarsa_obat' => isset($stokObat) ? $data_kadaluarsa : [],
             'today' => $this->tanggal(date('Y-m-d')),
-            'stokObatModel' => $this->stokObatModel
         ]);
     }
 

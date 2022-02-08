@@ -46,7 +46,7 @@
                             <td align="center"><?= $kd['nama_obat'] ?></td>
                             <td align="center"><?= $kd['satuan'] ?></td>
                             <td align="center"><?= $kd['tgl_kadaluarsa'] ?></td>
-                            <td align="center"><?= $kd['stok'] ?></td>
+                            <td align="center"><?= $kd['stok_masuk'] ?></td>
                         </tr>
                     <?php endforeach ?>
                 <?php } else { ?>

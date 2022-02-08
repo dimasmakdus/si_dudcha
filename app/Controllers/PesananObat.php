@@ -73,8 +73,7 @@ class PesananObat extends BaseController
                     'kode_obat' => $obat['kode_obat'],
                     'nama_obat' => $obat['nama_obat'],
                     'satuan' => $obat['satuan'],
-                    'stok' => $detail['stok'],
-                    'tgl_kadaluarsa' => date("Y-m-d", strtotime('+5 years', strtotime('+4 days', strtotime('+4 months'))))
+                    'stok' => $detail['stok']
                 ];
             }
         }
