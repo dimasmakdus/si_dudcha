@@ -33,6 +33,7 @@
                     <th rowspan="2" style="vertical-align: middle;">Nama Obat</th>
                     <th rowspan="2" style="vertical-align: middle;">Satuan</th>
                     <th rowspan="2" style="vertical-align: middle;">Tgl. Kadaluarsa</th>
+                    <th rowspan="2" style="vertical-align: middle;">Jumlah Obat</th>
                 </tr>
             </thead>
             <tbody>
@@ -45,6 +46,7 @@
                             <td align="center"><?= $kd['nama_obat'] ?></td>
                             <td align="center"><?= $kd['satuan'] ?></td>
                             <td align="center"><?= $kd['tgl_kadaluarsa'] ?></td>
+                            <td align="center"><?= $kd['stok'] ?></td>
                         </tr>
                     <?php endforeach ?>
                 <?php } else { ?>
@@ -56,8 +58,8 @@
             <tfoot>
                 <?php if (count($kadaluarsa_obat) > 0) : ?>
                     <tr>
-                        <td colspan="4" align="center"><strong>Jumlah Obat</strong></td>
-                        <td align="center"><strong><?= count($kadaluarsa_obat) ?></strong></td>
+                        <td colspan="5" align="center"><strong>Total Obat</strong></td>
+                        <td align="center"><strong><?= $totalObat ?></strong></td>
                     </tr>
                 <?php endif ?>
             </tfoot>

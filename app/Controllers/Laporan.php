@@ -80,9 +80,11 @@ class Laporan extends BaseController
 
     function laporan_kadaluarsa()
     {
+        $totalObat = 0;
         foreach ($this->obatModel->findAll() as $obat) {
             if ($obat['tgl_kadaluarsa'] < date('Y-m-d')) {
                 $obat_kd[] = $obat;
+                $totalObat += (int)$obat['stok'];
             }
         }
 
@@ -90,6 +92,7 @@ class Laporan extends BaseController
             'title' => 'Laporan Kadaluarsa Obat',
             'card_title' => 'Laporan Kadaluarsa Obat',
             'navLink' => 'laporan-kadaluarsa',
+            'totalObat' => isset($obat_kd) ? $totalObat : 0,
             'kadaluarsa_obat' => isset($obat_kd) ? $obat_kd : [],
             'today' => $this->tanggal(date('Y-m-d')),
         ]);
@@ -97,15 +100,19 @@ class Laporan extends BaseController
 
     function cetak_lkd()
     {
+        $totalObat = 0;
         foreach ($this->obatModel->findAll() as $obat) {
             if ($obat['tgl_kadaluarsa'] < date('Y-m-d')) {
                 $obat_kd[] = $obat;
+                $totalObat += (int)$obat['stok'];
             }
         }
 
         return view('laporan/cetak-lkd', [
+            'totalObat' => isset($obat_kd) ? $totalObat : 0,
             'kadaluarsa_obat' => isset($obat_kd) ? $obat_kd : [],
             'today' => $this->tanggal(date('Y-m-d')),
+            'stokObatModel' => $this->stokObatModel
         ]);
     }
 
