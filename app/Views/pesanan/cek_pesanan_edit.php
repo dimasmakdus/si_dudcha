@@ -60,12 +60,20 @@
                             <div class="form-group row">
                                 <label for="status" class="col-sm-2 col-form-label">Status Pengajuan</label>
                                 <div class="col-sm-10">
-                                    <select class="form-control select2" name="status" id="status" style="width: 100%;" required>
+                                    <select class="form-control select2" name="status" id="status" onchange="changeStatus()" style="width: 100%;" required>
                                         <option value="" selected disabled>-- Pilih --</option>
                                         <?php foreach ($status as $key => $value) : ?>
                                             <option value="<?= $key ?>" <?= $key == $proses['status'] ? 'selected' : '' ?>><?= $value ?></option>
                                         <?php endforeach ?>
                                     </select>
+                                </div>
+                            </div>
+                            <div id="alasan-ditolak" style="display: <?= $proses['status'] == "cancel" ? "block" : "none" ?>;">
+                                <div class="form-group row">
+                                    <label for="keterangan" class="col-sm-2 col-form-label">Alasan Ditolak</label>
+                                    <div class="col-sm-10">
+                                        <textarea class="form-control" name="keterangan" id="keterangan"><?= $proses['keterangan'] ?></textarea>
+                                    </div>
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -75,25 +83,26 @@
                                         <thead>
                                             <tr>
                                                 <th>No</th>
-                                                <th>Kode Obat</th>
-                                                <th>Nama Obat</th>
+                                                <th>Nama Barang</th>
                                                 <th>Satuan</th>
-                                                <th>Qty</th>
+                                                <th>Harga Satuan</th>
+                                                <th>Jumlah</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <?php $i = 1 ?>
-                                            <?php foreach ($data_obat as $obat) : ?>
+                                            <?php foreach ($data_barang as $barang) : ?>
                                                 <tr>
                                                     <td>
-                                                        <input type="hidden" name="id_detail[]" value="<?= $obat['id'] ?>">
+                                                        <input type="hidden" name="id_detail[]" value="<?= $barang['id'] ?>">
+                                                        <input type="hidden" name="harga_beli[]" value="<?= $barang['harga_beli'] ?>">
                                                         <?= $i++ ?>
                                                     </td>
-                                                    <td><?= $obat['kode_obat'] ?></td>
-                                                    <td><?= $obat['nama_obat'] ?></td>
-                                                    <td><?= $obat['satuan'] ?></td>
+                                                    <td><?= $barang['nama_barang'] ?></td>
+                                                    <td><?= $barang['satuan_barang_name'] ?></td>
+                                                    <td><?= "Rp " . number_format($barang['harga_beli'], 0, ',', '.') ?></td>
                                                     <td width="180px">
-                                                        <input type="number" class="form-control qty-stok" name="qty[]" value="<?= (!$obat['stok'] <= 0) ? $obat['stok'] : '' ?>">
+                                                        <input type="number" class="form-control qty-stok" name="qty[]" value="<?= (!$barang['stok'] <= 0) ? $barang['stok'] : '' ?>">
                                                     </td>
                                                 </tr>
                                             <?php endforeach ?>
@@ -119,6 +128,17 @@
 <!-- /.content -->
 <?= $this->include('templates/script') ?>
 <script>
+    function changeStatus() {
+        var value = document.getElementById('status').value
+
+        if (value == 'cancel') {
+            document.getElementById("alasan-ditolak").style.display = "block";
+        } else {
+            document.getElementById("alasan-ditolak").style.display = "none";
+        }
+    }
+</script>
+<script>
     if (document.readyState == 'loading') {
         document.addEventListener('DOMContentLoaded', ready);
     } else {
@@ -139,7 +159,7 @@
         var kode_supplier = $('select[name=kode_supplier] option').filter(':selected').val();
         var status = $('select[name=status] option').filter(':selected').val();
 
-        var url = "<?= base_url('pesanan-obat/update'); ?>";
+        var url = "<?= base_url('pesanan-barang/update'); ?>";
         var form = $('#form-pesanan').serialize()
         $.ajax({
             type: "POST",
@@ -150,7 +170,7 @@
                     case "success":
                         Swal.fire({
                             title: 'Berhasil!',
-                            text: 'Pengajuan obat berhasil terkirim!',
+                            text: 'Pengajuan barang berhasil terkirim!',
                             icon: 'success',
                             confirmButtonColor: '#3085d6',
                             cancelButtonColor: '#d33',

@@ -11,19 +11,19 @@
 <body>
     <table width="100%">
         <tr align="center">
-            <td><b style="font-size: 24px">DINAS KESEHATAN KABUPATEN BANDUNG</b></td>
+            <td><b style="font-size: 24px">DUDCHA</b></td>
         </tr>
         <tr align="center">
-            <td><b style="font-size: 24px">PUSKESMAS CIMAUNG</b></td>
+            <td>Jl. Dipatiukur, Bandung</td>
         </tr>
         <tr align="center">
-            <td>Jl. Gunung Puntang Ds. Campakamulya, Kec. Cimaung</td>
+            <td>HP. 0813-2281-5963</td>
         </tr>
     </table>
     <hr>
-    <h4 align="center">PERMINTAAN BARANG</h4>
+    <h4 align="center">PEMESANAN BARANG</h4>
     <p>Nomor Pemesanan : <?= $laporan['kode_pesanan'] ?></p>
-    <p>Tanggal / Waktu : <?= $laporan['tanggal'] ?></p>
+    <p>Tanggal / Waktu : <?= date("d/m/Y H:i:s", strtotime($laporan['tanggal'])) ?></p>
     <p>Supplier : <?= $laporan['supplier'] ?></p>
     <table width="100%" border="1px" style="border-collapse:collapse;border-spacing:0">
         <thead>
@@ -31,8 +31,10 @@
                 <th>No</th>
                 <th>Kode Barang</th>
                 <th>Nama Barang</th>
+                <th>Harga</th>
                 <th>Jumlah</th>
                 <th>Satuan</th>
+                <th>Subtotal</th>
             </tr>
         </thead>
         <tbody>
@@ -41,16 +43,25 @@
                     <td valign="top" colspan="5" align="center">No data available in table</td>
                 </tr>
             <?php endif ?>
-            <?php $i = 1 ?>
+            <?php $i = 1;
+            $total = 0;
+            ?>
             <?php foreach ($data_pesanan as $data) : ?>
                 <tr>
                     <td align="center"><?= $i++ ?></td>
-                    <td align="center"><?= $data['kode_obat'] ?></td>
-                    <td><?= $data['nama_obat'] ?></td>
-                    <td align="center"><?= $data['jumlah'] ?></td>
-                    <td align="center"><?= $data['satuan'] ?></td>
+                    <td align="center"><?= $data['kode_barang'] ?></td>
+                    <td><?= $data['nama_barang'] ?></td>
+                    <td align="right"><?= "Rp " . number_format($data['harga_beli'], 0, ',', '.') ?></td>
+                    <td align="center"><?= $data['stok'] ?></td>
+                    <td align="center"><?= $data['satuan_barang_name'] ?></td>
+                    <td align="right"><?= "Rp " . number_format(($data['harga_beli'] * $data['stok']), 0, ',', '.') ?></td>
                 </tr>
+                <?php $total = $total + ($data['stok'] * $data['harga_beli']) ?>
             <?php endforeach ?>
+            <tr>
+                <td colspan="6" align="right"><strong>Total :</strong></td>
+                <td align="right"><?= "Rp " . number_format($total, 0, ',', '.') ?></td>
+            </tr>
         </tbody>
     </table><br><br><br>
     <table width="100%">
@@ -67,7 +78,7 @@
         </tr>
         <tr>
             <td></td>
-            <td><b><u>Kepala Puskesmas</u></b></td>
+            <td><b><u>Pimpinan</u></b></td>
         </tr>
     </table>
     <script type="text/javascript">

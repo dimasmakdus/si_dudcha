@@ -31,29 +31,42 @@
         </button>
       </div>
     <?php endif ?>
+
     <div class="row">
-      <div class="col-lg-3 col-6">
-        <!-- small box -->
+      <!-- <div class="col-lg-4 col-6">
         <div class="small-box bg-success">
           <div class="inner">
-            <h3><?= $masukToday['count'] ?></h3>
+            <h3><?= "Rp " . number_format(isset($terjualToday['count']) ? $terjualToday['count'] : 0, 0, ',', '.') ?></h3>
 
-            <p><?= $masukToday['title'] ?></p>
+            <p><?= isset($terjualToday['title']) ? $terjualToday['title'] : null ?></p>
+          </div>
+          <div class="icon">
+            <i class="fas fa-money-bill-wave"></i>
+          </div>
+        </div>
+      </div> -->
+      <!-- ./col -->
+
+      <div class="col-lg-4 col-6">
+        <div class="small-box bg-success">
+          <div class="inner">
+            <h3><?= $barangMasuk['count'] ?></h3>
+
+            <p><?= $barangMasuk['title'] ?></p>
           </div>
           <div class="icon">
             <i class="fas fa-truck-loading"></i>
           </div>
         </div>
       </div>
-      <!-- ./col -->
 
-      <div class="col-lg-3 col-6">
+      <div class="col-lg-4 col-6">
         <!-- small box -->
         <div class="small-box bg-info">
           <div class="inner">
-            <h3><?= $resepToday['count'] ?></h3>
+            <h3><?= $keluarToday['count'] ?></h3>
 
-            <p><?= $resepToday['title'] ?></p>
+            <p><?= $keluarToday['title'] ?></p>
           </div>
           <div class="icon">
             <i class="fas fa-dolly-flatbed"></i>
@@ -62,13 +75,13 @@
       </div>
       <!-- ./col -->
 
-      <div class="col-lg-3 col-6">
+      <div class="col-lg-4 col-6">
         <!-- small box -->
         <div class="small-box bg-danger">
           <div class="inner">
-            <h3><?= $obatHabis['count'] ?></h3>
+            <h3><?= $barangHabis['count'] ?></h3>
 
-            <p><?= $obatHabis['title'] ?></p>
+            <p><?= $barangHabis['title'] ?></p>
           </div>
           <div class="icon">
             <i class="fas fa-exclamation-triangle"></i>
@@ -83,7 +96,7 @@
       <div class="col-12">
         <div class="card">
           <div class="card-header">
-            <i class="fas fa-chart-bar mr-1"></i>Grafik Pengeluaran Obat
+            <i class="fas fa-chart-bar mr-1"></i>Grafik Pengeluaran Barang
           </div>
           <div class="card-body">
             <div class="chart">
@@ -112,7 +125,7 @@
   $b = $db->query("SELECT bulan.bulan, IFNULL(s.total, 0) AS total FROM bulan
                   LEFT JOIN (
                   SELECT YEAR(tanggal) AS tahun, MONTH(tanggal) AS tanggal, SUM(total) AS total
-                  FROM tbl_resep
+                  FROM tbl_penjualan_barang
                   GROUP BY MONTH(tanggal)
                   ) s ON (bulan.id = s.tanggal AND $year = s.tahun) LIMIT $month")
 
@@ -120,7 +133,7 @@
   var areaChartData = {
     labels: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli'],
     datasets: [{
-        label: 'Pengeluaran Obat',
+        label: 'Pengeluaran Barang',
         backgroundColor: '#74c8a3',
         borderColor: 'rgba(60,141,188,0.8)',
         pointRadius: false,

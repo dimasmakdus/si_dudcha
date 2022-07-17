@@ -57,6 +57,25 @@
 <script src="<?= base_url(); ?>/dist/sweetalert2/sweetalert2.min.js"></script>
 
 <script>
+    function currencyChange(angka) {
+        var separator
+        var number_string = angka.replace(/[^,\d]/g, '').toString(),
+            split = number_string.split(','),
+            sisa = split[0].length % 3,
+            rupiah = split[0].substr(0, sisa),
+            ribuan = split[0].substr(sisa).match(/\d{3}/gi);
+
+        if (ribuan) {
+            separator = sisa ? '.' : '';
+            rupiah += separator + ribuan.join('.');
+        }
+
+        rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah
+
+        return rupiah
+    }
+</script>
+<script>
     $('.show-obat').hide();
 
     $('#kode-stok-obat').change(function() {
@@ -130,6 +149,10 @@
     $(function() {
         bsCustomFileInput.init();
     });
+
+    $(function() {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
 </script>
 <script>
     $(function() {

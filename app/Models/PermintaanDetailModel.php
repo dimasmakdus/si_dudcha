@@ -13,7 +13,10 @@ class PermintaanDetailModel extends Model
 
     protected $allowedFields = [
         'id_permintaan',
-        'kode_obat',
-        'stok'
+        'kode_barang',
+        'nama_barang',
+        'satuan_barang_id',
+        'stok',
+        'harga_beli',
     ];
 }

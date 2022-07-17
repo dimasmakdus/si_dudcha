@@ -64,9 +64,12 @@
                                         <td><?= $supplier['no_telpon'] ?></td>
                                         <td><?= $supplier['email'] ?></td>
                                         <td class="text-center">
-                                            <a class="btn btn-sm bg-olive btn-edit-supplier" data-toggle="modal" data-target="#edit-<?= $supplier['kode_supplier'] ?>"><i class="fas fa-edit"></i> Ubah</a>
-
-                                            <a class="btn btn-sm btn-danger btn-delete-supplier" data-toggle="modal" data-target="#hapus-<?= $supplier['kode_supplier'] ?>"><i class="fas fa-trash-alt"></i> Hapus</a>
+                                            <span data-toggle="tooltip" data-placement="top" title="Ubah">
+                                                <a class="btn btn-sm bg-olive btn-edit-supplier" data-toggle="modal" data-target="#edit-<?= $supplier['kode_supplier'] ?>"><i class="fas fa-edit"></i></a>
+                                            </span>
+                                            <span data-toggle="tooltip" data-placement="top" title="Hapus">
+                                                <a class="btn btn-sm btn-danger btn-delete-supplier" data-toggle="modal" data-target="#hapus-<?= $supplier['kode_supplier'] ?>"><i class="fas fa-trash-alt"></i></a>
+                                            </span>
                                         </td>
                                     </tr>
 

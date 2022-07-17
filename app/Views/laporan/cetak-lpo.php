@@ -22,15 +22,15 @@
     <?php if ($reqGet != []) : ?>
         <p>
             <center>
-                <strong style="font-size:20px">DINAS KESEHATAN KABUPATEN BANDUNG</strong><br>
-                <strong style="font-size:20px">PUSKESMAS CIMAUNG</strong><br>
-                Jl. Gunung Puntang Ds. Campakamulya, Kec. Cimaung
+                <strong style="font-size:20px">DUDCHA</strong><br>
+                Jl. Dipatiukur. Bandung<br>
+                HP. 0813-2281-5963
             </center>
         </p>
         <hr>
         <p>
             <center>
-                <strong>LAPORAN PERSEDIAAN OBAT</strong><br>
+                <strong>LAPORAN PERSEDIAAN BARANG</strong><br>
                 <?php if (isset($reqGet['periode'])) {
                     $start_date = $reqGet["start_date"];
                     $end_date = $reqGet["end_date"];
@@ -48,8 +48,8 @@
                 <thead>
                     <tr align="center">
                         <th rowspan="2" style="vertical-align: middle;">No</th>
-                        <th rowspan="2" style="vertical-align: middle;">Kode Obat</th>
-                        <th rowspan="2" style="vertical-align: middle;">Nama Obat</th>
+                        <th rowspan="2" style="vertical-align: middle;">Kode Barang</th>
+                        <th rowspan="2" style="vertical-align: middle;">Nama Barang</th>
                         <th rowspan="2" style="vertical-align: middle;">Satuan</th>
                         <th rowspan="2" style="vertical-align: middle;">Stok Awal</th>
                         <th colspan="2" style="vertical-align: middle;">Barang</th>
@@ -66,8 +66,8 @@
                         <?php foreach ($getPeriode as $periode) : ?>
                             <tr>
                                 <td align="center"><?= $i++ ?></td>
-                                <td align="center"><?= $periode['kode_obat'] ?></td>
-                                <td align="center"><?= $periode['nama_obat'] ?></td>
+                                <td align="center"><?= $periode['kode_barang'] ?></td>
+                                <td align="center"><?= $periode['nama_barang'] ?></td>
                                 <td align="center"><?= $periode['satuan'] ?></td>
                                 <td align="center"><?= $periode['stok_awal'] ?></td>
                                 <td align="center"><?= $periode['stok_masuk'] ?></td>
@@ -112,7 +112,7 @@
                     <td width="10%"></td>
                     <td>Diserahkan Oleh</td>
                     <td>Diterima Oleh</td>
-                    <td>Kepala Puskesmas</td>
+                    <td>Kepala Gudang</td>
                 </tr>
                 <tr style="line-height: 74px;">
                     <td>&nbsp;</td>

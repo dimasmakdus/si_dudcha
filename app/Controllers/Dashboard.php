@@ -12,26 +12,26 @@ class Dashboard extends BaseController
     public function index()
     {
         // Stok Habis
-        $db_obat = $this->obatModel->findAll();
-        if ($db_obat != []) {
-            foreach ($db_obat as $obat) {
-                if ($obat['stok'] < 1000) {
-                    $stokObat[] = $obat;
+        $db_barang = $this->barangModel->findAll();
+        if ($db_barang != []) {
+            foreach ($db_barang as $barang) {
+                if ($barang['stok'] < 1000) {
+                    $stokBarang[] = $barang;
                 }
             }
         }
-        $obatHabis = [
-            'count' => (isset($stokObat)) ? count($stokObat) : 0,
-            'title' => 'Stok Obat Hampir Habis'
+        $barangHabis = [
+            'count' => (isset($stokBarang)) ? count($stokBarang) : 0,
+            'title' => 'Stok Hampir Habis'
         ];
 
         // Barang Keluar
         $totalTerpakai = 0;
-        $tgl_resep = $this->ambilObatModel->findAll();
+        $tgl_resep = $this->penjualanBarangModel->findAll();
         foreach ($tgl_resep as $tgl) {
             $tanggal = date("Y-m-d", strtotime($tgl['tanggal']));
             if ($tanggal == date('Y-m-d')) {
-                $detail_resep = $this->ambilObatDetailModel->findAll();
+                $detail_resep = $this->penjualanBarangDetailModel->findAll();
                 foreach ($detail_resep as $detail) {
                     if ($detail['id_transaksi'] == $tgl['id_transaksi']) {
                         $resepToday[] = $detail;
@@ -40,9 +40,9 @@ class Dashboard extends BaseController
                 }
             }
         }
-        $obatTerpakai = [
+        $barangTerpakai = [
             'count' => $totalTerpakai,
-            'title' => 'Obat Terpakai Hari Ini'
+            'title' => 'Barang Keluar Hari Ini'
         ];
 
         // Barang Masuk
@@ -61,18 +61,54 @@ class Dashboard extends BaseController
             }
         }
 
-        $obatMasuk = [
+        $barangMasuk = [
             'count' => $totalMasuk,
-            'title' => 'Obat Masuk Hari Ini'
+            'title' => 'Barang Masuk Hari Ini'
         ];
+
+        // Terjual Hari ini
+        // $totalPenjualan = 0;
+        // $tgl_penjualan = $this->penjualanBarangModel->findAll();
+        // foreach ($tgl_penjualan as $tgl) {
+        //     $tanggal = date("Y-m-d", strtotime($tgl['tanggal']));
+        //     if ($tanggal == date('Y-m-d')) {
+        //         $detail_penjualan = $this->penjualanBarangDetailModel->findAll();
+        //         foreach ($detail_penjualan as $detail) {
+        //             if ($detail['id_transaksi'] == $tgl['id_transaksi']) {
+        //                 $resepToday[] = $detail;
+        //                 $totalPenjualan = $totalPenjualan + $detail['harga_jual'];
+        //             }
+        //         }
+        //     }
+        // }
+
+        // $barangTerjual = [
+        //     'count' => $totalPenjualan,
+        //     'title' => 'Pendapatan Hari Ini'
+        // ];
 
         return view('dashboard/index', [
             'title' => 'Dashboard',
             'navLink' => 'dashboard',
-            'obatHabis' => $obatHabis,
-            'resepToday' => $obatTerpakai,
-            'masukToday' => $obatMasuk,
+            'barangHabis' => $barangHabis,
+            'keluarToday' => $barangTerpakai,
+            // 'terjualToday' => $barangTerjual,
+            'barangMasuk' => $barangMasuk,
             'db' => $this->db
+        ]);
+    }
+
+    public function notifikasi()
+    {
+        $db      = \Config\Database::connect();
+        $builder = $db->table('tbl_notifikasi');
+        $notifikasi   = $builder->where('notifikasi_user_id', session()->get('id_user'))->get()->getResult();
+
+        return view('dashboard/notifikasi', [
+            'title' => 'Notifikasi',
+            'card_title' => 'Notifikasi',
+            'navLink' => 'dashboard',
+            'notifikasi' => $notifikasi,
         ]);
     }
 
@@ -95,7 +131,8 @@ class Dashboard extends BaseController
                 'email' => $user['email'],
                 'password' => $user['password'],
                 'id_user_role' => $roleById['nama_role'],
-                'is_active' => $is_active
+                'is_active' => $is_active,
+                'user_photo' => $user['user_photo'],
             ];
             array_push($dataUser, $data);
         }
@@ -127,60 +164,12 @@ class Dashboard extends BaseController
         ]);
     }
 
-    public function viewAkses($id)
-    {
-        $menu_akses = $this->aksesModel->orderBy('no_order', 'ASC')->findAll();
-        $hakAkses = $this->hakAksesModel->findAll();
-        foreach ($hakAkses as $hak) {
-            if ($id == $hak['id_role']) {
-                $currentAkses[] = $hak['id_menu'];
-            }
-        }
-
-        return view('role/role_akses', [
-            'title' => 'Daftar Hak Akses',
-            'card_title' => 'Kelola Role Pengguna',
-            'navLink' => 'role-pengguna',
-            'menu_akses' => $menu_akses,
-            'currentAkses' => isset($currentAkses) ? $currentAkses : ''
-        ]);
-    }
-
     public function roleForm()
     {
         return view('role/role_form', [
             'title' => 'Tambah Hak Akses',
             'card_title' => 'Tambah Hak Akses',
             'navLink' => 'role-pengguna',
-        ]);
-    }
-
-    public function resep_pasien()
-    {
-        $data_dokter = $this->dokterModel->orderBy('nama_dokter', 'ASC')->findAll();
-        $data_pasien = $this->pasienModel->orderBy('no_resep', 'ASC')->findAll();
-
-        foreach ($data_pasien as $pasien) {
-            $no_resep = $pasien['no_resep'];
-        }
-        $noUrut = (int) substr($no_resep, 0, 6);
-        $noUrut++;
-        $kodeBaru = sprintf("%06s", $noUrut);
-
-        $status = [
-            "0" => "BPJS",
-            "1" => "UMUM"
-        ];
-
-        return view('dashboard/pasien', [
-            'title' => 'Data Resep Pasien',
-            'card_title' => 'Data Resep Pasien',
-            'navLink' => 'resep-pasien',
-            'jenis_kelamin' => $this->jenis_kelamin,
-            'status_pasien' => $status,
-            'db_dokter' => $data_dokter,
-            'data_pasien' => $data_pasien,
-            'kode_baru' => $kodeBaru
         ]);
     }
 
@@ -196,45 +185,81 @@ class Dashboard extends BaseController
         ]);
     }
 
-    public function stok_obat()
+    public function outlet()
     {
-        $stok_obat = $this->stokObatModel->orderBy('updated_at', 'DESC')->findAll();
+        $outlet = $this->outletModel->orderBy('updated_at', 'DESC')->findAll();
 
-        return view('dashboard/stok_obat', [
-            'title' => 'Stok Obat',
-            'card_title' => 'Kelola Data Stok Obat',
-            'navLink' => 'stok-obat',
-            'stok_obat' => isset($stok_obat) ? $stok_obat : []
+        return view('dashboard/data_outlet', [
+            'title' => 'Data Outlet',
+            'card_title' => 'Kelola Data Outlet',
+            'navLink' => 'outlet',
+            'data_outlet' => isset($outlet) ? $outlet : []
         ]);
     }
 
-    public function obat_obatan()
+    public function jenis_barang()
     {
-        $no_obat_akhir = $this->obatModel->orderBy('kode_obat', 'ASC')->findAll();
-        foreach ($no_obat_akhir as $obat) {
-            $kode_obat = $obat['kode_obat'];
+        $jenis_barang = $this->jenisBarangModel->orderBy('updated_at', 'DESC')->findAll();
+
+        return view('dashboard/data_jenis_barang', [
+            'title' => 'Jenis Barang',
+            'card_title' => 'Jenis Barang',
+            'navLink' => 'jenis-barang',
+            'data_jenis_barang' => isset($jenis_barang) ? $jenis_barang : []
+        ]);
+    }
+
+    public function satuan_barang()
+    {
+        $satuan_barang = $this->satuanBarangModel->orderBy('updated_at', 'DESC')->findAll();
+
+        return view('dashboard/data_satuan_barang', [
+            'title' => 'Satuan Barang',
+            'card_title' => 'Satuan Barang',
+            'navLink' => 'satuan-barang',
+            'data_satuan_barang' => isset($satuan_barang) ? $satuan_barang : []
+        ]);
+    }
+
+    public function stok_barang()
+    {
+        $stok_barang = $this->stokBarangModel->orderBy('updated_at', 'DESC')->findAll();
+
+        return view('dashboard/stok_barang', [
+            'title' => 'Stok Barang',
+            'card_title' => 'Kelola Data Stok Barang',
+            'navLink' => 'stok-barang',
+            'stok_barang' => isset($stok_barang) ? $stok_barang : []
+        ]);
+    }
+
+    public function data_barang()
+    {
+        $no_barang_akhir = $this->barangModel
+            ->orderBy('kode_barang', 'ASC')
+            ->join('tbl_satuan_barang', 'tbl_satuan_barang.satuan_barang_id = tbl_barang.satuan', 'left')
+            ->join('tbl_jenis_barang', 'tbl_jenis_barang.jenis_barang_id = tbl_barang.jenis_barang', 'left')
+            ->findAll();
+
+        foreach ($no_barang_akhir as $barang) {
+            $kode_barang = $barang['kode_barang'];
         }
 
-        $noUrut = (int) substr(preg_replace("/[^0-9]/", "", $kode_obat), 0, 6);
+        $noUrut = (int) substr(preg_replace("/[^0-9]/", "", $kode_barang), 0, 6);
         $noUrut++;
         $kodeBaru = sprintf("%04s", $noUrut);
 
-        $satuan_obat = [
-            '0' => 'Tablet',
-            '1' => 'Botol',
-            '2' => 'Ampul',
-            '3' => 'Strip',
-            '4' => 'Sachet',
-            '5' => 'Kapsul'
-        ];
+        $satuan_barang = $this->satuanBarangModel->orderBy('updated_at', 'ASC')->findAll();
+        $jenis_barang = $this->jenisBarangModel->orderBy('updated_at', 'ASC')->findAll();
 
-        return view('dashboard/obat_obatan', [
-            'title' => 'Data Obat',
-            'card_title' => 'Kelola Data Obat-Obatan',
-            'navLink' => 'obat-obatan',
-            'obat_obatan' => isset($no_obat_akhir) ? $no_obat_akhir : [],
-            'satuan' => $satuan_obat,
-            'kode_obat_baru' => $kodeBaru
+        return view('dashboard/data_barang', [
+            'title' => 'Data Barang',
+            'card_title' => 'Kelola Data Barang',
+            'navLink' => 'data-barang',
+            'data_barang' => isset($no_barang_akhir) ? $no_barang_akhir : [],
+            'satuan' => isset($satuan_barang) ? $satuan_barang : [],
+            'jenis_barang' => isset($jenis_barang) ? $jenis_barang : [],
+            'kode_barang_baru' => $kodeBaru
         ]);
     }
 
@@ -258,92 +283,104 @@ class Dashboard extends BaseController
         ]);
     }
 
-    public function aturan_obat()
+    public function aturan_barang()
     {
-        $aturan_obat = $this->aturanModel->orderBy('updated_at', 'DESC')->findAll();
+        $aturan_barang = $this->aturanModel->orderBy('updated_at', 'DESC')->findAll();
         $aturan_usia = [
             '0' => 'Bayi',
             '1' => 'Anak-Anak',
             '2' => 'Dewasa',
         ];
 
-        return view('dashboard/aturan_obat', [
-            'title' => 'Data Aturan Obat',
-            'card_title' => 'Data Aturan Pemakaian Obat',
-            'navLink' => 'aturan-obat',
+        return view('dashboard/aturan_barang', [
+            'title' => 'Data Aturan Barang',
+            'card_title' => 'Data Aturan Pemakaian Barang',
+            'navLink' => 'aturan-barang',
             'aturan_usia' => $aturan_usia,
-            'aturan_obat' => isset($aturan_obat) ? $aturan_obat : []
+            'aturan_barang' => isset($aturan_barang) ? $aturan_barang : []
         ]);
     }
 
-    public function pengambilan_obat()
+    public function penjualan_barang()
     {
-        $data_resep = $this->ambilObatModel->orderBy('id_transaksi', 'ASC')->findAll();
-        $resep_pasien = $this->pasienModel->orderBy('no_resep', 'ASC')->findAll();
-        $obat_obatan = $this->obatModel->orderBy('kode_obat', 'ASC')->findAll();
-        $aturan_obat = $this->aturanModel->orderBy('dosis_aturan_obat', 'DESC')->findAll();
-        foreach ($data_resep as $maxId) {
+        $data_penjualan = $this->penjualanBarangModel->orderBy('id_transaksi', 'ASC')->findAll();
+        $barang_barangan = $this->barangModel
+            ->join('tbl_satuan_barang', 'tbl_satuan_barang.satuan_barang_id = tbl_barang.satuan', 'left')
+            ->orderBy('kode_barang', 'ASC')
+            ->findAll();
+
+        foreach ($data_penjualan as $maxId) {
         }
-        return view('dashboard/pengambilan_obat', [
-            'title' => 'Pengambilan Obat',
-            'card_title' => 'Pengambilan Obat',
-            'navLink' => 'pengambilan-obat',
-            'resep_pasien' => isset($resep_pasien) ? $resep_pasien : [],
-            'obat_obatan' => isset($obat_obatan) ? $obat_obatan : [],
-            'aturan_obat' => isset($aturan_obat) ? $aturan_obat : [],
-            'maxId' => $data_resep != [] ? $maxId['id_transaksi'] : 0
+
+        $data_outlet = $this->outletModel->orderBy('outlet_name')->findAll();
+        return view('dashboard/penjualan_barang', [
+            'title' => 'Penjualan Barang',
+            'card_title' => 'Penjualan Barang',
+            'navLink' => 'penjualan-barang',
+            'data_outlet' => isset($data_outlet) ? $data_outlet : [],
+            'barang_barangan' => isset($barang_barangan) ? $barang_barangan : [],
+            'maxId' => $data_penjualan != [] ? $maxId['id_transaksi'] : 0
         ]);
     }
 
-    public function resep_obat()
+    public function resep_barang()
     {
-        $resep_obat = $this->resepModel->orderBy('tanggal', 'DESC')->findAll();
-        $detailObat = $this->resepDetailModel->orderBy('id_transaksi', 'ASC')->findAll();
-        return view('dashboard/resep_obat', [
+        $resep_barang = $this->resepModel->orderBy('tanggal', 'DESC')->findAll();
+        $detailBarang = $this->resepDetailModel->orderBy('id_transaksi', 'ASC')->findAll();
+        return view('dashboard/resep_barang', [
             'title' => 'Salinan Resep',
             'card_title' => 'Salinan Resep',
-            'navLink' => 'resep-obat',
-            'resep_obat' => isset($resep_obat) ? $resep_obat : [],
-            'detailObat' => isset($detailObat) ? $detailObat : []
+            'navLink' => 'resep-barang',
+            'resep_barang' => isset($resep_barang) ? $resep_barang : [],
+            'detailBarang' => isset($detailBarang) ? $detailBarang : []
         ]);
     }
 
-    public function riwayat_pengambilan_obat()
+    public function riwayat_penjualan_barang()
     {
-        $resep_obat = $this->ambilObatModel->orderBy('tanggal', 'DESC')->findAll();
-        $detailObat = $this->ambilObatDetailModel->orderBy('id_transaksi', 'ASC')->findAll();
-        return view('dashboard/riwayat_ambil_obat', [
-            'title' => 'Riwayat Pengambilan Obat',
-            'card_title' => 'Riwayat Pengambilan Obat',
-            'navLink' => 'riwayat-pengambilan-obat',
-            'resep_obat' => isset($resep_obat) ? $resep_obat : [],
-            'detailObat' => isset($detailObat) ? $detailObat : []
+        $penjualan_barang = $this->penjualanBarangModel->orderBy('tanggal', 'DESC')->findAll();
+        $detailBarang = $this->penjualanBarangDetailModel
+            ->join('tbl_satuan_barang', 'tbl_satuan_barang.satuan_barang_id = tbl_penjualan_barang_detail.satuan', 'left')
+            ->orderBy('id_transaksi', 'ASC')
+            ->findAll();
+        return view('dashboard/riwayat_penjualan_barang', [
+            'title' => 'Riwayat Penjualan Barang',
+            'card_title' => 'Riwayat Penjualan Barang',
+            'navLink' => 'riwayat-penjualan-barang',
+            'penjualan_barang' => isset($penjualan_barang) ? $penjualan_barang : [],
+            'detailBarang' => isset($detailBarang) ? $detailBarang : []
         ]);
     }
 
-    public function pesanan_obat()
+    public function pesanan_barang()
     {
-        return view('dashboard/pesanan_obat', [
-            'title' => 'Pengajuan Obat',
-            'card_title' => 'Pengajuan Obat',
-            'navLink' => 'pengajuan-obat',
-            'permintaan_obat' => $this->permintaanModel->orderBy('tanggal', 'DESC')->findAll(),
+        return view('dashboard/pesanan_barang', [
+            'title' => 'Pengajuan Barang',
+            'card_title' => 'Pengajuan Barang',
+            'navLink' => 'pengajuan-barang',
+            'permintaan_barang' => $this->permintaanModel->orderBy('tanggal', 'DESC')->findAll(),
             'supplier' => $this->supplierModel->orderBy('nama_supplier', 'ASC')->findAll(),
-            'detailObat' => $this->permintaanDetailModel->findAll(),
-            'obatModel' => $this->obatModel
+            'detailBarang' => $this->permintaanDetailModel->join('tbl_satuan_barang', 'tbl_satuan_barang.satuan_barang_id = tbl_permintaan_detail.satuan_barang_id', 'left')->findAll(),
+            'barangModel' => $this->barangModel
         ]);
     }
 
     public function barang_masuk()
     {
+        $status_pembayaran = [
+            'true' => 'Lunas',
+            'false' => 'Belum Lunas'
+        ];
+
         return view('dashboard/barang_masuk', [
-            'title' => 'Pengajuan Obat',
-            'card_title' => 'Pengajuan Obat',
+            'title' => 'Barang Masuk',
+            'card_title' => 'Barang Masuk',
             'navLink' => 'barang-masuk',
             'pembelian' => $this->pembelianModel->orderBy('tanggal', 'DESC')->findAll(),
-            'detailObat' => $this->pembelianDetailModel->findAll(),
+            'detailBarang' => $this->pembelianDetailModel->join('tbl_satuan_barang', 'tbl_satuan_barang.satuan_barang_id = tbl_pembelian_detail.satuan_barang_id', 'left')->findAll(),
             'supplier' => $this->supplierModel,
-            'obatModel' => $this->obatModel
+            'barangModel' => $this->barangModel,
+            'status_pembayaran' => $status_pembayaran,
         ]);
     }
 }

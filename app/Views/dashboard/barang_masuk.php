@@ -2,9 +2,9 @@
 
 <?= $this->section('content') ?>
 <?php
-if (session()->get('name') == "Administrator") {
+if (session()->get('id_user') == 1) {
     $judul = $title;
-    $modalTitle = "Detail Pengajuan";
+    $modalTitle = "Detail Barang Masuk";
 } else {
     $judul = "Riwayat Barang Masuk";
     $modalTitle = "Detail Barang Masuk";
@@ -81,9 +81,6 @@ if (session()->get('name') == "Administrator") {
                         <?php
                         }
                         ?>
-                        <?php if (session()->get('name') == "Administrator") : ?>
-                            <a href="<?= base_url('barang-masuk-add') ?>" class="btn bg-olive mb-3"><i class="fas fa-plus"></i> Tambah</a>
-                        <?php endif ?>
                         <table id="example2" class="table table-bordered table-hover">
                             <thead>
                                 <tr>
@@ -91,7 +88,8 @@ if (session()->get('name') == "Administrator") {
                                     <th>Nomor Faktur</th>
                                     <th>Tanggal</th>
                                     <th>Supplier</th>
-                                    <th>Total Obat</th>
+                                    <th class="text-right">Total Pembelian</th>
+                                    <?= (session()->get('id_user') == 2 || session()->get('id_user') == 3) ? "<th class='text-center'>Status Pembayaran</th>" : null ?>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -105,12 +103,40 @@ if (session()->get('name') == "Administrator") {
                                         <td>
                                             <?php
                                             $data = $supplier->find($beli['kode_supplier']);
-                                            echo $data['nama_supplier']
+                                            echo $data != null ? $data['nama_supplier'] : null
                                             ?>
                                         </td>
-                                        <td><?= $beli['total'] ?></td>
-                                        <td class="text-center">
-                                            <a class="btn btn-sm btn-warning" data-toggle="modal" data-target="#detail-<?= $beli['id'] ?>"><i class="fas fa-eye"></i> Detail</a>
+                                        <td class="text-right"><?= "Rp " . number_format($beli['total'], 0, ',', '.') ?></td>
+
+                                        <?php if (session()->get('id_user') == 2 || session()->get('id_user') == 3) : ?>
+                                            <td class="text-center">
+                                                <?php
+                                                if ($beli['status_pembayaran'] == 'true') { ?>
+                                                    <small class="badge badge-success"><i class="fas fa-check"></i> Lunas</small>
+                                                <?php } else { ?>
+                                                    <small class="badge badge-danger"><i class="fas fa-times"></i> Belum Lunas</small>
+                                                <?php } ?>
+                                            </td>
+                                        <?php endif ?>
+
+                                        <td>
+                                            <?php if (session()->get('id_user') == 3) { ?>
+                                                <span class="ml-3" data-toggle="tooltip" data-placement="top" title="Ubah">
+                                                    <a class="btn btn-sm btn-info" data-toggle="modal" data-target="#detail-<?= $beli['id'] ?>"><i class="fas fa-edit"></i></a>
+                                                </span>
+                                            <?php } else { ?>
+                                                <span class="ml-4" data-toggle="tooltip" data-placement="top" title="Detail">
+                                                    <a class="btn btn-sm btn-warning" data-toggle="modal" data-target="#detail-<?= $beli['id'] ?>"><i class="fas fa-eye"></i></a>
+                                                </span>
+                                            <?php } ?>
+
+                                            <?php if (session()->get('id_user') == 3) : ?>
+                                                <?php if ($beli['status_pembayaran'] == 'true') : ?>
+                                                    <span data-toggle="tooltip" data-placement="top" title="Cetak">
+                                                        <a class="btn btn-sm btn-primary" data-toggle="modal" data-target="#print-<?= $beli['id'] ?>"><i class="fas fa-print"></i></a>
+                                                    </span>
+                                                <?php endif ?>
+                                            <?php endif ?>
                                         </td>
                                     </tr>
 
@@ -125,6 +151,27 @@ if (session()->get('name') == "Administrator") {
                                                     </button>
                                                 </div>
                                                 <div class="modal-body">
+                                                    <?php if (session()->get('id_user') == 3) : ?>
+                                                        <form id="form-update-pembayaran">
+                                                            <div class="row mb-3">
+                                                                <label class="col-sm-3 col-form-label">Status Pembayaran</label>
+                                                                <div class="col-xs-1 mt-1">:</div>
+                                                                <div class="col-sm-4">
+                                                                    <select name="status_pembayaran" id="status_pembayaran" class="form-control">
+                                                                        <option value="" disabled selected>-- Pilih Status Pembayaran --</option>
+                                                                        <?php foreach ($status_pembayaran as $key => $value) : ?>
+                                                                            <option value="<?= $key ?>" <?= $key == $beli['status_pembayaran'] ? 'selected' : '' ?>><?= $value ?></option>
+                                                                        <?php endforeach ?>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="col-sm-4">
+                                                                    <button type="button" class="btn btn-primary" onclick="updatePembayaran(<?= $beli['id'] ?>)"><i class="fas fa-save"></i> Simpan</button>
+                                                                </div>
+                                                            </div>
+                                                        </form>
+                                                        <hr />
+                                                        <h4>Detail Barang</h4>
+                                                    <?php endif ?>
                                                     <div class="row">
                                                         <label class="col-sm-3 col-form-label">Nomor Faktur</label>
                                                         <div class="col-xs-1 mt-1">:</div>
@@ -139,49 +186,246 @@ if (session()->get('name') == "Administrator") {
                                                             <h6 class="mt-2"><?= $beli['tanggal'] ?></h6>
                                                         </div>
                                                     </div>
-                                                    <div class="row mb-3">
+                                                    <div class="row <?= (session()->get('id_user') == 1 || session()->get('id_user') == 3) ? "mb-3" : "" ?>">
                                                         <label class="col-sm-3 col-form-label">Supplier</label>
                                                         <div class="col-xs-1 mt-1">:</div>
                                                         <div class="col-sm-8">
                                                             <h6 class="mt-2">
                                                                 <?php
                                                                 $data = $supplier->find($beli['kode_supplier']);
-                                                                echo $data['nama_supplier']
+                                                                echo $data != null ? $data['nama_supplier'] : null
                                                                 ?>
                                                             </h6>
                                                         </div>
                                                     </div>
 
+                                                    <?php if (session()->get('id_user') == 2) : ?>
+                                                        <div class="row mb-3">
+                                                            <label class="col-sm-3 col-form-label">Status Pembayaran</label>
+                                                            <div class="col-xs-1 mt-1">:</div>
+                                                            <div class="col-sm-8">
+                                                                <h6 class="mt-2">
+                                                                    <?php
+                                                                    if ($beli['status_pembayaran'] == 'true') { ?>
+                                                                        <small class="badge badge-success"><i class="fas fa-check"></i> Lunas</small>
+                                                                    <?php } else { ?>
+                                                                        <small class="badge badge-danger"><i class="fas fa-times"></i> Belum Lunas</small>
+                                                                    <?php } ?>
+                                                                </h6>
+                                                            </div>
+                                                        </div>
+                                                    <?php endif ?>
+
                                                     <div class="container">
                                                         <div class="row">
-                                                            <div class="col-sm-1 detail-th">No</div>
-                                                            <div class="col-sm-2 detail-th">Kode Obat</div>
-                                                            <div class="col-sm-3 detail-th">Nama Obat</div>
-                                                            <div class="col-sm-2 detail-th">Satuan</div>
-                                                            <div class="col-sm-2 detail-th">Tgl. Kadaluarsa</div>
-                                                            <div class="col-sm-2 detail-th">Stok Yang Masuk</div>
+                                                            <div class="col-md-1 detail-th">No</div>
+                                                            <div class="col-md-3 detail-th">Nama Barang</div>
+                                                            <div class="col-md-1 detail-th">Harga Beli</div>
+                                                            <div class="col-md-1 detail-th">Satuan Beli</div>
+                                                            <div class="col-md-1 detail-th">Jumlah Beli</div>
+                                                            <div class="col-md-1 detail-th">Satuan di Gudang</div>
+                                                            <div class="col-md-1 detail-th">Nilai per Satuan</div>
+                                                            <!-- <div class="col-md-2 detail-th">Tgl. Kadaluarsa</div> -->
+                                                            <div class="col-md-1 detail-th">Stok Yang Masuk</div>
+                                                            <div class="col-md-2 detail-th text-right">Subtotal</div>
                                                         </div>
                                                         <?php
                                                         $j = 1;
                                                         $total = 0;
+                                                        $totalHarga = 0;
                                                         ?>
-                                                        <?php foreach ($detailObat as $detail) : ?>
+                                                        <?php foreach ($detailBarang as $detail) : ?>
                                                             <?php if ($detail['id_pembelian'] == $beli['id']) : ?>
-                                                                <?php $obat = $obatModel->find($detail['kode_obat']); ?>
-                                                                <div class="row">
-                                                                    <div class="col-sm-1 detail-cell"><?= $j++ ?></div>
-                                                                    <div class="col-sm-2 detail-cell"><?= $detail['kode_obat'] ?></div>
-                                                                    <div class="col-sm-3 detail-cell"><?= $obat['nama_obat'] ?></div>
-                                                                    <div class="col-sm-2 detail-cell"><?= $obat['satuan'] ?></div>
-                                                                    <div class="col-sm-2 detail-cell"><?= $detail['tgl_kadaluarsa'] ?></div>
-                                                                    <div class="col-sm-2 detail-cell"><?= $detail['stok_masuk'] ?></div>
-                                                                </div>
-                                                                <?php $total = $total + $detail['stok_masuk'] ?>
+                                                                <?php
+                                                                $barang = $barangModel
+                                                                    ->join('tbl_satuan_barang', 'tbl_satuan_barang.satuan_barang_id = tbl_barang.satuan', 'left')
+                                                                    ->find($detail['kode_barang']);
+                                                                ?>
+                                                                <?php if (isset($barang)) : ?>
+                                                                    <div class="row">
+                                                                        <div class="col-md-1 detail-cell"><?= $j++ ?></div>
+                                                                        <div class="col-md-3 detail-cell"><?= $barang['nama_barang'] ?></div>
+                                                                        <div class="col-md-1 detail-cell text-right"><?= "Rp " . number_format($detail['harga_beli'], 0, ',', '.') ?></div>
+                                                                        <div class="col-md-1 detail-cell"><?= $detail['satuan_barang_name'] ?></div>
+                                                                        <div class="col-md-1 detail-cell"><?= $detail['stok_pemesanan'] ?></div>
+                                                                        <div class="col-md-1 detail-cell"><?= $barang['satuan_barang_name'] ?></div>
+                                                                        <div class="col-md-1 detail-cell"><?= $barang['nilai_satuan'] ?></div>
+                                                                        <!-- <div class="col-md-2 detail-cell"><?= $detail['tgl_kadaluarsa'] ?></div> -->
+                                                                        <div class="col-md-1 detail-cell"><?= $detail['stok_masuk'] ?></div>
+                                                                        <div class="col-md-2 detail-cell text-right"><?= "Rp " . number_format($detail['harga_beli'] * $detail['stok_pemesanan'], 0, ',', '.') ?></div>
+                                                                    </div>
+                                                                <?php endif ?>
                                                             <?php endif ?>
+                                                            <?php $total = $total + $detail['stok_masuk'] ?>
                                                         <?php endforeach ?>
                                                         <div class="row">
-                                                            <div class="col-sm-10 detail-cell">Total</div>
-                                                            <div class="col-sm-2 detail-cell"><?= $total ?></div>
+                                                            <div class="col-md-9 detail-cell"><b>Total</b></div>
+                                                            <div class="col-md-1 detail-cell"><b><?= $total ?></b></div>
+                                                            <div class="col-md-2 detail-cell text-right"><b><?= "Rp " . number_format($beli['total'], 0, ',', '.')  ?></b></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- /.modal-content -->
+                                        </div>
+                                        <!-- /.modal-dialog -->
+                                    </div>
+                                    <!-- /.modal -->
+
+                                    <!-- Modal Print  -->
+                                    <div class="modal fade" id="print-<?= $beli['id'] ?>">
+                                        <div class="modal-dialog modal-xl">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h4 class="modal-title">Cetak Kuitansi Pembayaran</h4>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <?php if (session()->get('id_user') == 3) : ?>
+                                                        <form id="cetak-kuitansi">
+                                                            <div class="row mb-3">
+                                                                <label class="col-sm-3 col-form-label">Telah Diterima dari</label>
+                                                                <div class="col-xs-1 mt-1">:</div>
+                                                                <div class="col-sm-4">
+                                                                    <input type="text" name="diterima" class="form-control">
+                                                                    <input type="hidden" name="id_pembeli" value="<?= $beli['id'] ?>">
+                                                                </div>
+                                                            </div>
+                                                            <div class="row mb-3">
+                                                                <label class="col-sm-3 col-form-label">Jumlah Uang</label>
+                                                                <div class="col-xs-1 mt-1">:</div>
+                                                                <div class="col-sm-4">
+                                                                    <div class="input-group">
+                                                                        <div class="input-group-prepend">
+                                                                            <span class="input-group-text">Rp</span>
+                                                                        </div>
+                                                                        <input type="text" id="uang_rupiah" class="form-control">
+                                                                        <input type="hidden" name="jumlah_uang" id="jumlah_uang" class="form-control">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row mb-3">
+                                                                <label class="col-sm-3 col-form-label">Untuk Pembayaran</label>
+                                                                <div class="col-xs-1 mt-1">:</div>
+                                                                <div class="col-sm-4">
+                                                                    <input type="text" name="pembayaran" class="form-control">
+                                                                </div>
+                                                            </div>
+                                                            <div class="row mb-3">
+                                                                <label class="col-sm-3 col-form-label">Pihak 1 (Bagian Keuangan)</label>
+                                                                <div class="col-xs-1 mt-1">:</div>
+                                                                <div class="col-sm-4">
+                                                                    <input type="text" name="bagian_keuangan" class="form-control">
+                                                                </div>
+                                                            </div>
+                                                            <div class="row mb-3">
+                                                                <label class="col-sm-3 col-form-label">Pihak 2 (Supplier)</label>
+                                                                <div class="col-xs-1 mt-1">:</div>
+                                                                <div class="col-sm-4">
+                                                                    <input type="text" name="supplier" class="form-control">
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-sm-4">
+                                                                    <button type="button" class="btn btn-primary" onclick="cetakKuitansi()"><i class="fas fa-print"></i> Cetak</button>
+                                                                </div>
+                                                            </div>
+                                                        </form>
+                                                        <hr />
+                                                        <h4>Detail Barang</h4>
+                                                    <?php endif ?>
+                                                    <div class="row">
+                                                        <label class="col-sm-3 col-form-label">Nomor Faktur</label>
+                                                        <div class="col-xs-1 mt-1">:</div>
+                                                        <div class="col-sm-8">
+                                                            <h6 class="mt-2"><?= $beli['faktur'] ?></h6>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <label class="col-sm-3 col-form-label">Tanggal</label>
+                                                        <div class="col-xs-1 mt-1">:</div>
+                                                        <div class="col-sm-8">
+                                                            <h6 class="mt-2"><?= $beli['tanggal'] ?></h6>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row <?= (session()->get('id_user') == 1 || session()->get('id_user') == 3) ? "mb-3" : "" ?>">
+                                                        <label class="col-sm-3 col-form-label">Supplier</label>
+                                                        <div class="col-xs-1 mt-1">:</div>
+                                                        <div class="col-sm-8">
+                                                            <h6 class="mt-2">
+                                                                <?php
+                                                                $data = $supplier->find($beli['kode_supplier']);
+                                                                echo $data != null ? $data['nama_supplier'] : null
+                                                                ?>
+                                                            </h6>
+                                                        </div>
+                                                    </div>
+
+                                                    <?php if (session()->get('id_user') == 2) : ?>
+                                                        <div class="row mb-3">
+                                                            <label class="col-sm-3 col-form-label">Status Pembayaran</label>
+                                                            <div class="col-xs-1 mt-1">:</div>
+                                                            <div class="col-sm-8">
+                                                                <h6 class="mt-2">
+                                                                    <?php
+                                                                    if ($beli['status_pembayaran'] == 'true') { ?>
+                                                                        <small class="badge badge-success"><i class="fas fa-check"></i> Lunas</small>
+                                                                    <?php } else { ?>
+                                                                        <small class="badge badge-danger"><i class="fas fa-times"></i> Belum Lunas</small>
+                                                                    <?php } ?>
+                                                                </h6>
+                                                            </div>
+                                                        </div>
+                                                    <?php endif ?>
+
+                                                    <div class="container">
+                                                        <div class="row">
+                                                            <div class="col-md-1 detail-th">No</div>
+                                                            <div class="col-md-3 detail-th">Nama Barang</div>
+                                                            <div class="col-md-1 detail-th">Harga Beli</div>
+                                                            <div class="col-md-1 detail-th">Satuan Beli</div>
+                                                            <div class="col-md-1 detail-th">Jumlah Beli</div>
+                                                            <div class="col-md-1 detail-th">Satuan di Gudang</div>
+                                                            <div class="col-md-1 detail-th">Nilai per Satuan</div>
+                                                            <!-- <div class="col-md-2 detail-th">Tgl. Kadaluarsa</div> -->
+                                                            <div class="col-md-1 detail-th">Stok Yang Masuk</div>
+                                                            <div class="col-md-2 detail-th text-right">Subtotal</div>
+                                                        </div>
+                                                        <?php
+                                                        $j = 1;
+                                                        $total = 0;
+                                                        $totalHarga = 0;
+                                                        ?>
+                                                        <?php foreach ($detailBarang as $detail) : ?>
+                                                            <?php if ($detail['id_pembelian'] == $beli['id']) : ?>
+                                                                <?php
+                                                                $barang = $barangModel
+                                                                    ->join('tbl_satuan_barang', 'tbl_satuan_barang.satuan_barang_id = tbl_barang.satuan', 'left')
+                                                                    ->find($detail['kode_barang']);
+                                                                ?>
+                                                                <?php if (isset($barang)) : ?>
+                                                                    <div class="row">
+                                                                        <div class="col-md-1 detail-cell"><?= $j++ ?></div>
+                                                                        <div class="col-md-3 detail-cell"><?= $barang['nama_barang'] ?></div>
+                                                                        <div class="col-md-1 detail-cell text-right"><?= "Rp " . number_format($detail['harga_beli'], 0, ',', '.') ?></div>
+                                                                        <div class="col-md-1 detail-cell"><?= $detail['satuan_barang_name'] ?></div>
+                                                                        <div class="col-md-1 detail-cell"><?= $detail['stok_pemesanan'] ?></div>
+                                                                        <div class="col-md-1 detail-cell"><?= $barang['satuan_barang_name'] ?></div>
+                                                                        <div class="col-md-1 detail-cell"><?= $barang['nilai_satuan'] ?></div>
+                                                                        <!-- <div class="col-md-2 detail-cell"><?= $detail['tgl_kadaluarsa'] ?></div> -->
+                                                                        <div class="col-md-1 detail-cell"><?= $detail['stok_masuk'] ?></div>
+                                                                        <div class="col-md-2 detail-cell text-right"><?= "Rp " . number_format($detail['harga_beli'] * $detail['stok_pemesanan'], 0, ',', '.') ?></div>
+                                                                    </div>
+                                                                <?php endif ?>
+                                                            <?php endif ?>
+                                                            <?php $total = $total + $detail['stok_masuk'] ?>
+                                                        <?php endforeach ?>
+                                                        <div class="row">
+                                                            <div class="col-md-9 detail-cell"><b>Total</b></div>
+                                                            <div class="col-md-1 detail-cell"><b><?= $total ?></b></div>
+                                                            <div class="col-md-2 detail-cell text-right"><b><?= "Rp " . number_format($beli['total'], 0, ',', '.')  ?></b></div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -209,4 +453,74 @@ if (session()->get('name') == "Administrator") {
 <!-- /.content -->
 
 <?= $this->include('templates/script') ?>
+
+<script>
+    $(document).ready(function() {
+        $("input#uang_rupiah").keyup(function(e) {
+            e.preventDefault();
+            var value = e.target.value
+
+            $('#jumlah_uang').val(value.replaceAll(".", ""))
+            $('#uang_rupiah').val(currencyChange(value.toString()))
+        });
+    });
+
+    function updatePembayaran(id) {
+        var url = "<?= base_url('barang-masuk/updatePembayaran'); ?>/" + id;
+        var form = $('#form-update-pembayaran').serialize();
+
+        $.ajax({
+            type: "GET",
+            url: url,
+            data: form,
+            success: function(res) {
+                switch (res) {
+                    case 'success':
+                        Swal.fire({
+                            title: 'Berhasil!',
+                            text: 'Data berhasil disimpan!',
+                            icon: 'success',
+                            confirmButtonColor: '#3085d6',
+                            cancelButtonColor: '#d33',
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                window.location = "<?= base_url('barang-masuk') ?>";
+                            }
+                        })
+                        break;
+                    case 'error':
+                        Swal.fire(
+                            'Gagal!',
+                            'Data gagal disimpan!',
+                            'error'
+                        )
+                        break;
+                }
+            },
+            error: function(error) {
+                Swal.fire(
+                    'Gagal!',
+                    'Data gagal di simpan!',
+                    'error'
+                )
+            }
+        });
+    }
+</script>
+<script>
+    function cetakKuitansi() {
+        var url = "<?= base_url('cetak-kuitansi'); ?>";
+        var form = $('#cetak-kuitansi').serialize();
+
+        $.ajax({
+            type: "GET",
+            url: url,
+            data: form,
+            success: function(res) {
+                window.open(url + "?" + form, "_blank")
+            },
+        });
+    }
+</script>
+
 <?= $this->endSection('content') ?>

@@ -62,12 +62,13 @@
                                     <th>Tanggal Pemesanan</th>
                                     <th>Supplier Dituju</th>
                                     <th>Status Pemesanan</th>
+                                    <th>Total</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php $i = 1 ?>
-                                <?php foreach ($permintaan_obat as $permintaan) : ?>
+                                <?php foreach ($permintaan_barang as $permintaan) : ?>
                                     <tr>
                                         <td><?= $i++ ?></td>
                                         <td><?= $permintaan['kode_pesanan'] ?></td>
@@ -80,7 +81,7 @@
                                             }
                                             ?>
                                         </td>
-                                        <td>
+                                        <td class="text-center">
                                             <?php switch ($permintaan['status']) {
                                                 case 'waiting': ?>
                                                     <small class="badge badge-warning"><i class="far fa-clock"></i> Menunggu Persetujuan</small>
@@ -95,10 +96,19 @@
                                                     <?php break; ?>
                                             <?php } ?>
                                         </td>
+                                        <td class="text-right">
+                                            <?php if ($permintaan['status'] == 'approved') : ?>
+                                                <?= "Rp " . number_format($permintaan['total'], 0, ',', '.') ?>
+                                            <?php endif ?>
+                                        </td>
                                         <td>
-                                            <a href="<?= base_url('cek-pesanan-edit') . "/" . $permintaan['id'] ?>" class="btn btn-sm btn-info"><i class="fas fa-edit"></i> Ubah</a>
+                                            <span data-toggle="tooltip" data-placement="top" title="Ubah">
+                                                <a href="<?= base_url('cek-pesanan-edit') . "/" . $permintaan['id'] ?>" class="btn btn-sm btn-info ml-4"><i class="fas fa-edit"></i></a>
+                                            </span>
                                             <?php if ($permintaan['status'] == 'approved') { ?>
-                                                <a href="<?= base_url('cetak-pesanan') . "/" . $permintaan['id'] ?>" target="_blank" class="btn btn-sm btn-success"><i class="fas fa-print"></i> Cetak</a>
+                                                <span data-toggle="tooltip" data-placement="top" title="Cetak">
+                                                    <a href="<?= base_url('cetak-pesanan') . "/" . $permintaan['id'] ?>" target="_blank" class="btn btn-sm btn-primary"><i class="fas fa-print"></i></a>
+                                                </span>
                                             <?php } ?>
                                         </td>
                                     </tr>

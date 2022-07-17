@@ -33,30 +33,35 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->get('/login', 'Login::index');
 $routes->post('/login/process', 'Login::process');
+$routes->post('/login/update-profile', 'Login::updateProfile');
 $routes->get('/logout', 'Login::logout');
 
 // Navigasi Dashboard
 $routes->get('/', 'Dashboard::index');
+$routes->get('/notifikasi', 'Dashboard::notifikasi');
 $routes->get('/pengguna', 'Dashboard::kelola_user');
 $routes->get('/role-pengguna', 'Dashboard::roleUser');
 $routes->get('/resep-pasien', 'Dashboard::resep_pasien');
-$routes->get('/aturan-obat', 'Dashboard::aturan_obat');
+$routes->get('/aturan-barang', 'Dashboard::aturan_barang');
 $routes->get('/supplier', 'Dashboard::supplier');
-$routes->get('/obat-obatan', 'Dashboard::obat_obatan');
+$routes->get('/outlet', 'Dashboard::outlet');
+$routes->get('/data-barang', 'Dashboard::data_barang');
+$routes->get('/satuan-barang', 'Dashboard::satuan_barang');
+$routes->get('/jenis-barang', 'Dashboard::jenis_barang');
 $routes->get('/data-dokter', 'Dashboard::data_dokter');
-$routes->get('/stok-obat', 'Dashboard::stok_obat');
-$routes->get('/resep-obat', 'Dashboard::resep_obat');
-$routes->get('/pengajuan-obat', 'Dashboard::pesanan_obat');
+$routes->get('/stok-barang', 'Dashboard::stok_barang');
+$routes->get('/resep-barang', 'Dashboard::resep_barang');
+$routes->get('/pengajuan-barang', 'Dashboard::pesanan_barang');
 $routes->get('/data-dokter', 'Dashboard::data_dokter');
-$routes->get('/pengambilan-obat', 'Dashboard::pengambilan_obat');
-$routes->get('/riwayat-pengambilan-obat', 'Dashboard::riwayat_pengambilan_obat');
-$routes->get('/laporan-stok-obat', 'Laporan::laporan_stok_obat');
+$routes->get('/penjualan-barang', 'Dashboard::penjualan_barang');
+$routes->get('/riwayat-penjualan-barang', 'Dashboard::riwayat_penjualan_barang');
+$routes->get('/laporan-stok-barang', 'Laporan::laporan_stok_barang');
 $routes->get('/laporan-masuk', 'Laporan::laporan_masuk');
 $routes->get('/laporan-keluar', 'Laporan::laporan_keluar');
 $routes->get('/laporan-permintaan', 'Laporan::laporan_permintaan');
 $routes->get('/laporan-kadaluarsa', 'Laporan::laporan_kadaluarsa');
-$routes->get('/kirim-pesanan', 'PesananObat::kirimPesanan');
-$routes->get('/cek-pesanan', 'PesananObat::cekPesanan');
+$routes->get('/kirim-pesanan', 'PesananBarang::kirimPesanan');
+$routes->get('/cek-pesanan', 'PesananBarang::cekPesanan');
 $routes->get('/barang-masuk', 'Dashboard::barang_masuk');
 
 // Laporan
@@ -74,11 +79,12 @@ $routes->get('/pengguna/(:segment)', 'Users::userEdit/$1');
 $routes->post('/pengguna/create', 'Users::create');
 $routes->post('/pengguna/update', 'Users::update');
 $routes->get('/pengguna/delete/(:segment)', 'Users::remove/$1');
+$routes->post('/pengguna/updatePassword', 'Users::updatePassword');
 
-// Pemakaian Obat (Aturan Obat)
-$routes->post('/aturan-obat/create', 'AturanObat::create');
-$routes->post('/aturan-obat/update', 'AturanObat::update');
-$routes->get('/aturan-obat/remove/(:segment)', 'AturanObat::remove/$1');
+// Pemakaian Barang (Aturan Barang)
+$routes->post('/aturan-barang/create', 'AturanBarang::create');
+$routes->post('/aturan-barang/update', 'AturanBarang::update');
+$routes->get('/aturan-barang/remove/(:segment)', 'AturanBarang::remove/$1');
 
 // Dokter
 $routes->post('/data-dokter/create', 'Dokter::create');
@@ -100,43 +106,61 @@ $routes->get('/pasien/delete/(:segment)', 'Pasien::remove/$1');
 $routes->get('/supplier-add', 'Supplier::supplierAdd');
 $routes->get('/supplier/(:segment)', 'Supplier::supplierEdit/$1');
 
-// Obat-obatan
-$routes->get('/obat-obatan-add', 'ObatObatan::obatAdd');
-$routes->get('/obat-obatan/(:segment)', 'ObatObatan::obatEdit/$1');
-$routes->post('/obat-obatan/create', 'ObatObatan::create');
-$routes->post('/obat-obatan/update', 'ObatObatan::update');
-$routes->get('/obat-obatan/delete/(:segment)', 'ObatObatan::remove/$1');
+// Outlet
+$routes->post('/outlet/create', 'Outlet::create');
+$routes->post('/outlet/update', 'Outlet::update');
 
-// Stok Obat
-$routes->get('/stok-obat-add', 'StokObat::stokAdd');
-$routes->post('/stok-obat/create', 'StokObat::create');
+// Satuan Barang
+$routes->post('/satuan-barang/create', 'SatuanBarang::create');
+$routes->post('/satuan-barang/update', 'SatuanBarang::update');
+$routes->get('/satuan-barang/remove/(:segment)', 'SatuanBarang::remove/$1');
 
-// Resep Obat
-$routes->get('/resep-add', 'ResepObat::resepAdd');
-$routes->get('/cetak-resep/(:segment)', 'ResepObat::cetakResep/$1');
-$routes->post('/resep-obat/create', 'ResepObat::create');
-$routes->post('/salinan-resep/create', 'ResepObat::postSalinanResep');
-$routes->get('/resep-obat/delete/(:segment)', 'ResepObat::remove/$1');
+// Jenis Barang
+$routes->post('/jenis-barang/create', 'JenisBarang::create');
+$routes->post('/jenis-barang/update', 'JenisBarang::update');
+$routes->get('/jenis-barang/remove/(:segment)', 'JenisBarang::remove/$1');
 
-// Permintaan Obat / LPLPO
-$routes->get('/permintaan-obat-add', 'PermintaanObat::permintaanAdd');
-$routes->get('/cetak-lplpo', 'PermintaanObat::cetakLPLPO');
-$routes->post('/lplpo/create', 'PermintaanObat::create');
-$routes->get('/lplpo/delete/(:segment)', 'PermintaanObat::remove/$1');
+// Data Barang
+$routes->get('/data-barang-add', 'DataBarang::barangAdd');
+$routes->get('/data-barang/(:segment)', 'DataBarang::barangEdit/$1');
+$routes->post('/data-barang/create', 'DataBarang::create');
+$routes->post('/data-barang/update', 'DataBarang::update');
+$routes->get('/data-barang/delete/(:segment)', 'DataBarang::remove/$1');
 
-// Pesanan Obat
-$routes->get('/pesanan-obat-add', 'PesananObat::pesananAdd');
-$routes->get('/cek-pesanan-edit/(:segment)', 'PesananObat::pesananEdit/$1');
-$routes->post('/pesanan-obat/create', 'PesananObat::create');
-$routes->post('/pesanan-obat/update', 'PesananObat::update');
-$routes->get('/pesanan-obat/delete/(:segment)', 'PesananObat::remove/$1');
-$routes->post('/kirim-email', 'PesananObat::kirim_email');
+// Stok Barang
+$routes->get('/stok-barang-add', 'StokBarang::stokAdd');
+$routes->post('/stok-barang/create', 'StokBarang::create');
+
+// Penjualan Barang
+$routes->get('/penjualan-add', 'PenjualanBarang::penjualanAdd');
+$routes->get('/cetak-penjualan/(:segment)', 'PenjualanBarang::cetakPenjualan/$1');
+$routes->post('/penjualan-barang/create', 'PenjualanBarang::create');
+$routes->post('/salinan-penjualan/create', 'PenjualanBarang::postSalinanPenjualan');
+$routes->get('/penjualan-barang/delete/(:segment)', 'PenjualanBarang::remove/$1');
+$routes->get('/cetak-nota/(:segment)', 'PenjualanBarang::cetakNota/$1');
+
+// Permintaan Barang / LPLPO
+$routes->get('/permintaan-barang-add', 'PermintaanBarang::permintaanAdd');
+$routes->get('/cetak-lplpo', 'PermintaanBarang::cetakLPLPO');
+$routes->post('/lplpo/create', 'PermintaanBarang::create');
+$routes->get('/lplpo/delete/(:segment)', 'PermintaanBarang::remove/$1');
+
+// Pesanan Barang
+$routes->get('/data-barang-pesanan/(:segment)', 'PesananBarang::dataBarangPesanan/$1');
+$routes->get('/pesanan-barang-add', 'PesananBarang::pesananAdd');
+$routes->get('/cek-pesanan-edit/(:segment)', 'PesananBarang::pesananEdit/$1');
+$routes->post('/pesanan-barang/create', 'PesananBarang::create');
+$routes->post('/pesanan-barang/update', 'PesananBarang::update');
+$routes->get('/pesanan-barang/delete/(:segment)', 'PesananBarang::remove/$1');
+$routes->post('/kirim-email', 'PesananBarang::kirim_email');
 
 // Bukti Barang Keluar
 $routes->get('/barang-masuk-add', 'BarangMasuk::barang_masuk_add');
 $routes->post('/barang-masuk/create', 'BarangMasuk::create');
+$routes->get('/barang-masuk/updatePembayaran/(:segment)', 'BarangMasuk::updatePembayaran/$1');
+$routes->get('/cetak-kuitansi', 'BarangMasuk::cetakKuitansi');
 
-// Pengeluaran Obat
+// Pengeluaran Barang
 $routes->get('/pengeluaran-harian-add', 'pengeluaranHarian::pengeluaranAdd');
 $routes->get('/cetak-lpho', 'pengeluaranHarian::cetakLPHO');
 $routes->post('/pengeluaran-harian/create', 'pengeluaranHarian::create');

@@ -13,9 +13,9 @@ class PesananModel extends Model
     protected $returnType     = 'array';
 
     protected $allowedFields = [
-        'kode_obat',
-        'nama_obat',
-        'jenis_obat',
+        'kode_barang',
+        'nama_barang',
+        'jenis_barang',
         'satuan',
         'jumlah',
         'nama_supplier',

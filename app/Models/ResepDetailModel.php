@@ -13,10 +13,10 @@ class ResepDetailModel extends Model
 
     protected $allowedFields = [
         'id_transaksi',
-        'kode_obat',
-        'nama_obat',
+        'kode_barang',
+        'nama_barang',
         'jumlah',
         'satuan',
-        'dosis_aturan_obat'
+        'dosis_aturan_barang'
     ];
 }

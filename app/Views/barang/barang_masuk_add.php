@@ -84,36 +84,61 @@
                                                     <input type="hidden" name="kode_supplier" value="<?= $supp['kode_supplier'] ?>">
                                                 </div>
                                             </div>
+
                                             <div class="form-group row">
-                                                <label for="data_obat" class="col-sm-2 col-form-label">Detail Obat-Obatan</label>
-                                                <div class="col-sm-10">
+                                                <label for="data_barang" class="col-sm-12 col-form-label">Detail Barang :</label>
+                                            </div>
+                                            <div class="form-group row">
+                                                <div class="col-sm-12">
                                                     <table class="table table-bordered table-hover tbl-detail">
                                                         <thead>
                                                             <tr>
                                                                 <th>No</th>
-                                                                <th>Nama Obat</th>
-                                                                <th>Satuan</th>
-                                                                <th>Stok Yang Diajukan</th>
+                                                                <th>Nama Barang</th>
+                                                                <th>Harga Pemesanan</th>
+                                                                <th>Satuan Pemesanan</th>
+                                                                <th>Stok Pemesanan</th>
+                                                                <th>Satuan di Gudang</th>
+                                                                <th>Nilai per Satuan</th>
                                                                 <th>Stok Masuk</th>
-                                                                <th>Tgl. Kadaluarsa</th>
+                                                                <th>Harga Beli </th>
                                                             </tr>
                                                         </thead>
                                                         <tbody class="tbl_body">
                                                             <?php $i = 1 ?>
-                                                            <?php foreach ($detail_obat as $obat) : ?>
-                                                                <?php if ($obat['no_pesanan'] == $reqGet['no_pesanan']) : ?>
-                                                                    <input type="hidden" name="kode_obat[]" value="<?= $obat['kode_obat'] ?>">
-                                                                    <input type="hidden" name="stok[]" value="<?= $obat['stok'] ?>">
+                                                            <?php foreach ($detail_barang as $key => $barang) : ?>
+                                                                <?php if ($barang['no_pesanan'] == $reqGet['no_pesanan']) : ?>
+                                                                    <input type="hidden" name="kode_barang[]" value="<?= $barang['kode_barang'] ?>">
+                                                                    <input type="hidden" name="stok[]" value="<?= $barang['stok'] ?>">
                                                                     <tr>
-                                                                        <td><?= $i++ ?></td>
-                                                                        <td><?= $obat['nama_obat'] ?></td>
-                                                                        <td><?= $obat['satuan'] ?></td>
-                                                                        <td><?= $obat['stok'] ?></td>
                                                                         <td>
-                                                                            <input type="number" name="stokMasuk[]" class="form-control">
+                                                                            <?= $i++ ?>
+                                                                            <input type="hidden" name="harga_pemesanan[]" id="hargaPesanan" value="<?= $barang['harga_beli'] ?>">
+                                                                            <input type="hidden" name="satuan_pemesanan[]" id="satuanPesanan" value="<?= $barang['satuan_id'] ?>">
+                                                                        </td>
+                                                                        <td><?= $barang['nama_barang'] ?></td>
+                                                                        <td class="text-right"><?= "Rp " . number_format($barang['harga_beli'], 0, ',', '.') ?></td>
+                                                                        <td><?= $barang['satuan'] ?></td>
+                                                                        <td class="stokBarang"><?= $barang['stok'] ?></td>
+                                                                        <td><?= $barang['satuan_digudang'] ?></td>
+                                                                        <td>
+                                                                            <!-- <input type="number" class="form-control input-nilai-satuan"> -->
+                                                                            <?= $barang['nilai_satuan'] ?>
+                                                                        </td>
+                                                                        <td style="width: 10%;">
+                                                                            <?php $stokMasuk = $barang['nilai_satuan'] * $barang['stok'] ?>
+                                                                            <input type="hidden" name="stokMasuk[]" value="<?= $stokMasuk ?>">
+                                                                            <?= $stokMasuk ?>
                                                                         </td>
                                                                         <td>
-                                                                            <input type="date" class="form-control" name="tgl_kd[]">
+                                                                            <div class="input-group">
+                                                                                <div class="input-group-prepend">
+                                                                                    <span class="input-group-text">Rp</span>
+                                                                                </div>
+                                                                                <?php $idx = $key + 1 ?>
+                                                                                <input type="text" id="keyupHarga-<?= $idx ?>" onkeyup="keyUpHarga(<?= $idx ?>)" class="form-control">
+                                                                                <input type="hidden" name="harga_beli[]" id="hargaBeli-<?= $idx ?>" class="harga-beli">
+                                                                            </div>
                                                                         </td>
                                                                     </tr>
                                                                 <?php endif ?>
@@ -128,10 +153,11 @@
                             <?php endif ?>
                         </form>
                     </div>
-                    <div class="card-footer justify-content-between">
-                        <button type="button" onclick="simpanStok()" class="btn bg-olive"><i class="fas fa-save"></i> Simpan</button>
-                        <a href="<?= base_url('barang-masuk') ?>" class="btn btn-danger"><i class="fas fa-sign-out-alt"></i> Kembali</a>
-                    </div>
+                    <?php if (isset($reqGet['no_pesanan'])) : ?>
+                        <div class="card-footer justify-content-between">
+                            <button type="button" onclick="simpanStok()" class="btn bg-olive"><i class="fas fa-save"></i> Simpan</button>
+                        </div>
+                    <?php endif ?>
 
                 </div>
                 <!-- /.col -->
@@ -144,6 +170,14 @@
 <!-- /.content -->
 <?= $this->include('templates/script') ?>
 <script>
+    function keyUpHarga(idx) {
+        var hargaElement = document.getElementById('keyupHarga-' + idx);
+        var hargaValue = hargaElement.value
+        hargaElement.value = currencyChange(hargaValue.toString())
+
+        document.getElementById('hargaBeli-' + idx).value = hargaValue;
+    }
+
     $('#data_pesanan').change(function() {
         var select_kode = $('select[name=data_pesanan] option').filter(':selected').val();
         var no_faktur = $('#no_faktur').val();
@@ -167,54 +201,100 @@
                 'error'
             )
         } else {
-            var url = "<?= site_url('barang-masuk/create'); ?>";
-            var form = $('#form-barang-masuk').serialize();
-            console.log(form);
-            $.ajax({
-                type: "POST",
-                url: url,
-                data: form,
-                success: function(res) {
-                    switch (res) {
-                        case 'success':
-                            Swal.fire({
-                                title: 'Berhasil!',
-                                text: 'Stok Obat berhasil di tambahkan!',
-                                icon: 'success',
-                                confirmButtonColor: '#3085d6',
-                                cancelButtonColor: '#d33',
-                            }).then((result) => {
-                                if (result.isConfirmed) {
-                                    window.location = "<?= base_url('barang-masuk') ?>";
-                                }
-                            })
-                            break;
-                        case 'over_stok':
-                            Swal.fire(
-                                'Tidak Bisa!',
-                                'Input stok masuk tidak boleh melebihi yang diajukan!',
-                                'error'
-                            )
-                            break;
-                        case 'empty_qty':
-                            Swal.fire(
-                                'Tidak Bisa!',
-                                'Input stok masuk terlebih dahulu!',
-                                'error'
-                            )
-                            break;
-                    }
-                },
-                error: function(error) {
+            var validTable = true
+            var hargaBeliInput = document.getElementsByClassName('harga-beli')
+            for (var i = 0; i < hargaBeliInput.length; i++) {
+                if (hargaBeliInput[i].value == "") {
+                    validTable = false
                     Swal.fire(
-                        'Gagal!',
-                        'Data gagal di simpan!',
+                        'Tidak bisa!',
+                        'Masukkan harga beli terlebih dahulu!',
                         'error'
                     )
                 }
-            });
+            }
+
+            if (validTable) {
+                var url = "<?= site_url('barang-masuk/create'); ?>";
+                var form = $('#form-barang-masuk').serialize();
+
+                Swal.fire({
+                    title: 'Konfirmasi',
+                    text: "Pastikan Harga Beli sudah diisi. Lanjut proses ?",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Simpan',
+                    cancelButtonText: 'Tidak',
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        $.ajax({
+                            type: "POST",
+                            url: url,
+                            data: form,
+                            success: function(res) {
+                                switch (res) {
+                                    case 'success':
+                                        Swal.fire({
+                                            title: 'Berhasil!',
+                                            text: 'Stok Barang berhasil di tambahkan!',
+                                            icon: 'success',
+                                            confirmButtonColor: '#3085d6',
+                                            cancelButtonColor: '#d33',
+                                        }).then((result) => {
+                                            if (result.isConfirmed) {
+                                                window.location = "<?= base_url('barang-masuk') ?>";
+                                            }
+                                        })
+                                        break;
+                                    case 'over_stok':
+                                        Swal.fire(
+                                            'Tidak Bisa!',
+                                            'Input stok masuk tidak boleh melebihi yang diajukan!',
+                                            'error'
+                                        )
+                                        break;
+                                    case 'empty_qty':
+                                        Swal.fire(
+                                            'Tidak Bisa!',
+                                            'Input stok masuk terlebih dahulu!',
+                                            'error'
+                                        )
+                                        break;
+                                }
+                            },
+                            error: function(error) {
+                                Swal.fire(
+                                    'Gagal!',
+                                    'Data gagal di simpan!',
+                                    'error'
+                                )
+                            }
+                        });
+                    } else {
+                        Swal.close();
+                    }
+                })
+            }
         }
 
+    }
+
+    var inputNilai = document.getElementsByClassName('input-nilai-satuan');
+    for (var i = 0; i < inputNilai.length; i++) {
+        var input = inputNilai[i];
+        input.addEventListener('keyup', changeNilaiSatuan);
+    }
+
+    function changeNilaiSatuan(e) {
+        var keyupChange = e.target;
+        var table = keyupChange.parentElement.parentElement
+        var stok = table.getElementsByClassName('stokBarang')[0].innerText
+
+        var totalStok = keyupChange.value * stok
+
+        table.getElementsByClassName('stok-masuk')[0].value = totalStok
     }
 </script>
 <script>

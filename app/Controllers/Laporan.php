@@ -4,18 +4,20 @@ namespace App\Controllers;
 
 class Laporan extends BaseController
 {
-    function laporan_stok_obat()
+    function laporan_stok_barang()
     {
         $reqGet = $this->request->getGet();
-        if (isset($reqGet['periode']) && $this->stokObatModel->findAll() != []) {
-            foreach ($this->stokObatModel->findAll() as $stok) {
-                $to_obat = $this->obatModel->find($stok['kode_obat']);
+        if (isset($reqGet['periode']) && $this->stokBarangModel->findAll() != []) {
+            foreach ($this->stokBarangModel->findAll() as $stok) {
+                $to_barang = $this->barangModel
+                    ->join('tbl_satuan_barang', 'tbl_satuan_barang.satuan_barang_id = tbl_barang.satuan', 'left')
+                    ->find($stok['kode_barang']);
                 $date = date("Y-m-d", strtotime($stok['tanggal']));
                 if ($date >= $reqGet['start_date'] && $date <= $reqGet['end_date']) {
                     $getPeriode[] = [
-                        'kode_obat' => $to_obat['kode_obat'],
-                        'nama_obat' => $to_obat['nama_obat'],
-                        'satuan' => $to_obat['satuan'],
+                        'kode_barang' => isset($to_barang) ? $to_barang['kode_barang'] : '',
+                        'nama_barang' => isset($to_barang) ? $to_barang['nama_barang'] : '',
+                        'satuan' => isset($to_barang) ? $to_barang['satuan_barang_name'] : '',
                         'stok_awal' => $stok['stok_awal'] != null ? $stok['stok_awal'] : 0,
                         'stok_masuk' => $stok['stok_masuk'] != null ? $stok['stok_masuk'] : 0,
                         'stok_keluar' => $stok['stok_keluar'] != null ? $stok['stok_keluar'] : 0,
@@ -25,15 +27,17 @@ class Laporan extends BaseController
                     $getPeriode = [];
                 }
             }
-        } else if (isset($reqGet['day']) && $this->stokObatModel->findAll() != []) {
-            foreach ($this->stokObatModel->findAll() as $stok) {
-                $to_obat = $this->obatModel->find($stok['kode_obat']);
+        } else if (isset($reqGet['day']) && $this->stokBarangModel->findAll() != []) {
+            foreach ($this->stokBarangModel->findAll() as $stok) {
+                $to_barang = $this->barangModel
+                    ->join('tbl_satuan_barang', 'tbl_satuan_barang.satuan_barang_id = tbl_barang.satuan', 'left')
+                    ->find($stok['kode_barang']);
                 $date = date("Y-m-d", strtotime($stok['tanggal']));
                 if ($date == $reqGet['date']) {
                     $getPeriode[] = [
-                        'kode_obat' => $to_obat['kode_obat'],
-                        'nama_obat' => $to_obat['nama_obat'],
-                        'satuan' => $to_obat['satuan'],
+                        'kode_barang' => $to_barang['kode_barang'],
+                        'nama_barang' => $to_barang['nama_barang'],
+                        'satuan' => $to_barang['satuan_barang_name'],
                         'stok_awal' => $stok['stok_awal'] != null ? $stok['stok_awal'] : 0,
                         'stok_masuk' => $stok['stok_masuk'] != null ? $stok['stok_masuk'] : 0,
                         'stok_keluar' => $stok['stok_keluar'] != null ? $stok['stok_keluar'] : 0,
@@ -66,10 +70,10 @@ class Laporan extends BaseController
 
         ];
 
-        return view('laporan/laporan_stok_obat', [
-            'title' => 'Laporan Persediaan Obat',
-            'card_title' => 'Laporan Persediaan Obat',
-            'navLink' => 'laporan-stok-obat',
+        return view('laporan/laporan_stok_barang', [
+            'title' => 'Laporan Persediaan Barang',
+            'card_title' => 'Laporan Persediaan Barang',
+            'navLink' => 'laporan-stok-barang',
             'perTanggal' => (isset($reqGet['date'])) ? $this->tanggal($reqGet['date']) : '',
             'today' => $this->tanggal(date('Y-m-d')),
             'reqGet' => $reqGet,
@@ -80,53 +84,53 @@ class Laporan extends BaseController
 
     function laporan_kadaluarsa()
     {
-        $totalObat = 0;
-        $stokObat = $this->stokObatModel->findAll();
-        foreach ($stokObat as $kd) {
+        $totalBarang = 0;
+        $stokBarang = $this->stokBarangModel->findAll();
+        foreach ($stokBarang as $kd) {
             if ($kd['tgl_kadaluarsa'] < date('Y-m-d') && $kd['stok_keluar'] == NULL) {
-                $obat = $this->obatModel->find($kd['kode_obat']);;
+                $barang = $this->barangModel->find($kd['kode_barang']);;
                 $data_kadaluarsa[] = [
-                    'kode_obat' => $kd['kode_obat'],
-                    'nama_obat' => $obat['nama_obat'],
-                    'satuan' => $obat['satuan'],
+                    'kode_barang' => $kd['kode_barang'],
+                    'nama_barang' => $barang['nama_barang'],
+                    'satuan' => $barang['satuan'],
                     'tgl_kadaluarsa' => $kd['tgl_kadaluarsa'],
                     'stok_masuk' => $kd['stok_masuk'],
                 ];
-                $totalObat += $kd['stok_masuk'];
+                $totalBarang += $kd['stok_masuk'];
             }
         }
 
         return view('laporan/laporan_kadaluarsa', [
-            'title' => 'Laporan Kadaluarsa Obat',
-            'card_title' => 'Laporan Kadaluarsa Obat',
+            'title' => 'Laporan Kadaluarsa Barang',
+            'card_title' => 'Laporan Kadaluarsa Barang',
             'navLink' => 'laporan-kadaluarsa',
-            'totalObat' => isset($stokObat) ? $totalObat : 0,
-            'kadaluarsa_obat' => isset($data_kadaluarsa) ? $data_kadaluarsa : [],
+            'totalBarang' => isset($stokBarang) ? $totalBarang : 0,
+            'kadaluarsa_barang' => isset($data_kadaluarsa) ? $data_kadaluarsa : [],
             'today' => $this->tanggal(date('Y-m-d')),
         ]);
     }
 
     function cetak_lkd()
     {
-        $totalObat = 0;
-        $stokObat = $this->stokObatModel->findAll();
-        foreach ($stokObat as $kd) {
+        $totalBarang = 0;
+        $stokBarang = $this->stokBarangModel->findAll();
+        foreach ($stokBarang as $kd) {
             if ($kd['tgl_kadaluarsa'] < date('Y-m-d') && $kd['stok_keluar'] == NULL) {
-                $obat = $this->obatModel->find($kd['kode_obat']);;
+                $barang = $this->barangModel->find($kd['kode_barang']);;
                 $data_kadaluarsa[] = [
-                    'kode_obat' => $kd['kode_obat'],
-                    'nama_obat' => $obat['nama_obat'],
-                    'satuan' => $obat['satuan'],
+                    'kode_barang' => $kd['kode_barang'],
+                    'nama_barang' => $barang['nama_barang'],
+                    'satuan' => $barang['satuan'],
                     'tgl_kadaluarsa' => $kd['tgl_kadaluarsa'],
                     'stok_masuk' => $kd['stok_masuk'],
                 ];
-                $totalObat += $kd['stok_masuk'];
+                $totalBarang += $kd['stok_masuk'];
             }
         }
 
         return view('laporan/cetak-lkd', [
-            'totalObat' => isset($stokObat) ? $totalObat : 0,
-            'kadaluarsa_obat' => isset($data_kadaluarsa) ? $data_kadaluarsa : [],
+            'totalBarang' => isset($stokBarang) ? $totalBarang : 0,
+            'kadaluarsa_barang' => isset($data_kadaluarsa) ? $data_kadaluarsa : [],
             'today' => $this->tanggal(date('Y-m-d')),
         ]);
     }
@@ -134,15 +138,17 @@ class Laporan extends BaseController
     function cetak_lpo()
     {
         $reqGet = $this->request->getGet();
-        if (isset($reqGet['periode']) && $this->stokObatModel->findAll() != []) {
-            foreach ($this->stokObatModel->findAll() as $stok) {
-                $to_obat = $this->obatModel->find($stok['kode_obat']);
+        if (isset($reqGet['periode']) && $this->stokBarangModel->findAll() != []) {
+            foreach ($this->stokBarangModel->findAll() as $stok) {
+                $to_barang = $this->barangModel
+                    ->join('tbl_satuan_barang', 'tbl_satuan_barang.satuan_barang_id = tbl_barang.satuan', 'left')
+                    ->find($stok['kode_barang']);
                 $date = date("Y-m-d", strtotime($stok['tanggal']));
                 if ($date >= $reqGet['start_date'] && $date <= $reqGet['end_date']) {
                     $getPeriode[] = [
-                        'kode_obat' => $to_obat['kode_obat'],
-                        'nama_obat' => $to_obat['nama_obat'],
-                        'satuan' => $to_obat['satuan'],
+                        'kode_barang' => $to_barang['kode_barang'],
+                        'nama_barang' => $to_barang['nama_barang'],
+                        'satuan' => $to_barang['satuan_barang_name'],
                         'stok_awal' => $stok['stok_awal'] != null ? $stok['stok_awal'] : 0,
                         'stok_masuk' => $stok['stok_masuk'] != null ? $stok['stok_masuk'] : 0,
                         'stok_keluar' => $stok['stok_keluar'] != null ? $stok['stok_keluar'] : 0,
@@ -152,15 +158,17 @@ class Laporan extends BaseController
                     $getPeriode = [];
                 }
             }
-        } else if (isset($reqGet['day']) && $this->stokObatModel->findAll() != []) {
-            foreach ($this->stokObatModel->findAll() as $stok) {
-                $to_obat = $this->obatModel->find($stok['kode_obat']);
+        } else if (isset($reqGet['day']) && $this->stokBarangModel->findAll() != []) {
+            foreach ($this->stokBarangModel->findAll() as $stok) {
+                $to_barang = $this->barangModel
+                    ->join('tbl_satuan_barang', 'tbl_satuan_barang.satuan_barang_id = tbl_barang.satuan', 'left')
+                    ->find($stok['kode_barang']);
                 $date = date("Y-m-d", strtotime($stok['tanggal']));
                 if ($date == $reqGet['date']) {
                     $getPeriode[] = [
-                        'kode_obat' => $to_obat['kode_obat'],
-                        'nama_obat' => $to_obat['nama_obat'],
-                        'satuan' => $to_obat['satuan'],
+                        'kode_barang' => $to_barang['kode_barang'],
+                        'nama_barang' => $to_barang['nama_barang'],
+                        'satuan' => $to_barang['satuan_barang_name'],
                         'stok_awal' => $stok['stok_awal'] != null ? $stok['stok_awal'] : 0,
                         'stok_masuk' => $stok['stok_masuk'] != null ? $stok['stok_masuk'] : 0,
                         'stok_keluar' => $stok['stok_keluar'] != null ? $stok['stok_keluar'] : 0,
@@ -245,27 +253,10 @@ class Laporan extends BaseController
     function cetakPesanan($id)
     {
         $pesanan = $this->permintaanModel->find($id);
-        foreach ($this->permintaanDetailModel->findAll() as $detail) {
-            if ($id == $detail['id_permintaan']) {
-                foreach ($this->obatModel->findAll() as $obat) {
-                    if ($detail['kode_obat'] == $obat['kode_obat']) {
-                        $data_pesanan[] = [
-                            'kode_obat' => $obat['kode_obat'],
-                            'nama_obat' => $obat['nama_obat'],
-                            'jumlah' => $detail['stok'],
-                            'satuan' => $obat['satuan'],
-                            'harga' => "",
-                            'subTotal' => ""
-                        ];
-                    }
-                }
-            }
-        }
-
-        $subTotal = 0;
-        foreach ($data_pesanan as $row) {
-            $subTotal = $subTotal + (int)$row['subTotal'];
-        }
+        $pesanan_detail = $this->permintaanDetailModel
+            ->join('tbl_satuan_barang', 'tbl_satuan_barang.satuan_barang_id = tbl_permintaan_detail.satuan_barang_id', 'left')
+            ->where('id_permintaan', $id)
+            ->findAll();
 
         $supplier = $this->supplierModel->find($pesanan['kode_supplier']);
         $laporan = [
@@ -275,9 +266,9 @@ class Laporan extends BaseController
         ];
 
         return view('laporan/cetak-pesanan', [
-            'data_pesanan' => $data_pesanan,
+            'data_pesanan' => $pesanan_detail,
+            'pesanan' => $pesanan,
             'laporan' => $laporan,
-            'subTotal' => $subTotal,
             'today' => $this->tanggal(date('Y-m-d'))
         ]);
     }
@@ -329,12 +320,12 @@ class Laporan extends BaseController
             foreach ($this->permintaanDetailModel->findAll() as $row) {
                 $data = $this->permintaanModel->find($row['id_permintaan']);
                 if ($data['tanggal'] >= $start_date && $data['tanggal'] <= $end_date) {
-                    $obat = $this->obatModel->find($row['kode_obat']);
+                    $barang = $this->barangModel->find($row['kode_barang']);
                     $data_pesanan[] = [
-                        'kode_obat' => $obat['kode_obat'],
-                        'nama_obat' => $obat['nama_obat'],
+                        'kode_barang' => $barang['kode_barang'],
+                        'nama_barang' => $barang['nama_barang'],
                         'jumlah' => $row['stok'],
-                        'satuan' => $obat['satuan'],
+                        'satuan' => $barang['satuan'],
                         'harga' => "",
                         'subTotal' => ""
                     ];

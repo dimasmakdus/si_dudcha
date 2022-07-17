@@ -42,29 +42,29 @@
             <?php
             }
             ?>
-            <a href="<?= base_url('stok-obat-add') ?>" class="btn bg-olive mb-3"><i class="fas fa-plus"></i> Tambah Stok</a>
+            <a href="<?= base_url('stok-barang-add') ?>" class="btn bg-olive mb-3"><i class="fas fa-plus"></i> Tambah Stok</a>
             <table id="example2" class="table table-bordered table-hover">
               <thead>
                 <tr>
                   <th>No</th>
-                  <th>Kode Obat</th>
-                  <th>Nama Obat</th>
+                  <th>Kode Barang</th>
+                  <th>Nama Barang</th>
                   <th>Jumlah</th>
                   <th>Satuan</th>
                 </tr>
               </thead>
               <tbody>
                 <?php $i = 1 ?>
-                <?php foreach ($stok_obat as $stok) : ?>
+                <?php foreach ($stok_barang as $stok) : ?>
                   <tr>
                     <td><?= $i++ ?></td>
-                    <td><?= $stok['kode_obat'] ?></td>
-                    <td><?= $stok['nama_obat'] ?></td>
+                    <td><?= $stok['kode_barang'] ?></td>
+                    <td><?= $stok['nama_barang'] ?></td>
                     <td><?= $stok['jumlah'] ?></td>
                     <td><?= $stok['satuan'] ?></td>
                   </tr>
                   <!-- Modal Hapus  -->
-                  <div class="modal fade" id="hapus-stok-<?= $stok['kode_obat'] ?>">
+                  <div class="modal fade" id="hapus-stok-<?= $stok['kode_barang'] ?>">
                     <div class="modal-dialog">
                       <div class="modal-content">
                         <div class="modal-header">
@@ -77,7 +77,7 @@
                           <p>Apakah anda yakin ingin manghapus data ini?</p>
                         </div>
                         <div class="modal-footer">
-                          <a href="<?= base_url('stok-obat') ?>/<?= $stok['kode_obat'] ?>" class="btn btn-danger">Hapus</a>
+                          <a href="<?= base_url('stok-barang') ?>/<?= $stok['kode_barang'] ?>" class="btn btn-danger">Hapus</a>
                           <a class="btn btn-default" data-dismiss="modal">Tidak</a>
                         </div>
                       </div>

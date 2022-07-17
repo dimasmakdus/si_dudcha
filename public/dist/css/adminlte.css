@@ -34861,6 +34861,7 @@ a.close.disabled, a.disabled.mailbox-attachment-close {
 
 .login-page,
 .register-page {
+  background-image: url('../img/bg-login.jpg');
   -ms-flex-align: center;
   align-items: center;
   background-color: #e9ecef;

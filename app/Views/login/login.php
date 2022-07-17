@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Inventori Obat | Login</title>
+  <title>SIDUDCHA | Login</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -13,16 +13,19 @@
   <!-- icheck bootstrap -->
   <link rel="stylesheet" href="<?= base_url() ?>/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
   <!-- Theme style -->
-  <link rel="stylesheet" href="<?= base_url() ?>/dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="<?= base_url() ?>/dist/css/adminlte.css">
 </head>
 
-<body class="hold-transition login-page bg-success">
-  <div class="login-box">
+<body class="hold-transition login-page ">
+  <div class="login-box shadow">
     <!-- /.login-logo -->
     <div class="card card-outline card-primary">
       <div class="card-header text-center">
 
-        <a href="<?= base_url('login') ?>" class="h1" style="color:black"><i class="fas fa-briefcase-medical"></i> <b>SIMPBAT</b><br><span style="font-size:30px">PUSKESMAS CIMAUNG</span></a>
+        <a href="<?= base_url('login') ?>" class="h2" style="color:black"><i class="fas fa-warehouse"></i>
+          <br>
+          <b>INVENTORY DUDCHA</b>
+        </a>
       </div>
       <div class="card-body">
         <p class="login-box-msg" style="color:black">Sign in to start your session</p>
@@ -38,15 +41,15 @@
         <form id="formLogin" action="<?= base_url('login/process') ?>" method="post">
           <?= csrf_field(); ?>
           <div class="input-group mb-3">
-            <input type="email" class="form-control" name="email" id="email" placeholder="Email">
+            <input type="email" class="form-control" name="email" id="email" placeholder="Masukkan Email">
             <div class="input-group-append">
               <div class="input-group-text">
-                <span class="fas fa-envelope"></span>
+                <span class="fas fa-user"></span>
               </div>
             </div>
           </div>
           <div class="input-group mb-3">
-            <input type="password" class="form-control" name="password" id="password" placeholder="Password">
+            <input type="password" class="form-control" name="password" id="password" placeholder="Masukkan Password">
             <div class="input-group-append">
               <div class="input-group-text">
                 <span class="fas fa-lock"></span>
@@ -59,7 +62,7 @@
             </div>
             <!-- /.col -->
             <div class="col-4">
-              <button type="submit" class="btn btn-success btn-block"><i class="fas fa-sign-in-alt"></i> Masuk</button>
+              <button type="submit" class="btn btn-primary btn-block"><i class="fas fa-sign-in-alt"></i> Masuk</button>
             </div>
             <!-- /.col -->
           </div>

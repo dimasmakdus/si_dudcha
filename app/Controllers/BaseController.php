@@ -10,26 +10,23 @@ use CodeIgniter\HTTP\ResponseInterface;
 use Psr\Log\LoggerInterface;
 use App\Models\UserModel;
 use App\Models\RoleModel;
-use App\Models\StokObatModel;
-use App\Models\ObatModel;
-use App\Models\ResepModel;
-use App\Models\PasienModel;
+use App\Models\StokBarangModel;
+use App\Models\BarangModel;
+use App\Models\SatuanBarangModel;
+use App\Models\JenisBarangModel;
 use App\Models\PermintaanModel;
 use App\Models\PermintaanDetailModel;
 use App\Models\PengeluaranModel;
 use App\Models\SupplierModel;
+use App\Models\OutletModel;
 use App\Models\BarangKeluarModel;
-use App\Models\AksesModel;
-use App\Models\HakAksesModel;
-use App\Models\LPLPOModel;
 use App\Models\PesananModel;
-use App\Models\DokterModel;
-use App\Models\AturanObatModel;
+use App\Models\AturanBarangModel;
 use App\Models\ResepDetailModel;
 use App\Models\PembelianModel;
 use App\Models\PembelianDetailModel;
-use App\Models\AmbilObatModel;
-use App\Models\AmbilObatDetailModel;
+use App\Models\PenjualanBarangModel;
+use App\Models\PenjualanBarangDetailModel;
 
 /**
  * Class BaseController
@@ -73,37 +70,26 @@ class BaseController extends Controller
         $this->session = \Config\Services::session();
         $this->userModel = new UserModel();
         $this->roleModel = new RoleModel();
-        $this->stokObatModel = new StokObatModel();
-        $this->obatModel = new ObatModel();
-        $this->resepModel = new ResepModel();
-        $this->pasienModel = new PasienModel();
+        $this->stokBarangModel = new StokBarangModel();
+        $this->barangModel = new BarangModel();
+        $this->satuanBarangModel = new SatuanBarangModel();
+        $this->jenisBarangModel = new JenisBarangModel();
+
         $this->permintaanModel = new PermintaanModel();
         $this->permintaanDetailModel = new PermintaanDetailModel();
         $this->pengeluaranModel = new PengeluaranModel();
         $this->supplierModel = new SupplierModel();
+        $this->outletModel = new OutletModel();
         $this->barangKeluarModel = new BarangKeluarModel();
-        $this->lplpoModel = new LPLPOModel();
+
         $this->pesananModel = new PesananModel();
-        $this->dokterModel = new DokterModel();
-        $this->aturanModel = new AturanObatModel();
+
+        $this->aturanModel = new AturanBarangModel();
         $this->resepDetailModel = new ResepDetailModel();
         $this->pembelianModel = new PembelianModel();
         $this->pembelianDetailModel = new PembelianDetailModel();
-        $this->ambilObatModel = new ambilObatModel();
-        $this->ambilObatDetailModel = new ambilObatDetailModel();
-
-        // Access Rights
-        $this->aksesModel = new AksesModel();
-        $this->hakAksesModel = new HakAksesModel();
-        $hakAkses = $this->hakAksesModel->findAll();
-        $loginId = session()->get('roles');
-        if (isset($loginId)) {
-            foreach ($hakAkses as $akses) {
-                if ($akses['id_role'] == $loginId['id_role']) {
-                    $this->accessRights[] = $this->aksesModel->find($akses['id_menu']);
-                }
-            }
-        }
+        $this->penjualanBarangModel = new PenjualanBarangModel();
+        $this->penjualanBarangDetailModel = new PenjualanBarangDetailModel();
     }
 
     function tanggal($tanggal)
@@ -129,5 +115,58 @@ class BaseController extends Controller
         // variabel pecahkan 2 = tahun
 
         return $pecahkan[2] . ' ' . $bulan[(int)$pecahkan[1]] . ' ' . $pecahkan[0];
+    }
+
+    function penyebut($nilai)
+    {
+        $nilai = abs($nilai);
+        $huruf = array("", "satu", "dua", "tiga", "empat", "lima", "enam", "tujuh", "delapan", "sembilan", "sepuluh", "sebelas");
+        $temp = "";
+        if ($nilai < 12) {
+            $temp = " " . $huruf[$nilai];
+        } else if ($nilai < 20) {
+            $temp = $this->penyebut($nilai - 10) . " belas";
+        } else if ($nilai < 100) {
+            $temp = $this->penyebut($nilai / 10) . " puluh" . $this->penyebut($nilai % 10);
+        } else if ($nilai < 200) {
+            $temp = " seratus" . $this->penyebut($nilai - 100);
+        } else if ($nilai < 1000) {
+            $temp = $this->penyebut($nilai / 100) . " ratus" . $this->penyebut($nilai % 100);
+        } else if ($nilai < 2000) {
+            $temp = " seribu" . $this->penyebut($nilai - 1000);
+        } else if ($nilai < 1000000) {
+            $temp = $this->penyebut($nilai / 1000) . " ribu" . $this->penyebut($nilai % 1000);
+        } else if ($nilai < 1000000000) {
+            $temp = $this->penyebut($nilai / 1000000) . " juta" . $this->penyebut($nilai % 1000000);
+        } else if ($nilai < 1000000000000) {
+            $temp = $this->penyebut($nilai / 1000000000) . " milyar" . $this->penyebut(fmod($nilai, 1000000000));
+        } else if ($nilai < 1000000000000000) {
+            $temp = $this->penyebut($nilai / 1000000000000) . " trilyun" . $this->penyebut(fmod($nilai, 1000000000000));
+        }
+        return $temp;
+    }
+
+    function terbilang($nilai)
+    {
+        if ($nilai < 0) {
+            $hasil = "minus " . trim($this->penyebut($nilai));
+        } else {
+            $hasil = trim($this->penyebut($nilai));
+        }
+        return $hasil;
+    }
+
+    function sendNotification($id_user, $judul, $pesan, $url)
+    {
+        $today = date('Y-m-d H:i:s');
+        $builder = $this->db->table('tbl_notifikasi');
+
+        $builder->insert([
+            'notifikasi_user_id' => $id_user,
+            'notifikasi_judul' => $judul,
+            'notifikasi_pesan' => $pesan,
+            'notifikasi_url' => $url,
+            'notifikasi_tanggal' => $today,
+        ]);
     }
 }

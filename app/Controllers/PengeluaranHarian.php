@@ -10,7 +10,7 @@ class PengeluaranHarian extends BaseController
         $today = date('d-m-Y');
 
         // mencari kode barang dengan nilai paling besar
-        $query = "SELECT max(id_pengeluaran) as maxPengeluaran FROM tbl_pengeluaran_obat where tgl_serah_obat = '$today'";
+        $query = "SELECT max(id_pengeluaran) as maxPengeluaran FROM tbl_pengeluaran_barang where tgl_serah_barang = '$today'";
         $data = $db->query($query)->getRowArray();
 
         $kode = $data['maxPengeluaran'];
@@ -27,9 +27,9 @@ class PengeluaranHarian extends BaseController
             'title' => 'Form Tambah Data Pengeluaran Harian',
             'navLink' => 'pengeluaran-harian',
             'accessRight' => $this->accessRights,
-            'kodeObat' => $this->obatModel->findAll(),
+            'kodeBarang' => $this->barangModel->findAll(),
             'getPasien' => $this->pasienModel->findAll(),
-            'no_terima_obat' => "S-" . date('ymd') . "-" . $this->noPengeluaranOtomatis()
+            'no_terima_barang' => "S-" . date('ymd') . "-" . $this->noPengeluaranOtomatis()
         ]);
     }
 
@@ -52,23 +52,23 @@ class PengeluaranHarian extends BaseController
     {
         $post = $this->request->getVar();
         $no_rekamedis = $post['no_rekamedis'];
-        $kode_obat = $post['kode-stok-obat'];
+        $kode_barang = $post['kode-stok-barang'];
 
         $getPasien = $this->pasienModel->find($no_rekamedis);
-        $getObat = $this->obatModel->find($kode_obat);
+        $getBarang = $this->barangModel->find($kode_barang);
 
         $this->pengeluaranModel->insert([
             'id_pengeluaran' => $this->noPengeluaranOtomatis(),
-            'no_terima_obat' => $post['no_terima_obat'],
+            'no_terima_barang' => $post['no_terima_barang'],
             'nama_pasien' => $getPasien['nama_pasien'],
-            'kode_obat' => $getObat['kode_obat'],
-            'nama_obat' => $getObat['nama_obat'],
-            'jenis_obat' => $getObat['jenis_obat'],
-            'dosis_aturan_obat' => $getObat['dosis_aturan_obat'],
+            'kode_barang' => $getBarang['kode_barang'],
+            'nama_barang' => $getBarang['nama_barang'],
+            'jenis_barang' => $getBarang['jenis_barang'],
+            'dosis_aturan_barang' => $getBarang['dosis_aturan_barang'],
             'jumlah' => $post['jumlah'],
-            'satuan' => $getObat['satuan'],
+            'satuan' => $getBarang['satuan'],
             'keterangan' => $post['keterangan'],
-            'tgl_serah_obat' => date('d-m-Y')
+            'tgl_serah_barang' => date('d-m-Y')
 
         ]);
         return redirect()->to('pengeluaran-harian')->with('success', 'Data Pengeluaran Harian Berhasil Ditambahkan');

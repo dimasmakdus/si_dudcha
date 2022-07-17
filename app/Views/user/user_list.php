@@ -47,6 +47,7 @@
               <thead>
                 <tr>
                   <th>No</th>
+                  <th>Foto</th>
                   <th>Nama Lengkap</th>
                   <th>Email</th>
                   <th>Role Pengguna</th>
@@ -59,19 +60,30 @@
                 <?php foreach ($dataUser as $user) : ?>
                   <tr>
                     <td><?= $i++ ?></td>
+                    <td class="text-center">
+                      <img src="<?= isset($user['user_photo']) ? 'uploads/users/' . $user['user_photo'] : '/dist/img/avatar-admin.png' ?>" class="img-circle" width="40" width="40" alt="User Image">
+                    </td>
                     <td><?= $user['full_name'] ?></td>
                     <td><?= $user['email'] ?></td>
                     <td><?= $user['id_user_role'] ?></td>
                     <td><?= $user['is_active'] ?></td>
-                    <td>
-                      <a class="btn btn-sm bg-olive btn-edit-user" data-toggle="modal" data-target="#edit-<?= $user['id_user'] ?>"><i class="fas fa-edit"></i> Ubah</a>
+                    <td class="text-center">
+                      <span data-toggle="tooltip" data-placement="top" title="Ubah">
+                        <a class="btn btn-sm bg-olive btn-edit-user" data-toggle="modal" data-target="#edit-<?= $user['id_user'] ?>"><i class="fas fa-edit"></i></a>
+                      </span>
 
-                      <a class="btn btn-sm btn-danger btn-delete-user" data-toggle="modal" data-target="#hapus-<?= $user['id_user'] ?>"><i class="fas fa-trash-alt"></i> Hapus</a>
+                      <span data-toggle="tooltip" data-placement="top" title="Kata Sandi">
+                        <button class="btn btn-sm btn-warning btn-password-user" data-toggle="modal" data-target="#kata-sandi-<?= $user['id_user'] ?>"><i class="fas fa-key"></i></button>
+                      </span>
+
+                      <span data-toggle="tooltip" data-placement="top" title="Hapus">
+                        <a class="btn btn-sm btn-danger btn-delete-user" data-toggle="modal" data-target="#hapus-<?= $user['id_user'] ?>"><i class="fas fa-trash-alt"></i></a>
+                      </span>
                     </td>
                   </tr>
 
                   <!-- Modal Hapus  -->
-                  <div class="modal fade" id="hapus-<?= $user['id_user'] ?>">
+                  <div class="modal fade" id="hapus-<?= $user['id_user'] ?>" key="<?= $user['id_user'] ?>">
                     <div class="modal-dialog">
                       <div class="modal-content">
                         <div class="modal-header">
@@ -95,12 +107,12 @@
                   <!-- /.modal -->
 
                   <!-- Modal Edit -->
-                  <div class="modal fade" id="edit-<?= $user['id_user'] ?>">
+                  <div class="modal fade" id="edit-<?= $user['id_user'] ?>" key="<?= $user['id_user'] ?>">
                     <div class="modal-dialog modal-lg">
                       <div class="modal-content">
-                        <form class="form-horizontal" action="<?= base_url('pengguna/update'); ?>" method="POST">
+                        <form class="form-horizontal" action="" method="POST">
                           <div class="modal-header">
-                            <h4 class="modal-title">Tambah Data Pengguna</h4>
+                            <h4 class="modal-title">Ubah Data Pengguna</h4>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                               <span aria-hidden="true">&times;</span>
                             </button>
@@ -118,12 +130,6 @@
                               <label for="email" class="col-sm-2 col-form-label">Email</label>
                               <div class="col-sm-10">
                                 <input type="email" class="form-control" name="email" value="<?= $user['email'] ?>" placeholder="Email" required>
-                              </div>
-                            </div>
-                            <div class="form-group row">
-                              <label for="inputPassword3" class="col-sm-2 col-form-label">Password Baru</label>
-                              <div class="col-sm-10">
-                                <input type="password" class="form-control" name="password" placeholder="Password Baru" required>
                               </div>
                             </div>
                             <div class="form-group row">
@@ -156,9 +162,48 @@
                       </div>
                       <!-- /.modal-content -->
                     </div>
-                    <!-- /.modal-dialog -->
+                  </div>
+                  <!-- /.modal-dialog -->
 
-                  <?php endforeach ?>
+                  <!-- Modal Password -->
+                  <div class="modal fade" id="kata-sandi-<?= $user['id_user'] ?>">
+                    <div class="modal-dialog modal-lg">
+                      <div class="modal-content">
+                        <form id="updatePassword">
+                          <div class="modal-header">
+                            <h4 class="modal-title">Ganti Kata Sandi</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                            <?= csrf_field(); ?>
+                            <input type="hidden" name="id_user" value="<?= $user['id_user'] ?>">
+                            <div class="form-group row">
+                              <label for="password" class="col-sm-2 col-form-label">Password Baru</label>
+                              <div class="col-sm-10">
+                                <input type="password" class="form-control" name="password" placeholder="Password Baru" required>
+                              </div>
+                            </div>
+                            <div class="form-group row">
+                              <label for="ulang_password" class="col-sm-2 col-form-label">Ulangi Password Baru</label>
+                              <div class="col-sm-10">
+                                <input type="password" class="form-control" name="ulang_password" placeholder="Ulangi Password Baru" required>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="submit" class="btn bg-olive"><i class="fas fa-save"></i> Simpan</button>
+                            <button class="btn btn-danger" data-dismiss="modal"><i class="fas fa-sign-out-alt"></i> Kembali</a>
+                          </div>
+                        </form>
+                      </div>
+                      <!-- /.modal-content -->
+                    </div>
+                  </div>
+                  <!-- /.modal-dialog -->
+
+                <?php endforeach ?>
               </tbody>
             </table>
           </div>
@@ -237,4 +282,77 @@
 </section>
 <!-- /.content -->
 <?= $this->include('templates/script') ?>
+
+<script>
+  $(document).ready(function() {
+    $("form#updatePassword").submit(function(e) {
+      e.preventDefault();
+      var url = "<?= base_url('pengguna/updatePassword') ?>";
+      var form = $(this).serializeArray()
+
+      if (form[2].value.length < 8 || form[3].value.length < 8) {
+        Swal.fire(
+          'Tidak Bisa!',
+          'Password kurang dari 8 karakter!',
+          'error'
+        )
+      } else {
+        if (form[2].value == form[3].value) {
+          Swal.fire({
+            title: 'Konfirmasi',
+            text: "Apakah anda yakin ingin mengganti password baru ?",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Simpan',
+            cancelButtonText: 'Tidak',
+          }).then((result) => {
+            if (result.isConfirmed) {
+              $.ajax({
+                type: "POST",
+                url: url,
+                data: form,
+                success: function(res) {
+                  switch (res) {
+                    case 'success':
+                      Swal.fire({
+                        title: 'Berhasil!',
+                        text: 'Password Baru berhasil di simpan!',
+                        icon: 'success',
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                      }).then((result) => {
+                        if (result.isConfirmed) {
+                          window.location = "<?= base_url('logout') ?>";
+                        }
+                      })
+                      break;
+                  }
+                },
+                error: function(error) {
+                  console.log(error)
+                  Swal.fire(
+                    'Gagal!',
+                    'Data gagal di simpan!',
+                    'error'
+                  )
+                }
+              });
+            } else {
+              Swal.close();
+            }
+          })
+        } else {
+          Swal.fire(
+            'Tidak Bisa!',
+            'Password yang di ulang tidak sama!',
+            'error'
+          )
+        }
+      }
+
+    });
+  })
+</script>
 <?= $this->endSection('content') ?>

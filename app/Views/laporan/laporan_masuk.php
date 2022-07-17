@@ -71,9 +71,9 @@
                     <div class="card-body">
                         <p>
                             <center>
-                                <strong style="font-size:20px">DINAS KESEHATAN KABUPATEN BANDUNG</strong><br>
-                                <strong style="font-size:20px">PUSKESMAS CIMAUNG</strong><br>
-                                Jl. Gunung Puntang Ds. Campakamulya, Kec. Cimaung
+                                <strong style="font-size:20px">DUDCHA</strong><br>
+                                Jl. Dipatiukur. Bandung<br>
+                                HP. 0813-2281-5963
                             </center>
                         </p>
                         <hr>
@@ -91,20 +91,24 @@
                                         <th>Faktur</th>
                                         <th>Tanggal</th>
                                         <th>Supplier</th>
-                                        <th>Nama Obat</th>
-                                        <th>Jumlah Yang Masuk</th>
+                                        <th>Nama Barang</th>
+                                        <th>Jumlah Pembelian</th>
+                                        <th>Harga</th>
+                                        <th>Sub Total</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php
-                                    $barang = $db->query("SELECT tbl_pembelian_detail.*, tbl_supplier.nama_supplier, tbl_obat.nama_obat, tbl_pembelian.total, tbl_pembelian.faktur, tbl_pembelian.tanggal
+                                    $barang = $db->query("SELECT tbl_pembelian_detail.*, tbl_supplier.nama_supplier, tbl_barang.nama_barang, tbl_pembelian.total, tbl_pembelian.faktur, tbl_pembelian.tanggal
                                                 FROM tbl_pembelian_detail
-                                                LEFT JOIN tbl_obat ON tbl_pembelian_detail.kode_obat = tbl_obat.kode_obat
+                                                LEFT JOIN tbl_barang ON tbl_pembelian_detail.kode_barang = tbl_barang.kode_barang
                                                 LEFT JOIN tbl_pembelian ON tbl_pembelian_detail.id_pembelian = tbl_pembelian.id
                                                 LEFT JOIN tbl_supplier ON tbl_pembelian.kode_supplier = tbl_supplier.kode_supplier
-                                                WHERE tanggal BETWEEN '$start_date' AND '$end_date'
+                                                WHERE tanggal > '$start_date' OR tanggal < '$end_date'
                                                 ORDER BY tanggal ASC");
 
+                                    $totalHarga = 0;
+                                    $subTotal = 0;
                                     $i = 1;
                                     ?>
                                     <?php foreach ($barang->getResult('array') as $row) : ?>
@@ -113,9 +117,13 @@
                                             <td align="center"><?= $row['faktur'] ?></td>
                                             <td align="center"><?= date("d-m-Y", strtotime($row['tanggal'])) ?></td>
                                             <td><?= $row['nama_supplier'] ?></td>
-                                            <td><?= $row['nama_obat'] ?></td>
-                                            <td align="right"><?= $row['stok_masuk'] ?></td>
+                                            <td><?= $row['nama_barang'] ?></td>
+                                            <td align="right"><?= $row['stok_pemesanan'] ?></td>
+                                            <td align="right"><?= "Rp " . number_format($row['harga_beli'], 0, ',', '.') ?></td>
+                                            <td align="right"><?= "Rp " . number_format($row['harga_beli'] * $row['stok_pemesanan'], 0, ',', '.') ?></td>
                                         </tr>
+                                        <?php $totalHarga = $totalHarga + $row['harga_beli'] ?>
+                                        <?php $subTotal = $subTotal + ($row['harga_beli'] * $row['stok_pemesanan']) ?>
                                     <?php endforeach ?>
                                 </tbody>
                                 <tfoot>
@@ -124,37 +132,46 @@
                                             <td valign="top" colspan="8" class="text-center">No data available in table</td>
                                         </tr>
                                     <?php } else { ?>
-                                        <?php $hitung = $db->query("SELECT SUM(tbl_pembelian_detail.stok_masuk) qty, total, tbl_pembelian.tanggal
+                                        <?php
+                                        $hitung = $db->query("SELECT SUM(tbl_pembelian_detail.stok_pemesanan) qty, total, tbl_pembelian.tanggal
                                                 FROM tbl_pembelian_detail
                                                 LEFT JOIN tbl_pembelian ON tbl_pembelian_detail.id_pembelian = tbl_pembelian.id
-                                                WHERE tanggal BETWEEN '$start_date' AND '$end_date'"); ?>
+                                                WHERE tanggal > '$start_date' OR tanggal < '$end_date'");
+                                        ?>
                                         <?php foreach ($hitung->getResult('array') as $row) : ?>
                                             <tr>
                                                 <td colspan="5" align="center"><strong>Total</strong></td>
                                                 <td align="right"><strong><?= $row['qty'] ?></strong></td>
+                                                <td align="right"><strong><?= "Rp " . number_format($totalHarga, 0, ',', '.') ?></strong></td>
+                                                <td align="right"><strong><?= "Rp " . number_format($subTotal, 0, ',', '.') ?></strong></td>
                                             </tr>
                                         <?php endforeach ?>
                                     <?php } ?>
                                 </tfoot>
                             </table><br>
-                            <label for="">Keterangan :</label>
-                            <div class="col-md-6">
+                            <label for="">Keterangan Pengemasan:</label>
+                            <div class="col-md-12">
                                 <table class="table table-bordered">
                                     <thead>
                                         <tr align="center">
-                                            <th>Nama Obat</th>
+                                            <th>Nama Barang</th>
+                                            <th>Jumlah Pembelian</th>
+                                            <th>Satuan Pembelian</th>
+                                            <th>Nilai/Satuan</th>
                                             <th>Jumlah Yang Masuk</th>
-                                            <th>Satuan</th>
+                                            <th>Satuan Yang Masuk</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <?php
-                                        $brg = $db->query("SELECT SUM(tbl_pembelian_detail.stok_masuk) stok_masuk, tbl_obat.nama_obat, tbl_obat.satuan, tbl_pembelian.total, tbl_pembelian.faktur, tbl_pembelian.tanggal
+                                        $brg = $db->query("SELECT SUM(tbl_pembelian_detail.stok_pemesanan) stok_pemesanan, SUM(tbl_pembelian_detail.stok_masuk) stok_masuk, tbl_barang.nama_barang, tbl_barang.nilai_satuan, tbl_barang.satuan AS satuan_pemesanan, tbl_satuan_barang.satuan_barang_name, tbl_pembelian.total, tbl_pembelian.faktur, tbl_pembelian.tanggal
                                                         FROM tbl_pembelian_detail
-                                                        LEFT JOIN tbl_obat ON tbl_pembelian_detail.kode_obat = tbl_obat.kode_obat
+                                                        LEFT JOIN tbl_satuan_barang ON tbl_satuan_barang.satuan_barang_id = tbl_pembelian_detail.satuan_barang_id
+                                                        LEFT JOIN tbl_barang ON tbl_pembelian_detail.kode_barang = tbl_barang.kode_barang
                                                         LEFT JOIN tbl_pembelian ON tbl_pembelian_detail.id_pembelian = tbl_pembelian.id
-                                                        WHERE tanggal BETWEEN '$start_date' AND '$end_date'
-                                                        GROUP BY tbl_pembelian_detail.kode_obat");
+                                                        WHERE tanggal > '$start_date' OR tanggal < '$end_date'
+                                                        GROUP BY tbl_pembelian_detail.kode_barang");
+
                                         ?>
                                         <?php if ($brg->getResult('array') == []) : ?>
                                             <tr class="odd">
@@ -163,9 +180,21 @@
                                         <?php endif ?>
                                         <?php foreach ($brg->getResult('array') as $row) : ?>
                                             <tr>
-                                                <td><?= $row['nama_obat'] ?></td>
+                                                <td><?= $row['nama_barang'] ?></td>
+                                                <td align="right"><?= $row['stok_pemesanan'] ?></td>
+                                                <td align="center"><?= $row['satuan_barang_name'] ?></td>
+                                                <td align="right"><?= $row['nilai_satuan'] ?></td>
                                                 <td align="right"><?= $row['stok_masuk'] ?></td>
-                                                <td align="center"><?= $row['satuan'] ?></td>
+                                                <td align="center">
+                                                    <?php
+                                                    $db      = \Config\Database::connect();
+                                                    $builder = $db->table('tbl_satuan_barang')
+                                                        ->select('satuan_barang_name AS satuan_pemesanan')
+                                                        ->where('satuan_barang_id', $row['satuan_pemesanan'])
+                                                        ->get()->getResult('array')[0];
+                                                    ?>
+                                                    <?= $builder['satuan_pemesanan'] ?>
+                                                </td>
                                             </tr>
                                         <?php endforeach ?>
                                     </tbody>
@@ -175,7 +204,7 @@
                             <table width="100%">
                                 <tr>
                                     <td width="80%"></td>
-                                    <td>Kepala Puskesmas,</td>
+                                    <td>Kepala Gudang,</td>
                                 </tr>
                                 <tr style="line-height: 74px;">
                                     <td>&nbsp;</td>
