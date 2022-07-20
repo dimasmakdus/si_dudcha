@@ -18,10 +18,11 @@ class BarangModel extends Model
         'jenis_barang',
         'stok',
         'satuan',
+        'satuan_beli',
         'nilai_satuan',
         'harga_jual',
         'harga_beli',
-        'tgl_kadaluarsa',
+        'stok_minimum',
         'created_at',
         'updated_at'
     ];

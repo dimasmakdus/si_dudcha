@@ -17,7 +17,7 @@ class PesananBarang extends BaseController
     function dataBarangPesanan($kode)
     {
         $data_barang = $this->barangModel->orderBy('kode_barang', 'ASC')
-            ->join('tbl_satuan_barang', 'tbl_satuan_barang.satuan_barang_id = tbl_barang.satuan', 'left')
+            ->join('tbl_satuan_barang', 'tbl_satuan_barang.satuan_barang_id = tbl_barang.satuan_beli', 'left')
             ->find($kode);
 
         return json_encode($data_barang);
@@ -55,12 +55,22 @@ class PesananBarang extends BaseController
         }
 
         $data_barang = $this->barangModel->orderBy('kode_barang', 'ASC')
-            ->join('tbl_satuan_barang', 'tbl_satuan_barang.satuan_barang_id = tbl_barang.satuan', 'left')
+            ->join('tbl_satuan_barang', 'tbl_satuan_barang.satuan_barang_id = tbl_barang.satuan_beli', 'left')
+            ->select('kode_barang')
+            ->select('nama_barang')
+            ->select('stok')
+            ->select('stok_minimum')
+            ->select('satuan_barang_id AS satuan_beli_id')
+            ->select('satuan_barang_name AS satuan_beli')
+            ->select('harga_beli')
+            ->select('harga_jual')
             ->findAll();
 
         foreach ($data_barang as $barang) {
             // Stok Habis Minimal
-            if ($barang['stok'] < 1000) {
+            $stok = isset($barang['stok']) || $barang['stok'] != null ? $barang['stok'] : 0;
+            $stok_min = isset($barang['stok_minimum']) || $barang['stok_minimum'] != null ? $barang['stok_minimum'] : 0;
+            if ($stok < $stok_min) {
                 $barang_kosong[] = $barang;
             }
         }
@@ -71,7 +81,7 @@ class PesananBarang extends BaseController
             'navLink' => 'pengajuan-barang',
             'data_supplier' => $this->supplierModel->orderBy('updated_at', 'ASC')->findAll(),
             'no_pemesanan' => $no_pemesanan,
-            'data_barang' => $this->barangModel->orderBy('kode_barang', 'ASC')->findAll(),
+            'data_barang' => $this->barangModel->orderBy('kode_barang', 'ASC')->where('stok < stok_minimum')->findAll(),
             'satuan_barang' => isset($satuan_barang) ? $satuan_barang : [],
             'barang_kosong' => isset($barang_kosong) ? $barang_kosong : []
         ]);

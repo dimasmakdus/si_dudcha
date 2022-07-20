@@ -35,9 +35,9 @@ class Laporan extends BaseController
                 $date = date("Y-m-d", strtotime($stok['tanggal']));
                 if ($date == $reqGet['date']) {
                     $getPeriode[] = [
-                        'kode_barang' => $to_barang['kode_barang'],
-                        'nama_barang' => $to_barang['nama_barang'],
-                        'satuan' => $to_barang['satuan_barang_name'],
+                        'kode_barang' => isset($to_barang) ? $to_barang['kode_barang'] : '',
+                        'nama_barang' => isset($to_barang) ? $to_barang['nama_barang'] : '',
+                        'satuan' => isset($to_barang) ? $to_barang['satuan_barang_name'] : '',
                         'stok_awal' => $stok['stok_awal'] != null ? $stok['stok_awal'] : 0,
                         'stok_masuk' => $stok['stok_masuk'] != null ? $stok['stok_masuk'] : 0,
                         'stok_keluar' => $stok['stok_keluar'] != null ? $stok['stok_keluar'] : 0,
@@ -146,9 +146,9 @@ class Laporan extends BaseController
                 $date = date("Y-m-d", strtotime($stok['tanggal']));
                 if ($date >= $reqGet['start_date'] && $date <= $reqGet['end_date']) {
                     $getPeriode[] = [
-                        'kode_barang' => $to_barang['kode_barang'],
-                        'nama_barang' => $to_barang['nama_barang'],
-                        'satuan' => $to_barang['satuan_barang_name'],
+                        'kode_barang' => isset($to_barang) ? $to_barang['kode_barang'] : '',
+                        'nama_barang' => isset($to_barang) ? $to_barang['nama_barang'] : '',
+                        'satuan' => isset($to_barang) ? $to_barang['satuan_barang_name'] : '',
                         'stok_awal' => $stok['stok_awal'] != null ? $stok['stok_awal'] : 0,
                         'stok_masuk' => $stok['stok_masuk'] != null ? $stok['stok_masuk'] : 0,
                         'stok_keluar' => $stok['stok_keluar'] != null ? $stok['stok_keluar'] : 0,
@@ -166,9 +166,9 @@ class Laporan extends BaseController
                 $date = date("Y-m-d", strtotime($stok['tanggal']));
                 if ($date == $reqGet['date']) {
                     $getPeriode[] = [
-                        'kode_barang' => $to_barang['kode_barang'],
-                        'nama_barang' => $to_barang['nama_barang'],
-                        'satuan' => $to_barang['satuan_barang_name'],
+                        'kode_barang' => isset($to_barang) ? $to_barang['kode_barang'] : '',
+                        'nama_barang' => isset($to_barang) ? $to_barang['nama_barang'] : '',
+                        'satuan' => isset($to_barang) ? $to_barang['satuan_barang_name'] : '',
                         'stok_awal' => $stok['stok_awal'] != null ? $stok['stok_awal'] : 0,
                         'stok_masuk' => $stok['stok_masuk'] != null ? $stok['stok_masuk'] : 0,
                         'stok_keluar' => $stok['stok_keluar'] != null ? $stok['stok_keluar'] : 0,

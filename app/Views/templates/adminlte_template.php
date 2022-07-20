@@ -330,15 +330,6 @@
               </li>
             <?php endif ?>
 
-            <?php if (session()->get('id_user') == 3) : ?>
-              <li class="nav-item">
-                <a href="<?= base_url('barang-masuk') ?>" class="nav-link <?= $navLink == 'barang-masuk' ? 'bg-olive active' : '' ?>">
-                  <i class="fas fa-file-invoice-dollar nav-icon"></i>
-                  <p>Cetak Kuitansi</p>
-                </a>
-              </li>
-            <?php endif ?>
-
             <?php if (session()->get('id_user') != 3) : ?>
               <li class="nav-header">LAPORAN</li>
               <li class="nav-item">

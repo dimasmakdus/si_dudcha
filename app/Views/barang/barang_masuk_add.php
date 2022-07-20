@@ -95,13 +95,12 @@
                                                             <tr>
                                                                 <th>No</th>
                                                                 <th>Nama Barang</th>
-                                                                <th>Harga Pemesanan</th>
-                                                                <th>Satuan Pemesanan</th>
-                                                                <th>Stok Pemesanan</th>
+                                                                <th>Harga Beli</th>
+                                                                <th>Satuan Beli</th>
+                                                                <th>Stok Beli</th>
                                                                 <th>Satuan di Gudang</th>
-                                                                <th>Nilai per Satuan</th>
+                                                                <th>Isi dalam kemasan</th>
                                                                 <th>Stok Masuk</th>
-                                                                <th>Harga Beli </th>
                                                             </tr>
                                                         </thead>
                                                         <tbody class="tbl_body">
@@ -113,8 +112,8 @@
                                                                     <tr>
                                                                         <td>
                                                                             <?= $i++ ?>
-                                                                            <input type="hidden" name="harga_pemesanan[]" id="hargaPesanan" value="<?= $barang['harga_beli'] ?>">
-                                                                            <input type="hidden" name="satuan_pemesanan[]" id="satuanPesanan" value="<?= $barang['satuan_id'] ?>">
+                                                                            <input type="hidden" name="harga_beli[]" id="hargaPesanan" value="<?= $barang['harga_beli'] ?>">
+                                                                            <input type="hidden" name="satuan_beli[]" id="satuanPesanan" value="<?= $barang['satuan_id'] ?>">
                                                                         </td>
                                                                         <td><?= $barang['nama_barang'] ?></td>
                                                                         <td class="text-right"><?= "Rp " . number_format($barang['harga_beli'], 0, ',', '.') ?></td>
@@ -129,16 +128,6 @@
                                                                             <?php $stokMasuk = $barang['nilai_satuan'] * $barang['stok'] ?>
                                                                             <input type="hidden" name="stokMasuk[]" value="<?= $stokMasuk ?>">
                                                                             <?= $stokMasuk ?>
-                                                                        </td>
-                                                                        <td>
-                                                                            <div class="input-group">
-                                                                                <div class="input-group-prepend">
-                                                                                    <span class="input-group-text">Rp</span>
-                                                                                </div>
-                                                                                <?php $idx = $key + 1 ?>
-                                                                                <input type="text" id="keyupHarga-<?= $idx ?>" onkeyup="keyUpHarga(<?= $idx ?>)" class="form-control">
-                                                                                <input type="hidden" name="harga_beli[]" id="hargaBeli-<?= $idx ?>" class="harga-beli">
-                                                                            </div>
                                                                         </td>
                                                                     </tr>
                                                                 <?php endif ?>
@@ -217,6 +206,7 @@
             if (validTable) {
                 var url = "<?= site_url('barang-masuk/create'); ?>";
                 var form = $('#form-barang-masuk').serialize();
+                console.log(form)
 
                 Swal.fire({
                     title: 'Konfirmasi',

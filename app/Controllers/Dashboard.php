@@ -15,7 +15,7 @@ class Dashboard extends BaseController
         $db_barang = $this->barangModel->findAll();
         if ($db_barang != []) {
             foreach ($db_barang as $barang) {
-                if ($barang['stok'] < 1000) {
+                if ($barang['stok'] < $barang['stok_minimum']) {
                     $stokBarang[] = $barang;
                 }
             }

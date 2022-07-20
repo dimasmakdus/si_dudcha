@@ -22,10 +22,6 @@ Password : password<br>
 Email : atasan@email.com<br>
 Password : password<br>
 
-<b>Login sebagai Manajemen<b><br>
-Email : manajemen@email.com<br>
-Password : password<br>
-
 ### Credit To :
 
 1. [AdminLTE](https://adminlte.io/)<br>

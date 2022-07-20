@@ -191,6 +191,7 @@
                                                         <?php
                                                         $j = 1;
                                                         $total = 0;
+                                                        $totalHarga = 0;
                                                         ?>
                                                         <?php foreach ($detailBarang as $detail) : ?>
                                                             <?php if ($detail['id_permintaan'] == $permintaan['id']) : ?>
@@ -202,12 +203,14 @@
                                                                     <div class="col-sm-2 detail-cell"><?= $detail['stok'] ?></div>
                                                                     <div class="col-sm-2 detail-cell"><?= "Rp " . number_format($detail['stok'] * $detail['harga_beli'], 0, ',', '.') ?></div>
                                                                 </div>
-                                                                <?php $total = $total + ($detail['stok'] * $detail['harga_beli']) ?>
+                                                                <?php $total = $total + $detail['stok'] ?>
+                                                                <?php $totalHarga = $totalHarga + ($detail['stok'] * $detail['harga_beli']) ?>
                                                             <?php endif ?>
                                                         <?php endforeach ?>
                                                         <div class="row">
-                                                            <div class="col-sm-10 detail-cell"><b>Total</b></div>
-                                                            <div class="col-sm-2 detail-cell"><b><?= "Rp " . number_format($total, 0, ',', '.') ?></b></div>
+                                                            <div class="col-sm-8 detail-cell"><b>Total</b></div>
+                                                            <div class="col-sm-2 detail-cell"><b><?= $total ?></b></div>
+                                                            <div class="col-sm-2 detail-cell"><b><?= "Rp " . number_format($totalHarga, 0, ',', '.') ?></b></div>
                                                         </div>
                                                     </div>
                                                 </div>

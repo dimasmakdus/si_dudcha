@@ -107,7 +107,8 @@
                                         <tr class="barang-item">
                                             <td class="barang-kode"><?= $barang['kode_barang'] ?></td>
                                             <td class="barang-nama"><?= $barang['nama_barang'] ?></td>
-                                            <td class="barang-harga text-right"><?= $barang['harga_jual'] ?></td>
+                                            <td class="text-right"><?= "Rp " . number_format($barang['harga_jual'], 0, ',', '.') ?></td>
+                                            <td class="barang-harga text-right d-none"><?= $barang['harga_jual'] ?></td>
                                             <td class="barang-satuan-code" style="display:none;"><?= $barang['satuan'] ?></td>
                                             <td class="barang-satuan-name"><?= $barang['satuan_barang_name'] ?></td>
                                             <td class="barang-stok text-center"><?= $barang['stok'] ?></td>
@@ -128,14 +129,6 @@
 
 
                 <div class="col-sm-6">
-                    <div class="card">
-                        <div class="card-header">
-                            <h3 class="card-title">Admin</h3>
-                        </div>
-                        <div class="card-body">
-                            <input type="text" class="form-control" name="sales">
-                        </div>
-                    </div>
                     <div class="card card-barang">
                         <div class="card-header">
                             <h3 class="card-title">Barang</h3>
@@ -167,6 +160,7 @@
                         </div>
 
                         <div class="card-footer justify-content-between">
+                            <input type="hidden" class="form-control" value="<?= session()->get('name') ?>" name="sales">
                             <button type="button" class="btn bg-olive" onclick="showModalVerify()"><i class="fas fa-dolly-flatbed"></i> Jual</button>
                             <button type="button" class="btn btn-secondary btn-reset-cart"><i class="fas fa-redo"></i> Reset</button>
                         </div>
@@ -427,9 +421,11 @@
         }
 
         var stokBarang = input.parentElement.parentElement;
-        var stok = stokBarang.getElementsByClassName('toStok')[0].innerText
+        var stok = stokBarang.getElementsByClassName('toStok')[0].value
+        console.log(stok)
+        console.log(input.value)
 
-        if (input.value > stok) {
+        if (parseInt(input.value) > parseInt(stok)) {
             Swal.fire(
                 'Tidak Bisa!',
                 'Stok Barang Tidak Cukup!',
@@ -504,7 +500,7 @@
             <input type="hidden" name="nama_barang[]" class="nama_barang" value="${barang}">
             <input type="hidden" name="satuan[]" class="satuan" value="${satuan_code}">
             <input type="hidden" name="harga_jual[]" class="harga_jual" value="${harga}">
-            <span style="display:none;" class="toStok">${stok}</span>
+            <input type="hidden" class="toStok" value="${stok}">
             <td class="cart-nama-barang">${barang}</td>
                 <td>${"Rp " + currencyChange(harga.toString())}</td>
                 <td>${satuan_name}</td>

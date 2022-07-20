@@ -156,6 +156,7 @@ if (session()->get('id_user') == 2) {
                             <?php
                             $j = 1;
                             $total = 0;
+                            $totalHarga = 0;
                             ?>
                             <?php foreach ($detailBarang as $detail) : ?>
                               <?php if ($detail['id_transaksi'] == $penjualan['id_transaksi']) : ?>
@@ -168,12 +169,14 @@ if (session()->get('id_user') == 2) {
                                   <div class="col-sm-1 detail-cell"><?= $detail['jumlah'] ?></div>
                                   <div class="col-sm-2 detail-cell"><?= "Rp " . number_format($detail['jumlah'] * $detail['harga_jual'], 0, ',', '.') ?></div>
                                 </div>
-                                <?php $total = $total + ($detail['jumlah'] * $detail['harga_jual']) ?>
+                                <?php $total = $total + $detail['jumlah'] ?>
+                                <?php $totalHarga = $totalHarga + ($detail['jumlah'] * $detail['harga_jual']) ?>
                               <?php endif ?>
                             <?php endforeach ?>
                             <div class="row">
-                              <div class="col-sm-10 detail-cell"><b>Total</b></div>
-                              <div class="col-sm-2 detail-cell"><b><?= "Rp " . number_format($total, 0, ',', '.') ?></b></div>
+                              <div class="col-sm-9 detail-cell"><b>Total</b></div>
+                              <div class="col-sm-1 detail-cell"><b><?= $total ?></b></div>
+                              <div class="col-sm-2 detail-cell"><b><?= "Rp " . number_format($totalHarga, 0, ',', '.') ?></b></div>
                             </div>
                           </div>
                         </div>

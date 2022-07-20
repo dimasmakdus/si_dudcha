@@ -50,11 +50,10 @@
                                     <th>Kode Barang</th>
                                     <th>Nama Barang</th>
                                     <th>Jenis Barang</th>
-                                    <th>Harga Beli</th>
                                     <th>Harga Jual</th>
                                     <th>Stok</th>
+                                    <th>Stok Minimum</th>
                                     <th>Satuan</th>
-                                    <th>Nilai</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -66,11 +65,10 @@
                                         <td><?= $barang['kode_barang'] ?></td>
                                         <td><?= $barang['nama_barang'] ?></td>
                                         <td><?= $barang['jenis_barang_name'] ?></td>
-                                        <td><?= $barang['harga_beli'] ?></td>
-                                        <td><?= $barang['harga_jual'] ?></td>
+                                        <td><?= "Rp " . number_format($barang['harga_jual'], 0, ',', '.') ?></td>
                                         <td><?= $barang['stok'] ?></td>
+                                        <td><?= $barang['stok_minimum'] ?></td>
                                         <td><?= $barang['satuan_barang_name'] ?></td>
-                                        <td><?= $barang['nilai_satuan'] ?></td>
                                         <td class="text-center">
                                             <span data-toggle="tooltip" data-placement="top" title="Ubah">
                                                 <a class="btn btn-sm bg-olive btn-edit-barang" data-toggle="modal" data-target="#edit-<?= $barang['kode_barang'] ?>"><i class="fas fa-edit"></i></a>
@@ -107,7 +105,7 @@
 
                                     <!-- Modal Edit -->
                                     <div class="modal fade" id="edit-<?= $barang['kode_barang'] ?>">
-                                        <div class="modal-dialog modal-lg">
+                                        <div class="modal-dialog modal-xl">
                                             <div class="modal-content">
                                                 <form class="form-horizontal" action="<?= base_url('data-barang/update'); ?>" method="POST">
                                                     <div class="modal-header">
@@ -116,7 +114,7 @@
                                                             <span aria-hidden="true">&times;</span>
                                                         </button>
                                                     </div>
-                                                    <div class="modal-body">
+                                                    <div class="modal-body px-4">
                                                         <?= csrf_field(); ?>
                                                         <div class="form-group row">
                                                             <label for="kode-barang" class="col-sm-2 col-form-label">Kode Barang</label>
@@ -132,17 +130,6 @@
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
-                                                            <label for="nama-barang" class="col-sm-2 col-form-label">Harga Jual</label>
-                                                            <div class="col-sm-10">
-                                                                <div class="input-group">
-                                                                    <div class="input-group-prepend">
-                                                                        <span class="input-group-text">Rp</span>
-                                                                    </div>
-                                                                    <input type="text" name="harga_jual" class="form-control" value="<?= $barang['harga_jual'] ?>" placeholder="" required>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group row">
                                                             <label for="jenis-satuan" class="col-sm-2 col-form-label">Jenis Barang</label>
                                                             <div class="col-sm-10">
                                                                 <select class="form-control select2" name="jenis_barang" style="width: 100%;" required>
@@ -154,10 +141,38 @@
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
-                                                            <label for="jenis-satuan" class="col-sm-2 col-form-label">Satuan</label>
+                                                            <label for="satuan" class="col-sm-2 col-form-label">Stok Minimum</label>
+                                                            <div class="col-sm-10">
+                                                                <input type="number" class="form-control" name="stok_minimum" value="<?= $barang['stok_minimum'] ?>" placeholder="0" required>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group row">
+                                                            <label for="jenis-satuan" class="col-sm-2 col-form-label">Satuan Beli</label>
+                                                            <div class="col-sm-10">
+                                                                <select class="form-control select2" name="satuan_beli" style="width: 100%;" required>
+                                                                    <option value="" disabled>-- Pilih Satuan Beli --</option>
+                                                                    <?php foreach ($satuan as $value) : ?>
+                                                                        <option value="<?= $value['satuan_barang_id'] ?>" <?= $value['satuan_barang_id'] == $barang['satuan_beli'] ? 'selected' : '' ?>><?= $value['satuan_barang_name'] ?></option>
+                                                                    <?php endforeach ?>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group row">
+                                                            <label for="satuan" class="col-sm-2 col-form-label">Isi dalam kemasan</label>
+                                                            <div class="col-sm-10">
+                                                                <div class="input-group">
+                                                                    <input type="number" class="form-control" name="nilai_satuan" value="<?= $barang['nilai_satuan'] ?>" placeholder="0" required>
+                                                                    <div class="input-group-prepend">
+                                                                        <span class="input-group-text">dari satuan beli</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group row">
+                                                            <label for="jenis-satuan" class="col-sm-2 col-form-label">Satuan Jual</label>
                                                             <div class="col-sm-10">
                                                                 <select class="form-control select2" name="satuan" style="width: 100%;" required>
-                                                                    <option value="" disabled>-- Pilih Satuan --</option>
+                                                                    <option value="" disabled>-- Pilih Satuan Jual --</option>
                                                                     <?php foreach ($satuan as $value) : ?>
                                                                         <option value="<?= $value['satuan_barang_id'] ?>" <?= $value['satuan_barang_id'] == $barang['satuan'] ? 'selected' : '' ?>><?= $value['satuan_barang_name'] ?></option>
                                                                     <?php endforeach ?>
@@ -165,9 +180,25 @@
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
-                                                            <label for="satuan" class="col-sm-2 col-form-label">Nilai Satuan</label>
+                                                            <label for="nama-barang" class="col-sm-2 col-form-label">Harga Beli</label>
                                                             <div class="col-sm-10">
-                                                                <input type="number" class="form-control" name="nilai_satuan" value="<?= $barang['nilai_satuan'] ?>" placeholder="0" required>
+                                                                <div class="input-group">
+                                                                    <div class="input-group-prepend">
+                                                                        <span class="input-group-text">Rp</span>
+                                                                    </div>
+                                                                    <input type="text" name="harga_beli" class="form-control" value="<?= $barang['harga_beli'] ?>" placeholder="" required>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group row">
+                                                            <label for="nama-barang" class="col-sm-2 col-form-label">Harga Jual</label>
+                                                            <div class="col-sm-10">
+                                                                <div class="input-group">
+                                                                    <div class="input-group-prepend">
+                                                                        <span class="input-group-text">Rp</span>
+                                                                    </div>
+                                                                    <input type="text" name="harga_jual" class="form-control" value="<?= $barang['harga_jual'] ?>" placeholder="" required>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -191,7 +222,7 @@
 
                 <!-- Modal Tambah -->
                 <div class="modal fade" id="modal-tambah">
-                    <div class="modal-dialog modal-lg">
+                    <div class="modal-dialog modal-xl">
                         <div class="modal-content">
                             <form class="form-horizontal" action="<?= base_url('data-barang/create'); ?>" method="POST">
                                 <div class="modal-header">
@@ -216,18 +247,7 @@
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="nama-barang" class="col-sm-2 col-form-label">Harga Jual</label>
-                                        <div class="col-sm-10">
-                                            <div class="input-group">
-                                                <div class="input-group-prepend">
-                                                    <span class="input-group-text">Rp</span>
-                                                </div>
-                                                <input type="text" name="harga_jual" class="form-control" placeholder="" required>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="satuan" class="col-sm-2 col-form-label">Jenis Barang</label>
+                                        <label for="jenis-satuan" class="col-sm-2 col-form-label">Jenis Barang</label>
                                         <div class="col-sm-10">
                                             <select class="form-control select2" name="jenis_barang" style="width: 100%;" required>
                                                 <option value="" selected disabled>-- Pilih Jenis Barang --</option>
@@ -238,10 +258,16 @@
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="satuan" class="col-sm-2 col-form-label">Satuan</label>
+                                        <label for="satuan" class="col-sm-2 col-form-label">Stok Minimum</label>
                                         <div class="col-sm-10">
-                                            <select class="form-control select2" name="satuan" style="width: 100%;" required>
-                                                <option value="" selected disabled>-- Pilih Satuan --</option>
+                                            <input type="number" class="form-control" name="stok_minimum" placeholder="0" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="jenis-satuan" class="col-sm-2 col-form-label">Satuan Beli</label>
+                                        <div class="col-sm-10">
+                                            <select class="form-control select2" name="satuan_beli" style="width: 100%;" required>
+                                                <option value="" selected disabled>-- Pilih Satuan Beli --</option>
                                                 <?php foreach ($satuan as $value) : ?>
                                                     <option value="<?= $value['satuan_barang_id'] ?>"><?= $value['satuan_barang_name'] ?></option>
                                                 <?php endforeach ?>
@@ -249,9 +275,47 @@
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="satuan" class="col-sm-2 col-form-label">Nilai Satuan</label>
+                                        <label for="satuan" class="col-sm-2 col-form-label">Isi dalam kemasan</label>
                                         <div class="col-sm-10">
-                                            <input type="number" class="form-control" name="nilai_satuan" placeholder="0" required>
+                                            <div class="input-group">
+                                                <input type="number" class="form-control" name="nilai_satuan" placeholder="0" required>
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text">dari satuan beli</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="jenis-satuan" class="col-sm-2 col-form-label">Satuan Jual</label>
+                                        <div class="col-sm-10">
+                                            <select class="form-control select2" name="satuan" style="width: 100%;" required>
+                                                <option value="" selected disabled>-- Pilih Satuan Jual --</option>
+                                                <?php foreach ($satuan as $value) : ?>
+                                                    <option value="<?= $value['satuan_barang_id'] ?>"><?= $value['satuan_barang_name'] ?></option>
+                                                <?php endforeach ?>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="nama-barang" class="col-sm-2 col-form-label">Harga Beli</label>
+                                        <div class="col-sm-10">
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text">Rp</span>
+                                                </div>
+                                                <input type="text" name="harga_beli" class="form-control" placeholder="" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="nama-barang" class="col-sm-2 col-form-label">Harga Jual</label>
+                                        <div class="col-sm-10">
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text">Rp</span>
+                                                </div>
+                                                <input type="text" name="harga_jual" class="form-control" placeholder="" required>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

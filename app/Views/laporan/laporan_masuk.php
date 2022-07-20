@@ -118,12 +118,12 @@
                                             <td align="center"><?= date("d-m-Y", strtotime($row['tanggal'])) ?></td>
                                             <td><?= $row['nama_supplier'] ?></td>
                                             <td><?= $row['nama_barang'] ?></td>
-                                            <td align="right"><?= $row['stok_pemesanan'] ?></td>
+                                            <td align="right"><?= $row['stok_beli'] ?></td>
                                             <td align="right"><?= "Rp " . number_format($row['harga_beli'], 0, ',', '.') ?></td>
-                                            <td align="right"><?= "Rp " . number_format($row['harga_beli'] * $row['stok_pemesanan'], 0, ',', '.') ?></td>
+                                            <td align="right"><?= "Rp " . number_format($row['harga_beli'] * $row['stok_beli'], 0, ',', '.') ?></td>
                                         </tr>
                                         <?php $totalHarga = $totalHarga + $row['harga_beli'] ?>
-                                        <?php $subTotal = $subTotal + ($row['harga_beli'] * $row['stok_pemesanan']) ?>
+                                        <?php $subTotal = $subTotal + ($row['harga_beli'] * $row['stok_beli']) ?>
                                     <?php endforeach ?>
                                 </tbody>
                                 <tfoot>
@@ -133,7 +133,7 @@
                                         </tr>
                                     <?php } else { ?>
                                         <?php
-                                        $hitung = $db->query("SELECT SUM(tbl_pembelian_detail.stok_pemesanan) qty, total, tbl_pembelian.tanggal
+                                        $hitung = $db->query("SELECT SUM(tbl_pembelian_detail.stok_beli) qty, total, tbl_pembelian.tanggal
                                                 FROM tbl_pembelian_detail
                                                 LEFT JOIN tbl_pembelian ON tbl_pembelian_detail.id_pembelian = tbl_pembelian.id
                                                 WHERE tanggal > '$start_date' OR tanggal < '$end_date'");
@@ -164,7 +164,7 @@
                                     </thead>
                                     <tbody>
                                         <?php
-                                        $brg = $db->query("SELECT SUM(tbl_pembelian_detail.stok_pemesanan) stok_pemesanan, SUM(tbl_pembelian_detail.stok_masuk) stok_masuk, tbl_barang.nama_barang, tbl_barang.nilai_satuan, tbl_barang.satuan AS satuan_pemesanan, tbl_satuan_barang.satuan_barang_name, tbl_pembelian.total, tbl_pembelian.faktur, tbl_pembelian.tanggal
+                                        $brg = $db->query("SELECT SUM(tbl_pembelian_detail.stok_beli) stok_beli, SUM(tbl_pembelian_detail.stok_masuk) stok_masuk, tbl_barang.nama_barang, tbl_barang.nilai_satuan, tbl_barang.satuan AS satuan_pemesanan, tbl_satuan_barang.satuan_barang_name, tbl_pembelian.total, tbl_pembelian.faktur, tbl_pembelian.tanggal
                                                         FROM tbl_pembelian_detail
                                                         LEFT JOIN tbl_satuan_barang ON tbl_satuan_barang.satuan_barang_id = tbl_pembelian_detail.satuan_barang_id
                                                         LEFT JOIN tbl_barang ON tbl_pembelian_detail.kode_barang = tbl_barang.kode_barang
@@ -181,7 +181,7 @@
                                         <?php foreach ($brg->getResult('array') as $row) : ?>
                                             <tr>
                                                 <td><?= $row['nama_barang'] ?></td>
-                                                <td align="right"><?= $row['stok_pemesanan'] ?></td>
+                                                <td align="right"><?= $row['stok_beli'] ?></td>
                                                 <td align="center"><?= $row['satuan_barang_name'] ?></td>
                                                 <td align="right"><?= $row['nilai_satuan'] ?></td>
                                                 <td align="right"><?= $row['stok_masuk'] ?></td>

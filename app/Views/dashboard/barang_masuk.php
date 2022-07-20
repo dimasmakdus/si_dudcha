@@ -120,7 +120,7 @@ if (session()->get('id_user') == 1) {
                                         <?php endif ?>
 
                                         <td>
-                                            <?php if (session()->get('id_user') == 3) { ?>
+                                            <?php if (session()->get('id_user') == 2) { ?>
                                                 <span class="ml-3" data-toggle="tooltip" data-placement="top" title="Ubah">
                                                     <a class="btn btn-sm btn-info" data-toggle="modal" data-target="#detail-<?= $beli['id'] ?>"><i class="fas fa-edit"></i></a>
                                                 </span>
@@ -130,7 +130,7 @@ if (session()->get('id_user') == 1) {
                                                 </span>
                                             <?php } ?>
 
-                                            <?php if (session()->get('id_user') == 3) : ?>
+                                            <?php if (session()->get('id_user') == 2) : ?>
                                                 <?php if ($beli['status_pembayaran'] == 'true') : ?>
                                                     <span data-toggle="tooltip" data-placement="top" title="Cetak">
                                                         <a class="btn btn-sm btn-primary" data-toggle="modal" data-target="#print-<?= $beli['id'] ?>"><i class="fas fa-print"></i></a>
@@ -151,7 +151,7 @@ if (session()->get('id_user') == 1) {
                                                     </button>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <?php if (session()->get('id_user') == 3) : ?>
+                                                    <?php if (session()->get('id_user') == 2) : ?>
                                                         <form id="form-update-pembayaran">
                                                             <div class="row mb-3">
                                                                 <label class="col-sm-3 col-form-label">Status Pembayaran</label>
@@ -186,7 +186,7 @@ if (session()->get('id_user') == 1) {
                                                             <h6 class="mt-2"><?= $beli['tanggal'] ?></h6>
                                                         </div>
                                                     </div>
-                                                    <div class="row <?= (session()->get('id_user') == 1 || session()->get('id_user') == 3) ? "mb-3" : "" ?>">
+                                                    <div class="row mb-3">
                                                         <label class="col-sm-3 col-form-label">Supplier</label>
                                                         <div class="col-xs-1 mt-1">:</div>
                                                         <div class="col-sm-8">
@@ -224,8 +224,7 @@ if (session()->get('id_user') == 1) {
                                                             <div class="col-md-1 detail-th">Satuan Beli</div>
                                                             <div class="col-md-1 detail-th">Jumlah Beli</div>
                                                             <div class="col-md-1 detail-th">Satuan di Gudang</div>
-                                                            <div class="col-md-1 detail-th">Nilai per Satuan</div>
-                                                            <!-- <div class="col-md-2 detail-th">Tgl. Kadaluarsa</div> -->
+                                                            <div class="col-md-1 detail-th">Isi Dalam Kemasan</div>
                                                             <div class="col-md-1 detail-th">Stok Yang Masuk</div>
                                                             <div class="col-md-2 detail-th text-right">Subtotal</div>
                                                         </div>
@@ -247,21 +246,21 @@ if (session()->get('id_user') == 1) {
                                                                         <div class="col-md-3 detail-cell"><?= $barang['nama_barang'] ?></div>
                                                                         <div class="col-md-1 detail-cell text-right"><?= "Rp " . number_format($detail['harga_beli'], 0, ',', '.') ?></div>
                                                                         <div class="col-md-1 detail-cell"><?= $detail['satuan_barang_name'] ?></div>
-                                                                        <div class="col-md-1 detail-cell"><?= $detail['stok_pemesanan'] ?></div>
+                                                                        <div class="col-md-1 detail-cell"><?= $detail['stok_beli'] ?></div>
                                                                         <div class="col-md-1 detail-cell"><?= $barang['satuan_barang_name'] ?></div>
                                                                         <div class="col-md-1 detail-cell"><?= $barang['nilai_satuan'] ?></div>
-                                                                        <!-- <div class="col-md-2 detail-cell"><?= $detail['tgl_kadaluarsa'] ?></div> -->
                                                                         <div class="col-md-1 detail-cell"><?= $detail['stok_masuk'] ?></div>
-                                                                        <div class="col-md-2 detail-cell text-right"><?= "Rp " . number_format($detail['harga_beli'] * $detail['stok_pemesanan'], 0, ',', '.') ?></div>
+                                                                        <div class="col-md-2 detail-cell text-right"><?= "Rp " . number_format($detail['harga_beli'] * $detail['stok_beli'], 0, ',', '.') ?></div>
                                                                     </div>
+                                                                    <?php $total = $total + $detail['stok_masuk'] ?>
+                                                                    <?php $totalHarga = $totalHarga + ($detail['harga_beli'] * $detail['stok_beli']) ?>
                                                                 <?php endif ?>
                                                             <?php endif ?>
-                                                            <?php $total = $total + $detail['stok_masuk'] ?>
                                                         <?php endforeach ?>
                                                         <div class="row">
                                                             <div class="col-md-9 detail-cell"><b>Total</b></div>
                                                             <div class="col-md-1 detail-cell"><b><?= $total ?></b></div>
-                                                            <div class="col-md-2 detail-cell text-right"><b><?= "Rp " . number_format($beli['total'], 0, ',', '.')  ?></b></div>
+                                                            <div class="col-md-2 detail-cell text-right"><b><?= "Rp " . number_format($totalHarga, 0, ',', '.')  ?></b></div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -283,7 +282,7 @@ if (session()->get('id_user') == 1) {
                                                     </button>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <?php if (session()->get('id_user') == 3) : ?>
+                                                    <?php if (session()->get('id_user') == 2) : ?>
                                                         <form id="cetak-kuitansi">
                                                             <div class="row mb-3">
                                                                 <label class="col-sm-3 col-form-label">Telah Diterima dari</label>
@@ -314,7 +313,7 @@ if (session()->get('id_user') == 1) {
                                                                 </div>
                                                             </div>
                                                             <div class="row mb-3">
-                                                                <label class="col-sm-3 col-form-label">Pihak 1 (Bagian Keuangan)</label>
+                                                                <label class="col-sm-3 col-form-label">Pihak 1</label>
                                                                 <div class="col-xs-1 mt-1">:</div>
                                                                 <div class="col-sm-4">
                                                                     <input type="text" name="bagian_keuangan" class="form-control">
@@ -350,7 +349,7 @@ if (session()->get('id_user') == 1) {
                                                             <h6 class="mt-2"><?= $beli['tanggal'] ?></h6>
                                                         </div>
                                                     </div>
-                                                    <div class="row <?= (session()->get('id_user') == 1 || session()->get('id_user') == 3) ? "mb-3" : "" ?>">
+                                                    <div class="row">
                                                         <label class="col-sm-3 col-form-label">Supplier</label>
                                                         <div class="col-xs-1 mt-1">:</div>
                                                         <div class="col-sm-8">
@@ -388,8 +387,7 @@ if (session()->get('id_user') == 1) {
                                                             <div class="col-md-1 detail-th">Satuan Beli</div>
                                                             <div class="col-md-1 detail-th">Jumlah Beli</div>
                                                             <div class="col-md-1 detail-th">Satuan di Gudang</div>
-                                                            <div class="col-md-1 detail-th">Nilai per Satuan</div>
-                                                            <!-- <div class="col-md-2 detail-th">Tgl. Kadaluarsa</div> -->
+                                                            <div class="col-md-1 detail-th">Isi Dalam Kemasan</div>
                                                             <div class="col-md-1 detail-th">Stok Yang Masuk</div>
                                                             <div class="col-md-2 detail-th text-right">Subtotal</div>
                                                         </div>
@@ -411,21 +409,21 @@ if (session()->get('id_user') == 1) {
                                                                         <div class="col-md-3 detail-cell"><?= $barang['nama_barang'] ?></div>
                                                                         <div class="col-md-1 detail-cell text-right"><?= "Rp " . number_format($detail['harga_beli'], 0, ',', '.') ?></div>
                                                                         <div class="col-md-1 detail-cell"><?= $detail['satuan_barang_name'] ?></div>
-                                                                        <div class="col-md-1 detail-cell"><?= $detail['stok_pemesanan'] ?></div>
+                                                                        <div class="col-md-1 detail-cell"><?= $detail['stok_beli'] ?></div>
                                                                         <div class="col-md-1 detail-cell"><?= $barang['satuan_barang_name'] ?></div>
                                                                         <div class="col-md-1 detail-cell"><?= $barang['nilai_satuan'] ?></div>
-                                                                        <!-- <div class="col-md-2 detail-cell"><?= $detail['tgl_kadaluarsa'] ?></div> -->
                                                                         <div class="col-md-1 detail-cell"><?= $detail['stok_masuk'] ?></div>
-                                                                        <div class="col-md-2 detail-cell text-right"><?= "Rp " . number_format($detail['harga_beli'] * $detail['stok_pemesanan'], 0, ',', '.') ?></div>
+                                                                        <div class="col-md-2 detail-cell text-right"><?= "Rp " . number_format($detail['harga_beli'] * $detail['stok_beli'], 0, ',', '.') ?></div>
                                                                     </div>
                                                                 <?php endif ?>
                                                             <?php endif ?>
                                                             <?php $total = $total + $detail['stok_masuk'] ?>
+                                                            <?php $totalHarga = $totalHarga + ($detail['harga_beli'] * $detail['stok_beli']) ?>
                                                         <?php endforeach ?>
                                                         <div class="row">
                                                             <div class="col-md-9 detail-cell"><b>Total</b></div>
                                                             <div class="col-md-1 detail-cell"><b><?= $total ?></b></div>
-                                                            <div class="col-md-2 detail-cell text-right"><b><?= "Rp " . number_format($beli['total'], 0, ',', '.')  ?></b></div>
+                                                            <div class="col-md-2 detail-cell text-right"><b><?= "Rp " . number_format($totalHarga, 0, ',', '.')  ?></b></div>
                                                         </div>
                                                     </div>
                                                 </div>

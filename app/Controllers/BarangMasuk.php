@@ -61,12 +61,10 @@ class BarangMasuk extends BaseController
         $data_pesanan = $this->request->getVar('data_pesanan');
         $kode_supplier = $this->request->getVar('kode_supplier');
         $kode_barang = $this->request->getVar('kode_barang');
-        $stok_pemesanan = $this->request->getVar('stok');
+        $stok_beli = $this->request->getVar('stok');
         $stok_masuk = $this->request->getVar('stokMasuk');
-        $tgl_kd = $this->request->getVar('tgl_kd');
-        $harga_pemesanan = $this->request->getVar('harga_pemesanan');
-        $satuan_pemesanan = $this->request->getVar('satuan_pemesanan');
         $harga_beli = $this->request->getVar('harga_beli');
+        $satuan_beli = $this->request->getVar('satuan_beli');
         $tanggal = date("Y-m-d H:i:s");
 
         // cek stok < stok_masuk
@@ -92,7 +90,7 @@ class BarangMasuk extends BaseController
         // total harga barang
         $totalHarga = 0;
         for ($i = 0; $i < count($kode_barang); $i++) {
-            $totalHarga = $totalHarga + ($stok_pemesanan[$i] * $harga_beli[$i]);
+            $totalHarga = $totalHarga + ($harga_beli[$i] * $stok_beli[$i]);
         }
 
         // if (!$checked && !$cekStok) {
@@ -122,10 +120,9 @@ class BarangMasuk extends BaseController
                     'id_pembelian' => $row['id'],
                     'kode_barang' => $kode_barang[$i],
                     'stok_masuk' => $stok_masuk[$i],
+                    'satuan_barang_id' => $satuan_beli[$i],
+                    'stok_beli' => $stok_beli[$i],
                     'harga_beli' => $harga_beli[$i],
-                    'satuan_barang_id' => $satuan_pemesanan[$i],
-                    'stok_pemesanan' => $stok_pemesanan[$i],
-                    'harga_pemesanan' => $harga_pemesanan[$i],
                 ]);
 
                 $barang = $this->barangModel->find($kode_barang[$i]);

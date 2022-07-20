@@ -90,7 +90,7 @@
                                         <thead>
                                             <tr>
                                                 <th>Nama Barang</th>
-                                                <th>Satuan</th>
+                                                <th>Satuan Beli</th>
                                                 <th style="width: 15%;">Harga Beli (sebelumnya)</th>
                                                 <th style="width: 20%;">Harga Beli (pengajuan)</th>
                                                 <th style="width: 15%;">Jumlah Yang Diajukan</th>
@@ -98,41 +98,39 @@
                                             </tr>
                                         </thead>
                                         <tbody class="tbl-barang">
-                                            <?php foreach ($barang_kosong as $key => $kosong) : ?>
-                                                <?php $idx = $key + 1 ?>
-                                                <tr class="tr-row">
-                                                    <td>
-                                                        <select class="form-control select-barang" name="kode_barang[]" style="width: 100%;">
-                                                            <option value="" selected="selected">-- Pilih Barang --</option>
-                                                            <?php foreach ($data_barang as $barang) : ?>
-                                                                <option value="<?= $barang['kode_barang'] ?>" <?= $barang['kode_barang'] == $kosong['kode_barang'] ? 'selected' : '' ?>><?= $barang['nama_barang'] ?> - Stok: <?= $barang['stok'] ?></option>
-                                                            <?php endforeach ?>
-                                                        </select>
-                                                    </td>
-                                                    <td>
-                                                        <select class="form-control select-satuan" name="satuan_barang[]" style="width: 100%;">
-                                                            <option value="" selected="selected">-- Pilih Satuan --</option>
-                                                            <?php foreach ($satuan_barang as $satuan) : ?>
-                                                                <option value="<?= $satuan['satuan_barang_id'] ?>"><?= $satuan['satuan_barang_name'] ?></option>
-                                                            <?php endforeach ?>
-                                                        </select>
-                                                    </td>
-                                                    <td class="harga-change"><?= "Rp " . number_format($kosong['harga_beli'], 0, ',', '.') ?></td>
-                                                    <td>
-                                                        <div class="input-group">
-                                                            <div class="input-group-prepend">
-                                                                <span class="input-group-text">Rp</span>
+                                            <?php if (count($barang_kosong) > 0) : ?>
+                                                <?php foreach ($barang_kosong as $key => $kosong) : ?>
+                                                    <?php $idx = $key + 1 ?>
+                                                    <tr class="tr-row">
+                                                        <input type="hidden" name="satuan_barang[]" class="satuan-beli-input" value="<?= $kosong['satuan_beli_id'] ?>">
+                                                        <td>
+                                                            <select class="form-control select-barang" name="kode_barang[]" style="width: 100%;">
+                                                                <option value="" selected="selected" disabled>-- Pilih Barang --</option>
+                                                                <?php foreach ($data_barang as $barang) : ?>
+                                                                    <option value="<?= $barang['kode_barang'] ?>" <?= $barang['kode_barang'] == $kosong['kode_barang'] ? 'selected' : '' ?>><?= $barang['nama_barang'] ?> - Stok: <?= $barang['stok'] ?></option>
+                                                                <?php endforeach ?>
+                                                            </select>
+                                                        </td>
+                                                        <td class="satuan-beli-change">
+                                                            <?= $kosong['satuan_beli'] ?>
+                                                        </td>
+                                                        <td class="harga-change"><?= "Rp " . number_format($kosong['harga_beli'], 0, ',', '.') ?></td>
+                                                        <td>
+                                                            <div class="input-group">
+                                                                <div class="input-group-prepend">
+                                                                    <span class="input-group-text">Rp</span>
+                                                                </div>
+                                                                <input type="text" class="form-control harga-beli">
+                                                                <input type="hidden" name="harga_beli[]" class="hargaBeliValue">
                                                             </div>
-                                                            <input type="text" class="form-control harga-beli">
-                                                            <input type="hidden" name="harga_beli[]" class="hargaBeliValue">
-                                                        </div>
-                                                    </td>
-                                                    <td>
-                                                        <input type="number" class="form-control stokBarang" name="stok[]">
-                                                    </td>
-                                                    <td class="text-center"><button type="button" class="btn btn-sm btn-danger remove-barang">&#x1D5EB;</button></td>
-                                                </tr>
-                                            <?php endforeach ?>
+                                                        </td>
+                                                        <td>
+                                                            <input type="number" class="form-control stokBarang" name="stok[]">
+                                                        </td>
+                                                        <td class="text-center"><button type="button" class="btn btn-sm btn-danger remove-barang">&#x1D5EB;</button></td>
+                                                    </tr>
+                                                <?php endforeach ?>
+                                            <?php endif ?>
                                         </tbody>
                                     </table>
                                     <button class="btn btn-success mb-2 btn-add-barang" type="button">&#65291; Tambah</button>
@@ -157,6 +155,7 @@
 <?= $this->include('templates/script') ?>
 
 <script>
+    var index = <?= count($barang_kosong) ?>;
     if (document.readyState == 'loading') {
         document.addEventListener('DOMContentLoaded', ready);
     } else {
@@ -180,6 +179,7 @@
         var selectBarang = document.getElementsByClassName('select-barang');
         for (var i = 0; i < selectBarang.length; i++) {
             var select = selectBarang[i];
+            console.log(selectBarang[i])
             select.addEventListener('change', changeBarang);
         }
 
@@ -193,6 +193,29 @@
         document.getElementsByClassName('save-barang')[0].addEventListener('click', simpanBarangClick);
     }
 
+    function changeBarangRepeater(index) {
+        var selectBarang = document.getElementsByClassName('select-barang');
+        var key = index - 1
+        var select = selectBarang[key];
+
+        var kodeElement = select.parentElement.parentElement
+        var hargaChange = kodeElement.getElementsByClassName('harga-change')[0]
+        var satuanBeliChange = kodeElement.getElementsByClassName('satuan-beli-change')[0]
+        var satuanBeliInputChange = kodeElement.getElementsByClassName('satuan-beli-input')[0]
+
+        $.ajax({
+            type: 'GET',
+            url: '<?= base_url('data-barang-pesanan') ?>/' + select.value,
+            dataType: 'json',
+            success: function(res) {
+                console.log(res)
+                hargaChange.innerText = "Rp " + currencyChange(res.harga_beli != null ? res.harga_beli : "0")
+                satuanBeliChange.innerText = res.satuan_barang_name != null ? res.satuan_barang_name : null
+                satuanBeliInputChange.value = res.satuan_beli
+            }
+        });
+    }
+
     function changeBarang(e) {
         var kodeBarang = e.target.value
         var kodeTarget = e.target
@@ -203,7 +226,9 @@
             url: '<?= base_url('data-barang-pesanan') ?>/' + kodeBarang,
             dataType: 'json',
             success: function(res) {
-                kodeElement.getElementsByClassName('harga-change')[0].innerText = "Rp " + currencyChange(res.harga_beli)
+                kodeElement.getElementsByClassName('harga-change')[0].innerText = "Rp " + currencyChange(res.harga_beli != null ? res.harga_beli : "0")
+                kodeElement.getElementsByClassName('satuan-beli-change')[0].innerText = res.satuan_barang_name != null ? res.satuan_barang_name : null
+                kodeElement.getElementsByClassName('satuan-beli-input')[0].value = res.satuan_beli
             }
         });
     }
@@ -217,19 +242,31 @@
         elementHarga.getElementsByClassName('hargaBeliValue')[0].value = hargaValue.split('.').join('');
     }
 
+    function keyUpHargaRepeater(index) {
+        var keyupBarang = document.getElementsByClassName('harga-beli');
+        var key = index - 1
+        var hargaElement = keyupBarang[key]
+
+        var hargaValue = hargaElement.value
+        hargaElement.value = currencyChange(hargaValue.toString())
+
+        var elementHarga = hargaElement.parentElement
+        elementHarga.getElementsByClassName('hargaBeliValue')[0].value = hargaValue.split('.').join('');
+    }
+
     function simpanBarangClick(e) {
         e.preventDefault();
         var kode_supplier = $('select[name=kode-supplier] option').filter(':selected').val();
 
         var url = "<?= base_url('pesanan-barang/create'); ?>";
         var form = $('#form-pengajuan').serialize()
+        console.log(form)
 
         var valid = true
         if (kode_supplier != '') {
             var selectBarang = document.getElementsByClassName('select-barang');
             for (var i = 0; i < selectBarang.length; i++) {
                 var rows = selectBarang[i].parentElement.parentElement
-                var valSatuan = rows.getElementsByClassName('select-satuan')[0].value
                 var valHarga = rows.getElementsByClassName('hargaBeliValue')[0].value
                 var valStok = rows.getElementsByClassName('stokBarang')[0].value
 
@@ -247,15 +284,6 @@
                     Swal.fire(
                         'Tidak bisa!',
                         'Harga beli pengajuan tidak boleh kosong!',
-                        'error'
-                    )
-                }
-
-                if (valSatuan == "") {
-                    valid = false
-                    Swal.fire(
-                        'Tidak bisa!',
-                        'Harap pilih satuan barang terlebih dahulu!',
                         'error'
                     )
                 }
@@ -313,39 +341,35 @@
     }
 
     function removeBarangItem(e) {
+        index -= 1;
         var buttonClick = e.target;
         buttonClick.parentElement.parentElement.remove();
     }
 
     function addToBarangClicked(e) {
+        index += 1;
         var addTr = document.createElement('tr');
         addTr.classList.add('tr-row');
         var tabel = document.getElementsByClassName('tbl-barang')[0];
         var barangRowContents =
             `<tr class="tr-row">
+            <input type="hidden" name="satuan_barang[]" class="satuan-beli-input" value="">
             <td>
-                <select class="form-control select-barang" name="kode_barang[]" style="width: 100%;">
-                    <option value="" selected="selected">-- Pilih Barang --</option>
+                <select class="form-control select-barang" onchange="changeBarangRepeater(${index})" name="kode_barang[]" style="width: 100%;">
+                    <option value="" selected="selected" disabled>-- Pilih Barang --</option>
                     <?php foreach ($data_barang as $barang) : ?>
                         <option value="<?= $barang['kode_barang'] ?>"><?= $barang['nama_barang'] ?> - Stok: <?= $barang['stok'] ?></option>
                     <?php endforeach ?>
                 </select>
             </td>
-            <td>
-                <select class="form-control select-satuan" name="satuan_barang[]" style="width: 100%;">
-                    <option value="" selected="selected">-- Pilih Satuan --</option>
-                    <?php foreach ($satuan_barang as $satuan) : ?>
-                        <option value="<?= $satuan['satuan_barang_id'] ?>"><?= $satuan['satuan_barang_name'] ?></option>
-                    <?php endforeach ?>
-                </select>
-            </td>
-            <td class="harga-change"><?= "Rp " . number_format($kosong['harga_beli'], 0, ',', '.') ?></td>
+            <td class="satuan-beli-change"></td>
+            <td class="harga-change"><?= "Rp " . number_format(0, 0, ',', '.') ?></td>
             <td>
                 <div class="input-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text">Rp</span>
                     </div>
-                    <input type="text" class="form-control harga-beli">
+                    <input type="text" onkeyup="keyUpHargaRepeater(${index})" class="form-control harga-beli">
                     <input type="hidden" name="harga_beli[]" class="hargaBeliValue">
                 </div>
             </td>

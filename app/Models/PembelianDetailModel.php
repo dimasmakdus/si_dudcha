@@ -17,9 +17,8 @@ class PembelianDetailModel extends Model
         'kode_barang',
         'stok_masuk',
         'tgl_kadaluarsa',
-        'harga_beli',
         'satuan_barang_id',
-        'stok_pemesanan',
-        'harga_pemesanan',
+        'stok_beli',
+        'harga_beli',
     ];
 }
