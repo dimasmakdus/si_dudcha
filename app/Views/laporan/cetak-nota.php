@@ -16,21 +16,21 @@
             <td></td>
             <td></td>
             <td></td>
-            <td width="390"><b style="font-size: 24px">DUDCHA</b></td>
+            <td width="390"><b style="font-size: 24px"><?= $titleHeader['judul'] ?></b></td>
         </tr>
         <tr>
             <td width="220">No. Nota</td>
             <td width="30">:</td>
             <td><?= $penjualan['no_nota'] ?></td>
             <td></td>
-            <td>Jl.Dipatiukur, Bandung</td>
+            <td><?= $titleHeader['alamat'] ?></td>
         </tr>
         <tr>
             <td>Tanggal/ Waktu</td>
             <td>:</td>
             <td><?= date("d/m/Y H:i:s", strtotime($penjualan['tanggal'])) ?></td>
             <td></td>
-            <td>HP. 0813-2281-5963</td>
+            <td><?= $titleHeader['telepon'] ?></td>
         </tr>
     </table><br>
     <table class="tabel">

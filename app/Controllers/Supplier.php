@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 class Supplier extends BaseController
 {
+    // Halaman edit supplier
     public function supplierEdit($id)
     {
         $getSupplierById = $this->supplierModel->find($id);
@@ -16,6 +17,7 @@ class Supplier extends BaseController
         ]);
     }
 
+    // CRUD 
     public function create()
     {
         $this->supplierModel->insert($this->request->getVar());

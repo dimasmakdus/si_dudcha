@@ -6,22 +6,7 @@ use DateTime;
 
 class PenjualanBarang extends BaseController
 {
-    public function resepAdd()
-    {
-        $data_resep = $this->resepModel->orderBy('id_transaksi', 'ASC')->findAll();
-        foreach ($data_resep as $maxId) {
-        }
-        return view('resep/resep_add', [
-            'title' => 'Tambah Salinan Resep',
-            'card_title' => 'Tambah Salinan Resep',
-            'navLink' => 'resep-barang',
-            'resep_pasien' => $this->pasienModel->orderBy('no_resep', 'ASC')->findAll(),
-            'barang_barangan' => $this->barangModel->orderBy('kode_barang', 'ASC')->findAll(),
-            'aturan_barang' => $this->aturanModel->orderBy('dosis_aturan_barang', 'DESC')->findAll(),
-            'maxId' => $data_resep != [] ? $maxId['id_transaksi'] : 0
-        ]);
-    }
-
+    // Cetak Laporan Nota Penjualan
     public function cetakNota($id)
     {
         $penjualan = $this->penjualanBarangModel->find($id);
@@ -37,12 +22,13 @@ class PenjualanBarang extends BaseController
 
         return view('laporan/cetak-nota', [
             'title' => 'Cetak Nota',
+            'titleHeader' => $this->titleHeader,
             'penjualan' => $penjualan,
             'detailBarang' => $detailBarang,
         ]);
     }
 
-    // Pengambilan Barang
+    // Transaksi Penjualan Barang
     public function create()
     {
         $id_outlet = $this->request->getVar('outlet_id');
@@ -130,91 +116,11 @@ class PenjualanBarang extends BaseController
                 ]);
             }
             $this->sendNotification(2, session()->get('name'), 'Telah Bertransaksi Penjualan Barang', '/barang-masuk');
-            redirect()->with('success', 'Data Pengambilan barang berhasil di tambahkan');
+            redirect()->with('success', 'Transaksi Penjualan barang berhasil');
             echo "success";
         } else {
             echo "empty_barang";
             die;
         }
-    }
-
-    // Tambah Salinan Resep
-    public function postSalinanResep()
-    {
-        $no_resep = $this->request->getVar('no_resep');
-        $kode_barang = $this->request->getVar('kode_barang');
-        $nama_barang = $this->request->getVar('nama_barang');
-        $satuan = $this->request->getVar('satuan');
-        $jumlah = $this->request->getVar('jumlah');
-        $dosis_aturan_barang = $this->request->getVar('dosis_aturan');
-        $tgl = date("Y-m-d H:i:s");
-
-        $tmb_trans = $this->resepModel->orderBy('id_transaksi', 'ASC')->findAll();
-        if ($tmb_trans != array()) {
-            foreach ($tmb_trans as $trans) {
-                $nomor_db = $trans['id_transaksi'] + 1;
-            }
-        } else {
-            $nomor_db = 1;
-        }
-
-        $dosis = $dosis_aturan_barang != null ? $dosis_aturan_barang : [];
-        $checked = false;
-        if ($dosis != []) {
-            foreach ($dosis as $value) {
-                if ($value == "") {
-                    $checked = true;
-                    echo "empty_dosis";
-                    die;
-                }
-            }
-        } else {
-            $checked = true;
-            echo "empty_barang";
-            die;
-        }
-
-        if (!$checked) {
-            $resep_pasien = $this->pasienModel->find($no_resep);
-
-            $totalResep = 0;
-            for ($j = 0; $j < count($kode_barang); $j++) {
-                $totalResep = $totalResep + $jumlah[$j];
-            }
-
-            $this->resepModel->insert([
-                'id_transaksi' => $nomor_db,
-                'kode_resep' => $resep_pasien['no_resep'],
-                'status_pasien' => $resep_pasien['status_pasien'],
-                'nama_pasien' => $resep_pasien['nama_pasien'],
-                'umur' => $resep_pasien['umur'],
-                'alamat' => $resep_pasien['alamat'],
-                'tanggal' => $tgl,
-                'nama_dokter' => $resep_pasien['nama_dokter'],
-                'total' => $totalResep
-            ]);
-
-            for ($i = 0; $i < count($kode_barang); $i++) {
-                $this->resepDetailModel->insert([
-                    'id_transaksi' => $nomor_db,
-                    'kode_barang' => $kode_barang[$i],
-                    'nama_barang' => $nama_barang[$i],
-                    'jumlah' => $jumlah[$i],
-                    'satuan' => $satuan[$i],
-                    'dosis_aturan_barang' => $dosis_aturan_barang[$i]
-                ]);
-            }
-            redirect()->with('success', 'Salinan Resep berhasil di tambahkan');
-            echo "success";
-        } else {
-            echo "empty_dosis";
-            die;
-        }
-    }
-
-    public function remove($id)
-    {
-        $this->resepModel->delete($id);
-        return redirect()->to('resep-barang')->with('success', 'Data Resep Berhasil Dihapus');
     }
 }

@@ -31,6 +31,7 @@ class PesananBarang extends BaseController
             'data_supplier' => $this->supplierModel->orderBy('email', 'ASC')->findAll(),
         ]);
     }
+
     function cekPesanan()
     {
         return view('dashboard/cek_pesanan', [
@@ -42,6 +43,7 @@ class PesananBarang extends BaseController
         ]);
     }
 
+    // Form Tambah Pengajuan Barang
     public function pesananAdd()
     {
         $permintaan_barang = $this->permintaanModel->orderBy('kode_pesanan', 'ASC')->findAll();
@@ -87,6 +89,7 @@ class PesananBarang extends BaseController
         ]);
     }
 
+    // Form Approve/Reject Pengajuan Barang (Atasan)
     function pesananEdit($id)
     {
         $proses = $this->permintaanModel->find($id);
@@ -106,6 +109,7 @@ class PesananBarang extends BaseController
         ]);
     }
 
+    // Proses Tambah Pengajuan Barang
     public function create()
     {
         $no_pesanan = $this->request->getVar('no_pesanan');
@@ -180,6 +184,7 @@ class PesananBarang extends BaseController
         }
     }
 
+    // Proses Approve/Reject Pengajuan Barang (Atasan)
     public function update()
     {
         $id_pesanan = $this->request->getVar('id_pesanan');

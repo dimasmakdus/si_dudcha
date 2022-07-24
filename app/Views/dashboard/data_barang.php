@@ -236,8 +236,8 @@
                                     <div class="form-group row">
                                         <label for="kode-barang" class="col-sm-2 col-form-label">Kode Barang</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control" value="<?= "GFK" . $kode_barang_baru ?>" required disabled>
-                                            <input type="hidden" class="form-control" name="kode_barang" value="<?= "GFK" . $kode_barang_baru ?>">
+                                            <input type="text" class="form-control" value="<?= "BRG" . $kode_barang_baru ?>" required disabled>
+                                            <input type="hidden" class="form-control" name="kode_barang" value="<?= "BRG" . $kode_barang_baru ?>">
                                         </div>
                                     </div>
                                     <div class="form-group row">

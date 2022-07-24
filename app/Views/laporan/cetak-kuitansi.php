@@ -12,13 +12,13 @@
 <body>
     <table width="100%">
         <tr>
-            <td width="390"><b style="font-size: 24px">DUDCHA</b></td>
+            <td width="390"><b style="font-size: 24px"><?= $titleHeader['judul'] ?></b></td>
         </tr>
         <tr>
-            <td>Jl.Dipatiukur, Bandung</td>
+            <td><?= $titleHeader['alamat'] ?></td>
         </tr>
         <tr>
-            <td>HP. 0813-1232-12312</td>
+            <td><?= $titleHeader['telepon'] ?></td>
         </tr>
     </table>
     <hr>
@@ -52,7 +52,7 @@
         </tr>
         <tr>
             <td width="35%"></td>
-            <td>Bagian Keuangan,</td>
+            <td>Pimpinan,</td>
             <td></td>
         </tr>
         <tr style="line-height: 74px;">

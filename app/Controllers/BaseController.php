@@ -16,13 +16,8 @@ use App\Models\SatuanBarangModel;
 use App\Models\JenisBarangModel;
 use App\Models\PermintaanModel;
 use App\Models\PermintaanDetailModel;
-use App\Models\PengeluaranModel;
 use App\Models\SupplierModel;
 use App\Models\OutletModel;
-use App\Models\BarangKeluarModel;
-use App\Models\PesananModel;
-use App\Models\AturanBarangModel;
-use App\Models\ResepDetailModel;
 use App\Models\PembelianModel;
 use App\Models\PembelianDetailModel;
 use App\Models\PenjualanBarangModel;
@@ -77,20 +72,20 @@ class BaseController extends Controller
 
         $this->permintaanModel = new PermintaanModel();
         $this->permintaanDetailModel = new PermintaanDetailModel();
-        $this->pengeluaranModel = new PengeluaranModel();
         $this->supplierModel = new SupplierModel();
         $this->outletModel = new OutletModel();
-        $this->barangKeluarModel = new BarangKeluarModel();
 
-        $this->pesananModel = new PesananModel();
-
-        $this->aturanModel = new AturanBarangModel();
-        $this->resepDetailModel = new ResepDetailModel();
         $this->pembelianModel = new PembelianModel();
         $this->pembelianDetailModel = new PembelianDetailModel();
         $this->penjualanBarangModel = new PenjualanBarangModel();
         $this->penjualanBarangDetailModel = new PenjualanBarangDetailModel();
     }
+
+    public $titleHeader = [
+        'judul' => 'DUDCHA',
+        'alamat' => 'Jl. Cigending, Ujung Berung, Bandung 40611',
+        'telepon' => 'HP. 0813-2281-5963'
+    ];
 
     function tanggal($tanggal)
     {

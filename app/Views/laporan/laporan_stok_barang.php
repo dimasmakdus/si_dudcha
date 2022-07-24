@@ -98,9 +98,9 @@
                         <div class="card-body">
                             <p>
                                 <center>
-                                    <strong style="font-size:20px">DUDCHA</strong><br>
-                                    Jl. Dipatiukur. Bandung<br>
-                                    HP. 0813-2281-5963
+                                    <strong style="font-size:20px"><?= $titleHeader['judul'] ?></strong><br>
+                                    <?= $titleHeader['alamat'] ?><br>
+                                    <?= $titleHeader['telepon'] ?>
                                 </center>
                             </p>
                             <hr>

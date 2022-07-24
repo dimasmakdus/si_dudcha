@@ -293,19 +293,6 @@ if (session()->get('id_user') == 1) {
                                                                 </div>
                                                             </div>
                                                             <div class="row mb-3">
-                                                                <label class="col-sm-3 col-form-label">Jumlah Uang</label>
-                                                                <div class="col-xs-1 mt-1">:</div>
-                                                                <div class="col-sm-4">
-                                                                    <div class="input-group">
-                                                                        <div class="input-group-prepend">
-                                                                            <span class="input-group-text">Rp</span>
-                                                                        </div>
-                                                                        <input type="text" id="uang_rupiah" class="form-control">
-                                                                        <input type="hidden" name="jumlah_uang" id="jumlah_uang" class="form-control">
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="row mb-3">
                                                                 <label class="col-sm-3 col-form-label">Untuk Pembayaran</label>
                                                                 <div class="col-xs-1 mt-1">:</div>
                                                                 <div class="col-sm-4">
@@ -316,14 +303,52 @@ if (session()->get('id_user') == 1) {
                                                                 <label class="col-sm-3 col-form-label">Pihak 1</label>
                                                                 <div class="col-xs-1 mt-1">:</div>
                                                                 <div class="col-sm-4">
-                                                                    <input type="text" name="bagian_keuangan" class="form-control">
+                                                                    <?php $pihak1 = session()->get('name') ?>
+                                                                    <input type="text" name="bagian_keuangan" class="form-control" value="<?= $pihak1 ?>" readonly>
                                                                 </div>
                                                             </div>
                                                             <div class="row mb-3">
                                                                 <label class="col-sm-3 col-form-label">Pihak 2 (Supplier)</label>
                                                                 <div class="col-xs-1 mt-1">:</div>
                                                                 <div class="col-sm-4">
-                                                                    <input type="text" name="supplier" class="form-control">
+                                                                    <?php
+                                                                    $data = $supplier->find($beli['kode_supplier']);
+                                                                    $pihak2 = $data != null ? $data['nama_supplier'] : null
+                                                                    ?>
+                                                                    <input type="text" name="supplier" value="<?= $pihak2 ?>" class="form-control" readonly>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row mb-3">
+                                                                <label class="col-sm-3 col-form-label">Harga yang harus dibayar (total)</label>
+                                                                <div class="col-xs-1 mt-1">:</div>
+                                                                <div class="col-sm-4">
+                                                                    <h5 class="mt-1"><?= "Rp " . number_format($beli['total'], 0, ',', '.') ?></h5>
+                                                                    <input type="hidden" name="harga_total" id="totalHarga-<?= $beli['id'] ?>" value="<?= $beli['total'] ?>" class="form-control">
+                                                                </div>
+                                                            </div>
+                                                            <div class="row mb-3">
+                                                                <label class="col-sm-3 col-form-label">Jumlah Uang</label>
+                                                                <div class="col-xs-1 mt-1">:</div>
+                                                                <div class="col-sm-4">
+                                                                    <div class="input-group">
+                                                                        <div class="input-group-prepend">
+                                                                            <span class="input-group-text">Rp</span>
+                                                                        </div>
+                                                                        <input type="text" id="uang_rupiah" onkeyup="keyUpHarga(<?= $beli['id'] ?>)" class="form-control">
+                                                                        <input type="hidden" name="jumlah_uang" id="jumlah_uang" class="form-control">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row mb-3">
+                                                                <label class="col-sm-3 col-form-label">Kembalian</label>
+                                                                <div class="col-xs-1 mt-1">:</div>
+                                                                <div class="col-sm-4">
+                                                                    <div class="input-group">
+                                                                        <div class="input-group-prepend">
+                                                                            <span class="input-group-text">Rp</span>
+                                                                        </div>
+                                                                        <input type="text" name="uang_kembalian" id="uang_kembalian" class="form-control" readonly>
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                             <div class="row">
@@ -451,6 +476,32 @@ if (session()->get('id_user') == 1) {
 <!-- /.content -->
 
 <?= $this->include('templates/script') ?>
+
+<script>
+    function keyUpHarga(id) {
+        var hargaElement = document.getElementById('uang_rupiah');
+        var hargaValue = hargaElement.value
+        hargaElement.value = currencyChange(hargaValue.toString())
+        hargaCurrency = parseInt(currencyChange(hargaValue.toString()).replace(/[^,\d]/g, '').toString())
+
+        var totalHargaElement = document.getElementById('totalHarga-' + id).value
+        var totalHarga = parseInt(totalHargaElement.replace(/[^,\d]/g, '').toString())
+
+        var kembalianElement = document.getElementById('uang_kembalian')
+
+        if (hargaCurrency > totalHarga) {
+            var kembalian = hargaCurrency - totalHarga
+            kembalianElement.value = currencyChange(kembalian.toString())
+            validKembalian = true
+        } else if (hargaCurrency == totalHarga) {
+            kembalianElement.value = "Uang Pas"
+            validKembalian = true
+        } else {
+            kembalianElement.value = "Belum Cukup"
+            validKembalian = false
+        }
+    }
+</script>
 
 <script>
     $(document).ready(function() {

@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 class BarangMasuk extends BaseController
 {
+    // Form Pengemasan Barang & Barang Masuk
     function barang_masuk_add()
     {
         $pesanan = $this->permintaanModel->orderBy('tanggal', 'DESC')->findAll();
@@ -55,6 +56,7 @@ class BarangMasuk extends BaseController
         ]);
     }
 
+    // Proses Barang Masuk di Pengemasan
     function create()
     {
         $no_faktur = $this->request->getVar('no_faktur');
@@ -66,16 +68,6 @@ class BarangMasuk extends BaseController
         $harga_beli = $this->request->getVar('harga_beli');
         $satuan_beli = $this->request->getVar('satuan_beli');
         $tanggal = date("Y-m-d H:i:s");
-
-        // cek stok < stok_masuk
-        // $cekStok = false;
-        // for ($i = 0; $i < count($kode_barang); $i++) {
-        //     if ($stok[$i] < $stok_masuk[$i]) {
-        //         $cekStok = true;
-        //         echo "over_stok";
-        //         die;
-        //     }
-        // }
 
         // cek input qty != kosong
         $checked = false;
@@ -93,7 +85,6 @@ class BarangMasuk extends BaseController
             $totalHarga = $totalHarga + ($harga_beli[$i] * $stok_beli[$i]);
         }
 
-        // if (!$checked && !$cekStok) {
         if (!$checked) {
             $this->pembelianModel->insert([
                 'faktur' => $no_faktur,
@@ -135,7 +126,6 @@ class BarangMasuk extends BaseController
                     'stok_awal' => $barang['stok'],
                     'stok_masuk' => $stok_masuk[$i],
                     'stok_akhir' => $stok_akhir,
-                    // 'tgl_kadaluarsa' => $tgl_kd[$i]
                 ]);
 
                 // penambahan sisa stok
@@ -154,6 +144,7 @@ class BarangMasuk extends BaseController
         }
     }
 
+    // Prosess Update Pembayaran
     function updatePembayaran($id)
     {
         $status = $this->request->getVar('status_pembayaran');
@@ -169,17 +160,19 @@ class BarangMasuk extends BaseController
         }
     }
 
+    // Cetak Kuitansi Pembayaran
     function cetakKuitansi()
     {
         $beli = $this->pembelianModel->find($_GET['id_pembeli']);
 
         return view('laporan/cetak-kuitansi', [
+            'titleHeader' => $this->titleHeader,
             'kode_pemesanan' => $beli['kode_pemesanan'],
             'tanggal' => $beli['tanggal'],
             'tanggalWithBulan' => $this->tanggal(date("Y-m-d", strtotime($beli['tanggal']))),
             'id_pembeli' => $_GET['id_pembeli'],
             'diterima' => $_GET['diterima'],
-            'jumlah_uang_terbilang' => $this->terbilang($_GET['jumlah_uang']),
+            'jumlah_uang_terbilang' => $this->terbilang($_GET['harga_total']),
             'pembayaran' => $_GET['pembayaran'],
             'bagian_keuangan' => $_GET['bagian_keuangan'],
             'supplier' => $_GET['supplier'],
