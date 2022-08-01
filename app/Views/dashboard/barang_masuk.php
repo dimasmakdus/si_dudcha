@@ -130,13 +130,13 @@ if (session()->get('id_user') == 1) {
                                                 </span>
                                             <?php } ?>
 
-                                            <?php if (session()->get('id_user') == 2) : ?>
+                                            <!-- <?php if (session()->get('id_user') == 2) : ?>
                                                 <?php if ($beli['status_pembayaran'] == 'true') : ?>
                                                     <span data-toggle="tooltip" data-placement="top" title="Cetak">
                                                         <a class="btn btn-sm btn-primary" data-toggle="modal" data-target="#print-<?= $beli['id'] ?>"><i class="fas fa-print"></i></a>
                                                     </span>
                                                 <?php endif ?>
-                                            <?php endif ?>
+                                            <?php endif ?> -->
                                         </td>
                                     </tr>
 
@@ -272,7 +272,7 @@ if (session()->get('id_user') == 1) {
                                     <!-- /.modal -->
 
                                     <!-- Modal Print  -->
-                                    <div class="modal fade" id="print-<?= $beli['id'] ?>">
+                                    <!-- <div class="modal fade" id="print-<?= $beli['id'] ?>">
                                         <div class="modal-dialog modal-xl">
                                             <div class="modal-content">
                                                 <div class="modal-header">
@@ -454,22 +454,22 @@ if (session()->get('id_user') == 1) {
                                                 </div>
                                             </div>
                                             <!-- /.modal-content -->
-                                        </div>
-                                        <!-- /.modal-dialog -->
-                                    </div>
-                                    <!-- /.modal -->
-                                <?php endforeach ?>
-                            </tbody>
-                        </table>
                     </div>
-                    <!-- /.card-body -->
-                </div>
-                <!-- /.card -->
-
+                    <!-- /.modal-dialog -->
+                </div> -->
+                <!-- /.modal -->
+            <?php endforeach ?>
+            </tbody>
+            </table>
             </div>
-            <!-- /.col -->
+            <!-- /.card-body -->
         </div>
-        <!-- /.row -->
+        <!-- /.card -->
+
+    </div>
+    <!-- /.col -->
+    </div>
+    <!-- /.row -->
     </div>
     <!-- /.container-fluid -->
 </section>
