@@ -239,8 +239,9 @@ class PesananBarang extends BaseController
 
     public function remove($id)
     {
-        $this->pesananModel->delete($id);
-        return redirect()->to('pesanan-barang')->with('success', 'Data Pesanan Barang Berhasil Dihapus');
+        $this->permintaanModel->delete($id);
+        $this->permintaanDetailModel->where('id_permintaan', $id)->delete();
+        return redirect()->to('cek-pesanan')->with('success', 'Data Pengajuan Barang Berhasil Dihapus');
     }
 
     public function kirim_email()

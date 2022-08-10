@@ -101,17 +101,44 @@
                                                 <?= "Rp " . number_format($permintaan['total'], 0, ',', '.') ?>
                                             <?php endif ?>
                                         </td>
-                                        <td>
+                                        <td class="text-center">
                                             <span data-toggle="tooltip" data-placement="top" title="Ubah">
-                                                <a href="<?= base_url('cek-pesanan-edit') . "/" . $permintaan['id'] ?>" class="btn btn-sm btn-info ml-4"><i class="fas fa-edit"></i></a>
+                                                <a href="<?= base_url('cek-pesanan-edit') . "/" . $permintaan['id'] ?>" class="btn btn-sm btn-info"><i class="fas fa-edit"></i></a>
                                             </span>
                                             <?php if ($permintaan['status'] == 'approved') { ?>
                                                 <span data-toggle="tooltip" data-placement="top" title="Cetak">
                                                     <a href="<?= base_url('cetak-pesanan') . "/" . $permintaan['id'] ?>" target="_blank" class="btn btn-sm btn-primary"><i class="fas fa-print"></i></a>
                                                 </span>
                                             <?php } ?>
+                                            <span data-toggle="tooltip" data-placement="top" title="Hapus">
+                                                <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#hapus-<?= $permintaan['id'] ?>"><i class="fas fa-trash-alt"></i></button>
+                                            </span>
                                         </td>
                                     </tr>
+
+                                    <!-- Modal Hapus  -->
+                                    <div class="modal fade" id="hapus-<?= $permintaan['id'] ?>">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h4 class="modal-title">Konfirmasi Hapus</h4>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <p>Apakah anda yakin ingin manghapus data ini?</p>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <a href="<?= base_url('cek-pesanan/delete') ?>/<?= $permintaan['id'] ?>" class="btn btn-danger">Hapus</a>
+                                                    <a class="btn btn-default" data-dismiss="modal">Tidak</a>
+                                                </div>
+                                            </div>
+                                            <!-- /.modal-content -->
+                                        </div>
+                                        <!-- /.modal-dialog -->
+                                    </div>
+                                    <!-- /.modal -->
                                 <?php endforeach ?>
                             </tbody>
                         </table>

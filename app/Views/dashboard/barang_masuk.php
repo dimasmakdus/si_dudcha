@@ -456,7 +456,7 @@ if (session()->get('id_user') == 1) {
                                             <!-- /.modal-content -->
                     </div>
                     <!-- /.modal-dialog -->
-                </div> -->
+                </div>
                 <!-- /.modal -->
             <?php endforeach ?>
             </tbody>

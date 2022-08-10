@@ -97,11 +97,6 @@ $routes->get('/role-pengguna/akses/(:segment)', 'Dashboard::viewAkses/$1');
 $routes->post('/role/create', 'HakAkses::create');
 $routes->get('/role-pengguna/delete/(:segment)', 'HakAkses::remove/$1');
 
-// Pasien
-$routes->post('/pasien/create', 'Pasien::create');
-$routes->post('/pasien/update', 'Pasien::update');
-$routes->get('/pasien/delete/(:segment)', 'Pasien::remove/$1');
-
 // Supplier
 $routes->get('/supplier-add', 'Supplier::supplierAdd');
 $routes->get('/supplier/(:segment)', 'Supplier::supplierEdit/$1');
@@ -139,11 +134,8 @@ $routes->post('/salinan-penjualan/create', 'PenjualanBarang::postSalinanPenjuala
 $routes->get('/penjualan-barang/delete/(:segment)', 'PenjualanBarang::remove/$1');
 $routes->get('/cetak-nota/(:segment)', 'PenjualanBarang::cetakNota/$1');
 
-// Permintaan Barang / LPLPO
-$routes->get('/permintaan-barang-add', 'PermintaanBarang::permintaanAdd');
-$routes->get('/cetak-lplpo', 'PermintaanBarang::cetakLPLPO');
-$routes->post('/lplpo/create', 'PermintaanBarang::create');
-$routes->get('/lplpo/delete/(:segment)', 'PermintaanBarang::remove/$1');
+// Permintaan Barang
+$routes->get('/cek-pesanan/delete/(:segment)', 'PesananBarang::remove/$1');
 
 // Pesanan Barang
 $routes->get('/data-barang-pesanan/(:segment)', 'PesananBarang::dataBarangPesanan/$1');
