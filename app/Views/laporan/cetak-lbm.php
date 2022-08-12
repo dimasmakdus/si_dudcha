@@ -147,7 +147,7 @@
             <table width="100%">
                 <tr>
                     <td width="80%"></td>
-                    <td>Kepala Gudang,</td>
+                    <td><?= $titleHeader['pimpinan'] ?></td>
                 </tr>
                 <tr style="line-height: 74px;">
                     <td>&nbsp;</td>

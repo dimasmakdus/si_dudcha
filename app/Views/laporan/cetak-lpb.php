@@ -138,14 +138,14 @@
                     </tr>
                     <tr>
                         <td width="75%"></td>
-                        <td>Pimpinan,</td>
+                        <td><?= $titleHeader['pimpinan'] ?></td>
                     </tr>
                     <tr style="line-height: 74px;">
                         <td>&nbsp;</td>
                     </tr>
                     <tr>
                         <td></td>
-                        <td><b><u>Kepala Gudang</u></b></td>
+                        <td><b><u><?= $titleHeader['pimpinan'] ?></u></b></td>
                     </tr>
                 </table>
             <?php } ?>

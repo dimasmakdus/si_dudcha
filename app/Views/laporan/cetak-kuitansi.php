@@ -52,7 +52,7 @@
         </tr>
         <tr>
             <td width="35%"></td>
-            <td>Pimpinan,</td>
+            <td><?= $titleHeader['pimpinan'] ?></td>
             <td></td>
         </tr>
         <tr style="line-height: 74px;">

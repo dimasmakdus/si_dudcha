@@ -163,7 +163,7 @@
       <!-- Brand Logo -->
       <a href="<?= site_url('dashboard') ?>" class="brand-link text-center">
         <h4 class="brand-text font-weight-light">
-          <b>INVENTORY DUDCHA</b>
+          <b>INVENTORY DUDCHAICE</b>
         </h4>
       </a>
 

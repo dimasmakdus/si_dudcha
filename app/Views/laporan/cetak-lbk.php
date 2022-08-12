@@ -143,7 +143,7 @@
                         <td></td>
                         <td>Diserahkan Oleh</td>
                         <td>Diterima Oleh</td>
-                        <td>Kepala Gudang</td>
+                        <td><?= $titleHeader['pimpinan'] ?></td>
                     </tr>
                     <tr style="line-height: 74px;">
                         <td>&nbsp;</td>

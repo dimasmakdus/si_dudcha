@@ -82,9 +82,10 @@ class BaseController extends Controller
     }
 
     public $titleHeader = [
-        'judul' => 'DUDCHA',
-        'alamat' => 'Jl. Cigending, Ujung Berung, Bandung 40611',
-        'telepon' => 'HP. 0813-2281-5963'
+        'judul' => 'DUDCHAICE',
+        'alamat' => 'Jl. Cikoang, Ujung Berung, Bandung',
+        'telepon' => 'HP. 0811-2346-871',
+        'pimpinan' => 'Pimpinan'
     ];
 
     function tanggal($tanggal)
