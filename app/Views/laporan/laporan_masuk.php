@@ -203,13 +203,17 @@
                             <br>
                             <table width="100%">
                                 <tr>
-                                    <td width="80%"></td>
+                                    <td width="30%"></td>
+                                    <td>Diserahkan Oleh</td>
+                                    <td></td>
                                     <td><?= $titleHeader['pimpinan'] ?></td>
                                 </tr>
                                 <tr style="line-height: 74px;">
                                     <td>&nbsp;</td>
                                 </tr>
                                 <tr>
+                                    <td></td>
+                                    <td>________________</td>
                                     <td></td>
                                     <td>________________</td>
                                 </tr>

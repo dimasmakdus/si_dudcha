@@ -142,7 +142,7 @@
                         <td width="10%"></td>
                         <td></td>
                         <td>Diserahkan Oleh</td>
-                        <td>Diterima Oleh</td>
+                        <td></td>
                         <td><?= $titleHeader['pimpinan'] ?></td>
                     </tr>
                     <tr style="line-height: 74px;">
@@ -152,7 +152,7 @@
                         <td></td>
                         <td></td>
                         <td>____________</td>
-                        <td>____________</td>
+                        <td></td>
                         <td>____________</td>
                     </tr>
                 </table>

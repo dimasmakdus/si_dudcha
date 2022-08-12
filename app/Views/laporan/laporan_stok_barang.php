@@ -187,7 +187,7 @@
                                     <tr>
                                         <td width="40%"></td>
                                         <td>Diserahkan Oleh</td>
-                                        <td>Diterima Oleh</td>
+                                        <td></td>
                                         <td><?= $titleHeader['pimpinan'] ?></td>
                                         <td></td>
                                     </tr>
@@ -197,7 +197,7 @@
                                     <tr>
                                         <td></td>
                                         <td>____________</td>
-                                        <td>____________</td>
+                                        <td></td>
                                         <td>____________</td>
                                         <td></td>
                                     </tr>
