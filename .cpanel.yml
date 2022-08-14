@@ -1,6 +1,0 @@
----
-deployment:
-  tasks:
-    - export DEPLOYPATH=/home/websites/dudchaice.my.id
-
-    - /usr/bin/rsync -Paz * $DEPLOYPATH --delete
