@@ -83,7 +83,7 @@ phpunit
 # Composer
 #-------------------------
 # vendor/
-public/
+# public/
 
 #-------------------------
 # IDE / Development Files
