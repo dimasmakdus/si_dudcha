@@ -1,5 +1,0 @@
-##### THIS ALLOWS US TO DEPLOY THE SITE FROM A GIT REPO ######
----
-deployment:
-  tasks:
-    - export DEPLOYPATH=/home/duda9795/public_html/
