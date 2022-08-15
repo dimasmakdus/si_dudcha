@@ -1,0 +1,252 @@
+CRITICAL - 2021-12-20 01:01:20 --> syntax error, unexpected end of file
+#0 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/View/View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#1 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/Common.php(1097): CodeIgniter\View\View->render('permintaan/ceta...', Array, true)
+#2 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/app/Controllers/PermintaanObat.php(22): view('permintaan/ceta...', Array)
+#3 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/CodeIgniter.php(824): App\Controllers\PermintaanObat->cetakLPLPO()
+#4 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PermintaanObat))
+#5 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#7 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#8 {main}
+CRITICAL - 2021-12-20 01:01:43 --> Undefined array key "stok_awal"
+#0 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/app/Views/permintaan/cetak_lplpo.php(239): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array...', '/Applications/X...', 239)
+#1 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/View/View.php(214): include('/Applications/X...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/View/View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/Common.php(1097): CodeIgniter\View\View->render('permintaan/ceta...', Array, true)
+#4 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/app/Controllers/PermintaanObat.php(22): view('permintaan/ceta...', Array)
+#5 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/CodeIgniter.php(824): App\Controllers\PermintaanObat->cetakLPLPO()
+#6 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PermintaanObat))
+#7 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#9 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#10 {main}
+CRITICAL - 2021-12-20 01:10:32 --> Undefined array key 2
+#0 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/app/Controllers/PermintaanObat.php(53): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array...', '/Applications/X...', 53)
+#1 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/app/Controllers/PermintaanObat.php(22): App\Controllers\PermintaanObat->tgl_indo('12')
+#2 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/CodeIgniter.php(824): App\Controllers\PermintaanObat->cetakLPLPO()
+#3 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PermintaanObat))
+#4 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#6 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#7 {main}
+CRITICAL - 2021-12-20 01:12:22 --> A non-numeric value encountered
+#0 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/app/Controllers/PermintaanObat.php(22): CodeIgniter\Debug\Exceptions->errorHandler(2, 'A non-numeric v...', '/Applications/X...', 22)
+#1 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/CodeIgniter.php(824): App\Controllers\PermintaanObat->cetakLPLPO()
+#2 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PermintaanObat))
+#3 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#5 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#6 {main}
+CRITICAL - 2021-12-20 01:18:47 --> Undefined array key 2
+#0 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/app/Controllers/PermintaanObat.php(55): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array...', '/Applications/X...', 55)
+#1 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/app/Controllers/PermintaanObat.php(24): App\Controllers\PermintaanObat->tgl_indo('2021-12')
+#2 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/CodeIgniter.php(824): App\Controllers\PermintaanObat->cetakLPLPO()
+#3 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PermintaanObat))
+#4 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#6 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#7 {main}
+CRITICAL - 2021-12-20 01:34:50 --> Undefined property: App\Controllers\PengeluaranHarian::$pengeluaraModel
+#0 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/app/Controllers/pengeluaranHarian.php(30): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined prope...', '/Applications/X...', 30)
+#1 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/CodeIgniter.php(824): App\Controllers\PengeluaranHarian->cetakLPHO()
+#2 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PengeluaranHarian))
+#3 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#5 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#6 {main}
+CRITICAL - 2021-12-20 01:35:05 --> Undefined variable $getLPLPO
+#0 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/app/Views/permintaan/cetak_lplpo.php(212): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', '/Applications/X...', 212)
+#1 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/View/View.php(214): include('/Applications/X...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/View/View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/Common.php(1097): CodeIgniter\View\View->render('permintaan/ceta...', Array, true)
+#4 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/app/Controllers/pengeluaranHarian.php(39): view('permintaan/ceta...', Array)
+#5 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/CodeIgniter.php(824): App\Controllers\PengeluaranHarian->cetakLPHO()
+#6 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PengeluaranHarian))
+#7 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#9 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#10 {main}
+CRITICAL - 2021-12-20 01:35:32 --> Invalid file: permintaan/cetak_lpho.php
+#0 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/View/View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('permintaan/ceta...')
+#1 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/Common.php(1097): CodeIgniter\View\View->render('permintaan/ceta...', Array, true)
+#2 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/app/Controllers/pengeluaranHarian.php(39): view('permintaan/ceta...', Array)
+#3 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/CodeIgniter.php(824): App\Controllers\PengeluaranHarian->cetakLPHO()
+#4 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PengeluaranHarian))
+#5 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#7 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#8 {main}
+CRITICAL - 2021-12-20 01:35:43 --> Invalid file: pengeluaran/cetak_lpho.php
+#0 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/View/View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('pengeluaran/cet...')
+#1 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/Common.php(1097): CodeIgniter\View\View->render('pengeluaran/cet...', Array, true)
+#2 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/app/Controllers/pengeluaranHarian.php(39): view('pengeluaran/cet...', Array)
+#3 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/CodeIgniter.php(824): App\Controllers\PengeluaranHarian->cetakLPHO()
+#4 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PengeluaranHarian))
+#5 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#7 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#8 {main}
+CRITICAL - 2021-12-20 01:47:29 --> Invalid file: barang-keluar/cetak_lbbk.php
+#0 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/View/View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('barang-keluar/c...')
+#1 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/Common.php(1097): CodeIgniter\View\View->render('barang-keluar/c...', Array, true)
+#2 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/app/Controllers/BuktiKeluar.php(18): view('barang-keluar/c...', Array)
+#3 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/CodeIgniter.php(824): App\Controllers\BuktiKeluar->cetakLBBK()
+#4 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\BuktiKeluar))
+#5 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#7 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#8 {main}
+CRITICAL - 2021-12-20 02:01:08 --> Invalid file: pesanan/cetak_lpo.php
+#0 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/View/View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('pesanan/cetak_l...')
+#1 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/Common.php(1097): CodeIgniter\View\View->render('pesanan/cetak_l...', Array, true)
+#2 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/app/Controllers/PesananObat.php(30): view('pesanan/cetak_l...', Array)
+#3 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/CodeIgniter.php(824): App\Controllers\PesananObat->cetakLPO()
+#4 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PesananObat))
+#5 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#7 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#8 {main}
+CRITICAL - 2021-12-20 19:37:35 --> Trying to access array offset on value of type null
+#0 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/app/Views/pasien/pasien_edit.php(39): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to acces...', '/Applications/X...', 39)
+#1 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/View/View.php(214): include('/Applications/X...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/View/View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/Common.php(1097): CodeIgniter\View\View->render('pasien/pasien_e...', Array, true)
+#4 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/app/Controllers/Pasien.php(39): view('pasien/pasien_e...', Array)
+#5 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/CodeIgniter.php(824): App\Controllers\Pasien->pasienEdit('create')
+#6 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pasien))
+#7 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#9 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#10 {main}
+CRITICAL - 2021-12-20 19:46:42 --> There is no data to insert.
+#0 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/BaseModel.php(718): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('insert')
+#1 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/Model.php(620): CodeIgniter\BaseModel->insert(Array, true)
+#2 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/app/Controllers/Pasien.php(54): CodeIgniter\Model->insert(Array)
+#3 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/CodeIgniter.php(824): App\Controllers\Pasien->create()
+#4 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pasien))
+#5 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#7 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#8 {main}
+ERROR - 2021-12-20 19:48:23 --> Duplicate entry '' for key 'PRIMARY'
+CRITICAL - 2021-12-20 19:48:23 --> Duplicate entry '' for key 'PRIMARY'
+#0 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(292): mysqli->query('INSERT INTO `tb...', 0)
+#1 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/Database/BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tb...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/Database/BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tb...')
+#3 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1759): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tb...', Array, false)
+#4 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/Model.php(239): CodeIgniter\Database\BaseBuilder->insert()
+#5 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/BaseModel.php(738): CodeIgniter\Model->doInsert(Array)
+#6 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/Model.php(620): CodeIgniter\BaseModel->insert(Array, true)
+#7 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/app/Controllers/Pasien.php(54): CodeIgniter\Model->insert(Array)
+#8 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/CodeIgniter.php(824): App\Controllers\Pasien->create()
+#9 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pasien))
+#10 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#12 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#13 {main}
+ERROR - 2021-12-20 19:48:33 --> Duplicate entry '' for key 'PRIMARY'
+CRITICAL - 2021-12-20 19:48:33 --> Duplicate entry '' for key 'PRIMARY'
+#0 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(292): mysqli->query('INSERT INTO `tb...', 0)
+#1 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/Database/BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tb...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/Database/BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tb...')
+#3 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1759): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tb...', Array, false)
+#4 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/Model.php(239): CodeIgniter\Database\BaseBuilder->insert()
+#5 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/BaseModel.php(738): CodeIgniter\Model->doInsert(Array)
+#6 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/Model.php(620): CodeIgniter\BaseModel->insert(Array, true)
+#7 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/app/Controllers/Pasien.php(54): CodeIgniter\Model->insert(Array)
+#8 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/CodeIgniter.php(824): App\Controllers\Pasien->create()
+#9 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pasien))
+#10 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#12 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#13 {main}
+CRITICAL - 2021-12-20 19:49:42 --> Trying to access array offset on value of type null
+#0 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/app/Views/pasien/pasien_edit.php(39): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to acces...', '/Applications/X...', 39)
+#1 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/View/View.php(214): include('/Applications/X...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/View/View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/Common.php(1097): CodeIgniter\View\View->render('pasien/pasien_e...', Array, true)
+#4 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/app/Controllers/Pasien.php(39): view('pasien/pasien_e...', Array)
+#5 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/CodeIgniter.php(824): App\Controllers\Pasien->pasienEdit('delete')
+#6 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pasien))
+#7 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#9 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#10 {main}
+ERROR - 2021-12-20 20:05:09 --> Unknown column 'id' in 'where clause'
+CRITICAL - 2021-12-20 20:05:09 --> Unknown column 'id' in 'where clause'
+#0 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(292): mysqli->query('DELETE FROM `tb...', 0)
+#1 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/Database/BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `tb...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/Database/BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `tb...')
+#3 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(2213): CodeIgniter\Database\BaseConnection->query('DELETE FROM `tb...', Array, false)
+#4 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/Model.php(359): CodeIgniter\Database\BaseBuilder->delete()
+#5 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/BaseModel.php(963): CodeIgniter\Model->doDelete(Array, false)
+#6 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/app/Controllers/Pasien.php(61): CodeIgniter\BaseModel->delete(Array)
+#7 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/CodeIgniter.php(824): App\Controllers\Pasien->remove('000010')
+#8 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pasien))
+#9 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#11 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#12 {main}
+ERROR - 2021-12-20 20:06:06 --> Unknown column 'id' in 'where clause'
+CRITICAL - 2021-12-20 20:06:06 --> Unknown column 'id' in 'where clause'
+#0 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(292): mysqli->query('DELETE FROM `tb...', 0)
+#1 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/Database/BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `tb...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/Database/BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `tb...')
+#3 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(2213): CodeIgniter\Database\BaseConnection->query('DELETE FROM `tb...', Array, false)
+#4 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/Model.php(359): CodeIgniter\Database\BaseBuilder->delete()
+#5 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/BaseModel.php(963): CodeIgniter\Model->doDelete(Array, false)
+#6 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/app/Controllers/Pasien.php(61): CodeIgniter\BaseModel->delete(Array)
+#7 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/CodeIgniter.php(824): App\Controllers\Pasien->remove('000010')
+#8 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pasien))
+#9 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#11 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#12 {main}
+ERROR - 2021-12-20 23:02:46 --> Duplicate entry '' for key 'PRIMARY'
+CRITICAL - 2021-12-20 23:02:46 --> Duplicate entry '' for key 'PRIMARY'
+#0 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(292): mysqli->query('INSERT INTO `tb...', 0)
+#1 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/Database/BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tb...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/Database/BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tb...')
+#3 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1759): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tb...', Array, false)
+#4 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/Model.php(239): CodeIgniter\Database\BaseBuilder->insert()
+#5 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/BaseModel.php(738): CodeIgniter\Model->doInsert(Array)
+#6 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/Model.php(620): CodeIgniter\BaseModel->insert(Array, true)
+#7 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/app/Controllers/Supplier.php(31): CodeIgniter\Model->insert(Array)
+#8 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/CodeIgniter.php(824): App\Controllers\Supplier->create()
+#9 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Supplier))
+#10 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#12 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#13 {main}
+CRITICAL - 2021-12-20 23:04:05 --> Trying to access array offset on value of type null
+#0 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/app/Views/supplier/supplier_edit.php(39): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to acces...', '/Applications/X...', 39)
+#1 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/View/View.php(214): include('/Applications/X...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/View/View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/Common.php(1097): CodeIgniter\View\View->render('supplier/suppli...', Array, true)
+#4 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/app/Controllers/Supplier.php(24): view('supplier/suppli...', Array)
+#5 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/CodeIgniter.php(824): App\Controllers\Supplier->supplierEdit('delete')
+#6 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Supplier))
+#7 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#9 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#10 {main}
+CRITICAL - 2021-12-20 23:04:58 --> Trying to access array offset on value of type null
+#0 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/app/Views/supplier/supplier_edit.php(39): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to acces...', '/Applications/X...', 39)
+#1 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/View/View.php(214): include('/Applications/X...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/View/View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/Common.php(1097): CodeIgniter\View\View->render('supplier/suppli...', Array, true)
+#4 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/app/Controllers/Supplier.php(24): view('supplier/suppli...', Array)
+#5 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/CodeIgniter.php(824): App\Controllers\Supplier->supplierEdit('remove')
+#6 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Supplier))
+#7 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#9 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#10 {main}
+CRITICAL - 2021-12-20 23:51:02 --> Trying to access array offset on value of type null
+#0 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/app/Controllers/StokObat.php(23): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to acces...', '/Applications/X...', 23)
+#1 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/CodeIgniter.php(824): App\Controllers\StokObat->create()
+#2 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\StokObat))
+#3 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#5 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#6 {main}

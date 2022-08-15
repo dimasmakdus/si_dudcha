@@ -1,0 +1,67 @@
+ERROR - 2021-12-19 21:21:58 --> Table 'kelola_obat.tbl_pesanan_obat' doesn't exist
+CRITICAL - 2021-12-19 21:21:58 --> Table 'kelola_obat.tbl_pesanan_obat' doesn't exist
+#0 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/Database/BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/Database/BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1443): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/Model.php(183): CodeIgniter\Database\BaseBuilder->get()
+#5 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/BaseModel.php(584): CodeIgniter\Model->doFindAll(0, 0)
+#6 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/app/Controllers/Dashboard.php(209): CodeIgniter\BaseModel->findAll()
+#7 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/CodeIgniter.php(824): App\Controllers\Dashboard->pesanan_obat()
+#8 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#9 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#11 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#12 {main}
+ERROR - 2021-12-19 21:22:44 --> Table 'kelola_obat.tbl_pesanan_obat' doesn't exist
+CRITICAL - 2021-12-19 21:22:44 --> Table 'kelola_obat.tbl_pesanan_obat' doesn't exist
+#0 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/Database/BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/Database/BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1443): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/Model.php(183): CodeIgniter\Database\BaseBuilder->get()
+#5 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/BaseModel.php(584): CodeIgniter\Model->doFindAll(0, 0)
+#6 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/app/Controllers/Dashboard.php(209): CodeIgniter\BaseModel->findAll()
+#7 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/CodeIgniter.php(824): App\Controllers\Dashboard->pesanan_obat()
+#8 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#9 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#11 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#12 {main}
+CRITICAL - 2021-12-19 22:40:26 --> Undefined variable $getPasien
+#0 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/app/Views/pesanan/pesanan_add.php(66): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', '/Applications/X...', 66)
+#1 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/View/View.php(214): include('/Applications/X...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/View/View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/Common.php(1097): CodeIgniter\View\View->render('pesanan/pesanan...', Array, true)
+#4 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/app/Controllers/PesananObat.php(14): view('pesanan/pesanan...', Array)
+#5 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/CodeIgniter.php(824): App\Controllers\PesananObat->pesananAdd()
+#6 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PesananObat))
+#7 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#9 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#10 {main}
+CRITICAL - 2021-12-19 22:53:48 --> Undefined array key "nama_supploer"
+#0 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/app/Views/pesanan/pesanan_add.php(61): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array...', '/Applications/X...', 61)
+#1 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/View/View.php(214): include('/Applications/X...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/View/View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/Common.php(1097): CodeIgniter\View\View->render('pesanan/pesanan...', Array, true)
+#4 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/app/Controllers/PesananObat.php(15): view('pesanan/pesanan...', Array)
+#5 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/CodeIgniter.php(824): App\Controllers\PesananObat->pesananAdd()
+#6 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PesananObat))
+#7 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#9 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#10 {main}
+CRITICAL - 2021-12-19 23:02:01 --> Array to string conversion
+#0 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/app/Views/templates/adminlte_template.php(274): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Array to string...', '/Applications/X...', 274)
+#1 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/View/View.php(214): include('/Applications/X...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/View/View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/View/View.php(230): CodeIgniter\View\View->render('templates/admin...', Array, true)
+#4 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/Common.php(1097): CodeIgniter\View\View->render('pesanan/pesanan...', Array, true)
+#5 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/app/Controllers/PesananObat.php(15): view('pesanan/pesanan...', Array)
+#6 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/CodeIgniter.php(824): App\Controllers\PesananObat->pesananAdd()
+#7 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PesananObat))
+#8 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#10 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#11 {main}

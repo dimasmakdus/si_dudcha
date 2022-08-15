@@ -1,0 +1,74 @@
+CRITICAL - 2021-12-21 00:06:36 --> Undefined array key "no_rawat"
+#0 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/app/Views/dashboard/resep_obat.php(69): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array...', '/Applications/X...', 69)
+#1 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/View/View.php(214): include('/Applications/X...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/View/View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/Common.php(1097): CodeIgniter\View\View->render('dashboard/resep...', Array, true)
+#4 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/app/Controllers/Dashboard.php(164): view('dashboard/resep...', Array)
+#5 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/CodeIgniter.php(824): App\Controllers\Dashboard->resep_obat()
+#6 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#7 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#9 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#10 {main}
+ERROR - 2021-12-21 22:28:12 --> Error connecting to the database: Connection refused
+CRITICAL - 2021-12-21 22:28:12 --> Unable to connect to the database.
+Main connection [MySQLi]: Connection refused
+#0 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/Database/BaseConnection.php(577): CodeIgniter\Database\BaseConnection->initialize()
+#1 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1443): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/Model.php(183): CodeIgniter\Database\BaseBuilder->get()
+#3 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/BaseModel.php(584): CodeIgniter\Model->doFindAll(0, 0)
+#4 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/app/Controllers/BaseController.php(81): CodeIgniter\BaseModel->findAll()
+#5 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/CodeIgniter.php(802): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+#6 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/CodeIgniter.php(401): CodeIgniter\CodeIgniter->createController()
+#7 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#9 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#10 {main}
+CRITICAL - 2021-12-21 22:46:16 --> Undefined variable $i
+#0 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/app/Views/dashboard/permintaan_obat.php(68): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', '/Applications/X...', 68)
+#1 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/View/View.php(214): include('/Applications/X...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/View/View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/Common.php(1097): CodeIgniter\View\View->render('dashboard/permi...', Array, true)
+#4 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/app/Controllers/Dashboard.php(177): view('dashboard/permi...', Array)
+#5 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/CodeIgniter.php(824): App\Controllers\Dashboard->permintaan_obat()
+#6 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#7 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#9 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#10 {main}
+CRITICAL - 2021-12-21 22:49:32 --> Undefined variable $kodeObat
+#0 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/app/Views/permintaan/permintaanObat_add.php(39): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', '/Applications/X...', 39)
+#1 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/View/View.php(214): include('/Applications/X...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/View/View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/Common.php(1097): CodeIgniter\View\View->render('permintaan/perm...', Array, true)
+#4 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/app/Controllers/PermintaanObat.php(14): view('permintaan/perm...', Array)
+#5 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/CodeIgniter.php(824): App\Controllers\PermintaanObat->permintaanAdd()
+#6 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PermintaanObat))
+#7 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#9 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#10 {main}
+ERROR - 2021-12-21 23:20:25 --> Duplicate entry 'A-282' for key 'PRIMARY'
+CRITICAL - 2021-12-21 23:20:25 --> Duplicate entry 'A-282' for key 'PRIMARY'
+#0 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(292): mysqli->query('INSERT INTO `tb...', 0)
+#1 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/Database/BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tb...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/Database/BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tb...')
+#3 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1759): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tb...', Array, false)
+#4 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/Model.php(239): CodeIgniter\Database\BaseBuilder->insert()
+#5 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/BaseModel.php(738): CodeIgniter\Model->doInsert(Array)
+#6 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/Model.php(620): CodeIgniter\BaseModel->insert(Array, true)
+#7 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/app/Controllers/PermintaanObat.php(53): CodeIgniter\Model->insert(Array)
+#8 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/CodeIgniter.php(824): App\Controllers\PermintaanObat->create()
+#9 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PermintaanObat))
+#10 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#12 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#13 {main}
+CRITICAL - 2021-12-21 23:41:12 --> Undefined array key "kode_obat"
+#0 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/app/Controllers/PermintaanObat.php(17): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array...', '/Applications/X...', 17)
+#1 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/CodeIgniter.php(824): App\Controllers\PermintaanObat->permintaanAdd()
+#2 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PermintaanObat))
+#3 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#5 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#6 {main}

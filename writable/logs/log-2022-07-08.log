@@ -1,0 +1,168 @@
+CRITICAL - 2022-07-08 19:12:24 --> The action you requested is not allowed.
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Security/Security.php(289): CodeIgniter\Security\Exceptions\SecurityException::forDisallowedAction()
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Filters/CSRF.php(53): CodeIgniter\Security\Security->verify(Object(CodeIgniter\HTTP\IncomingRequest))
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Filters/Filters.php(173): CodeIgniter\Filters\CSRF->before(Object(CodeIgniter\HTTP\IncomingRequest), NULL)
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(386): CodeIgniter\Filters\Filters->run('pengguna/update...', 'before')
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#6 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#7 {main}
+CRITICAL - 2022-07-08 19:12:33 --> The action you requested is not allowed.
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Security/Security.php(289): CodeIgniter\Security\Exceptions\SecurityException::forDisallowedAction()
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Filters/CSRF.php(53): CodeIgniter\Security\Security->verify(Object(CodeIgniter\HTTP\IncomingRequest))
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Filters/Filters.php(173): CodeIgniter\Filters\CSRF->before(Object(CodeIgniter\HTTP\IncomingRequest), NULL)
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(386): CodeIgniter\Filters\Filters->run('pengguna/update...', 'before')
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#6 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#7 {main}
+CRITICAL - 2022-07-08 19:12:50 --> The action you requested is not allowed.
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Security/Security.php(289): CodeIgniter\Security\Exceptions\SecurityException::forDisallowedAction()
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Filters/CSRF.php(53): CodeIgniter\Security\Security->verify(Object(CodeIgniter\HTTP\IncomingRequest))
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Filters/Filters.php(173): CodeIgniter\Filters\CSRF->before(Object(CodeIgniter\HTTP\IncomingRequest), NULL)
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(386): CodeIgniter\Filters\Filters->run('pengguna/update...', 'before')
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#6 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#7 {main}
+CRITICAL - 2022-07-08 19:16:29 --> The action you requested is not allowed.
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Security/Security.php(289): CodeIgniter\Security\Exceptions\SecurityException::forDisallowedAction()
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Filters/CSRF.php(53): CodeIgniter\Security\Security->verify(Object(CodeIgniter\HTTP\IncomingRequest))
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Filters/Filters.php(173): CodeIgniter\Filters\CSRF->before(Object(CodeIgniter\HTTP\IncomingRequest), NULL)
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(386): CodeIgniter\Filters\Filters->run('pengguna/update...', 'before')
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#6 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#7 {main}
+CRITICAL - 2022-07-08 19:18:05 --> The action you requested is not allowed.
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Security/Security.php(289): CodeIgniter\Security\Exceptions\SecurityException::forDisallowedAction()
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Filters/CSRF.php(53): CodeIgniter\Security\Security->verify(Object(CodeIgniter\HTTP\IncomingRequest))
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Filters/Filters.php(173): CodeIgniter\Filters\CSRF->before(Object(CodeIgniter\HTTP\IncomingRequest), NULL)
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(386): CodeIgniter\Filters\Filters->run('pengguna/update...', 'before')
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#6 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#7 {main}
+CRITICAL - 2022-07-08 19:19:44 --> The action you requested is not allowed.
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Security/Security.php(289): CodeIgniter\Security\Exceptions\SecurityException::forDisallowedAction()
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Filters/CSRF.php(53): CodeIgniter\Security\Security->verify(Object(CodeIgniter\HTTP\IncomingRequest))
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Filters/Filters.php(173): CodeIgniter\Filters\CSRF->before(Object(CodeIgniter\HTTP\IncomingRequest), NULL)
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(386): CodeIgniter\Filters\Filters->run('updatePasswordU...', 'before')
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#6 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#7 {main}
+CRITICAL - 2022-07-08 19:20:15 --> The action you requested is not allowed.
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Security/Security.php(289): CodeIgniter\Security\Exceptions\SecurityException::forDisallowedAction()
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Filters/CSRF.php(53): CodeIgniter\Security\Security->verify(Object(CodeIgniter\HTTP\IncomingRequest))
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Filters/Filters.php(173): CodeIgniter\Filters\CSRF->before(Object(CodeIgniter\HTTP\IncomingRequest), NULL)
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(386): CodeIgniter\Filters\Filters->run('updatePasswordU...', 'before')
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#6 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#7 {main}
+CRITICAL - 2022-07-08 19:21:00 --> The action you requested is not allowed.
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Security/Security.php(289): CodeIgniter\Security\Exceptions\SecurityException::forDisallowedAction()
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Filters/CSRF.php(53): CodeIgniter\Security\Security->verify(Object(CodeIgniter\HTTP\IncomingRequest))
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Filters/Filters.php(173): CodeIgniter\Filters\CSRF->before(Object(CodeIgniter\HTTP\IncomingRequest), NULL)
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(386): CodeIgniter\Filters\Filters->run('updatePasswordU...', 'before')
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#6 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#7 {main}
+CRITICAL - 2022-07-08 19:30:56 --> The action you requested is not allowed.
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Security/Security.php(289): CodeIgniter\Security\Exceptions\SecurityException::forDisallowedAction()
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Filters/CSRF.php(53): CodeIgniter\Security\Security->verify(Object(CodeIgniter\HTTP\IncomingRequest))
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Filters/Filters.php(173): CodeIgniter\Filters\CSRF->before(Object(CodeIgniter\HTTP\IncomingRequest), NULL)
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(386): CodeIgniter\Filters\Filters->run('updatePasswordU...', 'before')
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#6 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#7 {main}
+CRITICAL - 2022-07-08 19:31:11 --> The action you requested is not allowed.
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Security/Security.php(289): CodeIgniter\Security\Exceptions\SecurityException::forDisallowedAction()
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Filters/CSRF.php(53): CodeIgniter\Security\Security->verify(Object(CodeIgniter\HTTP\IncomingRequest))
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Filters/Filters.php(173): CodeIgniter\Filters\CSRF->before(Object(CodeIgniter\HTTP\IncomingRequest), NULL)
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(386): CodeIgniter\Filters\Filters->run('updatePasswordU...', 'before')
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#6 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#7 {main}
+CRITICAL - 2022-07-08 19:31:49 --> The action you requested is not allowed.
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Security/Security.php(289): CodeIgniter\Security\Exceptions\SecurityException::forDisallowedAction()
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Filters/CSRF.php(53): CodeIgniter\Security\Security->verify(Object(CodeIgniter\HTTP\IncomingRequest))
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Filters/Filters.php(173): CodeIgniter\Filters\CSRF->before(Object(CodeIgniter\HTTP\IncomingRequest), NULL)
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(386): CodeIgniter\Filters\Filters->run('pengguna/update...', 'before')
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#6 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#7 {main}
+CRITICAL - 2022-07-08 19:32:04 --> The action you requested is not allowed.
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Security/Security.php(289): CodeIgniter\Security\Exceptions\SecurityException::forDisallowedAction()
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Filters/CSRF.php(53): CodeIgniter\Security\Security->verify(Object(CodeIgniter\HTTP\IncomingRequest))
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Filters/Filters.php(173): CodeIgniter\Filters\CSRF->before(Object(CodeIgniter\HTTP\IncomingRequest), NULL)
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(386): CodeIgniter\Filters\Filters->run('pengguna/update...', 'before')
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#6 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#7 {main}
+CRITICAL - 2022-07-08 19:33:03 --> The action you requested is not allowed.
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Security/Security.php(289): CodeIgniter\Security\Exceptions\SecurityException::forDisallowedAction()
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Filters/CSRF.php(53): CodeIgniter\Security\Security->verify(Object(CodeIgniter\HTTP\IncomingRequest))
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Filters/Filters.php(173): CodeIgniter\Filters\CSRF->before(Object(CodeIgniter\HTTP\IncomingRequest), NULL)
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(386): CodeIgniter\Filters\Filters->run('pengguna/update...', 'before')
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#6 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#7 {main}
+CRITICAL - 2022-07-08 19:34:18 --> The action you requested is not allowed.
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Security/Security.php(289): CodeIgniter\Security\Exceptions\SecurityException::forDisallowedAction()
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Filters/CSRF.php(53): CodeIgniter\Security\Security->verify(Object(CodeIgniter\HTTP\IncomingRequest))
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Filters/Filters.php(173): CodeIgniter\Filters\CSRF->before(Object(CodeIgniter\HTTP\IncomingRequest), NULL)
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(386): CodeIgniter\Filters\Filters->run('pengguna/update...', 'before')
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#6 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#7 {main}
+CRITICAL - 2022-07-08 19:34:32 --> The action you requested is not allowed.
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Security/Security.php(289): CodeIgniter\Security\Exceptions\SecurityException::forDisallowedAction()
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Filters/CSRF.php(53): CodeIgniter\Security\Security->verify(Object(CodeIgniter\HTTP\IncomingRequest))
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Filters/Filters.php(173): CodeIgniter\Filters\CSRF->before(Object(CodeIgniter\HTTP\IncomingRequest), NULL)
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(386): CodeIgniter\Filters\Filters->run('pengguna/update...', 'before')
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#6 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#7 {main}
+CRITICAL - 2022-07-08 19:36:14 --> The action you requested is not allowed.
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Security/Security.php(289): CodeIgniter\Security\Exceptions\SecurityException::forDisallowedAction()
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Filters/CSRF.php(53): CodeIgniter\Security\Security->verify(Object(CodeIgniter\HTTP\IncomingRequest))
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Filters/Filters.php(173): CodeIgniter\Filters\CSRF->before(Object(CodeIgniter\HTTP\IncomingRequest), NULL)
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(386): CodeIgniter\Filters\Filters->run('pengguna/update...', 'before')
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#6 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#7 {main}
+CRITICAL - 2022-07-08 20:03:29 --> Trying to access array offset on value of type null
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Controllers/Laporan.php(18): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', '/Applications/X...', 18, Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(825): App\Controllers\Laporan->laporan_stok_barang()
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laporan))
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#6 {main}
+CRITICAL - 2022-07-08 20:06:04 --> Trying to access array offset on value of type null
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Controllers/Laporan.php(19): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', '/Applications/X...', 19, Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(825): App\Controllers\Laporan->laporan_stok_barang()
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laporan))
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#6 {main}
+CRITICAL - 2022-07-08 20:06:16 --> Trying to access array offset on value of type null
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Controllers/Laporan.php(20): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', '/Applications/X...', 20, Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(825): App\Controllers\Laporan->laporan_stok_barang()
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laporan))
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#6 {main}

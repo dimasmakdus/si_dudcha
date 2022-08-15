@@ -1,0 +1,14 @@
+ERROR - 2022-03-08 09:50:49 --> Error connecting to the database: Connection refused
+CRITICAL - 2022-03-08 09:50:49 --> Unable to connect to the database.
+Main connection [MySQLi]: Connection refused
+#0 /Applications/WebServer/htdocs/inventori-obat/vendor/codeigniter4/framework/system/Database/BaseConnection.php(577): CodeIgniter\Database\BaseConnection->initialize()
+#1 /Applications/WebServer/htdocs/inventori-obat/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 /Applications/WebServer/htdocs/inventori-obat/vendor/codeigniter4/framework/system/Model.php(183): CodeIgniter\Database\BaseBuilder->get()
+#3 /Applications/WebServer/htdocs/inventori-obat/vendor/codeigniter4/framework/system/BaseModel.php(584): CodeIgniter\Model->doFindAll(0, 0)
+#4 /Applications/WebServer/htdocs/inventori-obat/app/Controllers/BaseController.php(98): CodeIgniter\BaseModel->findAll()
+#5 /Applications/WebServer/htdocs/inventori-obat/vendor/codeigniter4/framework/system/CodeIgniter.php(803): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+#6 /Applications/WebServer/htdocs/inventori-obat/vendor/codeigniter4/framework/system/CodeIgniter.php(403): CodeIgniter\CodeIgniter->createController()
+#7 /Applications/WebServer/htdocs/inventori-obat/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /Applications/WebServer/htdocs/inventori-obat/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#9 /Applications/WebServer/htdocs/inventori-obat/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/W...')
+#10 {main}

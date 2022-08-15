@@ -1,0 +1,726 @@
+ERROR - 2022-07-20 14:21:20 --> Not unique table/alias: 'tbl_satuan_barang'
+CRITICAL - 2022-07-20 14:21:20 --> Not unique table/alias: 'tbl_satuan_barang'
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Database/BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Database/BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Model.php(183): CodeIgniter\Database\BaseBuilder->get()
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/BaseModel.php(584): CodeIgniter\Model->doFindAll(0, 0)
+#6 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Controllers/Dashboard.php(243): CodeIgniter\BaseModel->findAll()
+#7 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(825): App\Controllers\Dashboard->data_barang()
+#8 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#9 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#11 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#12 {main}
+ERROR - 2022-07-20 14:21:40 --> Not unique table/alias: 'tbl_satuan_barang'
+CRITICAL - 2022-07-20 14:21:40 --> Not unique table/alias: 'tbl_satuan_barang'
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Database/BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Database/BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Model.php(183): CodeIgniter\Database\BaseBuilder->get()
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/BaseModel.php(584): CodeIgniter\Model->doFindAll(0, 0)
+#6 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Controllers/Dashboard.php(243): CodeIgniter\BaseModel->findAll()
+#7 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(825): App\Controllers\Dashboard->data_barang()
+#8 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#9 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#11 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#12 {main}
+ERROR - 2022-07-20 14:22:31 --> Not unique table/alias: 'tbl_satuan_barang'
+CRITICAL - 2022-07-20 14:22:31 --> Not unique table/alias: 'tbl_satuan_barang'
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Database/BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Database/BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Model.php(183): CodeIgniter\Database\BaseBuilder->get()
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/BaseModel.php(584): CodeIgniter\Model->doFindAll(0, 0)
+#6 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Controllers/Dashboard.php(243): CodeIgniter\BaseModel->findAll()
+#7 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(825): App\Controllers\Dashboard->data_barang()
+#8 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#9 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#11 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#12 {main}
+ERROR - 2022-07-20 14:22:58 --> Not unique table/alias: 'tbl_satuan_barang'
+CRITICAL - 2022-07-20 14:22:58 --> Not unique table/alias: 'tbl_satuan_barang'
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Database/BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Database/BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Model.php(183): CodeIgniter\Database\BaseBuilder->get()
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/BaseModel.php(584): CodeIgniter\Model->doFindAll(0, 0)
+#6 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Controllers/Dashboard.php(243): CodeIgniter\BaseModel->findAll()
+#7 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(825): App\Controllers\Dashboard->data_barang()
+#8 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#9 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#11 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#12 {main}
+ERROR - 2022-07-20 14:23:31 --> Not unique table/alias: 'tbl_barang'
+CRITICAL - 2022-07-20 14:23:31 --> Not unique table/alias: 'tbl_barang'
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Database/BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Database/BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Model.php(183): CodeIgniter\Database\BaseBuilder->get()
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/BaseModel.php(584): CodeIgniter\Model->doFindAll(0, 0)
+#6 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Controllers/Dashboard.php(243): CodeIgniter\BaseModel->findAll()
+#7 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(825): App\Controllers\Dashboard->data_barang()
+#8 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#9 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#11 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#12 {main}
+ERROR - 2022-07-20 14:24:40 --> Not unique table/alias: 'tbl_satuan_barang'
+CRITICAL - 2022-07-20 14:24:40 --> Not unique table/alias: 'tbl_satuan_barang'
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Database/BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Database/BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Model.php(183): CodeIgniter\Database\BaseBuilder->get()
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/BaseModel.php(584): CodeIgniter\Model->doFindAll(0, 0)
+#6 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Controllers/Dashboard.php(243): CodeIgniter\BaseModel->findAll()
+#7 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(825): App\Controllers\Dashboard->data_barang()
+#8 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#9 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#11 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#12 {main}
+ERROR - 2022-07-20 14:24:44 --> Not unique table/alias: 'tbl_satuan_barang'
+CRITICAL - 2022-07-20 14:24:44 --> Not unique table/alias: 'tbl_satuan_barang'
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Database/BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Database/BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Model.php(183): CodeIgniter\Database\BaseBuilder->get()
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/BaseModel.php(584): CodeIgniter\Model->doFindAll(0, 0)
+#6 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Controllers/Dashboard.php(243): CodeIgniter\BaseModel->findAll()
+#7 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(825): App\Controllers\Dashboard->data_barang()
+#8 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#9 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#11 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#12 {main}
+ERROR - 2022-07-20 14:24:49 --> Not unique table/alias: 'tbl_satuan_barang'
+CRITICAL - 2022-07-20 14:24:49 --> Not unique table/alias: 'tbl_satuan_barang'
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Database/BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Database/BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Model.php(183): CodeIgniter\Database\BaseBuilder->get()
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/BaseModel.php(584): CodeIgniter\Model->doFindAll(0, 0)
+#6 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Controllers/Dashboard.php(243): CodeIgniter\BaseModel->findAll()
+#7 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(825): App\Controllers\Dashboard->data_barang()
+#8 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#9 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#11 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#12 {main}
+ERROR - 2022-07-20 14:25:17 --> Not unique table/alias: 'tbl_satuan_barang'
+CRITICAL - 2022-07-20 14:25:17 --> Not unique table/alias: 'tbl_satuan_barang'
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Database/BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Database/BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Model.php(183): CodeIgniter\Database\BaseBuilder->get()
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/BaseModel.php(584): CodeIgniter\Model->doFindAll(0, 0)
+#6 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Controllers/Dashboard.php(243): CodeIgniter\BaseModel->findAll()
+#7 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(825): App\Controllers\Dashboard->data_barang()
+#8 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#9 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#11 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#12 {main}
+ERROR - 2022-07-20 14:34:23 --> Not unique table/alias: 'tbl_satuan_barang'
+CRITICAL - 2022-07-20 14:34:23 --> Not unique table/alias: 'tbl_satuan_barang'
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Database/BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Database/BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Model.php(183): CodeIgniter\Database\BaseBuilder->get()
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/BaseModel.php(584): CodeIgniter\Model->doFindAll(0, 0)
+#6 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Controllers/Dashboard.php(243): CodeIgniter\BaseModel->findAll()
+#7 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(825): App\Controllers\Dashboard->data_barang()
+#8 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#9 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#11 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#12 {main}
+ERROR - 2022-07-20 15:27:21 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'AS `satuan_jual`
+ORDER BY `kode_barang` ASC' at line 3
+CRITICAL - 2022-07-20 15:27:21 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'AS `satuan_jual`
+ORDER BY `kode_barang` ASC' at line 3
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Database/BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Database/BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Model.php(183): CodeIgniter\Database\BaseBuilder->get()
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/BaseModel.php(584): CodeIgniter\Model->doFindAll(0, 0)
+#6 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Controllers/PesananBarang.php(59): CodeIgniter\BaseModel->findAll()
+#7 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(825): App\Controllers\PesananBarang->pesananAdd()
+#8 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PesananBarang))
+#9 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#11 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#12 {main}
+ERROR - 2022-07-20 15:27:59 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'AS `satuan_beli`
+ORDER BY `kode_barang` ASC' at line 3
+CRITICAL - 2022-07-20 15:27:59 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'AS `satuan_beli`
+ORDER BY `kode_barang` ASC' at line 3
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Database/BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Database/BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Model.php(183): CodeIgniter\Database\BaseBuilder->get()
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/BaseModel.php(584): CodeIgniter\Model->doFindAll(0, 0)
+#6 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Controllers/PesananBarang.php(59): CodeIgniter\BaseModel->findAll()
+#7 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(825): App\Controllers\PesananBarang->pesananAdd()
+#8 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PesananBarang))
+#9 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#11 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#12 {main}
+CRITICAL - 2022-07-20 15:34:14 --> Undefined variable: barang_kosong
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Controllers/PesananBarang.php(75): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', '/Applications/X...', 75, Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(825): App\Controllers\PesananBarang->pesananAdd()
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PesananBarang))
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#6 {main}
+CRITICAL - 2022-07-20 15:38:00 --> Undefined variable: kosong
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Views/pesanan/pesanan_add.php(337): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', '/Applications/X...', 337, Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(210): include('/Applications/X...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Common.php(1089): CodeIgniter\View\View->render('pesanan/pesanan...', Array, true)
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Controllers/PesananBarang.php(80): view('pesanan/pesanan...', Array)
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(825): App\Controllers\PesananBarang->pesananAdd()
+#6 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PesananBarang))
+#7 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#9 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#10 {main}
+CRITICAL - 2022-07-20 15:38:23 --> Undefined variable: kosong
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Views/pesanan/pesanan_add.php(337): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', '/Applications/X...', 337, Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(210): include('/Applications/X...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Common.php(1089): CodeIgniter\View\View->render('pesanan/pesanan...', Array, true)
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Controllers/PesananBarang.php(80): view('pesanan/pesanan...', Array)
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(825): App\Controllers\PesananBarang->pesananAdd()
+#6 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PesananBarang))
+#7 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#9 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#10 {main}
+CRITICAL - 2022-07-20 15:38:46 --> Undefined variable: kosong
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Views/pesanan/pesanan_add.php(337): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', '/Applications/X...', 337, Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(210): include('/Applications/X...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Common.php(1089): CodeIgniter\View\View->render('pesanan/pesanan...', Array, true)
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Controllers/PesananBarang.php(81): view('pesanan/pesanan...', Array)
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(825): App\Controllers\PesananBarang->pesananAdd()
+#6 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PesananBarang))
+#7 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#9 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#10 {main}
+CRITICAL - 2022-07-20 15:38:56 --> Undefined variable: kosong
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Views/pesanan/pesanan_add.php(337): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', '/Applications/X...', 337, Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(210): include('/Applications/X...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Common.php(1089): CodeIgniter\View\View->render('pesanan/pesanan...', Array, true)
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Controllers/PesananBarang.php(80): view('pesanan/pesanan...', Array)
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(825): App\Controllers\PesananBarang->pesananAdd()
+#6 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PesananBarang))
+#7 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#9 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#10 {main}
+CRITICAL - 2022-07-20 15:39:09 --> Undefined variable: barang_kosong
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Controllers/PesananBarang.php(77): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', '/Applications/X...', 77, Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(825): App\Controllers\PesananBarang->pesananAdd()
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PesananBarang))
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#6 {main}
+CRITICAL - 2022-07-20 15:39:26 --> Undefined variable: kosong
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Views/pesanan/pesanan_add.php(337): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', '/Applications/X...', 337, Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(210): include('/Applications/X...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Common.php(1089): CodeIgniter\View\View->render('pesanan/pesanan...', Array, true)
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Controllers/PesananBarang.php(80): view('pesanan/pesanan...', Array)
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(825): App\Controllers\PesananBarang->pesananAdd()
+#6 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PesananBarang))
+#7 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#9 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#10 {main}
+CRITICAL - 2022-07-20 15:40:04 --> Undefined variable: kosong
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Views/pesanan/pesanan_add.php(337): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', '/Applications/X...', 337, Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(210): include('/Applications/X...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Common.php(1089): CodeIgniter\View\View->render('pesanan/pesanan...', Array, true)
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Controllers/PesananBarang.php(80): view('pesanan/pesanan...', Array)
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(825): App\Controllers\PesananBarang->pesananAdd()
+#6 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PesananBarang))
+#7 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#9 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#10 {main}
+CRITICAL - 2022-07-20 15:41:13 --> Undefined variable: kosong
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Views/pesanan/pesanan_add.php(337): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', '/Applications/X...', 337, Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(210): include('/Applications/X...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Common.php(1089): CodeIgniter\View\View->render('pesanan/pesanan...', Array, true)
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Controllers/PesananBarang.php(81): view('pesanan/pesanan...', Array)
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(825): App\Controllers\PesananBarang->pesananAdd()
+#6 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PesananBarang))
+#7 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#9 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#10 {main}
+CRITICAL - 2022-07-20 15:41:26 --> Undefined variable: kosong
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Views/pesanan/pesanan_add.php(337): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', '/Applications/X...', 337, Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(210): include('/Applications/X...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Common.php(1089): CodeIgniter\View\View->render('pesanan/pesanan...', Array, true)
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Controllers/PesananBarang.php(81): view('pesanan/pesanan...', Array)
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(825): App\Controllers\PesananBarang->pesananAdd()
+#6 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PesananBarang))
+#7 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#9 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#10 {main}
+CRITICAL - 2022-07-20 15:41:48 --> Undefined variable: kosong
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Views/pesanan/pesanan_add.php(337): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', '/Applications/X...', 337, Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(210): include('/Applications/X...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Common.php(1089): CodeIgniter\View\View->render('pesanan/pesanan...', Array, true)
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Controllers/PesananBarang.php(81): view('pesanan/pesanan...', Array)
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(825): App\Controllers\PesananBarang->pesananAdd()
+#6 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PesananBarang))
+#7 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#9 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#10 {main}
+CRITICAL - 2022-07-20 15:42:18 --> Undefined variable: kosong
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Views/pesanan/pesanan_add.php(337): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', '/Applications/X...', 337, Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(210): include('/Applications/X...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Common.php(1089): CodeIgniter\View\View->render('pesanan/pesanan...', Array, true)
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Controllers/PesananBarang.php(81): view('pesanan/pesanan...', Array)
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(825): App\Controllers\PesananBarang->pesananAdd()
+#6 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PesananBarang))
+#7 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#9 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#10 {main}
+CRITICAL - 2022-07-20 15:44:12 --> Undefined variable: kosong
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Views/pesanan/pesanan_add.php(337): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', '/Applications/X...', 337, Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(210): include('/Applications/X...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Common.php(1089): CodeIgniter\View\View->render('pesanan/pesanan...', Array, true)
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Controllers/PesananBarang.php(80): view('pesanan/pesanan...', Array)
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(825): App\Controllers\PesananBarang->pesananAdd()
+#6 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PesananBarang))
+#7 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#9 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#10 {main}
+CRITICAL - 2022-07-20 15:45:01 --> Undefined variable: kosong
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Views/pesanan/pesanan_add.php(337): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', '/Applications/X...', 337, Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(210): include('/Applications/X...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Common.php(1089): CodeIgniter\View\View->render('pesanan/pesanan...', Array, true)
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Controllers/PesananBarang.php(80): view('pesanan/pesanan...', Array)
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(825): App\Controllers\PesananBarang->pesananAdd()
+#6 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PesananBarang))
+#7 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#9 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#10 {main}
+CRITICAL - 2022-07-20 15:45:02 --> Undefined variable: kosong
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Views/pesanan/pesanan_add.php(337): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', '/Applications/X...', 337, Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(210): include('/Applications/X...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Common.php(1089): CodeIgniter\View\View->render('pesanan/pesanan...', Array, true)
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Controllers/PesananBarang.php(80): view('pesanan/pesanan...', Array)
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(825): App\Controllers\PesananBarang->pesananAdd()
+#6 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PesananBarang))
+#7 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#9 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#10 {main}
+CRITICAL - 2022-07-20 15:45:02 --> Undefined variable: kosong
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Views/pesanan/pesanan_add.php(337): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', '/Applications/X...', 337, Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(210): include('/Applications/X...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Common.php(1089): CodeIgniter\View\View->render('pesanan/pesanan...', Array, true)
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Controllers/PesananBarang.php(80): view('pesanan/pesanan...', Array)
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(825): App\Controllers\PesananBarang->pesananAdd()
+#6 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PesananBarang))
+#7 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#9 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#10 {main}
+CRITICAL - 2022-07-20 15:45:02 --> Undefined variable: kosong
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Views/pesanan/pesanan_add.php(337): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', '/Applications/X...', 337, Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(210): include('/Applications/X...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Common.php(1089): CodeIgniter\View\View->render('pesanan/pesanan...', Array, true)
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Controllers/PesananBarang.php(80): view('pesanan/pesanan...', Array)
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(825): App\Controllers\PesananBarang->pesananAdd()
+#6 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PesananBarang))
+#7 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#9 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#10 {main}
+CRITICAL - 2022-07-20 15:45:02 --> Undefined variable: kosong
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Views/pesanan/pesanan_add.php(337): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', '/Applications/X...', 337, Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(210): include('/Applications/X...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Common.php(1089): CodeIgniter\View\View->render('pesanan/pesanan...', Array, true)
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Controllers/PesananBarang.php(80): view('pesanan/pesanan...', Array)
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(825): App\Controllers\PesananBarang->pesananAdd()
+#6 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PesananBarang))
+#7 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#9 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#10 {main}
+CRITICAL - 2022-07-20 15:45:20 --> Undefined variable: kosong
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Views/pesanan/pesanan_add.php(337): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', '/Applications/X...', 337, Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(210): include('/Applications/X...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Common.php(1089): CodeIgniter\View\View->render('pesanan/pesanan...', Array, true)
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Controllers/PesananBarang.php(80): view('pesanan/pesanan...', Array)
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(825): App\Controllers\PesananBarang->pesananAdd()
+#6 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PesananBarang))
+#7 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#9 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#10 {main}
+CRITICAL - 2022-07-20 15:45:42 --> Undefined variable: kosong
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Views/pesanan/pesanan_add.php(337): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', '/Applications/X...', 337, Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(210): include('/Applications/X...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Common.php(1089): CodeIgniter\View\View->render('pesanan/pesanan...', Array, true)
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Controllers/PesananBarang.php(80): view('pesanan/pesanan...', Array)
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(825): App\Controllers\PesananBarang->pesananAdd()
+#6 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PesananBarang))
+#7 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#9 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#10 {main}
+CRITICAL - 2022-07-20 15:46:15 --> Undefined variable: kosong
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Views/pesanan/pesanan_add.php(337): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', '/Applications/X...', 337, Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(210): include('/Applications/X...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Common.php(1089): CodeIgniter\View\View->render('pesanan/pesanan...', Array, true)
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Controllers/PesananBarang.php(80): view('pesanan/pesanan...', Array)
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(825): App\Controllers\PesananBarang->pesananAdd()
+#6 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PesananBarang))
+#7 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#9 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#10 {main}
+CRITICAL - 2022-07-20 15:48:17 --> Undefined variable: barang_kosong
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Controllers/PesananBarang.php(78): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', '/Applications/X...', 78, Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(825): App\Controllers\PesananBarang->pesananAdd()
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PesananBarang))
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#6 {main}
+CRITICAL - 2022-07-20 15:49:22 --> Undefined variable: kosong
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Views/pesanan/pesanan_add.php(339): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', '/Applications/X...', 339, Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(210): include('/Applications/X...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Common.php(1089): CodeIgniter\View\View->render('pesanan/pesanan...', Array, true)
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Controllers/PesananBarang.php(80): view('pesanan/pesanan...', Array)
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(825): App\Controllers\PesananBarang->pesananAdd()
+#6 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PesananBarang))
+#7 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#9 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#10 {main}
+CRITICAL - 2022-07-20 15:50:19 --> Undefined variable: kosong
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Views/pesanan/pesanan_add.php(339): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', '/Applications/X...', 339, Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(210): include('/Applications/X...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Common.php(1089): CodeIgniter\View\View->render('pesanan/pesanan...', Array, true)
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Controllers/PesananBarang.php(80): view('pesanan/pesanan...', Array)
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(825): App\Controllers\PesananBarang->pesananAdd()
+#6 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PesananBarang))
+#7 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#9 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#10 {main}
+CRITICAL - 2022-07-20 15:51:04 --> Undefined variable: kosong
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Views/pesanan/pesanan_add.php(339): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', '/Applications/X...', 339, Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(210): include('/Applications/X...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Common.php(1089): CodeIgniter\View\View->render('pesanan/pesanan...', Array, true)
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Controllers/PesananBarang.php(80): view('pesanan/pesanan...', Array)
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(825): App\Controllers\PesananBarang->pesananAdd()
+#6 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PesananBarang))
+#7 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#9 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#10 {main}
+ERROR - 2022-07-20 16:43:53 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'AS satuan_beli
+WHERE `tbl_barang`.`kode_barang` = 'GFK0006'
+ORDER BY `kode_ba...' at line 3
+CRITICAL - 2022-07-20 16:43:53 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'AS satuan_beli
+WHERE `tbl_barang`.`kode_barang` = 'GFK0006'
+ORDER BY `kode_ba...' at line 3
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Database/BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Database/BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Model.php(142): CodeIgniter\Database\BaseBuilder->get()
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/BaseModel.php(523): CodeIgniter\Model->doFind(true, 'GFK0006')
+#6 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Controllers/PesananBarang.php(21): CodeIgniter\BaseModel->find('GFK0006')
+#7 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(825): App\Controllers\PesananBarang->dataBarangPesanan('GFK0006')
+#8 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PesananBarang))
+#9 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#11 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#12 {main}
+ERROR - 2022-07-20 16:43:57 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'AS satuan_beli
+WHERE `tbl_barang`.`kode_barang` = 'GFK0009'
+ORDER BY `kode_ba...' at line 3
+CRITICAL - 2022-07-20 16:43:57 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'AS satuan_beli
+WHERE `tbl_barang`.`kode_barang` = 'GFK0009'
+ORDER BY `kode_ba...' at line 3
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Database/BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Database/BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Model.php(142): CodeIgniter\Database\BaseBuilder->get()
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/BaseModel.php(523): CodeIgniter\Model->doFind(true, 'GFK0009')
+#6 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Controllers/PesananBarang.php(21): CodeIgniter\BaseModel->find('GFK0009')
+#7 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(825): App\Controllers\PesananBarang->dataBarangPesanan('GFK0009')
+#8 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PesananBarang))
+#9 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#11 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#12 {main}
+ERROR - 2022-07-20 16:46:07 --> Unknown column 'tbl_satuan_barang.satuan_barang_id' in 'on clause'
+CRITICAL - 2022-07-20 16:46:07 --> Unknown column 'tbl_satuan_barang.satuan_barang_id' in 'on clause'
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Database/BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Database/BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Model.php(142): CodeIgniter\Database\BaseBuilder->get()
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/BaseModel.php(523): CodeIgniter\Model->doFind(true, 'GFK0007')
+#6 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Controllers/PesananBarang.php(21): CodeIgniter\BaseModel->find('GFK0007')
+#7 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(825): App\Controllers\PesananBarang->dataBarangPesanan('GFK0007')
+#8 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PesananBarang))
+#9 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#11 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#12 {main}
+CRITICAL - 2022-07-20 16:53:11 --> Undefined variable: barang_kosong
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Controllers/PesananBarang.php(77): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', '/Applications/X...', 77, Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(825): App\Controllers\PesananBarang->pesananAdd()
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PesananBarang))
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#6 {main}
+CRITICAL - 2022-07-20 16:53:23 --> Undefined variable: barang_kosong
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Controllers/PesananBarang.php(77): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', '/Applications/X...', 77, Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(825): App\Controllers\PesananBarang->pesananAdd()
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PesananBarang))
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#6 {main}
+CRITICAL - 2022-07-20 17:20:51 --> Trying to access array offset on value of type null
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Controllers/PesananBarang.php(169): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', '/Applications/X...', 169, Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(825): App\Controllers\PesananBarang->create()
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PesananBarang))
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#6 {main}
+CRITICAL - 2022-07-20 17:33:03 --> Trying to access array offset on value of type null
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Controllers/PesananBarang.php(170): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', '/Applications/X...', 170, Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(825): App\Controllers\PesananBarang->create()
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PesananBarang))
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#6 {main}
+CRITICAL - 2022-07-20 17:34:10 --> Trying to access array offset on value of type null
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Controllers/PesananBarang.php(170): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', '/Applications/X...', 170, Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(825): App\Controllers\PesananBarang->create()
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PesananBarang))
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#6 {main}
+CRITICAL - 2022-07-20 20:50:55 --> Trying to access array offset on value of type null
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Controllers/BarangMasuk.php(95): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', '/Applications/X...', 95, Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(825): App\Controllers\BarangMasuk->create()
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\BarangMasuk))
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#6 {main}
+CRITICAL - 2022-07-20 20:51:05 --> The action you requested is not allowed.
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Security/Security.php(289): CodeIgniter\Security\Exceptions\SecurityException::forDisallowedAction()
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Filters/CSRF.php(53): CodeIgniter\Security\Security->verify(Object(CodeIgniter\HTTP\IncomingRequest))
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Filters/Filters.php(173): CodeIgniter\Filters\CSRF->before(Object(CodeIgniter\HTTP\IncomingRequest), NULL)
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(386): CodeIgniter\Filters\Filters->run('barang-masuk/cr...', 'before')
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#6 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#7 {main}
+CRITICAL - 2022-07-20 20:51:39 --> Trying to access array offset on value of type null
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Controllers/BarangMasuk.php(95): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', '/Applications/X...', 95, Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(825): App\Controllers\BarangMasuk->create()
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\BarangMasuk))
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#6 {main}
+CRITICAL - 2022-07-20 21:00:33 --> Undefined index: stok_pemesanan
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Views/dashboard/barang_masuk.php(250): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', '/Applications/X...', 250, Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(210): include('/Applications/X...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Common.php(1089): CodeIgniter\View\View->render('dashboard/baran...', Array, true)
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Controllers/Dashboard.php(383): view('dashboard/baran...', Array)
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(825): App\Controllers\Dashboard->barang_masuk()
+#6 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#7 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#9 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#10 {main}
+CRITICAL - 2022-07-20 21:01:40 --> Undefined index: stok_pemesanan
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Views/dashboard/barang_masuk.php(250): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', '/Applications/X...', 250, Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(210): include('/Applications/X...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Common.php(1089): CodeIgniter\View\View->render('dashboard/baran...', Array, true)
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Controllers/Dashboard.php(383): view('dashboard/baran...', Array)
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(825): App\Controllers\Dashboard->barang_masuk()
+#6 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#7 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#9 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#10 {main}
+CRITICAL - 2022-07-20 21:01:41 --> Undefined index: stok_pemesanan
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Views/dashboard/barang_masuk.php(250): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', '/Applications/X...', 250, Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(210): include('/Applications/X...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Common.php(1089): CodeIgniter\View\View->render('dashboard/baran...', Array, true)
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Controllers/Dashboard.php(383): view('dashboard/baran...', Array)
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(825): App\Controllers\Dashboard->barang_masuk()
+#6 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#7 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#9 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#10 {main}
+CRITICAL - 2022-07-20 21:01:41 --> Undefined index: stok_pemesanan
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Views/dashboard/barang_masuk.php(250): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', '/Applications/X...', 250, Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(210): include('/Applications/X...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Common.php(1089): CodeIgniter\View\View->render('dashboard/baran...', Array, true)
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Controllers/Dashboard.php(383): view('dashboard/baran...', Array)
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(825): App\Controllers\Dashboard->barang_masuk()
+#6 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#7 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#9 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#10 {main}
+CRITICAL - 2022-07-20 21:02:11 --> Undefined index: stok_pemesanan
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Views/dashboard/barang_masuk.php(250): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', '/Applications/X...', 250, Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(210): include('/Applications/X...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Common.php(1089): CodeIgniter\View\View->render('dashboard/baran...', Array, true)
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Controllers/Dashboard.php(383): view('dashboard/baran...', Array)
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(825): App\Controllers\Dashboard->barang_masuk()
+#6 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#7 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#9 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#10 {main}
+CRITICAL - 2022-07-20 21:02:13 --> Undefined index: stok_pemesanan
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Views/dashboard/barang_masuk.php(250): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', '/Applications/X...', 250, Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(210): include('/Applications/X...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Common.php(1089): CodeIgniter\View\View->render('dashboard/baran...', Array, true)
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Controllers/Dashboard.php(383): view('dashboard/baran...', Array)
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(825): App\Controllers\Dashboard->barang_masuk()
+#6 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#7 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#9 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#10 {main}
+CRITICAL - 2022-07-20 21:02:42 --> Undefined index: stok_pemesanan
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Views/dashboard/barang_masuk.php(255): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', '/Applications/X...', 255, Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(210): include('/Applications/X...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Common.php(1089): CodeIgniter\View\View->render('dashboard/baran...', Array, true)
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Controllers/Dashboard.php(383): view('dashboard/baran...', Array)
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(825): App\Controllers\Dashboard->barang_masuk()
+#6 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#7 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#9 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#10 {main}
+CRITICAL - 2022-07-20 21:02:43 --> Undefined index: stok_pemesanan
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Views/dashboard/barang_masuk.php(255): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', '/Applications/X...', 255, Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(210): include('/Applications/X...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Common.php(1089): CodeIgniter\View\View->render('dashboard/baran...', Array, true)
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Controllers/Dashboard.php(383): view('dashboard/baran...', Array)
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(825): App\Controllers\Dashboard->barang_masuk()
+#6 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#7 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#9 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#10 {main}
+CRITICAL - 2022-07-20 21:33:01 --> Undefined index: stok_pemesanan
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Views/laporan/laporan_masuk.php(121): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', '/Applications/X...', 121, Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(210): include('/Applications/X...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Common.php(1089): CodeIgniter\View\View->render('laporan/laporan...', Array, true)
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Controllers/Laporan.php(219): view('laporan/laporan...', Array)
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(825): App\Controllers\Laporan->laporan_masuk()
+#6 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laporan))
+#7 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#9 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#10 {main}
+CRITICAL - 2022-07-20 21:33:51 --> Undefined index: stok_pemesanan
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Views/laporan/cetak-lbm.php(66): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', '/Applications/X...', 66, Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(210): include('/Applications/X...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Common.php(1089): CodeIgniter\View\View->render('laporan/cetak-l...', Array, true)
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Controllers/Laporan.php(228): view('laporan/cetak-l...', Array)
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(825): App\Controllers\Laporan->cetak_lbm()
+#6 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laporan))
+#7 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#9 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#10 {main}
+CRITICAL - 2022-07-20 21:34:21 --> Trying to access array offset on value of type null
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Controllers/Laporan.php(38): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', '/Applications/X...', 38, Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(825): App\Controllers\Laporan->laporan_stok_barang()
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laporan))
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#6 {main}
+CRITICAL - 2022-07-20 21:35:39 --> Trying to access array offset on value of type null
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Controllers/Laporan.php(169): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', '/Applications/X...', 169, Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(825): App\Controllers\Laporan->cetak_lpo()
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laporan))
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#6 {main}

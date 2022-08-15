@@ -1,0 +1,589 @@
+CRITICAL - 2022-06-25 00:00:04 --> Undefined property: App\Controllers\Dashboard::$ambilBarangModel
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Controllers/Dashboard.php(291): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', '/Applications/X...', 291, Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(825): App\Controllers\Dashboard->penjualan_barang()
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#6 {main}
+CRITICAL - 2022-06-25 00:00:18 --> Undefined property: App\Controllers\Dashboard::$ambilBarangModel
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Controllers/Dashboard.php(291): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', '/Applications/X...', 291, Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(825): App\Controllers\Dashboard->penjualan_barang()
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#6 {main}
+CRITICAL - 2022-06-25 00:00:19 --> Undefined property: App\Controllers\Dashboard::$ambilBarangModel
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Controllers/Dashboard.php(291): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', '/Applications/X...', 291, Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(825): App\Controllers\Dashboard->penjualan_barang()
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#6 {main}
+CRITICAL - 2022-06-25 00:08:42 --> Undefined index: no_resep
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Controllers/PenjualanBarang.php(82): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', '/Applications/X...', 82, Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(825): App\Controllers\PenjualanBarang->create()
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PenjualanBarang))
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#6 {main}
+CRITICAL - 2022-06-25 00:18:29 --> Undefined index: status_pasien
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Views/dashboard/riwayat_penjualan_barang.php(128): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', '/Applications/X...', 128, Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(210): include('/Applications/X...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Common.php(1089): CodeIgniter\View\View->render('dashboard/riway...', Array, true)
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Controllers/Dashboard.php(330): view('dashboard/riway...', Array)
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(825): App\Controllers\Dashboard->riwayat_penjualan_barang()
+#6 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#7 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#9 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#10 {main}
+CRITICAL - 2022-06-25 00:19:44 --> Undefined index: dosis_aturan_barang
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Views/dashboard/riwayat_penjualan_barang.php(158): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', '/Applications/X...', 158, Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(210): include('/Applications/X...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Common.php(1089): CodeIgniter\View\View->render('dashboard/riway...', Array, true)
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Controllers/Dashboard.php(330): view('dashboard/riway...', Array)
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(825): App\Controllers\Dashboard->riwayat_penjualan_barang()
+#6 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#7 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#9 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#10 {main}
+ERROR - 2022-06-25 00:22:00 --> Unknown column 'tbl_barang.satuan' in 'on clause'
+CRITICAL - 2022-06-25 00:22:00 --> Unknown column 'tbl_barang.satuan' in 'on clause'
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Database/BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Database/BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Model.php(183): CodeIgniter\Database\BaseBuilder->get()
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/BaseModel.php(584): CodeIgniter\Model->doFindAll(0, 0)
+#6 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Controllers/Dashboard.php(331): CodeIgniter\BaseModel->findAll()
+#7 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(825): App\Controllers\Dashboard->riwayat_penjualan_barang()
+#8 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#9 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#11 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#12 {main}
+CRITICAL - 2022-06-25 00:30:45 --> Undefined property: App\Controllers\Dashboard::$ambilBarangModel
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Controllers/Dashboard.php(30): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', '/Applications/X...', 30, Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(825): App\Controllers\Dashboard->index()
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#6 {main}
+CRITICAL - 2022-06-25 00:30:59 --> Undefined property: App\Controllers\Dashboard::$ambilBarangDetailModel
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Controllers/Dashboard.php(34): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', '/Applications/X...', 34, Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(825): App\Controllers\Dashboard->index()
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#6 {main}
+CRITICAL - 2022-06-25 00:50:02 --> Undefined index: satuan_barang_name
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Views/barang/barang_masuk_add.php(110): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', '/Applications/X...', 110, Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(210): include('/Applications/X...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Common.php(1089): CodeIgniter\View\View->render('barang/barang_m...', Array, true)
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Controllers/BarangMasuk.php(43): view('barang/barang_m...', Array)
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(825): App\Controllers\BarangMasuk->barang_masuk_add()
+#6 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\BarangMasuk))
+#7 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#9 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#10 {main}
+CRITICAL - 2022-06-25 00:51:17 --> Undefined index: satua_barang_name
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Controllers/BarangMasuk.php(29): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', '/Applications/X...', 29, Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(825): App\Controllers\BarangMasuk->barang_masuk_add()
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\BarangMasuk))
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#6 {main}
+CRITICAL - 2022-06-25 00:51:24 --> Undefined index: satuan_barang_name
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Views/barang/barang_masuk_add.php(110): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', '/Applications/X...', 110, Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(210): include('/Applications/X...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Common.php(1089): CodeIgniter\View\View->render('barang/barang_m...', Array, true)
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Controllers/BarangMasuk.php(45): view('barang/barang_m...', Array)
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(825): App\Controllers\BarangMasuk->barang_masuk_add()
+#6 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\BarangMasuk))
+#7 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#9 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#10 {main}
+CRITICAL - 2022-06-25 00:51:40 --> Undefined index: satuan_barang_name
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Views/barang/barang_masuk_add.php(110): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', '/Applications/X...', 110, Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(210): include('/Applications/X...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Common.php(1089): CodeIgniter\View\View->render('barang/barang_m...', Array, true)
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Controllers/BarangMasuk.php(45): view('barang/barang_m...', Array)
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(825): App\Controllers\BarangMasuk->barang_masuk_add()
+#6 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\BarangMasuk))
+#7 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#9 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#10 {main}
+CRITICAL - 2022-06-25 12:40:37 --> Undefined index: satuan_id
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Views/dashboard/data_satuan_barang.php(92): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', '/Applications/X...', 92, Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(210): include('/Applications/X...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Common.php(1089): CodeIgniter\View\View->render('dashboard/data_...', Array, true)
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Controllers/Dashboard.php(217): view('dashboard/data_...', Array)
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(825): App\Controllers\Dashboard->satuan_barang()
+#6 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#7 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#9 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#10 {main}
+CRITICAL - 2022-06-25 12:40:48 --> Undefined index: satuan_id
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Views/dashboard/data_satuan_barang.php(92): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', '/Applications/X...', 92, Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(210): include('/Applications/X...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Common.php(1089): CodeIgniter\View\View->render('dashboard/data_...', Array, true)
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Controllers/Dashboard.php(217): view('dashboard/data_...', Array)
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(825): App\Controllers\Dashboard->satuan_barang()
+#6 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#7 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#9 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#10 {main}
+CRITICAL - 2022-06-25 12:40:49 --> Undefined index: satuan_id
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Views/dashboard/data_satuan_barang.php(92): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', '/Applications/X...', 92, Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(210): include('/Applications/X...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Common.php(1089): CodeIgniter\View\View->render('dashboard/data_...', Array, true)
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Controllers/Dashboard.php(217): view('dashboard/data_...', Array)
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(825): App\Controllers\Dashboard->satuan_barang()
+#6 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#7 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#9 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#10 {main}
+CRITICAL - 2022-06-25 12:52:53 --> Too few arguments to function App\Controllers\Outlet::remove(), 0 passed in /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php on line 825 and exactly 1 expected
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(825): App\Controllers\Outlet->remove()
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Outlet))
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#5 {main}
+CRITICAL - 2022-06-25 13:30:55 --> Uncaught CodeIgniter\Format\Exceptions\FormatException: Failed to parse json string, error: "Malformed UTF-8 characters, possibly incorrectly encoded". in /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Format/JSONFormatter.php:41
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Format/JSONFormatter.php(41): CodeIgniter\Format\Exceptions\FormatException::forInvalidJSON('Malformed UTF-8...')
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/API/ResponseTrait.php(341): CodeIgniter\Format\JSONFormatter->format(Array)
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/API/ResponseTrait.php(99): CodeIgniter\Debug\Exceptions->format(Array)
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Debug/Exceptions.php(115): CodeIgniter\Debug\Exceptions->respond(Array, 404)
+#4 [internal function]: CodeIgniter\Debug\Exceptions-
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2022-06-25 13:39:05 --> syntax error, unexpected '{'
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(226): CodeIgniter\View\View->render('templates/admin...', Array, true)
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Common.php(1089): CodeIgniter\View\View->render('dashboard/index', Array, true)
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Controllers/Dashboard.php(75): view('dashboard/index', Array)
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(825): App\Controllers\Dashboard->index()
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#6 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#8 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#9 {main}
+CRITICAL - 2022-06-25 13:42:51 --> Undefined variable: notif
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Views/templates/adminlte_template.php(48): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', '/Applications/X...', 48, Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(210): include('/Applications/X...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(226): CodeIgniter\View\View->render('templates/admin...', Array, true)
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Common.php(1089): CodeIgniter\View\View->render('dashboard/index', Array, true)
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Controllers/Dashboard.php(75): view('dashboard/index', Array)
+#6 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(825): App\Controllers\Dashboard->index()
+#7 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#8 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#10 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#11 {main}
+CRITICAL - 2022-06-25 13:43:11 --> Undefined variable: notif
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Views/templates/adminlte_template.php(49): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', '/Applications/X...', 49, Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(210): include('/Applications/X...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(226): CodeIgniter\View\View->render('templates/admin...', Array, true)
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Common.php(1089): CodeIgniter\View\View->render('dashboard/index', Array, true)
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Controllers/Dashboard.php(75): view('dashboard/index', Array)
+#6 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(825): App\Controllers\Dashboard->index()
+#7 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#8 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#10 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#11 {main}
+CRITICAL - 2022-06-25 13:43:13 --> Undefined variable: notif
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Views/templates/adminlte_template.php(49): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', '/Applications/X...', 49, Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(210): include('/Applications/X...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(226): CodeIgniter\View\View->render('templates/admin...', Array, true)
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Common.php(1089): CodeIgniter\View\View->render('dashboard/index', Array, true)
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Controllers/Dashboard.php(75): view('dashboard/index', Array)
+#6 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(825): App\Controllers\Dashboard->index()
+#7 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#8 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#10 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#11 {main}
+ERROR - 2022-06-25 13:56:44 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ':0:
+AND 1 = :1:
+ LIMIT 6' at line 3
+CRITICAL - 2022-06-25 13:56:44 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ':0:
+AND 1 = :1:
+ LIMIT 6' at line 3
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Database/BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Database/BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1588): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Views/templates/adminlte_template.php(31): CodeIgniter\Database\BaseBuilder->getWhere(Array, 6, 0)
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(210): include('/Applications/X...')
+#6 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#7 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(226): CodeIgniter\View\View->render('templates/admin...', Array, true)
+#8 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Common.php(1089): CodeIgniter\View\View->render('dashboard/index', Array, true)
+#9 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Controllers/Dashboard.php(75): view('dashboard/index', Array)
+#10 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(825): App\Controllers\Dashboard->index()
+#11 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#12 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#13 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#14 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#15 {main}
+ERROR - 2022-06-25 13:57:01 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ':0:
+AND 1 = :1:' at line 3
+CRITICAL - 2022-06-25 13:57:01 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ':0:
+AND 1 = :1:' at line 3
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Database/BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Database/BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1588): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Views/templates/adminlte_template.php(31): CodeIgniter\Database\BaseBuilder->getWhere(Array)
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(210): include('/Applications/X...')
+#6 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#7 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(226): CodeIgniter\View\View->render('templates/admin...', Array, true)
+#8 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Common.php(1089): CodeIgniter\View\View->render('dashboard/index', Array, true)
+#9 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Controllers/Dashboard.php(75): view('dashboard/index', Array)
+#10 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(825): App\Controllers\Dashboard->index()
+#11 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#12 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#13 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#14 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#15 {main}
+ERROR - 2022-06-25 13:57:14 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ':0:
+AND 1 = :1:' at line 3
+CRITICAL - 2022-06-25 13:57:14 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ':0:
+AND 1 = :1:' at line 3
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Database/BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Database/BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1588): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Views/templates/adminlte_template.php(31): CodeIgniter\Database\BaseBuilder->getWhere(Array)
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(210): include('/Applications/X...')
+#6 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#7 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(226): CodeIgniter\View\View->render('templates/admin...', Array, true)
+#8 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Common.php(1089): CodeIgniter\View\View->render('dashboard/index', Array, true)
+#9 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Controllers/Dashboard.php(75): view('dashboard/index', Array)
+#10 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(825): App\Controllers\Dashboard->index()
+#11 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#12 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#13 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#14 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#15 {main}
+ERROR - 2022-06-25 13:57:14 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ':0:
+AND 1 = :1:' at line 3
+CRITICAL - 2022-06-25 13:57:14 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ':0:
+AND 1 = :1:' at line 3
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Database/BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Database/BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1588): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Views/templates/adminlte_template.php(31): CodeIgniter\Database\BaseBuilder->getWhere(Array)
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(210): include('/Applications/X...')
+#6 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#7 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(226): CodeIgniter\View\View->render('templates/admin...', Array, true)
+#8 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Common.php(1089): CodeIgniter\View\View->render('dashboard/index', Array, true)
+#9 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Controllers/Dashboard.php(75): view('dashboard/index', Array)
+#10 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(825): App\Controllers\Dashboard->index()
+#11 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#12 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#13 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#14 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#15 {main}
+ERROR - 2022-06-25 13:57:14 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ':0:
+AND 1 = :1:' at line 3
+CRITICAL - 2022-06-25 13:57:14 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ':0:
+AND 1 = :1:' at line 3
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Database/BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Database/BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1588): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Views/templates/adminlte_template.php(31): CodeIgniter\Database\BaseBuilder->getWhere(Array)
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(210): include('/Applications/X...')
+#6 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#7 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(226): CodeIgniter\View\View->render('templates/admin...', Array, true)
+#8 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Common.php(1089): CodeIgniter\View\View->render('dashboard/index', Array, true)
+#9 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Controllers/Dashboard.php(75): view('dashboard/index', Array)
+#10 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(825): App\Controllers\Dashboard->index()
+#11 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#12 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#13 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#14 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#15 {main}
+ERROR - 2022-06-25 13:57:14 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ':0:
+AND 1 = :1:' at line 3
+CRITICAL - 2022-06-25 13:57:14 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ':0:
+AND 1 = :1:' at line 3
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Database/BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Database/BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1588): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Views/templates/adminlte_template.php(31): CodeIgniter\Database\BaseBuilder->getWhere(Array)
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(210): include('/Applications/X...')
+#6 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#7 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(226): CodeIgniter\View\View->render('templates/admin...', Array, true)
+#8 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Common.php(1089): CodeIgniter\View\View->render('dashboard/index', Array, true)
+#9 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Controllers/Dashboard.php(75): view('dashboard/index', Array)
+#10 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(825): App\Controllers\Dashboard->index()
+#11 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#12 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#13 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#14 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#15 {main}
+CRITICAL - 2022-06-25 14:36:13 --> Call to undefined function parseInt()
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(210): include()
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(226): CodeIgniter\View\View->render('templates/admin...', Array, true)
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Common.php(1089): CodeIgniter\View\View->render('dashboard/index', Array, true)
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Controllers/Dashboard.php(75): view('dashboard/index', Array)
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(825): App\Controllers\Dashboard->index()
+#6 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#7 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#9 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#10 {main}
+CRITICAL - 2022-06-25 14:37:23 --> Undefined variable: notifikasi
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Views/templates/adminlte_template.php(38): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', '/Applications/X...', 38, Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(210): include('/Applications/X...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(226): CodeIgniter\View\View->render('templates/admin...', Array, true)
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Common.php(1089): CodeIgniter\View\View->render('dashboard/index', Array, true)
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Controllers/Dashboard.php(75): view('dashboard/index', Array)
+#6 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(825): App\Controllers\Dashboard->index()
+#7 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#8 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#10 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#11 {main}
+CRITICAL - 2022-06-25 14:37:45 --> syntax error, unexpected '$notifikasi' (T_VARIABLE)
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(226): CodeIgniter\View\View->render('templates/admin...', Array, true)
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Common.php(1089): CodeIgniter\View\View->render('dashboard/index', Array, true)
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Controllers/Dashboard.php(75): view('dashboard/index', Array)
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(825): App\Controllers\Dashboard->index()
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#6 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#8 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#9 {main}
+CRITICAL - 2022-06-25 14:38:20 --> Call to undefined method CodeIgniter\Database\MySQLi\Builder::getResult()
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(210): include()
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(226): CodeIgniter\View\View->render('templates/admin...', Array, true)
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Common.php(1089): CodeIgniter\View\View->render('dashboard/index', Array, true)
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Controllers/Dashboard.php(75): view('dashboard/index', Array)
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(825): App\Controllers\Dashboard->index()
+#6 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#7 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#9 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#10 {main}
+CRITICAL - 2022-06-25 14:38:27 --> Undefined variable: notifikasi
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Views/templates/adminlte_template.php(38): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', '/Applications/X...', 38, Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(210): include('/Applications/X...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(226): CodeIgniter\View\View->render('templates/admin...', Array, true)
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Common.php(1089): CodeIgniter\View\View->render('dashboard/index', Array, true)
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Controllers/Dashboard.php(75): view('dashboard/index', Array)
+#6 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(825): App\Controllers\Dashboard->index()
+#7 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#8 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#10 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#11 {main}
+CRITICAL - 2022-06-25 14:38:49 --> Undefined variable: notifikasi
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Views/templates/adminlte_template.php(39): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', '/Applications/X...', 39, Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(210): include('/Applications/X...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(226): CodeIgniter\View\View->render('templates/admin...', Array, true)
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Common.php(1089): CodeIgniter\View\View->render('dashboard/index', Array, true)
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Controllers/Dashboard.php(75): view('dashboard/index', Array)
+#6 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(825): App\Controllers\Dashboard->index()
+#7 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#8 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#10 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#11 {main}
+CRITICAL - 2022-06-25 14:38:54 --> Undefined variable: notifikasi
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Views/templates/adminlte_template.php(39): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', '/Applications/X...', 39, Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(210): include('/Applications/X...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(226): CodeIgniter\View\View->render('templates/admin...', Array, true)
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Common.php(1089): CodeIgniter\View\View->render('dashboard/index', Array, true)
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Controllers/Dashboard.php(75): view('dashboard/index', Array)
+#6 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(825): App\Controllers\Dashboard->index()
+#7 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#8 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#10 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#11 {main}
+CRITICAL - 2022-06-25 14:51:11 --> Invalid file: dashboard/notifikasi.php
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('dashboard/notif...')
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Common.php(1089): CodeIgniter\View\View->render('dashboard/notif...', Array, true)
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Controllers/Dashboard.php(88): view('dashboard/notif...', Array)
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(825): App\Controllers\Dashboard->notifikasi()
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#7 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#8 {main}
+CRITICAL - 2022-06-25 14:54:15 --> Undefined variable: card_title
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Views/dashboard/notifikasi.php(29): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', '/Applications/X...', 29, Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(210): include('/Applications/X...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Common.php(1089): CodeIgniter\View\View->render('dashboard/notif...', Array, true)
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Controllers/Dashboard.php(88): view('dashboard/notif...', Array)
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(825): App\Controllers\Dashboard->notifikasi()
+#6 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#7 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#9 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#10 {main}
+CRITICAL - 2022-06-25 14:54:28 --> Undefined variable: notifi
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Views/dashboard/notifikasi.php(47): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', '/Applications/X...', 47, Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(210): include('/Applications/X...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Common.php(1089): CodeIgniter\View\View->render('dashboard/notif...', Array, true)
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Controllers/Dashboard.php(89): view('dashboard/notif...', Array)
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(825): App\Controllers\Dashboard->notifikasi()
+#6 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#7 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#9 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#10 {main}
+CRITICAL - 2022-06-25 14:54:37 --> Cannot use object of type stdClass as array
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(210): include()
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Common.php(1089): CodeIgniter\View\View->render('dashboard/notif...', Array, true)
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Controllers/Dashboard.php(89): view('dashboard/notif...', Array)
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(825): App\Controllers\Dashboard->notifikasi()
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#6 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#8 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#9 {main}
+CRITICAL - 2022-06-25 14:55:21 --> Cannot use object of type stdClass as array
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(210): include()
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Common.php(1089): CodeIgniter\View\View->render('dashboard/notif...', Array, true)
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Controllers/Dashboard.php(89): view('dashboard/notif...', Array)
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(825): App\Controllers\Dashboard->notifikasi()
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#6 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#8 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#9 {main}
+CRITICAL - 2022-06-25 14:55:40 --> Cannot use object of type stdClass as array
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(210): include()
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Common.php(1089): CodeIgniter\View\View->render('dashboard/notif...', Array, true)
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Controllers/Dashboard.php(89): view('dashboard/notif...', Array)
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(825): App\Controllers\Dashboard->notifikasi()
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#6 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#8 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#9 {main}
+CRITICAL - 2022-06-25 14:55:40 --> Cannot use object of type stdClass as array
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(210): include()
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Common.php(1089): CodeIgniter\View\View->render('dashboard/notif...', Array, true)
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Controllers/Dashboard.php(89): view('dashboard/notif...', Array)
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(825): App\Controllers\Dashboard->notifikasi()
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#6 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#8 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#9 {main}
+CRITICAL - 2022-06-25 14:55:41 --> Cannot use object of type stdClass as array
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(210): include()
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Common.php(1089): CodeIgniter\View\View->render('dashboard/notif...', Array, true)
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Controllers/Dashboard.php(89): view('dashboard/notif...', Array)
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(825): App\Controllers\Dashboard->notifikasi()
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#6 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#8 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#9 {main}
+CRITICAL - 2022-06-25 14:55:41 --> Cannot use object of type stdClass as array
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(210): include()
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Common.php(1089): CodeIgniter\View\View->render('dashboard/notif...', Array, true)
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Controllers/Dashboard.php(89): view('dashboard/notif...', Array)
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(825): App\Controllers\Dashboard->notifikasi()
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#6 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#8 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#9 {main}
+CRITICAL - 2022-06-25 14:55:41 --> Cannot use object of type stdClass as array
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(210): include()
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Common.php(1089): CodeIgniter\View\View->render('dashboard/notif...', Array, true)
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Controllers/Dashboard.php(89): view('dashboard/notif...', Array)
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(825): App\Controllers\Dashboard->notifikasi()
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#6 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#8 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#9 {main}
+CRITICAL - 2022-06-25 14:55:41 --> Cannot use object of type stdClass as array
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(210): include()
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Common.php(1089): CodeIgniter\View\View->render('dashboard/notif...', Array, true)
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Controllers/Dashboard.php(89): view('dashboard/notif...', Array)
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(825): App\Controllers\Dashboard->notifikasi()
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#6 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#8 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#9 {main}
+CRITICAL - 2022-06-25 15:04:01 --> Trying to access array offset on value of type null
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Controllers/BarangMasuk.php(111): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', '/Applications/X...', 111, Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(825): App\Controllers\BarangMasuk->create()
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\BarangMasuk))
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#6 {main}
+CRITICAL - 2022-06-25 15:04:35 --> The action you requested is not allowed.
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Security/Security.php(289): CodeIgniter\Security\Exceptions\SecurityException::forDisallowedAction()
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Filters/CSRF.php(53): CodeIgniter\Security\Security->verify(Object(CodeIgniter\HTTP\IncomingRequest))
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Filters/Filters.php(173): CodeIgniter\Filters\CSRF->before(Object(CodeIgniter\HTTP\IncomingRequest), NULL)
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(386): CodeIgniter\Filters\Filters->run('barang-masuk/cr...', 'before')
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#6 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#7 {main}
+CRITICAL - 2022-06-25 15:14:02 --> Trying to access array offset on value of type null
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Controllers/BarangMasuk.php(111): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', '/Applications/X...', 111, Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(825): App\Controllers\BarangMasuk->create()
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\BarangMasuk))
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#6 {main}

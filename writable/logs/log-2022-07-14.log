@@ -1,0 +1,52 @@
+CRITICAL - 2022-07-14 00:05:03 --> Undefined variable: terjualToday
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Views/dashboard/index.php(39): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', '/Applications/X...', 39, Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(210): include('/Applications/X...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Common.php(1089): CodeIgniter\View\View->render('dashboard/index', Array, true)
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Controllers/Dashboard.php(97): view('dashboard/index', Array)
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(825): App\Controllers\Dashboard->index()
+#6 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#7 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#9 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#10 {main}
+CRITICAL - 2022-07-14 00:05:50 --> Undefined variable: terjualToday
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Views/dashboard/index.php(41): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', '/Applications/X...', 41, Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(210): include('/Applications/X...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Common.php(1089): CodeIgniter\View\View->render('dashboard/index', Array, true)
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Controllers/Dashboard.php(97): view('dashboard/index', Array)
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(825): App\Controllers\Dashboard->index()
+#6 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#7 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#9 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#10 {main}
+ERROR - 2022-07-14 00:11:00 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'tbl_pembelian_detail.stok_masuk, tbl_barang.nama_barang, tbl_barang.nilai_sat...' at line 1
+CRITICAL - 2022-07-14 00:11:00 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'tbl_pembelian_detail.stok_masuk, tbl_barang.nama_barang, tbl_barang.nilai_sat...' at line 1
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(292): mysqli->query('SELECT SUM(tbl_...', 0)
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Database/BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT SUM(tbl_...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Database/BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT SUM(tbl_...')
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Views/laporan/cetak-lbm.php(116): CodeIgniter\Database\BaseConnection->query('SELECT SUM(tbl_...')
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(210): include('/Applications/X...')
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#6 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Common.php(1089): CodeIgniter\View\View->render('laporan/cetak-l...', Array, true)
+#7 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Controllers/Laporan.php(228): view('laporan/cetak-l...', Array)
+#8 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(825): App\Controllers\Laporan->cetak_lbm()
+#9 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laporan))
+#10 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#12 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#13 {main}
+CRITICAL - 2022-07-14 00:14:59 --> Undefined variable: subTotal
+#0 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Views/laporan/cetak-lbk.php(68): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', '/Applications/X...', 68, Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(210): include('/Applications/X...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/View/View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Common.php(1089): CodeIgniter\View\View->render('laporan/cetak-l...', Array, true)
+#4 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/app/Controllers/Laporan.php(249): view('laporan/cetak-l...', Array)
+#5 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(825): App\Controllers\Laporan->cetak_lbk()
+#6 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laporan))
+#7 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#9 /Applications/XAMPP/xamppfiles/htdocs/si_dudcha/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#10 {main}

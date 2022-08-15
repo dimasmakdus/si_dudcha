@@ -1,0 +1,42 @@
+CRITICAL - 2022-01-24 10:32:23 --> SMTP Error: Could not authenticate.
+#0 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/phpmailer/phpmailer/src/PHPMailer.php(1981): PHPMailer\PHPMailer\PHPMailer->smtpConnect(Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/phpmailer/phpmailer/src/PHPMailer.php(1653): PHPMailer\PHPMailer\PHPMailer->smtpSend('Date: Mon, 24 J...', 'This is a multi...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/phpmailer/phpmailer/src/PHPMailer.php(1491): PHPMailer\PHPMailer\PHPMailer->postSend()
+#3 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/app/Controllers/PesananObat.php(228): PHPMailer\PHPMailer\PHPMailer->send()
+#4 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/CodeIgniter.php(825): App\Controllers\PesananObat->kirim_email()
+#5 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PesananObat))
+#6 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#8 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#9 {main}
+CRITICAL - 2022-01-24 10:32:32 --> The action you requested is not allowed.
+#0 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/Security/Security.php(289): CodeIgniter\Security\Exceptions\SecurityException::forDisallowedAction()
+#1 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/Filters/CSRF.php(53): CodeIgniter\Security\Security->verify(Object(CodeIgniter\HTTP\IncomingRequest))
+#2 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/Filters/Filters.php(173): CodeIgniter\Filters\CSRF->before(Object(CodeIgniter\HTTP\IncomingRequest), NULL)
+#3 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/CodeIgniter.php(386): CodeIgniter\Filters\Filters->run('kirim-email', 'before')
+#4 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#6 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#7 {main}
+CRITICAL - 2022-01-24 10:33:00 --> SMTP Error: Could not authenticate.
+#0 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/phpmailer/phpmailer/src/PHPMailer.php(1981): PHPMailer\PHPMailer\PHPMailer->smtpConnect(Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/phpmailer/phpmailer/src/PHPMailer.php(1653): PHPMailer\PHPMailer\PHPMailer->smtpSend('Date: Mon, 24 J...', 'This is a multi...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/phpmailer/phpmailer/src/PHPMailer.php(1491): PHPMailer\PHPMailer\PHPMailer->postSend()
+#3 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/app/Controllers/PesananObat.php(228): PHPMailer\PHPMailer\PHPMailer->send()
+#4 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/CodeIgniter.php(825): App\Controllers\PesananObat->kirim_email()
+#5 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PesananObat))
+#6 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#8 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#9 {main}
+CRITICAL - 2022-01-24 10:33:44 --> SMTP Error: Could not authenticate.
+#0 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/phpmailer/phpmailer/src/PHPMailer.php(1981): PHPMailer\PHPMailer\PHPMailer->smtpConnect(Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/phpmailer/phpmailer/src/PHPMailer.php(1653): PHPMailer\PHPMailer\PHPMailer->smtpSend('Date: Mon, 24 J...', 'This is a multi...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/phpmailer/phpmailer/src/PHPMailer.php(1491): PHPMailer\PHPMailer\PHPMailer->postSend()
+#3 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/app/Controllers/PesananObat.php(228): PHPMailer\PHPMailer\PHPMailer->send()
+#4 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/CodeIgniter.php(825): App\Controllers\PesananObat->kirim_email()
+#5 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PesananObat))
+#6 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#8 /Applications/XAMPP/xamppfiles/htdocs/inventori-obat/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#9 {main}
