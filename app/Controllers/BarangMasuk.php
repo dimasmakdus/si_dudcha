@@ -35,6 +35,7 @@ class BarangMasuk extends BaseController
                             'stok' => $detail['stok'],
                             'satuan_digudang' => $barang['satuan_barang_name'],
                             'nilai_satuan' => $barang['nilai_satuan'],
+                            'berat_per_pcs' => $barang['berat_per_pcs']
                         ];
                     }
                 }
@@ -42,6 +43,11 @@ class BarangMasuk extends BaseController
         }
 
         $satuan_barang = $this->satuanBarangModel->findAll();
+
+        $status_pembayaran = [
+            'true' => 'Lunas',
+            'false' => 'Belum Lunas'
+        ];
 
         return view('barang/barang_masuk_add', [
             'title' => 'Pengemasan Barang',
@@ -52,7 +58,8 @@ class BarangMasuk extends BaseController
             'permintaan' => isset($permintaan) ? $permintaan : [],
             'satuan_barang' => isset($satuan_barang) ? $satuan_barang : [],
             'detail_barang' => isset($detail_barang) ? $detail_barang : [],
-            'reqGet' => $this->request->getGet()
+            'reqGet' => $this->request->getGet(),
+            'status_pembayaran' => $status_pembayaran
         ]);
     }
 
@@ -67,6 +74,7 @@ class BarangMasuk extends BaseController
         $stok_masuk = $this->request->getVar('stokMasuk');
         $harga_beli = $this->request->getVar('harga_beli');
         $satuan_beli = $this->request->getVar('satuan_beli');
+        $tgl_kadaluarsa = $this->request->getVar('tgl_kadaluarsa');
         $tanggal = date("Y-m-d H:i:s");
 
         // cek input qty != kosong
@@ -114,6 +122,7 @@ class BarangMasuk extends BaseController
                     'satuan_barang_id' => $satuan_beli[$i],
                     'stok_beli' => $stok_beli[$i],
                     'harga_beli' => $harga_beli[$i],
+                    'tgl_kadaluarsa' => $tgl_kadaluarsa[$i]
                 ]);
 
                 $barang = $this->barangModel->find($kode_barang[$i]);
@@ -133,6 +142,7 @@ class BarangMasuk extends BaseController
                     'nama_barang' => $barang['nama_barang'],
                     'stok' => $stok_akhir,
                     'harga_beli' => $harga_beli[$i],
+                    'tgl_kadaluarsa' => $tgl_kadaluarsa[$i]
                 ]);
             }
 
@@ -147,13 +157,20 @@ class BarangMasuk extends BaseController
     // Prosess Update Pembayaran
     function updatePembayaran($id)
     {
+        $id_barang_masuk = $this->request->getVar('id');
         $status = $this->request->getVar('status_pembayaran');
+        $tgl_jatuh_tempo = $this->request->getVar('tgl_jatuh_tempo');
 
         try {
-            $this->pembelianModel->update($id, [
-                'status_pembayaran' => $status
-            ]);
+            if ($status == 'false' && $tgl_jatuh_tempo == "") {
+                echo "tgl_kosong";
+                die;
+            }
 
+            $this->pembelianModel->update($id_barang_masuk, [
+                'status_pembayaran' => $status,
+                'tgl_jatuh_tempo' => $status == 'false' ? $tgl_jatuh_tempo : null
+            ]);
             echo 'success';
         } catch (\Exception $e) {
             exit($e->getMessage());

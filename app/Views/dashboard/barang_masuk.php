@@ -90,6 +90,7 @@ if (session()->get('id_user') == 1) {
                                     <th>Supplier</th>
                                     <th class="text-right">Total Pembelian</th>
                                     <?= (session()->get('id_user') == 2 || session()->get('id_user') == 3) ? "<th class='text-center'>Status Pembayaran</th>" : null ?>
+                                    <?= (session()->get('id_user') == 2 || session()->get('id_user') == 3) ? "<th>Tgl. Jatuh Tempo</th>" : null ?>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -119,13 +120,23 @@ if (session()->get('id_user') == 1) {
                                             </td>
                                         <?php endif ?>
 
-                                        <td>
+                                        <?php if (session()->get('id_user') == 2 || session()->get('id_user') == 3) : ?>
+                                            <td>
+                                                <?php
+                                                if ($beli['status_pembayaran'] == 'false') {
+                                                    echo isset($beli['tgl_jatuh_tempo']) ? $base->tanggal(date("Y-m-d", strtotime($beli['tgl_jatuh_tempo']))) : '';
+                                                }
+                                                ?>
+                                            </td>
+                                        <?php endif ?>
+
+                                        <td class="text-center">
                                             <?php if (session()->get('id_user') == 2) { ?>
-                                                <span class="ml-3" data-toggle="tooltip" data-placement="top" title="Ubah">
+                                                <span data-toggle="tooltip" data-placement="top" title="Ubah">
                                                     <a class="btn btn-sm btn-info" data-toggle="modal" data-target="#detail-<?= $beli['id'] ?>"><i class="fas fa-edit"></i></a>
                                                 </span>
                                             <?php } else { ?>
-                                                <span class="ml-4" data-toggle="tooltip" data-placement="top" title="Detail">
+                                                <span data-toggle="tooltip" data-placement="top" title="Detail">
                                                     <a class="btn btn-sm btn-warning" data-toggle="modal" data-target="#detail-<?= $beli['id'] ?>"><i class="fas fa-eye"></i></a>
                                                 </span>
                                             <?php } ?>
@@ -152,12 +163,12 @@ if (session()->get('id_user') == 1) {
                                                 </div>
                                                 <div class="modal-body">
                                                     <?php if (session()->get('id_user') == 2) : ?>
-                                                        <form id="form-update-pembayaran">
+                                                        <form id="form-update-pembayaran-<?= $beli['id'] ?>">
                                                             <div class="row mb-3">
                                                                 <label class="col-sm-3 col-form-label">Status Pembayaran</label>
                                                                 <div class="col-xs-1 mt-1">:</div>
                                                                 <div class="col-sm-4">
-                                                                    <select name="status_pembayaran" id="status_pembayaran" class="form-control">
+                                                                    <select name="status_pembayaran" id="status_pembayaran-<?= $beli['id'] ?>" class="form-control" onchange="changeStatus(<?= $beli['id'] ?>)">
                                                                         <option value="" disabled selected>-- Pilih Status Pembayaran --</option>
                                                                         <?php foreach ($status_pembayaran as $key => $value) : ?>
                                                                             <option value="<?= $key ?>" <?= $key == $beli['status_pembayaran'] ? 'selected' : '' ?>><?= $value ?></option>
@@ -165,7 +176,15 @@ if (session()->get('id_user') == 1) {
                                                                     </select>
                                                                 </div>
                                                                 <div class="col-sm-4">
+                                                                    <input type="hidden" name="id" value="<?= $beli['id'] ?>">
                                                                     <button type="button" class="btn btn-primary" onclick="updatePembayaran(<?= $beli['id'] ?>)"><i class="fas fa-save"></i> Simpan</button>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group row jatuhTempo <?= $beli['status_pembayaran'] == 'true' ? 'd-none' : '' ?>">
+                                                                <label for="tgl_jatuh_tempo" class="col-sm-3 col-form-label">Tgl. Jatuh Tempo</label>
+                                                                <div class="col-xs-1 mt-1">:</div>
+                                                                <div class="col-sm-4">
+                                                                    <input type="date" class="form-control" value="<?= isset($beli['tgl_jatuh_tempo']) ? $beli['tgl_jatuh_tempo'] : '' ?>" name="tgl_jatuh_tempo" id="tgl_jatuh_tempo">
                                                                 </div>
                                                             </div>
                                                         </form>
@@ -223,9 +242,8 @@ if (session()->get('id_user') == 1) {
                                                             <div class="col-md-1 detail-th">Harga Beli</div>
                                                             <div class="col-md-1 detail-th">Satuan Beli</div>
                                                             <div class="col-md-1 detail-th">Jumlah Beli</div>
-                                                            <div class="col-md-1 detail-th">Satuan di Gudang</div>
                                                             <div class="col-md-1 detail-th">Isi Dalam Kemasan</div>
-                                                            <div class="col-md-1 detail-th">Stok Yang Masuk</div>
+                                                            <div class="col-md-2 detail-th">Stok Yang Masuk</div>
                                                             <div class="col-md-2 detail-th text-right">Subtotal</div>
                                                         </div>
                                                         <?php
@@ -247,9 +265,8 @@ if (session()->get('id_user') == 1) {
                                                                         <div class="col-md-1 detail-cell text-right"><?= "Rp " . number_format($detail['harga_beli'], 0, ',', '.') ?></div>
                                                                         <div class="col-md-1 detail-cell"><?= $detail['satuan_barang_name'] ?></div>
                                                                         <div class="col-md-1 detail-cell"><?= $detail['stok_beli'] ?></div>
-                                                                        <div class="col-md-1 detail-cell"><?= $barang['satuan_barang_name'] ?></div>
-                                                                        <div class="col-md-1 detail-cell"><?= $barang['nilai_satuan'] ?></div>
-                                                                        <div class="col-md-1 detail-cell"><?= $detail['stok_masuk'] ?></div>
+                                                                        <div class="col-md-1 detail-cell"><?= $barang['nilai_satuan'] . " " . $barang['satuan_barang_name'] ?></div>
+                                                                        <div class="col-md-2 detail-cell"><?= $detail['stok_masuk'] . " " . $barang['satuan_barang_name'] ?></div>
                                                                         <div class="col-md-2 detail-cell text-right"><?= "Rp " . number_format($detail['harga_beli'] * $detail['stok_beli'], 0, ',', '.') ?></div>
                                                                     </div>
                                                                     <?php $total = $total + $detail['stok_masuk'] ?>
@@ -258,8 +275,8 @@ if (session()->get('id_user') == 1) {
                                                             <?php endif ?>
                                                         <?php endforeach ?>
                                                         <div class="row">
-                                                            <div class="col-md-9 detail-cell"><b>Total</b></div>
-                                                            <div class="col-md-1 detail-cell"><b><?= $total ?></b></div>
+                                                            <div class="col-md-8 detail-cell"><b>Total</b></div>
+                                                            <div class="col-md-2 detail-cell"><b><?= $total . " " . $barang['satuan_barang_name'] ?></b></div>
                                                             <div class="col-md-2 detail-cell text-right"><b><?= "Rp " . number_format($totalHarga, 0, ',', '.')  ?></b></div>
                                                         </div>
                                                     </div>
@@ -452,8 +469,9 @@ if (session()->get('id_user') == 1) {
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <!-- /.modal-content -->
+                                            </div> -->
+                                    <!-- /.modal-content -->
+
                     </div>
                     <!-- /.modal-dialog -->
                 </div>
@@ -478,6 +496,15 @@ if (session()->get('id_user') == 1) {
 <?= $this->include('templates/script') ?>
 
 <script>
+    function changeStatus(id) {
+        var value = $('select[id=status_pembayaran-' + id + '] option').filter(':selected').val();
+        if (value == 'true') {
+            $('.jatuhTempo').addClass('d-none');
+        } else {
+            $('.jatuhTempo').removeClass('d-none')
+        }
+    }
+
     function keyUpHarga(id) {
         var hargaElement = document.getElementById('uang_rupiah');
         var hargaValue = hargaElement.value
@@ -516,7 +543,7 @@ if (session()->get('id_user') == 1) {
 
     function updatePembayaran(id) {
         var url = "<?= base_url('barang-masuk/updatePembayaran'); ?>/" + id;
-        var form = $('#form-update-pembayaran').serialize();
+        var form = $('#form-update-pembayaran-' + id).serialize();
 
         $.ajax({
             type: "GET",
@@ -541,6 +568,13 @@ if (session()->get('id_user') == 1) {
                         Swal.fire(
                             'Gagal!',
                             'Data gagal disimpan!',
+                            'error'
+                        )
+                        break;
+                    case 'tgl_kosong':
+                        Swal.fire(
+                            'Gagal!',
+                            'Tanggal Jatuh Tempo tidak boleh kosong!',
                             'error'
                         )
                         break;

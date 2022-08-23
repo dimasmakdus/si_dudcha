@@ -97,10 +97,11 @@
                                                                 <th>Nama Barang</th>
                                                                 <th>Harga Beli</th>
                                                                 <th>Satuan Beli</th>
-                                                                <th>Stok Beli</th>
-                                                                <th>Satuan di Gudang</th>
+                                                                <th>Jumlah Beli</th>
                                                                 <th>Isi dalam kemasan</th>
                                                                 <th>Stok Masuk</th>
+                                                                <th>Berat per Pcs</th>
+                                                                <th>Tgl. Kadaluarsa</th>
                                                             </tr>
                                                         </thead>
                                                         <tbody class="tbl_body">
@@ -119,15 +120,20 @@
                                                                         <td class="text-right"><?= "Rp " . number_format($barang['harga_beli'], 0, ',', '.') ?></td>
                                                                         <td><?= $barang['satuan'] ?></td>
                                                                         <td class="stokBarang"><?= $barang['stok'] ?></td>
-                                                                        <td><?= $barang['satuan_digudang'] ?></td>
                                                                         <td>
                                                                             <!-- <input type="number" class="form-control input-nilai-satuan"> -->
-                                                                            <?= $barang['nilai_satuan'] ?>
+                                                                            <?= $barang['nilai_satuan'] . " " . $barang['satuan_digudang'] ?>
                                                                         </td>
                                                                         <td style="width: 10%;">
                                                                             <?php $stokMasuk = $barang['nilai_satuan'] * $barang['stok'] ?>
                                                                             <input type="hidden" name="stokMasuk[]" value="<?= $stokMasuk ?>">
-                                                                            <?= $stokMasuk ?>
+                                                                            <?= $stokMasuk . " " . $barang['satuan_digudang'] ?>
+                                                                        </td>
+                                                                        <td>
+                                                                            <?= $barang['berat_per_pcs'] ?>
+                                                                        </td>
+                                                                        <td>
+                                                                            <input type="date" name="tgl_kadaluarsa[]" class="form-control tgl_kd">
                                                                         </td>
                                                                     </tr>
                                                                 <?php endif ?>
@@ -191,16 +197,17 @@
             )
         } else {
             var validTable = true
-            var hargaBeliInput = document.getElementsByClassName('harga-beli')
-            for (var i = 0; i < hargaBeliInput.length; i++) {
-                if (hargaBeliInput[i].value == "") {
+            var tgl_kadaluarsa = document.getElementsByClassName('tgl_kd')
+            for (var i = 0; i < tgl_kadaluarsa.length; i++) {
+                if (tgl_kadaluarsa[i].value == "") {
                     validTable = false
                     Swal.fire(
                         'Tidak bisa!',
-                        'Masukkan harga beli terlebih dahulu!',
+                        'Masukkan tanggal kadaluarsa terlebih dahulu!',
                         'error'
                     )
                 }
+
             }
 
             if (validTable) {

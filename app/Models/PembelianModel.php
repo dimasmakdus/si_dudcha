@@ -17,6 +17,7 @@ class PembelianModel extends Model
         'tanggal',
         'total',
         'kode_supplier',
-        'status_pembayaran'
+        'status_pembayaran',
+        'tgl_jatuh_tempo'
     ];
 }

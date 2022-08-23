@@ -505,7 +505,7 @@
                 <td>${"Rp " + currencyChange(harga.toString())}</td>
                 <td>${satuan_name}</td>
                 <td class="text-center">
-                    <input type="number" name="jumlah[]" class="form-control cart-qty-input" style="width:80px" value="1">
+                    <input type="number" name="jumlah[]" class="form-control cart-qty-input" style="width:80px" value="1" min="0" oninput="this.value = Math.abs(this.value)">
                 </td>
                 <td class="text-center">
                     <button type="button" class="btn btn-sm btn-danger remove-cart">&#x1D5EB;</button>

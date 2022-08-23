@@ -90,10 +90,10 @@
                                         <thead>
                                             <tr>
                                                 <th>Nama Barang</th>
-                                                <th>Satuan Beli</th>
                                                 <th style="width: 15%;">Harga Beli (sebelumnya)</th>
                                                 <th style="width: 20%;">Harga Beli (pengajuan)</th>
                                                 <th style="width: 15%;">Jumlah Yang Diajukan</th>
+                                                <th>Satuan Beli</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
@@ -111,21 +111,21 @@
                                                                 <?php endforeach ?>
                                                             </select>
                                                         </td>
-                                                        <td class="satuan-beli-change">
-                                                            <?= $kosong['satuan_beli'] ?>
-                                                        </td>
                                                         <td class="harga-change"><?= "Rp " . number_format($kosong['harga_beli'], 0, ',', '.') ?></td>
                                                         <td>
                                                             <div class="input-group">
                                                                 <div class="input-group-prepend">
                                                                     <span class="input-group-text">Rp</span>
                                                                 </div>
-                                                                <input type="text" class="form-control harga-beli">
+                                                                <input type="text" class="form-control harga-beli" placeholder="">
                                                                 <input type="hidden" name="harga_beli[]" class="hargaBeliValue">
                                                             </div>
                                                         </td>
                                                         <td>
-                                                            <input type="number" class="form-control stokBarang" name="stok[]">
+                                                            <input type="number" class="form-control stokBarang" name="stok[]" min="1" oninput="this.value = Math.abs(this.value)" placeholder="0">
+                                                        </td>
+                                                        <td class="satuan-beli-change">
+                                                            <?= $kosong['satuan_beli'] ?>
                                                         </td>
                                                         <td class="text-center"><button type="button" class="btn btn-sm btn-danger remove-barang">&#x1D5EB;</button></td>
                                                     </tr>
@@ -270,7 +270,7 @@
                 var valHarga = rows.getElementsByClassName('hargaBeliValue')[0].value
                 var valStok = rows.getElementsByClassName('stokBarang')[0].value
 
-                if (valStok == "") {
+                if (valStok <= 0) {
                     valid = false
                     Swal.fire(
                         'Tidak bisa!',
@@ -362,7 +362,6 @@
                     <?php endforeach ?>
                 </select>
             </td>
-            <td class="satuan-beli-change"></td>
             <td class="harga-change"><?= "Rp " . number_format(0, 0, ',', '.') ?></td>
             <td>
                 <div class="input-group">
@@ -376,6 +375,7 @@
             <td>
                 <input type="number" class="form-control stokBarang" name="stok[]">
             </td>
+            <td class="satuan-beli-change"></td>
             <td class="text-center"><button type="button" class="btn btn-sm btn-danger remove-barang">&#x1D5EB;</button></td>
         </tr>`
         addTr.innerHTML = barangRowContents;

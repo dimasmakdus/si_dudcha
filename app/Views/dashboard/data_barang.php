@@ -50,10 +50,12 @@
                                     <th>Kode Barang</th>
                                     <th>Nama Barang</th>
                                     <th>Jenis Barang</th>
-                                    <th>Harga Jual</th>
                                     <th>Stok</th>
                                     <th>Stok Minimum</th>
-                                    <th>Satuan</th>
+                                    <th>Berat/Pcs</th>
+                                    <th>Tgl. Kadaluarsa</th>
+                                    <th>Harga Jual</th>
+                                    <!-- <th>Satuan</th> -->
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -65,10 +67,11 @@
                                         <td><?= $barang['kode_barang'] ?></td>
                                         <td><?= $barang['nama_barang'] ?></td>
                                         <td><?= $barang['jenis_barang_name'] ?></td>
+                                        <td><?= $barang['stok'] . " " . $barang['satuan_barang_name'] ?></td>
+                                        <td><?= $barang['stok_minimum'] . " " . $barang['satuan_barang_name'] ?></td>
+                                        <td><?= $barang['berat_per_pcs'] ?></td>
+                                        <td><?= isset($barang['tgl_kadaluarsa']) ? $base->tanggal(date("Y-m-d", strtotime($barang['tgl_kadaluarsa']))) : null ?></td>
                                         <td><?= "Rp " . number_format($barang['harga_jual'], 0, ',', '.') ?></td>
-                                        <td><?= $barang['stok'] ?></td>
-                                        <td><?= $barang['stok_minimum'] ?></td>
-                                        <td><?= $barang['satuan_barang_name'] ?></td>
                                         <td class="text-center">
                                             <span data-toggle="tooltip" data-placement="top" title="Ubah">
                                                 <a class="btn btn-sm bg-olive btn-edit-barang" data-toggle="modal" data-target="#edit-<?= $barang['kode_barang'] ?>"><i class="fas fa-edit"></i></a>
@@ -177,6 +180,18 @@
                                                                         <option value="<?= $value['satuan_barang_id'] ?>" <?= $value['satuan_barang_id'] == $barang['satuan'] ? 'selected' : '' ?>><?= $value['satuan_barang_name'] ?></option>
                                                                     <?php endforeach ?>
                                                                 </select>
+                                                            </div>
+                                                        </div>
+                                                        <!-- <div class="form-group row">
+                                                            <label for="kadaluarsa" class="col-sm-2 col-form-label">Tgl. Kadaluarsa</label>
+                                                            <div class="col-sm-10">
+                                                                <input type="date" class="form-control" name="tgl_kadaluarsa" value="<?= $barang['tgl_kadaluarsa'] ?>" placeholder="Tgl. Kadaluarsa" required>
+                                                            </div>
+                                                        </div> -->
+                                                        <div class="form-group row">
+                                                            <label for="berat_per_pcs" class="col-sm-2 col-form-label">Berat/Pcs</label>
+                                                            <div class="col-sm-10">
+                                                                <input type="number" class="form-control" name="berat_per_pcs" value="<?= $barang['berat_per_pcs'] ?>" placeholder="0" required>
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
@@ -294,6 +309,18 @@
                                                     <option value="<?= $value['satuan_barang_id'] ?>"><?= $value['satuan_barang_name'] ?></option>
                                                 <?php endforeach ?>
                                             </select>
+                                        </div>
+                                    </div>
+                                    <!-- <div class="form-group row">
+                                        <label for="kadaluarsa" class="col-sm-2 col-form-label">Tgl. Kadaluarsa</label>
+                                        <div class="col-sm-10">
+                                            <input type="date" class="form-control" name="tgl_kadaluarsa" placeholder="Tgl. Kadaluarsa" required>
+                                        </div>
+                                    </div> -->
+                                    <div class="form-group row">
+                                        <label for="berat_per_pcs" class="col-sm-2 col-form-label">Berat/Pcs</label>
+                                        <div class="col-sm-10">
+                                            <input type="number" class="form-control" name="berat_per_pcs" placeholder="0" required>
                                         </div>
                                     </div>
                                     <div class="form-group row">

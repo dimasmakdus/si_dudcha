@@ -23,6 +23,8 @@ class BarangModel extends Model
         'harga_jual',
         'harga_beli',
         'stok_minimum',
+        'tgl_kadaluarsa',
+        'berat_per_pcs',
         'created_at',
         'updated_at'
     ];

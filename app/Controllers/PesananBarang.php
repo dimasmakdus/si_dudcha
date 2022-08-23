@@ -187,9 +187,14 @@ class PesananBarang extends BaseController
     // Proses Approve/Reject Pengajuan Barang (Atasan)
     public function update()
     {
+        // print_r($this->request->getVar());
+        // die;
         $id_pesanan = $this->request->getVar('id_pesanan');
         $id_detail = $this->request->getVar('id_detail');
         $kode_supplier = $this->request->getVar('kode_supplier');
+        $kode_barang = $this->request->getVar('kode_barang');
+        $nama_barang = $this->request->getVar('nama_barang');
+        $satuan_barang_id = $this->request->getVar('satuan_barang_id');
         $status = $this->request->getVar('status');
         $keterangan = $this->request->getVar('keterangan');
         $qty = $this->request->getVar('qty');
@@ -217,9 +222,18 @@ class PesananBarang extends BaseController
                 'total' => $totalBarang
             ]);
 
+            $this->permintaanDetailModel->where('id_permintaan', $id_pesanan)->delete();
             for ($i = 0; $i < count($qty); $i++) {
-                $this->permintaanDetailModel->update($id_detail[$i], [
+                // $this->permintaanDetailModel->update($id_detail[$i], [
+                //     'stok' => $qty[$i],
+                // ]);
+                $this->permintaanDetailModel->insert([
+                    'id_permintaan' => $id_pesanan,
+                    'kode_barang' => $kode_barang[$i],
                     'stok' => $qty[$i],
+                    'nama_barang' => $nama_barang[$i],
+                    'satuan_barang_id' => $satuan_barang_id[$i],
+                    'harga_beli' => $harga_beli[$i],
                 ]);
             }
 

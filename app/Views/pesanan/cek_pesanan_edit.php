@@ -84,9 +84,10 @@
                                             <tr>
                                                 <th>No</th>
                                                 <th>Nama Barang</th>
-                                                <th>Satuan</th>
                                                 <th>Harga Satuan</th>
                                                 <th>Jumlah</th>
+                                                <th>Satuan</th>
+                                                <th class="text-center" style="width:8%;">Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -95,15 +96,19 @@
                                                 <tr>
                                                     <td>
                                                         <input type="hidden" name="id_detail[]" value="<?= $barang['id'] ?>">
+                                                        <input type="hidden" name="kode_barang[]" value="<?= $barang['kode_barang'] ?>">
+                                                        <input type="hidden" name="nama_barang[]" value="<?= $barang['nama_barang'] ?>">
+                                                        <input type="hidden" name="satuan_barang_id[]" value="<?= $barang['satuan_barang_id'] ?>">
                                                         <input type="hidden" name="harga_beli[]" value="<?= $barang['harga_beli'] ?>">
                                                         <?= $i++ ?>
                                                     </td>
                                                     <td><?= $barang['nama_barang'] ?></td>
-                                                    <td><?= $barang['satuan_barang_name'] ?></td>
                                                     <td><?= "Rp " . number_format($barang['harga_beli'], 0, ',', '.') ?></td>
                                                     <td width="180px">
                                                         <input type="number" class="form-control qty-stok" name="qty[]" value="<?= (!$barang['stok'] <= 0) ? $barang['stok'] : '' ?>">
                                                     </td>
+                                                    <td><?= $barang['satuan_barang_name'] ?></td>
+                                                    <td class="text-center"><button type="button" class="btn btn-sm btn-danger remove-barang">&#x1D5EB;</button></td>
                                                 </tr>
                                             <?php endforeach ?>
                                         </tbody>
@@ -152,6 +157,18 @@
             input.addEventListener('change', qtyChanged);
         }
         document.getElementsByClassName('save-detail')[0].addEventListener('click', simpanPesanan);
+
+        var removeBarangBtn = document.getElementsByClassName('remove-barang');
+        console.log(removeBarangBtn);
+        for (var i = 0; i < removeBarangBtn.length; i++) {
+            var button = removeBarangBtn[i];
+            button.addEventListener('click', removeBarangItem)
+        }
+    }
+
+    function removeBarangItem(e) {
+        var buttonClick = e.target;
+        buttonClick.parentElement.parentElement.remove();
     }
 
     function simpanPesanan(e) {
