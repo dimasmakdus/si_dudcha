@@ -100,7 +100,7 @@
                                                                 <th>Jumlah Beli</th>
                                                                 <th>Isi dalam kemasan</th>
                                                                 <th>Stok Masuk</th>
-                                                                <th>Berat per Pcs</th>
+                                                                <th>Berat/Satuan</th>
                                                                 <th>Tgl. Kadaluarsa</th>
                                                             </tr>
                                                         </thead>
@@ -130,7 +130,7 @@
                                                                             <?= $stokMasuk . " " . $barang['satuan_digudang'] ?>
                                                                         </td>
                                                                         <td>
-                                                                            <?= $barang['berat_per_pcs'] ?>
+                                                                            <?= $barang['berat_per_pcs'] . " gram" ?>
                                                                         </td>
                                                                         <td>
                                                                             <input type="date" name="tgl_kadaluarsa[]" class="form-control tgl_kd">

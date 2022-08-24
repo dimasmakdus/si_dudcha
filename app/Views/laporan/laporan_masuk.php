@@ -156,7 +156,7 @@
                                         <tr align="center">
                                             <th>Nama Barang</th>
                                             <th>Jumlah Pembelian</th>
-                                            <th>Nilai/Satuan</th>
+                                            <th>Isi dalam kemasan</th>
                                             <th>Jumlah Yang Masuk</th>
                                         </tr>
                                     </thead>
@@ -189,7 +189,9 @@
                                                         ->where('satuan_barang_id', $row['satuan_pemesanan'])
                                                         ->get()->getResult('array')[0];
                                                     ?>
-                                                    <?= $row['stok_masuk'] . " " . $builder['satuan_pemesanan'] ?>
+                                                    <?= $row['stok_masuk']
+                                                        . " " . $builder['satuan_pemesanan']
+                                                    ?>
                                                 </td>
                                             </tr>
                                         <?php endforeach ?>

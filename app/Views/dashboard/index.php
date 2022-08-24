@@ -111,7 +111,7 @@
       <div class="col-6">
         <div class="card">
           <div class="card-header">
-            <i class="fas fa-table mr-1"></i> Penjualan Terbanyak
+            <i class="fas fa-table mr-1"></i> Barang Banyak Diminati
           </div>
           <div class="card-body">
             <table id="tbl_jual_terbanyak" class="table table-bordered table-hover">
@@ -140,7 +140,7 @@
       <div class="col-6">
         <div class="card">
           <div class="card-header">
-            <i class="fas fa-table mr-1"></i> Penjualan Tersedikit
+            <i class="fas fa-table mr-1"></i> Barang Kurang Diminati
           </div>
           <div class="card-body">
             <table id="tbl_jual_tersedikit" class="table table-bordered table-hover">

@@ -97,7 +97,6 @@
                                         <th>Kode Barang</th>
                                         <th>Nama Barang</th>
                                         <th>Harga</th>
-                                        <th>Satuan</th>
                                         <th>Stok</th>
                                         <th>Action</th>
                                     </tr>
@@ -110,8 +109,8 @@
                                             <td class="text-right"><?= "Rp " . number_format($barang['harga_jual'], 0, ',', '.') ?></td>
                                             <td class="barang-harga text-right d-none"><?= $barang['harga_jual'] ?></td>
                                             <td class="barang-satuan-code" style="display:none;"><?= $barang['satuan'] ?></td>
-                                            <td class="barang-satuan-name"><?= $barang['satuan_barang_name'] ?></td>
-                                            <td class="barang-stok text-center"><?= $barang['stok'] ?></td>
+                                            <td class="barang-satuan-name d-none"><?= $barang['satuan_barang_name'] ?></td>
+                                            <td class="barang-stok"><?= $barang['stok'] . " " . $barang['satuan_barang_name'] ?></td>
                                             <td class="text-center">
                                                 <button type="button" class="btn btn-sm bg-olive btn-add-barang">&#65291;</button>
                                             </td>
@@ -139,8 +138,8 @@
                                     <tr>
                                         <th>Nama Barang</th>
                                         <th>Harga</th>
-                                        <th>Satuan</th>
                                         <th>Qty</th>
+                                        <th>Satuan</th>
                                         <th class="text-center">#</th>
                                     </tr>
                                 </thead>
@@ -503,10 +502,10 @@
             <input type="hidden" class="toStok" value="${stok}">
             <td class="cart-nama-barang">${barang}</td>
                 <td>${"Rp " + currencyChange(harga.toString())}</td>
-                <td>${satuan_name}</td>
                 <td class="text-center">
-                    <input type="number" name="jumlah[]" class="form-control cart-qty-input" style="width:80px" value="1" min="0" oninput="this.value = Math.abs(this.value)">
+                <input type="number" name="jumlah[]" class="form-control cart-qty-input" style="width:80px" value="1" min="0" oninput="this.value = Math.abs(this.value)">
                 </td>
+                <td>${satuan_name}</td>
                 <td class="text-center">
                     <button type="button" class="btn btn-sm btn-danger remove-cart">&#x1D5EB;</button>
                 </td>`

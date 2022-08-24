@@ -175,7 +175,7 @@
                                 </table><br>
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <label>Penjualan Terbanyak:</label>
+                                        <label>Barang banyak diminati :</label>
                                         <table class="table table-bordered">
                                             <thead>
                                                 <tr align="center">
@@ -211,7 +211,7 @@
                                         </table>
                                     </div>
                                     <div class="col-md-6">
-                                        <label>Penjualan Tersedikit:</label>
+                                        <label>Barang kurang diminati :</label>
                                         <table class="table table-bordered">
                                             <thead>
                                                 <tr align="center">

@@ -69,8 +69,12 @@
                                         <td><?= $barang['jenis_barang_name'] ?></td>
                                         <td><?= $barang['stok'] . " " . $barang['satuan_barang_name'] ?></td>
                                         <td><?= $barang['stok_minimum'] . " " . $barang['satuan_barang_name'] ?></td>
-                                        <td><?= $barang['berat_per_pcs'] ?></td>
-                                        <td><?= isset($barang['tgl_kadaluarsa']) ? $base->tanggal(date("Y-m-d", strtotime($barang['tgl_kadaluarsa']))) : null ?></td>
+                                        <td><?= isset($barang['berat_per_pcs']) ? $barang['berat_per_pcs'] : '0' ?></td>
+                                        <td>
+                                            <?=
+                                            isset($barang['tgl_kadaluarsa']) && $barang['tgl_kadaluarsa'] != "0000-00-00" ? $base->tanggal(date("Y-m-d", strtotime($barang['tgl_kadaluarsa']))) : '-'
+                                            ?>
+                                        </td>
                                         <td><?= "Rp " . number_format($barang['harga_jual'], 0, ',', '.') ?></td>
                                         <td class="text-center">
                                             <span data-toggle="tooltip" data-placement="top" title="Ubah">
@@ -120,20 +124,20 @@
                                                     <div class="modal-body p-4">
                                                         <?= csrf_field(); ?>
                                                         <div class="form-group row">
-                                                            <label for="kode-barang" class="col-sm-2 col-form-label">Kode Barang</label>
+                                                            <label for="kode-barang" class="col-sm-2 col-form-label">Kode Barang <span class="text-danger">*</span></label>
                                                             <div class="col-sm-10">
                                                                 <input type="text" class="form-control" value="<?= $barang['kode_barang'] ?>" required disabled>
                                                                 <input type="hidden" name="kode_barang" value="<?= $barang['kode_barang'] ?>">
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
-                                                            <label for="nama-barang" class="col-sm-2 col-form-label">Nama Barang</label>
+                                                            <label for="nama-barang" class="col-sm-2 col-form-label">Nama Barang <span class="text-danger">*</span></label>
                                                             <div class="col-sm-10">
                                                                 <input type="text" class="form-control" name="nama_barang" value="<?= $barang['nama_barang'] ?>" placeholder="Nama Barang" required>
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
-                                                            <label for="jenis-satuan" class="col-sm-2 col-form-label">Jenis Barang</label>
+                                                            <label for="jenis-satuan" class="col-sm-2 col-form-label">Jenis Barang <span class="text-danger">*</span></label>
                                                             <div class="col-sm-10">
                                                                 <select class="form-control select2" name="jenis_barang" style="width: 100%;" required>
                                                                     <option value="" disabled>-- Pilih Jenis Barang --</option>
@@ -144,13 +148,13 @@
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
-                                                            <label for="satuan" class="col-sm-2 col-form-label">Stok Minimum</label>
+                                                            <label for="satuan" class="col-sm-2 col-form-label">Stok Minimum <span class="text-danger">*</span></label>
                                                             <div class="col-sm-10">
                                                                 <input type="number" class="form-control" name="stok_minimum" value="<?= $barang['stok_minimum'] ?>" placeholder="0" required>
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
-                                                            <label for="jenis-satuan" class="col-sm-2 col-form-label">Satuan Beli</label>
+                                                            <label for="jenis-satuan" class="col-sm-2 col-form-label">Satuan Beli <span class="text-danger">*</span></label>
                                                             <div class="col-sm-10">
                                                                 <select class="form-control select2" name="satuan_beli" style="width: 100%;" required>
                                                                     <option value="" disabled>-- Pilih Satuan Beli --</option>
@@ -161,7 +165,7 @@
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
-                                                            <label for="satuan" class="col-sm-2 col-form-label">Isi dalam kemasan</label>
+                                                            <label for="satuan" class="col-sm-2 col-form-label">Isi dalam kemasan <span class="text-danger">*</span></label>
                                                             <div class="col-sm-10">
                                                                 <div class="input-group">
                                                                     <input type="number" class="form-control" name="nilai_satuan" value="<?= $barang['nilai_satuan'] ?>" placeholder="0" required>
@@ -172,8 +176,8 @@
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
-                                                            <label for="jenis-satuan" class="col-sm-2 col-form-label">Satuan Jual</label>
-                                                            <div class="col-sm-10">
+                                                            <label for="jenis-satuan" class="col-sm-2 col-form-label">Satuan Jual <span class="text-danger">*</span></label>
+                                                            <div class="col-sm-4">
                                                                 <select class="form-control select2" name="satuan" style="width: 100%;" required>
                                                                     <option value="" disabled>-- Pilih Satuan Jual --</option>
                                                                     <?php foreach ($satuan as $value) : ?>
@@ -181,17 +185,20 @@
                                                                     <?php endforeach ?>
                                                                 </select>
                                                             </div>
+                                                            <label for="berat_per_pcs" class="col-sm-2 col-form-label">Berat/Satuan</label>
+                                                            <div class="col-sm-4">
+                                                                <div class="input-group">
+                                                                    <input type="number" class="form-control" name="berat_per_pcs" value="<?= $barang['berat_per_pcs'] ?>" placeholder="0">
+                                                                    <div class="input-group-prepend">
+                                                                        <span class="input-group-text">gram</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                         <div class="form-group row">
                                                             <label for="kadaluarsa" class="col-sm-2 col-form-label">Tgl. Kadaluarsa</label>
                                                             <div class="col-sm-10">
-                                                                <input type="date" class="form-control" name="tgl_kadaluarsa" value="<?= $barang['tgl_kadaluarsa'] ?>" placeholder="Tgl. Kadaluarsa" required>
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group row">
-                                                            <label for="berat_per_pcs" class="col-sm-2 col-form-label">Berat/Pcs</label>
-                                                            <div class="col-sm-10">
-                                                                <input type="number" class="form-control" name="berat_per_pcs" value="<?= $barang['berat_per_pcs'] ?>" placeholder="0" required>
+                                                                <input type="date" class="form-control" name="tgl_kadaluarsa" value="<?= $barang['tgl_kadaluarsa'] ?>" placeholder="Tgl. Kadaluarsa">
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
@@ -201,12 +208,12 @@
                                                                     <div class="input-group-prepend">
                                                                         <span class="input-group-text">Rp</span>
                                                                     </div>
-                                                                    <input type="text" name="harga_beli" class="form-control" value="<?= $barang['harga_beli'] ?>" placeholder="" required>
+                                                                    <input type="text" name="harga_beli" class="form-control" value="<?= $barang['harga_beli'] ?>" placeholder="">
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
-                                                            <label for="nama-barang" class="col-sm-2 col-form-label">Harga Jual</label>
+                                                            <label for="nama-barang" class="col-sm-2 col-form-label">Harga Jual <span class="text-danger">*</span></label>
                                                             <div class="col-sm-10">
                                                                 <div class="input-group">
                                                                     <div class="input-group-prepend">
@@ -249,20 +256,20 @@
                                 <div class="modal-body p-4">
                                     <?= csrf_field(); ?>
                                     <div class="form-group row">
-                                        <label for="kode-barang" class="col-sm-2 col-form-label">Kode Barang</label>
+                                        <label for="kode-barang" class="col-sm-2 col-form-label">Kode Barang <span class="text-danger">*</span></label>
                                         <div class="col-sm-10">
                                             <input type="text" class="form-control" value="<?= "BRG" . $kode_barang_baru ?>" required disabled>
                                             <input type="hidden" class="form-control" name="kode_barang" value="<?= "BRG" . $kode_barang_baru ?>">
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="nama-barang" class="col-sm-2 col-form-label">Nama Barang</label>
+                                        <label for="nama-barang" class="col-sm-2 col-form-label">Nama Barang <span class="text-danger">*</span></label>
                                         <div class="col-sm-10">
                                             <input type="text" class="form-control" name="nama_barang" placeholder="Nama Barang" required>
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="jenis-satuan" class="col-sm-2 col-form-label">Jenis Barang</label>
+                                        <label for="jenis-satuan" class="col-sm-2 col-form-label">Jenis Barang <span class="text-danger">*</span></label>
                                         <div class="col-sm-10">
                                             <select class="form-control select2" name="jenis_barang" style="width: 100%;" required>
                                                 <option value="" selected disabled>-- Pilih Jenis Barang --</option>
@@ -273,13 +280,13 @@
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="satuan" class="col-sm-2 col-form-label">Stok Minimum</label>
+                                        <label for="satuan" class="col-sm-2 col-form-label">Stok Minimum <span class="text-danger">*</span></label>
                                         <div class="col-sm-10">
                                             <input type="number" class="form-control" name="stok_minimum" placeholder="0" required>
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="jenis-satuan" class="col-sm-2 col-form-label">Satuan Beli</label>
+                                        <label for="jenis-satuan" class="col-sm-2 col-form-label">Satuan Beli <span class="text-danger">*</span></label>
                                         <div class="col-sm-10">
                                             <select class="form-control select2" name="satuan_beli" style="width: 100%;" required>
                                                 <option value="" selected disabled>-- Pilih Satuan Beli --</option>
@@ -290,7 +297,7 @@
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="satuan" class="col-sm-2 col-form-label">Isi dalam kemasan</label>
+                                        <label for="satuan" class="col-sm-2 col-form-label">Isi dalam kemasan <span class="text-danger">*</span></label>
                                         <div class="col-sm-10">
                                             <div class="input-group">
                                                 <input type="number" class="form-control" name="nilai_satuan" placeholder="0" required>
@@ -301,8 +308,8 @@
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="jenis-satuan" class="col-sm-2 col-form-label">Satuan Jual</label>
-                                        <div class="col-sm-10">
+                                        <label for="jenis-satuan" class="col-sm-2 col-form-label">Satuan Jual <span class="text-danger">*</span></label>
+                                        <div class="col-sm-4">
                                             <select class="form-control select2" name="satuan" style="width: 100%;" required>
                                                 <option value="" selected disabled>-- Pilih Satuan Jual --</option>
                                                 <?php foreach ($satuan as $value) : ?>
@@ -310,17 +317,20 @@
                                                 <?php endforeach ?>
                                             </select>
                                         </div>
+                                        <label for="berat_per_pcs" class="col-sm-2 col-form-label">Berat/Satuan</label>
+                                        <div class="col-sm-4">
+                                            <div class="input-group">
+                                                <input type="number" class="form-control" name="berat_per_pcs" placeholder="0">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text">gram</span>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="form-group row">
                                         <label for="kadaluarsa" class="col-sm-2 col-form-label">Tgl. Kadaluarsa</label>
                                         <div class="col-sm-10">
-                                            <input type="date" class="form-control" name="tgl_kadaluarsa" placeholder="Tgl. Kadaluarsa" required>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="berat_per_pcs" class="col-sm-2 col-form-label">Berat/Pcs</label>
-                                        <div class="col-sm-10">
-                                            <input type="number" class="form-control" name="berat_per_pcs" placeholder="0" required>
+                                            <input type="date" class="form-control" name="tgl_kadaluarsa" placeholder="Tgl. Kadaluarsa">
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -330,12 +340,12 @@
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text">Rp</span>
                                                 </div>
-                                                <input type="text" name="harga_beli" class="form-control" placeholder="" required>
+                                                <input type="text" name="harga_beli" class="form-control" placeholder="">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="nama-barang" class="col-sm-2 col-form-label">Harga Jual</label>
+                                        <label for="nama-barang" class="col-sm-2 col-form-label">Harga Jual <span class="text-danger">*</span></label>
                                         <div class="col-sm-10">
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
