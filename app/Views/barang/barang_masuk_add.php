@@ -130,7 +130,7 @@
                                                                             <?= $stokMasuk . " " . $barang['satuan_digudang'] ?>
                                                                         </td>
                                                                         <td>
-                                                                            <?= isset($barang['berat_per_pcs']) ? $barang['berat_per_pcs'] : '0' . " gram" ?>
+                                                                            <?= (isset($barang['berat_per_pcs']) ? $barang['berat_per_pcs'] : '0') . " gram" ?>
                                                                         </td>
                                                                         <td>
                                                                             <input type="date" name="tgl_kadaluarsa[]" class="form-control tgl_kd">
