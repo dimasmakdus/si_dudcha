@@ -264,7 +264,7 @@ if (session()->get('id_user') == 1) {
                                                                         <div class="col-md-1 detail-cell"><?= $j++ ?></div>
                                                                         <div class="col-md-2 detail-cell"><?= $barang['nama_barang'] ?></div>
                                                                         <div class="col-md-1 detail-cell text-right"><?= "Rp " . number_format($detail['harga_beli'], 0, ',', '.') ?></div>
-                                                                        <div class="col-md-2 detail-cell"><?= isset($barang['tgl_kadaluarsa']) && $detail['tgl_kadaluarsa'] != "0000-00-00" ? $base->tanggal(date("Y-m-d", strtotime($detail['tgl_kadaluarsa']))) : '-'  ?></div>
+                                                                        <div class="col-md-2 detail-cell"><?= isset($detail['tgl_kadaluarsa']) && $detail['tgl_kadaluarsa'] != "0000-00-00" ? $base->tanggal(date("Y-m-d", strtotime($detail['tgl_kadaluarsa']))) : '-'  ?></div>
                                                                         <div class="col-md-1 detail-cell"><?= $detail['stok_beli'] . " " . $detail['satuan_barang_name'] ?></div>
                                                                         <div class="col-md-1 detail-cell"><?= $barang['nilai_satuan'] . " " . $barang['satuan_barang_name'] ?></div>
                                                                         <div class="col-md-1 detail-cell"><?= (isset($barang['berat_per_pcs']) ? $barang['berat_per_pcs'] : '0') . " gram" ?></div>
