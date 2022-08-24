@@ -276,7 +276,7 @@ if (session()->get('id_user') == 1) {
                                                         <?php endforeach ?>
                                                         <div class="row">
                                                             <div class="col-md-8 detail-cell"><b>Total</b></div>
-                                                            <div class="col-md-2 detail-cell"><b><?= $total . " " . $barang['satuan_barang_name'] ?></b></div>
+                                                            <div class="col-md-2 detail-cell"><b><?= $total ?></b></div>
                                                             <div class="col-md-2 detail-cell text-right"><b><?= "Rp " . number_format($totalHarga, 0, ',', '.')  ?></b></div>
                                                         </div>
                                                     </div>

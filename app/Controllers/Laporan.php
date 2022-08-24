@@ -7,6 +7,7 @@ class Laporan extends BaseController
     // GET Laporan Persediaan Barang
     function laporan_stok_barang()
     {
+        $getPeriode = [];
         $reqGet = $this->request->getGet();
         if (isset($reqGet['periode']) && $this->stokBarangModel->findAll() != []) {
             foreach ($this->stokBarangModel->findAll() as $stok) {
@@ -24,8 +25,6 @@ class Laporan extends BaseController
                         'stok_keluar' => $stok['stok_keluar'] != null ? $stok['stok_keluar'] : 0,
                         'stok_akhir' => $stok['stok_akhir'] != null ? $stok['stok_akhir'] : 0
                     ];
-                } else {
-                    $getPeriode = [];
                 }
             }
         } else if (isset($reqGet['day']) && $this->stokBarangModel->findAll() != []) {
@@ -44,8 +43,6 @@ class Laporan extends BaseController
                         'stok_keluar' => $stok['stok_keluar'] != null ? $stok['stok_keluar'] : 0,
                         'stok_akhir' => $stok['stok_akhir'] != null ? $stok['stok_akhir'] : 0,
                     ];
-                } else {
-                    $getPeriode = [];
                 }
             }
         } else {
@@ -87,6 +84,7 @@ class Laporan extends BaseController
     // Cetak Laporan Persediaan Barang
     function cetak_lpo()
     {
+        $getPeriode = [];
         $reqGet = $this->request->getGet();
         if (isset($reqGet['periode']) && $this->stokBarangModel->findAll() != []) {
             foreach ($this->stokBarangModel->findAll() as $stok) {
@@ -104,8 +102,6 @@ class Laporan extends BaseController
                         'stok_keluar' => $stok['stok_keluar'] != null ? $stok['stok_keluar'] : 0,
                         'stok_akhir' => $stok['stok_akhir'] != null ? $stok['stok_akhir'] : 0,
                     ];
-                } else {
-                    $getPeriode = [];
                 }
             }
         } else if (isset($reqGet['day']) && $this->stokBarangModel->findAll() != []) {
@@ -124,8 +120,6 @@ class Laporan extends BaseController
                         'stok_keluar' => $stok['stok_keluar'] != null ? $stok['stok_keluar'] : 0,
                         'stok_akhir' => $stok['stok_akhir'] != null ? $stok['stok_akhir'] : 0,
                     ];
-                } else {
-                    $getPeriode = [];
                 }
             }
         } else {

@@ -147,8 +147,7 @@ if (session()->get('id_user') == 2) {
                             <div class="row">
                               <div class="col-sm-1 detail-th">No</div>
                               <div class="col-sm-2 detail-th">Kode Barang</div>
-                              <div class="col-sm-2 detail-th">Nama Barang</div>
-                              <div class="col-sm-2 detail-th">Satuan</div>
+                              <div class="col-sm-4 detail-th">Nama Barang</div>
                               <div class="col-sm-2 detail-th">Harga</div>
                               <div class="col-sm-1 detail-th">Jumlah</div>
                               <div class="col-sm-2 detail-th">Subtotal</div>
@@ -163,10 +162,9 @@ if (session()->get('id_user') == 2) {
                                 <div class="row">
                                   <div class="col-sm-1 detail-cell"><?= $j++ ?></div>
                                   <div class="col-sm-2 detail-cell"><?= $detail['kode_barang'] ?></div>
-                                  <div class="col-sm-2 detail-cell"><?= $detail['nama_barang'] ?></div>
-                                  <div class="col-sm-2 detail-cell"><?= $detail['satuan_barang_name'] ?></div>
+                                  <div class="col-sm-4 detail-cell"><?= $detail['nama_barang'] ?></div>
                                   <div class="col-sm-2 detail-cell"><?= "Rp " . number_format($detail['harga_jual'], 0, ',', '.') ?></div>
-                                  <div class="col-sm-1 detail-cell"><?= $detail['jumlah'] ?></div>
+                                  <div class="col-sm-1 detail-cell"><?= $detail['jumlah'] . " " . $detail['satuan_barang_name'] ?></div>
                                   <div class="col-sm-2 detail-cell"><?= "Rp " . number_format($detail['jumlah'] * $detail['harga_jual'], 0, ',', '.') ?></div>
                                 </div>
                                 <?php $total = $total + $detail['jumlah'] ?>

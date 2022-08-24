@@ -27,15 +27,15 @@ class BarangMasuk extends BaseController
 
                         $detail_barang[] = [
                             'no_pesanan' => $data['kode_pesanan'],
-                            'kode_barang' => $barang['kode_barang'],
-                            'nama_barang' => $barang['nama_barang'],
+                            'kode_barang' => isset($barang['kode_barang']) ? $barang['kode_barang'] : '',
+                            'nama_barang' => isset($barang['nama_barang']) ? $barang['nama_barang'] : '',
                             'harga_beli' => $detail['harga_beli'],
                             'satuan' => $detail['satuan_barang_name'],
                             'satuan_id' => $detail['satuan_barang_id'],
                             'stok' => $detail['stok'],
-                            'satuan_digudang' => $barang['satuan_barang_name'],
-                            'nilai_satuan' => $barang['nilai_satuan'],
-                            'berat_per_pcs' => $barang['berat_per_pcs']
+                            'satuan_digudang' => isset($barang['satuan_barang_name']) ? $barang['satuan_barang_name'] : '',
+                            'nilai_satuan' => isset($barang['nilai_satuan']) ? $barang['nilai_satuan'] : '',
+                            'berat_per_pcs' => isset($barang['berat_per_pcs']) ? $barang['berat_per_pcs'] : ''
                         ];
                     }
                 }

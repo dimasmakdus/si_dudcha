@@ -171,6 +171,24 @@
             "autoWidth": false,
             "responsive": true,
         });
+        $('#tbl_jual_terbanyak').DataTable({
+            "paging": true,
+            "lengthChange": true,
+            "searching": true,
+            "ordering": false,
+            "info": true,
+            "autoWidth": false,
+            "responsive": true,
+        });
+        $('#tbl_jual_tersedikit').DataTable({
+            "paging": true,
+            "lengthChange": true,
+            "searching": true,
+            "ordering": false,
+            "info": true,
+            "autoWidth": false,
+            "responsive": true,
+        });
         $('#tbl_detail').DataTable({
             "paging": true,
             "lengthChange": true,

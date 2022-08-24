@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <?= $this->include('templates/style') ?>
 
     <?php if (isset($reqGet['periode'])) {
         $start_date = $reqGet["start_date"];
@@ -44,6 +45,11 @@
             </center>
         </p>
         <div class="table-responsive">
+            <?php
+            $db = \Config\Database::connect();
+            $dayDate = isset($reqGet['day']) ? $reqGet['date'] : '';
+            $getDate = isset($reqGet['periode']) ? "tanggal > '$start_date' AND tanggal < '$end_date'" : "tanggal >= '$dayDate 00:00:00' AND tanggal >= '$dayDate 59:59:59'";
+            ?>
             <table width="100%" border="1" style="border-collapse:collapse; border-spacing:0">
                 <thead>
                     <tr align="center">
@@ -93,6 +99,82 @@
                     <?php } ?>
                 </tfoot>
             </table><br>
+            <div class="row">
+                <div class="col-md-6">
+                    <label>Penjualan Terbanyak:</label>
+                    <table width="100%" border="1" style="border-collapse:collapse; border-spacing:0">
+                        <thead>
+                            <tr align="center">
+                                <th>No</th>
+                                <th>Nama Barang</th>
+                                <th>Sebanyak</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            $brg = $db->query("SELECT tbl_barang.kode_barang, nama_barang, tanggal, SUM(stok_keluar) AS jumlah, satuan_barang_name AS satuan
+                                                                FROM tbl_stok_barang 
+                                                                INNER JOIN tbl_barang ON tbl_stok_barang.kode_barang = tbl_barang.kode_barang 
+                                                                INNER JOIN tbl_satuan_barang ON tbl_barang.satuan = tbl_satuan_barang.satuan_barang_id
+                                                                WHERE stok_keluar > 0 AND ($getDate)
+                                                                GROUP BY nama_barang
+                                                                ORDER BY jumlah DESC");
+
+                            ?>
+                            <?php if ($brg->getResult('array') == []) : ?>
+                                <tr class="odd">
+                                    <td valign="top" colspan="3" class="text-center">No data available in table</td>
+                                </tr>
+                            <?php endif ?>
+                            <?php $i = 1 ?>
+                            <?php foreach ($brg->getResult('array') as $row) : ?>
+                                <tr align="center">
+                                    <td><?= $i++ ?></td>
+                                    <td><?= $row['nama_barang'] ?></td>
+                                    <td><?= $row['jumlah'] . " " . $row['satuan'] ?></td>
+                                </tr>
+                            <?php endforeach ?>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-md-6">
+                    <label>Penjualan Tersedikit:</label>
+                    <table width="100%" border="1" style="border-collapse:collapse; border-spacing:0">
+                        <thead>
+                            <tr align="center">
+                                <th>No</th>
+                                <th>Nama Barang</th>
+                                <th>Sebanyak</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            $brg = $db->query("SELECT tbl_barang.kode_barang, nama_barang, tanggal, SUM(stok_keluar) AS jumlah, satuan_barang_name AS satuan
+                                                                FROM tbl_stok_barang 
+                                                                INNER JOIN tbl_barang ON tbl_stok_barang.kode_barang = tbl_barang.kode_barang 
+                                                                INNER JOIN tbl_satuan_barang ON tbl_barang.satuan = tbl_satuan_barang.satuan_barang_id
+                                                                WHERE stok_keluar > 0 AND ($getDate)
+                                                                GROUP BY nama_barang
+                                                                ORDER BY jumlah ASC");
+
+                            ?>
+                            <?php if ($brg->getResult('array') == []) : ?>
+                                <tr class="odd">
+                                    <td valign="top" colspan="3" class="text-center">No data available in table</td>
+                                </tr>
+                            <?php endif ?>
+                            <?php $i = 1 ?>
+                            <?php foreach ($brg->getResult('array') as $row) : ?>
+                                <tr align="center">
+                                    <td><?= $i++ ?></td>
+                                    <td><?= $row['nama_barang'] ?></td>
+                                    <td><?= $row['jumlah'] . " " . $row['satuan'] ?></td>
+                                </tr>
+                            <?php endforeach ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
 
             <br><br><br>
             <table width="100%">
@@ -124,6 +206,7 @@
                     <td>____________</td>
                 </tr>
             </table>
+            <br><br><br>
         <?php endif ?>
         <script type="text/javascript">
             window.addEventListener("load", window.print());

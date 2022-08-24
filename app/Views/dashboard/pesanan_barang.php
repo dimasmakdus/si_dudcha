@@ -183,10 +183,9 @@
                                                         <div class="row">
                                                             <div class="col-sm-1 detail-th">No</div>
                                                             <div class="col-sm-3 detail-th">Nama Barang</div>
-                                                            <div class="col-sm-2 detail-th">Satuan</div>
                                                             <div class="col-sm-2 detail-th">Harga</div>
                                                             <div class="col-sm-2 detail-th">Jumlah</div>
-                                                            <div class="col-sm-2 detail-th">Subtotal</div>
+                                                            <div class="col-sm-4 detail-th">Subtotal</div>
                                                         </div>
                                                         <?php
                                                         $j = 1;
@@ -198,10 +197,9 @@
                                                                 <div class="row">
                                                                     <div class="col-sm-1 detail-cell"><?= $j++ ?></div>
                                                                     <div class="col-sm-3 detail-cell"><?= $detail['nama_barang'] ?></div>
-                                                                    <div class="col-sm-2 detail-cell"><?= $detail['satuan_barang_name'] ?></div>
                                                                     <div class="col-sm-2 detail-cell"><?= "Rp " . number_format($detail['harga_beli'], 0, ',', '.') ?></div>
-                                                                    <div class="col-sm-2 detail-cell"><?= $detail['stok'] ?></div>
-                                                                    <div class="col-sm-2 detail-cell"><?= "Rp " . number_format($detail['stok'] * $detail['harga_beli'], 0, ',', '.') ?></div>
+                                                                    <div class="col-sm-2 detail-cell"><?= $detail['stok'] . " " . $detail['satuan_barang_name'] ?></div>
+                                                                    <div class="col-sm-4 detail-cell"><?= "Rp " . number_format($detail['stok'] * $detail['harga_beli'], 0, ',', '.') ?></div>
                                                                 </div>
                                                                 <?php $total = $total + $detail['stok'] ?>
                                                                 <?php $totalHarga = $totalHarga + ($detail['stok'] * $detail['harga_beli']) ?>
@@ -209,8 +207,8 @@
                                                         <?php endforeach ?>
                                                         <div class="row">
                                                             <div class="col-sm-8 detail-cell"><b>Total</b></div>
-                                                            <div class="col-sm-2 detail-cell"><b><?= $total ?></b></div>
-                                                            <div class="col-sm-2 detail-cell"><b><?= "Rp " . number_format($totalHarga, 0, ',', '.') ?></b></div>
+                                                            <!-- <div class="col-sm-2 detail-cell"><b><?= $total ?></b></div> -->
+                                                            <div class="col-sm-4 detail-cell"><b><?= "Rp " . number_format($totalHarga, 0, ',', '.') ?></b></div>
                                                         </div>
                                                     </div>
                                                 </div>

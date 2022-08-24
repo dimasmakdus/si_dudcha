@@ -61,6 +61,21 @@ class Dashboard extends BaseController
             'title' => 'Barang Masuk Hari Ini'
         ];
 
+        $dariBanyakTerjual = $this->db->query("SELECT tbl_barang.kode_barang, nama_barang, tanggal, SUM(stok_keluar) AS jumlah, satuan_barang_name AS satuan
+                                            FROM tbl_stok_barang 
+                                            INNER JOIN tbl_barang ON tbl_stok_barang.kode_barang = tbl_barang.kode_barang 
+                                            INNER JOIN tbl_satuan_barang ON tbl_barang.satuan = tbl_satuan_barang.satuan_barang_id
+                                            WHERE stok_keluar > 0
+                                            GROUP BY nama_barang
+                                            ORDER BY jumlah DESC")->getResultArray();
+        $dariSedikitTerjual = $this->db->query("SELECT tbl_barang.kode_barang, nama_barang, tanggal, SUM(stok_keluar) AS jumlah, satuan_barang_name AS satuan
+                                            FROM tbl_stok_barang 
+                                            INNER JOIN tbl_barang ON tbl_stok_barang.kode_barang = tbl_barang.kode_barang 
+                                            INNER JOIN tbl_satuan_barang ON tbl_barang.satuan = tbl_satuan_barang.satuan_barang_id
+                                            WHERE stok_keluar > 0
+                                            GROUP BY nama_barang
+                                            ORDER BY jumlah ASC")->getResultArray();
+
         // Terjual Hari ini
         // $totalPenjualan = 0;
         // $tgl_penjualan = $this->penjualanBarangModel->findAll();
@@ -87,6 +102,8 @@ class Dashboard extends BaseController
             'navLink' => 'dashboard',
             'barangHabis' => $barangHabis,
             'keluarToday' => $barangTerpakai,
+            'dariBanyakTerjual' => $dariBanyakTerjual,
+            'dariSedikitTerjual' => $dariSedikitTerjual,
             // 'terjualToday' => $barangTerjual,
             'barangMasuk' => $barangMasuk,
             'db' => $this->db

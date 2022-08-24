@@ -107,6 +107,66 @@
       </div>
     </div>
 
+    <div class="row">
+      <div class="col-6">
+        <div class="card">
+          <div class="card-header">
+            <i class="fas fa-table mr-1"></i> Penjualan Terbanyak
+          </div>
+          <div class="card-body">
+            <table id="tbl_jual_terbanyak" class="table table-bordered table-hover">
+              <thead>
+                <tr>
+                  <th>No</th>
+                  <th>Nama Barang</th>
+                  <th>Sebanyak</th>
+                </tr>
+              </thead>
+              <tbody>
+                <?php $i = 1 ?>
+                <?php foreach ($dariBanyakTerjual as $terbanyak) : ?>
+                  <tr>
+                    <td><?= $i++ ?></td>
+                    <td><?= $terbanyak['nama_barang'] ?></td>
+                    <td><?= $terbanyak['jumlah'] ?></td>
+                  </tr>
+                <?php endforeach ?>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-6">
+        <div class="card">
+          <div class="card-header">
+            <i class="fas fa-table mr-1"></i> Penjualan Tersedikit
+          </div>
+          <div class="card-body">
+            <table id="tbl_jual_tersedikit" class="table table-bordered table-hover">
+              <thead>
+                <tr>
+                  <th>No</th>
+                  <th>Nama Barang</th>
+                  <th>Sebanyak</th>
+                </tr>
+              </thead>
+              <tbody>
+                <?php $i = 1 ?>
+                <?php foreach ($dariSedikitTerjual as $tersedikit) : ?>
+                  <tr>
+                    <td><?= $i++ ?></td>
+                    <td><?= $tersedikit['nama_barang'] ?></td>
+                    <td><?= $tersedikit['jumlah'] ?></td>
+                  </tr>
+                <?php endforeach ?>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div><!-- /.container-fluid -->
 </section>
 <!-- /.content -->
@@ -127,11 +187,17 @@
                   SELECT YEAR(tanggal) AS tahun, MONTH(tanggal) AS tanggal, SUM(total) AS total
                   FROM tbl_penjualan_barang
                   GROUP BY MONTH(tanggal)
-                  ) s ON (bulan.id = s.tanggal AND $year = s.tahun) LIMIT $month")
+                  ) s ON (bulan.id = s.tanggal AND $year = s.tahun) LIMIT $month");
+
+  $db_bulan = $db->query("SELECT * FROM bulan")->getResultArray();
+  $bulan_labels = [];
+  foreach ($db_bulan as $row) {
+    $bulan_labels[] = $row['bulan'];
+  }
 
   ?>
   var areaChartData = {
-    labels: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli'],
+    labels: <?= json_encode($bulan_labels) ?>,
     datasets: [{
         label: 'Pengeluaran Barang',
         backgroundColor: '#74c8a3',

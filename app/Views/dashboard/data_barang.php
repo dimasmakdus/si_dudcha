@@ -108,7 +108,7 @@
 
                                     <!-- Modal Edit -->
                                     <div class="modal fade" id="edit-<?= $barang['kode_barang'] ?>">
-                                        <div class="modal-dialog modal-xl">
+                                        <div class="modal-dialog modal-lg">
                                             <div class="modal-content">
                                                 <form class="form-horizontal" action="<?= base_url('data-barang/update'); ?>" method="POST">
                                                     <div class="modal-header">
@@ -117,7 +117,7 @@
                                                             <span aria-hidden="true">&times;</span>
                                                         </button>
                                                     </div>
-                                                    <div class="modal-body px-4">
+                                                    <div class="modal-body p-4">
                                                         <?= csrf_field(); ?>
                                                         <div class="form-group row">
                                                             <label for="kode-barang" class="col-sm-2 col-form-label">Kode Barang</label>
@@ -182,12 +182,12 @@
                                                                 </select>
                                                             </div>
                                                         </div>
-                                                        <!-- <div class="form-group row">
+                                                        <div class="form-group row">
                                                             <label for="kadaluarsa" class="col-sm-2 col-form-label">Tgl. Kadaluarsa</label>
                                                             <div class="col-sm-10">
                                                                 <input type="date" class="form-control" name="tgl_kadaluarsa" value="<?= $barang['tgl_kadaluarsa'] ?>" placeholder="Tgl. Kadaluarsa" required>
                                                             </div>
-                                                        </div> -->
+                                                        </div>
                                                         <div class="form-group row">
                                                             <label for="berat_per_pcs" class="col-sm-2 col-form-label">Berat/Pcs</label>
                                                             <div class="col-sm-10">
@@ -237,7 +237,7 @@
 
                 <!-- Modal Tambah -->
                 <div class="modal fade" id="modal-tambah">
-                    <div class="modal-dialog modal-xl">
+                    <div class="modal-dialog modal-lg">
                         <div class="modal-content">
                             <form class="form-horizontal" action="<?= base_url('data-barang/create'); ?>" method="POST">
                                 <div class="modal-header">
@@ -246,7 +246,7 @@
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
-                                <div class="modal-body">
+                                <div class="modal-body p-4">
                                     <?= csrf_field(); ?>
                                     <div class="form-group row">
                                         <label for="kode-barang" class="col-sm-2 col-form-label">Kode Barang</label>
@@ -311,12 +311,12 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <!-- <div class="form-group row">
+                                    <div class="form-group row">
                                         <label for="kadaluarsa" class="col-sm-2 col-form-label">Tgl. Kadaluarsa</label>
                                         <div class="col-sm-10">
                                             <input type="date" class="form-control" name="tgl_kadaluarsa" placeholder="Tgl. Kadaluarsa" required>
                                         </div>
-                                    </div> -->
+                                    </div>
                                     <div class="form-group row">
                                         <label for="berat_per_pcs" class="col-sm-2 col-form-label">Berat/Pcs</label>
                                         <div class="col-sm-10">

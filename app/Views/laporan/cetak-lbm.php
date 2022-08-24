@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LaporanBarangMasuk_<?= date("Ymd")  ?>
     </title>
+    <?= $this->include('templates/style') ?>
 </head>
 
 <body>
@@ -100,10 +101,8 @@
                     <tr align="center">
                         <th>Nama Barang</th>
                         <th>Jumlah Pembelian</th>
-                        <th>Satuan Pembelian</th>
                         <th>Nilai/Satuan</th>
                         <th>Jumlah Yang Masuk</th>
-                        <th>Satuan Yang Masuk</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -125,11 +124,9 @@
                     <?php foreach ($brg->getResult('array') as $row) : ?>
                         <tr>
                             <td><?= $row['nama_barang'] ?></td>
-                            <td align="right"><?= $row['stok_beli'] ?></td>
-                            <td align="center"><?= $row['satuan_barang_name'] ?></td>
+                            <td align="right"><?= $row['stok_beli'] . " " . $row['satuan_barang_name'] ?></td>
                             <td align="right"><?= $row['nilai_satuan'] ?></td>
-                            <td align="right"><?= $row['stok_masuk'] ?></td>
-                            <td align="center">
+                            <td align="right">
                                 <?php
                                 $db      = \Config\Database::connect();
                                 $builder = $db->table('tbl_satuan_barang')
@@ -137,7 +134,7 @@
                                     ->where('satuan_barang_id', $row['satuan_pemesanan'])
                                     ->get()->getResult('array')[0];
                                 ?>
-                                <?= $builder['satuan_pemesanan'] ?>
+                                <?= $row['stok_masuk'] . " " . $builder['satuan_pemesanan'] ?>
                             </td>
                         </tr>
                     <?php endforeach ?>
@@ -145,21 +142,21 @@
             </table>
             <br><br><br>
             <table width="100%">
-            <tr>
-                                    <td width="30%"></td>
-                                    <td>Diserahkan Oleh</td>
-                                    <td></td>
-                                    <td><?= $titleHeader['pimpinan'] ?></td>
-                                </tr>
-                                <tr style="line-height: 74px;">
-                                    <td>&nbsp;</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>________________</td>
-                                    <td></td>
-                                    <td>________________</td>
-                                </tr>
+                <tr>
+                    <td width="30%"></td>
+                    <td>Diserahkan Oleh</td>
+                    <td></td>
+                    <td><?= $titleHeader['pimpinan'] ?></td>
+                </tr>
+                <tr style="line-height: 74px;">
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>________________</td>
+                    <td></td>
+                    <td>________________</td>
+                </tr>
             </table>
         <?php } ?>
         <script type="text/javascript">

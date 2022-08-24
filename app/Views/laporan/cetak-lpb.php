@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LaporanPermintaanBarang_<?= date("Ymd") ?>
     </title>
+    <?= $this->include('templates/style') ?>
 </head>
 
 <body>
